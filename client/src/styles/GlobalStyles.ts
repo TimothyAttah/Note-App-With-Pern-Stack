@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
   }
 
   a {
