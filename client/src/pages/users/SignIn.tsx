@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SignUpForm from '../../components/forms/SignUpForm';
+import SignInForm from '../../components/forms/SignInForm';
 import { images } from '../../components/Images';
 
 const SignupContainer = styled.section`
@@ -109,11 +109,11 @@ const SignIn: FC = () => {
 					<span>Or</span>
 					<img src={images.LineIcon} alt='' />
 				</Divider>
-				<SignUpForm />
+				<SignInForm />
 				<small>
 					Don't have an account?
 					<span>
-						<Link to='/auth/users/signin'>Sign Up here</Link>
+						<Link to='/auth/users/signup'>Sign Up here</Link>
 					</span>
 				</small>
 			</SignupContainer>
