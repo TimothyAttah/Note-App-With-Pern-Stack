@@ -16,30 +16,31 @@ const GlobalStyles = createGlobalStyle`
     --black: black;
     --light-blue: #377cff;
     --lighter-blue: #3ec6ff;
-  }
+  };
 
   html {
     border: 2px solid red;
-    max-width: 1200px;
+    max-width: 1500px;
     width: 100%;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
-  }
+  };
 
   a {
     text-decoration: none;
-  }
+  };
 
   ul, li {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
+  };
 
   button {
     cursor: pointer;
     outline: none;
-  }
+    border: none;
+  };
 `;
 
 export default GlobalStyles;
