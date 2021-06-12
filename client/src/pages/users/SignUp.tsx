@@ -32,6 +32,22 @@ const SignupContainer = styled.section`
 			margin-left: 5px;
 		}
 	}
+  @media (max-width:500px){
+    p{
+      font-size: 15px;
+    }
+  }
+  @media (max-width:412px){
+    p{
+      font-size: 12px;
+    }
+  }
+  @media (max-width:320px){
+    p{
+      font-size: 10px;
+      font-weight: 500;
+    }
+  }
 `;
 
 const GoogleBox = styled.div`
