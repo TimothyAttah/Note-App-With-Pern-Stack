@@ -6,7 +6,13 @@ const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: 3px dashed darkturquoise;
+	margin-bottom: 50px;
+	position: sticky;
+	padding: 25px 20px;
+	top: 0;
+	z-index: 500;
+	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+	background-color: var(--white);
 	h1 a {
 		color: var(--light-blue);
 	}
@@ -26,7 +32,7 @@ const Header = styled.header`
 
 const HeaderButton = styled.div`
 	button {
-		padding: 10px;
+		padding: 12px;
 		width: 100px;
 		background-color: var(--light-blue);
 		color: var(--white);
