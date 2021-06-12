@@ -6,8 +6,21 @@ const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border: 3px dashed darkturquoise;
 	h1 a {
 		color: var(--light-blue);
+	}
+	h2 a {
+		display: none;
+		color: var(--light-blue);
+	}
+	@media (max-width: 500px) {
+		h1 {
+			display: none;
+		}
+		h2 a {
+			display: flex;
+		}
 	}
 `;
 
@@ -17,6 +30,13 @@ const HeaderButton = styled.div`
 		width: 100px;
 		background-color: var(--light-blue);
 		color: var(--white);
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+	}
+	@media (max-width: 375px) {
+		button {
+			width: 80px;
+		}
 	}
 `;
 
@@ -26,6 +46,9 @@ const Headers: FC = () => {
 			<h1>
 				<Link to='/'>Note3Sixty</Link>
 			</h1>
+			<h2>
+				<Link to='/'>3Six</Link>
+			</h2>
 			<HeaderButton>
 				<Link to='/auth/users/signup'>
 					<button>SignUp</button>
