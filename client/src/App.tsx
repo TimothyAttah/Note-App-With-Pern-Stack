@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {FC, Fragment} from 'react';
+import Header from './components/header/Header';
 
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <Fragment>
+      <Header/>
+    </Fragment>
   );
 }
 
