@@ -24,6 +24,21 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    cursor: pointer;
+    outline: none;
+  }
 `;
 
 export default GlobalStyles;
