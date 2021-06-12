@@ -12,11 +12,14 @@ const GlobalStyles = createGlobalStyle`
     --gray-1: #BCB4B4;
     --deep-dark: #1E1E1E;
     --gray-2: #363636;
+    --gray-3: #dedfec;
+    --gray-4: #bdbec1;
     --white : white;
     --black: black;
     --light-blue: #377cff;
     --lighter-blue: #3ec6ff;
     --sky-blue: #356dfb;
+    --darker-sky-blue: #073cc2;
     --dark-gray: #777;
     --crimson: crimson;
   };
@@ -44,6 +47,10 @@ const GlobalStyles = createGlobalStyle`
     outline: none;
     border: none;
   };
+  input {
+    outline: none;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;
