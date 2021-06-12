@@ -27,10 +27,10 @@ const Headers: FC = () => {
 				<Link to='/'>Note3Sixty</Link>
 			</h1>
 			<HeaderButton>
-				<Link to='/user/signup'>
+				<Link to='/auth/users/signup'>
 					<button>SignUp</button>
 				</Link>
-				<Link to='/user/signin'>
+				<Link to='/auth/users/signin'>
 					<button>SignIn</button>
 				</Link>
 			</HeaderButton>
