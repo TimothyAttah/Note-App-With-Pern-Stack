@@ -33,6 +33,9 @@ const TodosItemLeft = styled.div`
     margin-right: 10px;
     margin-top: 2px;
   }
+  h4 {
+    width: 300px;
+  }
   p {
     color: #909090;
     margin-top: 10px;

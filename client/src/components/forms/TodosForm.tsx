@@ -1,5 +1,10 @@
-import React, { FC, FormEvent, Fragment, useState } from 'react';
+import { FC, FormEvent, Fragment, useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch} from 'react-redux';
+
+import {createTodos} from '../../redux/actions/todosActions'
+import { ITodos } from '../../redux/Interface';
+import { v4 } from 'uuid';
 
 const FormContainer = styled.form`
 	height: 50px;
@@ -26,18 +31,23 @@ align-items: center;
 		cursor: pointer;
 		box-shadow: -5px -5px 5px #fff7, 5px 5px 5px #0002;
 		background-color: #e5e5e5;
-		/* background-color: #377cff; */
-		/* color: #377cff; */
 		color: #000;
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
 	}
 `;
 
-const TodosForm:FC = () => {
+const TodosForm: FC = () => {
+	const dispatch = useDispatch();
   const [task, setTask] = useState<string>('');
   const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(task);
+		e.preventDefault();
+		const newTodo: ITodos = {
+			id: v4(),
+			task,
+			isComplete: false,
+			date: new Date().toISOString()
+		}
+		dispatch(createTodos(newTodo));
     setTask('');
   }
   return (

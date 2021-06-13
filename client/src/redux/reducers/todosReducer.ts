@@ -4,34 +4,34 @@ import { TodosActionTypes } from '../actionsTypes/todosTypes';
 import { v4 } from 'uuid';
 
 const initialState: InitialTodos = {
-  todos: [
-    {
-      id: v4(),
-      task: 'Go to church',
-      isComplete: true,
-      date: 'Today at 12:00'
-    },
-    {
-      id: v4(),
-      task: 'Submit assignment',
-      isComplete: false,
-       date: 'Today at 12:00'
-    },
-    {
-      id: v4(),
-      task: 'Build your house',
-      isComplete: false,
-       date: 'Today at 12:00'
-    },
-    {
-      id: v4(),
-      task: 'Get a job',
-      isComplete: true,
-       date: 'Today at 12:00'
-    },
-  ],
-  isLoading: false
-}
+	todos: [
+		{
+			id: v4(),
+			task: 'Go to church',
+			isComplete: true,
+			date: 'Today at 12:00',
+		},
+		{
+			id: v4(),
+			task: 'I am Waiting for update signal from WDS... Are you',
+			isComplete: false,
+			date: 'Today at 12:00',
+		},
+		{
+			id: v4(),
+			task: 'Build your house',
+			isComplete: false,
+			date: 'Today at 12:00',
+		},
+		{
+			id: v4(),
+			task: 'Get a job',
+			isComplete: true,
+			date: 'Today at 12:00',
+		},
+	],
+	isLoading: false,
+};
 
 
 const todosReducer = (state = initialState, action: TodosActionTypes) => {

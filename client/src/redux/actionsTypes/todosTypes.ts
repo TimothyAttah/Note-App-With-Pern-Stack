@@ -7,7 +7,7 @@ interface ListsTodos {
 
 interface CreateTodos {
   type: TodosTypes.CREATE_TODOS;
-  payload: string;
+  payload: object;
 }
 
 interface EditTodos {

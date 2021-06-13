@@ -9,7 +9,7 @@ export const listsTodos = () => (dispatch: Dispatch) => {
   });
 }
 
-export const createTodos = (task: string) => (dispatch: Dispatch) => {
+export const createTodos = (task: object) => (dispatch: Dispatch) => {
   dispatch<TodosActionTypes>({
     type: TodosTypes.CREATE_TODOS,
     payload: task
