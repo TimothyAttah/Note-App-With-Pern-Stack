@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { ITodos } from '../Interface';
+import { InitialTodos } from '../Interface';
 import todosReducer from './todosReducer';
 
 export interface StoreState {
-  todos: ITodos
+  todos: InitialTodos;
 }
 
 const reducers = combineReducers({
