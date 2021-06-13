@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux';
+import { ITodos } from '../Interface';
+import todosReducer from './todosReducer';
+
+export interface StoreState {
+  todos: ITodos
+}
 
 const reducers = combineReducers({
-  hello: () => 1
+  todos: todosReducer
 });
 
 export default reducers;
