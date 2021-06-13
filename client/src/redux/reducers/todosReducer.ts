@@ -52,6 +52,11 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.payload)
       };
+      case TodosTypes.TOGGLE_TODOS:
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo === action.payload ? {isComplete: !todo.isComplete} : todo)
+      }
 		default:
 			return state;
 	}
