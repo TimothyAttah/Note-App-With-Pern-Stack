@@ -3,11 +3,11 @@ import { InitialTodos } from '../Interface';
 import todosReducer from './todosReducer';
 
 export interface StoreState {
-  todos: InitialTodos;
+	todos: InitialTodos;
 }
 
 const reducers = combineReducers({
-  todos: todosReducer
+	todos: todosReducer,
 });
 
 export default reducers;

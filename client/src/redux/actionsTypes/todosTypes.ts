@@ -22,7 +22,7 @@ interface DeleteTodos {
 
 interface ToggleTodos {
   type: TodosTypes.TOGGLE_TODOS;
-  payload: ITodos
+  payload: ITodos;
 }
 
 export type TodosActionTypes = ListsTodos | CreateTodos | EditTodos | DeleteTodos | ToggleTodos

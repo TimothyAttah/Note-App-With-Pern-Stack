@@ -1,9 +1,14 @@
 import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import { ITodos, DeleteTodos } from '../../redux/Interface';
+
+import { ITodos, DeleteTodos, IsCompleteTodos } from '../../redux/Interface';
 
 const TodosItemContainer = styled.ul`
+	.isComplete {
+		text-decoration: line-through;
+		background: var(--sky-blue);
+	}
 	li {
 		display: flex;
 		justify-content: space-between;
@@ -43,16 +48,23 @@ const TodosItemRight = styled.div`
 
 interface ListsTodosItemProps {
   todo: ITodos;
-  deleteTodos: DeleteTodos,
+  deleteTodos: DeleteTodos;
+  isComplete: IsCompleteTodos;
 }
 
-const TodosItem: FC<ListsTodosItemProps> = ({todo,deleteTodos }) => {
+const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete }) => {
+ 
 	return (
 		<Fragment>
 			<TodosItemContainer>
-				<li>
+				<li className={todo.isComplete ? 'isComplete' : undefined}>
 					<TodosItemLeft>
-						<input type='checkbox' checked={todo.isComplete} className='checkbox' />
+						<input
+							type='checkbox'
+							checked={todo.isComplete}
+							className='checkbox'
+							onChange={() => isComplete(todo)}
+						/>
 						<div>
 							<h4> {todo.task}</h4>
 							<p>{todo.date}</p>

@@ -33,6 +33,7 @@ const initialState: InitialTodos = {
   isLoading: false
 }
 
+
 const todosReducer = (state = initialState, action: TodosActionTypes) => {
   switch (action.type) {
     case TodosTypes.LISTS_TODOS:
@@ -52,10 +53,10 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.payload)
       };
-      case TodosTypes.TOGGLE_TODOS:
+    case TodosTypes.TOGGLE_TODOS:
       return {
         ...state,
-        todos: state.todos.map(todo => todo === action.payload ? {isComplete: !todo.isComplete} : todo)
+        todos: state.todos.map(todo => todo === action.payload ? { ...todo, isComplete: !todo.isComplete } : todo)
       }
 		default:
 			return state;
