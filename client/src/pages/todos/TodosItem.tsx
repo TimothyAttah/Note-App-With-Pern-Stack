@@ -7,7 +7,11 @@ import { ITodos, DeleteTodos, IsCompleteTodos } from '../../redux/Interface';
 const TodosItemContainer = styled.ul`
 	.isComplete {
 		text-decoration: line-through;
-		background: var(--sky-blue);
+    background: linear-gradient(
+      90deg,
+      rgba(105, 20, 204, 1) 0%,
+      rgba(44, 114, 251, 1) 100%
+    );
 	}
 	li {
 		display: flex;

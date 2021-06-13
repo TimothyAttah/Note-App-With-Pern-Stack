@@ -25,13 +25,20 @@ align-items: center;
     padding: 15px;
   }
 	button {
-		width: 80px;
+		width: 130px;
 		margin-left: 15px;
-		letter-spacing: 2px;
+		/* letter-spacing: 2px; */
 		cursor: pointer;
 		box-shadow: -5px -5px 5px #fff7, 5px 5px 5px #0002;
-		background-color: #e5e5e5;
-		color: #000;
+		/* background-color: #e5e5e5; */
+		 background: linear-gradient(
+      90deg,
+      rgba(105, 20, 204, 1) 0%,
+      rgba(44, 114, 251, 1) 100%
+    );
+		color: #e5e5e5;
+		font-weight: bold;
+		text-transform: capitalize;
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
 	}
 `;
@@ -58,7 +65,7 @@ const TodosForm: FC = () => {
           value={task}
           onChange={(e)=> setTask(e.target.value)}
         />
-        <button>Create</button>
+        <button>Add a todo</button>
       </FormContainer>
     </Fragment>
   )

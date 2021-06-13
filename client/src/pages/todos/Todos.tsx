@@ -5,18 +5,23 @@ import TodosForm from '../../components/forms/TodosForm';
 import TodosLists from './TodosLists';
 
 const MainContainer = styled.main`
-	background-color: #e5e5e5;
-  padding: 20px 0;
+	background: linear-gradient(
+		90deg,
+		rgba(105, 20, 204, 1) 0%,
+		rgba(44, 114, 251, 1) 100%
+	);
+	padding: 20px 0;
 `;
 
 const TodosContainer = styled.section`
-	max-width: 500px;
+	max-width: 550px;
 	min-height: 500px;
 	border-radius: 20px;
+	background-color: #e5e5e5;
 	box-shadow: 10px 10px 13px #0002, -10px -10px 13px #fff7;
 	margin: 0 auto;
-  padding:20px;
- 
+	padding: 20px;
+
 	h1 {
 		text-align: center;
 		font-size: 2.5em;
@@ -25,7 +30,7 @@ const TodosContainer = styled.section`
 		/* color: #3d3d3d; */
 		margin-bottom: 20px;
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
-    margin: 30px 0;
+		margin: 30px 0;
 	}
 	h2 {
 		font-size: 2em;
