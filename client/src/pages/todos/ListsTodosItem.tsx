@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import { ITodos } from '../../redux/Interface';
+import { ITodos, DeleteTodos } from '../../redux/Interface';
 
 interface ListsTodosItemProps {
-  todo: ITodos
+  todo: ITodos;
+  deleteTodos: DeleteTodos
 }
 
-const ListsTodosItem: FC<ListsTodosItemProps> = ({todo}) => {
+const ListsTodosItem: FC<ListsTodosItemProps> = ({todo,deleteTodos }) => {
 	return (
 		<div>
       <ul>
@@ -14,7 +15,7 @@ const ListsTodosItem: FC<ListsTodosItemProps> = ({todo}) => {
           {todo.task}
           <div>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={()=>deleteTodos(todo.id)}>Delete</button>
           </div>
         </li>
       </ul>

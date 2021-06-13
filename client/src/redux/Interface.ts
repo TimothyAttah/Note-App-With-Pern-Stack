@@ -9,3 +9,5 @@ export type InitialTodos = {
   todos: ITodos[];
   isLoading: boolean
 }
+
+export type DeleteTodos = (id: string) => void;

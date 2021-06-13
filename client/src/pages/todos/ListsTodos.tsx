@@ -2,6 +2,7 @@ import  { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {listsTodos, deleteTodos } from '../../redux/actions/todosActions';
+import { DeleteTodos } from '../../redux/Interface';
 import { StoreState } from '../../redux/reducers';
 import ListsTodosItem from './ListsTodosItem';
 
@@ -13,9 +14,9 @@ const ListsTodos: FC = () => {
 
   const {todos} = useSelector((state: StoreState) => state.todos)
  
-  // const handleDelete = (id: string) => {
-    
-  // }
+  const handleDelete: DeleteTodos = (id) => {
+    dispatch(deleteTodos(id))
+  }
   return (
     <div>
       {todos.length ? (
@@ -24,6 +25,7 @@ const ListsTodos: FC = () => {
             <ListsTodosItem
               key={todo.id}
               todo={todo}
+              deleteTodos={handleDelete}
             />
           )
         })
