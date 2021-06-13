@@ -8,22 +8,26 @@ const initialState: InitialTodos = {
     {
       id: v4(),
       task: 'Go to church',
-      isComplete: true
+      isComplete: true,
+      date: 'Today at 12:00'
     },
     {
       id: v4(),
       task: 'Submit assignment',
-      isComplete: false
+      isComplete: false,
+       date: 'Today at 12:00'
     },
     {
       id: v4(),
       task: 'Build your house',
-      isComplete: false
+      isComplete: false,
+       date: 'Today at 12:00'
     },
     {
       id: v4(),
       task: 'Get a job',
-      isComplete: true
+      isComplete: true,
+       date: 'Today at 12:00'
     },
   ],
   isLoading: false

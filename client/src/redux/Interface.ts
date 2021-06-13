@@ -2,7 +2,7 @@ export interface ITodos {
   id: string;
   task: string;
   isComplete: boolean;
-  date?: Date;
+  date?: Date | string;
 }
 
 export type InitialTodos = {

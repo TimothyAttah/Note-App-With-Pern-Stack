@@ -1,12 +1,12 @@
-import  { FC, useEffect } from 'react';
+import  { FC, Fragment,useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {listsTodos, deleteTodos } from '../../redux/actions/todosActions';
 import { DeleteTodos } from '../../redux/Interface';
 import { StoreState } from '../../redux/reducers';
-import ListsTodosItem from './ListsTodosItem';
+import TodosItem from './TodosItem';
 
-const ListsTodos: FC = () => {
+const TodosLists: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listsTodos())
@@ -18,11 +18,11 @@ const ListsTodos: FC = () => {
     dispatch(deleteTodos(id))
   }
   return (
-    <div>
+    <Fragment>
       {todos.length ? (
         todos.map(todo => {
           return (
-            <ListsTodosItem
+            <TodosItem
               key={todo.id}
               todo={todo}
               deleteTodos={handleDelete}
@@ -32,8 +32,9 @@ const ListsTodos: FC = () => {
       ): (
         <div><h2>You have nothing to do</h2></div>
       )}
-    </div>
+      <h2>{todos.length > 0 ? `You have ${todos.length} things to do` : ''}</h2>
+    </Fragment>
   )
 }
 
-export default ListsTodos
+export default TodosLists
