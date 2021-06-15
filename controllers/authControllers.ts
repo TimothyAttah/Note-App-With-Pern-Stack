@@ -21,7 +21,7 @@ const authController: any = {
         [firstName, lastName, email, hashedPassword]
       );
 
-       res.json({message: 'Signup successfully', users: user.rows[0]})
+       res.status(200).json({message: 'Signup successfully', users: user.rows[0]})
      
    } catch (err) {
      console.error(err.message);
