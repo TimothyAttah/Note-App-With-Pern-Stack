@@ -27,7 +27,6 @@ const TodosContainer = styled.section`
 		font-size: 2.5em;
 		text-transform: uppercase;
 		color: #e5e5e5;
-		/* color: #3d3d3d; */
 		margin-bottom: 20px;
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
 		margin: 30px 0;
@@ -40,17 +39,23 @@ const TodosContainer = styled.section`
 		margin-bottom: 20px;
 		text-transform: capitalize;
 	}
-	@media (max-width: 575px){
+	@media (max-width: 575px) {
 		width: 400px;
 	}
-	@media (max-width: 430px){
+	@media (max-width: 430px) {
 		width: 330px;
+		h2 {
+			font-size: 20px;
+		}
 	}
-	@media (max-width: 330px){
+	@media (max-width: 330px) {
 		width: 300px;
 	}
-	@media (max-width: 290px){
+	@media (max-width: 290px) {
 		width: 260px;
+		h2 {
+			font-size: 18px;
+		}
 	}
 `;
 
