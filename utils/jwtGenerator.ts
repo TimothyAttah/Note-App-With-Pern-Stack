@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
-function jwtGenerator(user_id) {
-  const payload = {
-    user: user_id
-  }
+// function jwtGenerator(user_id: string) {
+//   const payload = {
+//     user: user_id
+//   }
 
- return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '1hr'})
-}
+//  return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '1hr'})
+// }
 
-module.exports = jwtGenerator;
+// module.exports = jwtGenerator;

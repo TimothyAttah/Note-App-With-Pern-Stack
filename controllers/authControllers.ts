@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+// const token = require('../utils/jwtGenerator');
 const User = require('../config/db');
 
 const authController: any = {
@@ -37,12 +38,19 @@ const authController: any = {
       const users = await User.query(
         'SELECT * FROM users WHERE user_email = $1', [email]
       )
+      if(users.rows.length === 0) return res.status(422).json({error: 'User with that email does not exists.'})
 
-      const existsPassword = await bcrypt.compare(password, users.password)
-      const token = await jwt.sign()
+      const validPassword = await bcrypt.compare(password, users.rows[0].user_password);
+      if (!validPassword) return res.status(422).json({ error: 'Password or Email is incorrect.' })
+      
+      const token = await jwt.sign({ user: users.rows[0].user_id }, process.env.JWT_SECRET, { expiresIn: '1hr' });
+
+      users.rows[0].user_password = undefined;
+      res.status(200).json({message: 'Signin Successfully', token, results: users.rows[0]})
+      
     } catch (err) {
       res.status(500).json({ error: err.message })
-      console.error(err.message)
+      console.error(err)
     }
   }
 }
