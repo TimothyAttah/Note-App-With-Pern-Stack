@@ -1,3 +1,4 @@
+import { ITodos } from '../Interface';
 import { TodosTypes } from '../types';
 
 interface ListsTodos {
@@ -6,12 +7,15 @@ interface ListsTodos {
 
 interface CreateTodos {
   type: TodosTypes.CREATE_TODOS;
-  payload: string;
+  payload: object;
 }
 
 interface EditTodos {
   type: TodosTypes.EDIT_TODOS;
-  payload: string;
+  payload: {
+    id: string,
+    todos: ITodos
+  }
 }
 
 interface DeleteTodos {
@@ -19,4 +23,9 @@ interface DeleteTodos {
   payload: string;
 }
 
-export type TodosActionTypes = ListsTodos | CreateTodos | EditTodos | DeleteTodos
+interface ToggleTodos {
+  type: TodosTypes.TOGGLE_TODOS;
+  payload: ITodos;
+}
+
+export type TodosActionTypes = ListsTodos | CreateTodos | EditTodos | DeleteTodos | ToggleTodos
