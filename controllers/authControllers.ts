@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+// const jwt = require('jsonwebtoken');
 const User = require('../config/db');
 
 const authController: any = {
@@ -18,14 +19,32 @@ const authController: any = {
         'INSERT INTO users (first_name, last_name, user_email, user_password) VALUES($1, $2, $3, $4) RETURNING *',
         [firstName, lastName, email, hashedPassword]
       );
-      
+
        res.json({message: 'Signup successfully', users: user.rows[0]})
      
    } catch (err) {
      console.error(err.message);
      res.status(500).json({error: err.message})
    }
- }
+  },
+  
+  signIn: async (req: any, res: any) => {
+    try {
+      const { email, password } = req.body;
+      if (!email || !password)
+        return res.status(422).json({ error: 'Please enter email and password.' })
+      
+      const users = await User.query(
+        'SELECT * FROM users WHERE user_email = $1', [email]
+      )
+
+      const existsPassword = await bcrypt.compare(password, users.password)
+      const token = await jwt.sign()
+    } catch (err) {
+      res.status(500).json({ error: err.message })
+      console.error(err.message)
+    }
+  }
 }
 
 module.exports = authController;
