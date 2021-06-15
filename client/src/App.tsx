@@ -17,6 +17,7 @@ const App: FC = () => {
           <Route path='/auth/users/signin' exact component={SignIn}/>
           <Route path='/auth/users/signup' exact component={SignUp} />
           <Route path='/users/todos' exact component={Todos} />
+          <Route path='/users/todos/:todosId' component={Todos} />
         </Switch>
       </Router>
     </Fragment>

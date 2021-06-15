@@ -12,3 +12,7 @@ export type InitialTodos = {
 
 export type DeleteTodos = (id: string) => void;
 export type IsCompleteTodos = (todos: ITodos) => void;
+export type EditTodos = (id: string, todos: ITodos) => void;
+export type MyRef = {
+  className: string | object
+}

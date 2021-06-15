@@ -12,7 +12,10 @@ interface CreateTodos {
 
 interface EditTodos {
   type: TodosTypes.EDIT_TODOS;
-  payload: string;
+  payload: {
+    id: string,
+    todos: ITodos
+  }
 }
 
 interface DeleteTodos {

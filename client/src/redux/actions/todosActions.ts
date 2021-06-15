@@ -23,10 +23,10 @@ export const deleteTodos = (id: string) => (dispatch: Dispatch) => {
   })
 }
 
-export const editTodos = (task: string) => (dispatch: Dispatch) => {
+export const editTodos = (id: string, todos: ITodos) => (dispatch: Dispatch) => {
   dispatch<TodosActionTypes>({
     type: TodosTypes.EDIT_TODOS,
-    payload: task
+    payload: {id, todos }
   })
 }
 

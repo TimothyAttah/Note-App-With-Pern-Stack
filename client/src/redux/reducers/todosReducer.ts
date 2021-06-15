@@ -46,7 +46,7 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
     case TodosTypes.EDIT_TODOS:
       return {
         ...state,
-        todos: state.todos.map(todo => todo.id === action.payload ? action.payload : todo)
+        todos: state.todos.map(todo => todo.id === action.payload.id ? action.payload : todo)
       };
     case TodosTypes.DELETE_TODOS:
       return {

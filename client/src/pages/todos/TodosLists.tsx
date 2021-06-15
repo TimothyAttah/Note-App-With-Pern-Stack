@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
 	listsTodos,
 	deleteTodos,
-	toggleTodos,
+  toggleTodos,
+  editTodos
 } from '../../redux/actions/todosActions';
-import { DeleteTodos, IsCompleteTodos } from '../../redux/Interface';
+import { DeleteTodos, EditTodos, IsCompleteTodos } from '../../redux/Interface';
 import { StoreState } from '../../redux/reducers';
 import TodosItem from './TodosItem';
 
@@ -24,7 +25,11 @@ const { todos}  = useSelector((state: StoreState) => state.todos);
 
 	const handleIsComplete: IsCompleteTodos = todos => {
 		dispatch(toggleTodos(todos));
-	};
+  };
+  
+  const handleEdit: EditTodos = (id, todos) => {
+    dispatch(editTodos(id, todos))
+  }
 	return (
 		<Fragment>
 			{todos ? (
@@ -35,7 +40,8 @@ const { todos}  = useSelector((state: StoreState) => state.todos);
 								key={todo.id}
 								todo={todo}
 								deleteTodos={handleDelete}
-								isComplete={handleIsComplete}
+                isComplete={handleIsComplete}
+                editTodos={handleEdit}
 							/>
 						);
 					})
