@@ -13,7 +13,7 @@ const initialState: InitialTodos = {
 		},
 		{
 			id: v4(),
-			task: 'I am Waiting for update signal from WDS... Are you',
+			task: 'I am Waiting for update signal from WDS... Are you waiting',
 			isComplete: false,
 			date: 'Today at 12:00',
 		},

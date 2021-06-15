@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { ITodos, DeleteTodos, IsCompleteTodos, EditTodos } from '../../redux/Interface';
 
 const TodosItemContainer = styled.ul`
+position: relative;
 	.isComplete {
 		text-decoration: line-through;
     background: linear-gradient(
@@ -55,12 +56,41 @@ const TodosItemLeft = styled.div`
     color: #909090;
     margin-top: 10px;
   }
+	@media (max-width: 430px){
+		h4 {
+			font-size: 16px;
+			width: 200px;
+			margin-bottom: 25px;
+		}
+		p {
+			font-size: 12px;
+		}
+	}
+	@media (max-width: 290px){
+		h4 {
+			font-size: 14px;
+			width: 180px;
+		}
+	}
 `;
 
 const TodosItemRight = styled.div`
+position: absolute;
+right: 20px;
  button {
    margin: 0 5px;
+	 padding: 5px;
    color: var(--crimson);
+ }
+ @media (max-width: 575px){
+	 bottom: 10px;
+ }
+ @media (max-width: 290px){
+	 button {
+		 padding: 2px;
+		 margin: 0 2px;
+		 font-size: 10px;
+	 }
  }
 `;
 

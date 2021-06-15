@@ -40,6 +40,18 @@ const TodosContainer = styled.section`
 		margin-bottom: 20px;
 		text-transform: capitalize;
 	}
+	@media (max-width: 575px){
+		width: 400px;
+	}
+	@media (max-width: 430px){
+		width: 330px;
+	}
+	@media (max-width: 330px){
+		width: 300px;
+	}
+	@media (max-width: 290px){
+		width: 260px;
+	}
 `;
 
 
