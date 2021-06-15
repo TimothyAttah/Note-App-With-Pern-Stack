@@ -52,6 +52,14 @@ const authController: any = {
       res.status(500).json({ error: err.message })
       console.error(err)
     }
+  },
+  getUsers: async (req:any, res:any) => {
+    try {
+      res.send('I am a protected route');
+    } catch (err) {
+       res.status(500).json({ error: err.message });
+			console.error(err);
+    }
   }
 }
 
