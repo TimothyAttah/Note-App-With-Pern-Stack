@@ -5,9 +5,7 @@ const app = express()
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req: any, res: any) => {
-  res.send({Hello: 'People'});
-})
+app.use('/auth', require('./routes/authRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
