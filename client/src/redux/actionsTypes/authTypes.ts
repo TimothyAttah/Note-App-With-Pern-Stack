@@ -6,7 +6,7 @@ interface SignupUser {
 }
 
 interface SigninUser {
-  type: UsersTypes.SIGN_UP;
+  type: UsersTypes.SIGN_IN;
   payload: object
 }
 

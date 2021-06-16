@@ -18,6 +18,12 @@ export interface IUser {
   password: string
 }
 
+export interface ISigninUser {
+  id?: string;
+  email: string;
+  password: string
+}
+
 export type InitialUser = {
   users: IUser[];
 }

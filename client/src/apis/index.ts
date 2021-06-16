@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ISigninUser} from '../redux/Interface';
 
 const baseURL = 'http://localhost:5000'
 
@@ -12,3 +13,5 @@ API.interceptors.request.use(req => {
 });
 
 export const signUpUser = (userData: object) => API.post('/auth/signup', userData);
+
+export const signInUser = (userData: ISigninUser) => API.post('/auth/signin', userData);
