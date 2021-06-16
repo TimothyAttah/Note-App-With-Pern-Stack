@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import {useDispatch } from 'react-redux';
+import { signUpUser } from '../../redux/actions/authActions';
 import styled from 'styled-components';
 
 const FormContainer = styled.form`
@@ -31,38 +33,69 @@ margin: 20px 0;
 	}
 `;
 
-const SignUpForm:FC = () => {
+const SignUpForm: FC = () => {
+  const dispatch = useDispatch();
+  const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  })
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>{
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  }
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(signUpUser(userData));
+    console.log(userData);
+    setUserData({
+			firstName: '',
+			lastName: '',
+			email: '',
+			password: '',
+		});
+  }
   return (
-    <div>
-      <FormContainer>
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          placeholder='Enter your first name'
-          name='firstName'
-        />
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          placeholder='Enter your last name'
-          name='lastName'
-        />
-        <label htmlFor="email">Email Address:</label>
-        <input
-          type="email"
-          placeholder='example@example.com'
-          name='email'
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          placeholder='Enter your password'
-          name='password'
-        />
-        <button>Sign Up</button>
-      </FormContainer>
-    </div>
-  )
+		<div>
+			<FormContainer onSubmit={handleSubmit}>
+				<label htmlFor='firstName'>First Name:</label>
+				<input
+					type='text'
+					placeholder='Enter your first name'
+					name='firstName'
+					value={userData.firstName}
+					onChange={handleChange}
+				/>
+				<label htmlFor='lastName'>Last Name:</label>
+				<input
+					type='text'
+					placeholder='Enter your last name'
+					name='lastName'
+					value={userData.lastName}
+					onChange={handleChange}
+				/>
+				<label htmlFor='email'>Email Address:</label>
+				<input
+					type='email'
+					placeholder='example@example.com'
+					name='email'
+					value={userData.email}
+					onChange={handleChange}
+				/>
+				<label htmlFor='password'>Password:</label>
+				<input
+					type='password'
+					placeholder='Enter your password'
+					name='password'
+					value={userData.password}
+					onChange={handleChange}
+				/>
+				<button>Sign Up</button>
+			</FormContainer>
+		</div>
+	);
 }
 
 export default SignUpForm;

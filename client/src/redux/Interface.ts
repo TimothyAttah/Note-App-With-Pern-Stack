@@ -11,7 +11,7 @@ export type InitialTodos = {
 }
 
 export interface IUser {
-  id: string;
+  id?: string;
   firstName: string;
   lastName: string;
   email: string;
