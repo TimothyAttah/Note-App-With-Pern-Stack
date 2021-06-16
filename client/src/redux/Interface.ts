@@ -10,6 +10,18 @@ export type InitialTodos = {
   isLoading: boolean
 }
 
+export interface IUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string
+}
+
+export type InitialUser = {
+  users: IUser[];
+}
+
 export type DeleteTodos = (id: string) => void;
 export type IsCompleteTodos = (todos: ITodos) => void;
 export type EditTodos = (id: string, todos: ITodos) => void;

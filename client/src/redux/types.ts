@@ -1,3 +1,10 @@
+export enum UsersTypes {
+  SIGN_UP = 'SIGN_UP',
+  SIGN_IN = 'SIGN_IN',
+  GET_USER = 'GET_USER',
+  LOGOUT = 'LOGOUT'
+}
+
 export enum TodosTypes {
   CREATE_TODOS = 'CREATE_TODOS',
   LISTS_TODOS = 'LISTS_TODOS',
