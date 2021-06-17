@@ -1,7 +1,7 @@
+type UserStore = any
+export const auth: UserStore = localStorage.getItem('user');
 
-
-export const user = JSON.parse(localStorage.getItem('user') || '');
-
+export const user = auth && JSON.parse(auth)
 console.log(user);
 
 export const fullName = `${user && user.results && user.results.firstName} ${

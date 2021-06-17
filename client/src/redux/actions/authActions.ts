@@ -38,6 +38,7 @@ export const signInUser = (userData: ISigninUser) => async (dispatch: Dispatch) 
 export const getUsers = () => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.getUsers()
+    console.log(data);  
     dispatch<AuthTypesActions>({
       type: UsersTypes.GET_USER,
       payload: data.savedUsers

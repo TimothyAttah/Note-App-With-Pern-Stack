@@ -31,6 +31,7 @@ export type InitialUser = {
 export type DeleteTodos = (id: string) => void;
 export type IsCompleteTodos = (todos: ITodos) => void;
 export type EditTodos = (id: string, todos: ITodos) => void;
+export type Storages = Storage["getItem"];
 export type MyRef = {
   className: string | object
 }
