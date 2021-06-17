@@ -46,10 +46,6 @@ const SignInForm: FC = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		dispatch(signInUser(userData))
-		setUserData({
-			email: '',
-			password: '',
-		});
 	}
 	return (
 		<div>

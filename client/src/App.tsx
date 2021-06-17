@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment, useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 
 import Header from './components/header/Headers';
@@ -6,6 +6,9 @@ import history from './history';
 import Todos from './pages/todos/Todos';
 import SignIn from './pages/users/SignIn';
 import SignUp from './pages/users/SignUp';
+import { user} from './components/NameInitial';
+
+console.log(user);
 
 
 const App: FC = () => {

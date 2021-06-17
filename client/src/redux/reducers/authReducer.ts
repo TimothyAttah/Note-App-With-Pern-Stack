@@ -1,5 +1,5 @@
 import { UsersTypes } from '../types';
-import { IUser, InitialUser } from '../Interface';
+import { InitialUser } from '../Interface';
 import { AuthTypesActions } from '../actionsTypes/authTypes';
 
 const initialUser: InitialUser = {

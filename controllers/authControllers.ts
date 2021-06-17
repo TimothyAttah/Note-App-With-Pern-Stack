@@ -56,7 +56,8 @@ const authController: any = {
   },
   getUsers: async (req:any, res:any) => {
     try {
-      res.send('I am a protected route');
+      const saveUsers = await User.query('SELECT * FROM users')
+      res.status(200).json(saveUsers.rows)
     } catch (err) {
        res.status(500).json({ error: err.message });
 			console.error(err);

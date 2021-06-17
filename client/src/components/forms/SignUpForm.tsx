@@ -49,13 +49,6 @@ const SignUpForm: FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(signUpUser(userData));
-    console.log(userData);
-    setUserData({
-			firstName: '',
-			lastName: '',
-			email: '',
-			password: '',
-		});
   }
   return (
 		<div>
