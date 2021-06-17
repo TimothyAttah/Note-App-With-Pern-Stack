@@ -34,3 +34,15 @@ export const signInUser = (userData: ISigninUser) => async (dispatch: Dispatch) 
     console.log(err);
   }
 }
+
+export const getUsers = () => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.getUsers()
+    dispatch<AuthTypesActions>({
+      type: UsersTypes.GET_USER,
+      payload: data.savedUsers
+    })
+  } catch (err) {
+    console.log(err);
+  }
+}

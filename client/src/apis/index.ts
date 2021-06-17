@@ -15,3 +15,5 @@ API.interceptors.request.use(req => {
 export const signUpUser = (userData: object) => API.post('/auth/signup', userData);
 
 export const signInUser = (userData: ISigninUser) => API.post('/auth/signin', userData);
+
+export const getUsers = () => API.get('/auth');

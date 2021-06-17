@@ -56,8 +56,8 @@ const authController: any = {
   },
   getUsers: async (req:any, res:any) => {
     try {
-      const saveUsers = await User.query('SELECT * FROM users')
-      res.status(200).json(saveUsers.rows)
+      const savedUsers = await User.query('SELECT * FROM users')
+      res.status(200).json(savedUsers.rows)
     } catch (err) {
        res.status(500).json({ error: err.message });
 			console.error(err);

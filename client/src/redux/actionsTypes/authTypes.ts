@@ -10,7 +10,7 @@ interface SigninUser {
   payload: object
 }
 
-interface GetUser {
+interface GetUsers {
   type: UsersTypes.GET_USER;
   payload: object
 }
@@ -20,4 +20,4 @@ interface LogoutUser {
   payload: object
 }
 
-export type AuthTypesActions = SigninUser | SignupUser | GetUser | LogoutUser
+export type AuthTypesActions = SigninUser | SignupUser | GetUsers | LogoutUser
