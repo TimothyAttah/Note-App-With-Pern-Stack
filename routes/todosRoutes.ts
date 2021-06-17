@@ -6,4 +6,6 @@ todosRouter.post('/create', todosAuth, todosController.createTodos);
 
 todosRouter.put('/update/:id', todosAuth, todosController.updateTodos);
 
+todosRouter.delete('/delete/:id', todosAuth, todosController.deleteTodos);
+
 module.exports = todosRouter;

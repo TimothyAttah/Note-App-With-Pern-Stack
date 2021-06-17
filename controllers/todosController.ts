@@ -30,6 +30,29 @@ const todosControllers = {
        res.status(500).json({ error: err });
 				console.log(err);
     }
+  },
+  deleteTodos: async (req: any, res: any) => {
+    try {
+      const { id } = req.params;
+      const deleteTodo = await Todos.query(
+        'DELETE FROM todos WHERE todo_id = $1 AND user_id = $2 RETURNING *',
+        [id, req.user.id]
+      )
+      if (deleteTodo.rows.length === 0) {
+        return res
+					.status(403)
+					.json({ error: 'This todo is not yours. Authorization denied.' });
+      }
+       res
+					.status(200)
+					.json({
+						message: 'Todo deleted successfully',
+						results: deleteTodo.rows[0],
+					});
+    } catch (err) {
+       res.status(500).json({ error: err });
+				console.log(err);
+    }
   }
 }
 
