@@ -17,3 +17,5 @@ export const signUpUser = (userData: object) => API.post('/auth/signup', userDat
 export const signInUser = (userData: ISigninUser) => API.post('/auth/signin', userData);
 
 export const getUsers = () => API.get('/auth');
+
+export const listsTodos = () => API.get('/todos/')

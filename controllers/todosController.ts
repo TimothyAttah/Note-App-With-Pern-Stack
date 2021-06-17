@@ -12,6 +12,21 @@ const todosControllers = {
       console.log(err);
     }
   },
+  getTodos: async (req: any, res: any) => {
+    try {
+      const todos = await Todos.query(
+        'SELECT * FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
+        [req.user.id]
+      );
+       res.status(200).json({todos: todos.rows});
+      console.log(req.user);
+      
+    } catch (err) {
+       res.status(500).json({ error: err.message });
+				console.error(err);
+    }
+  },
+
   updateTodos: async (req: any, res: any) => {
     try {
       const { id } = req.params;
