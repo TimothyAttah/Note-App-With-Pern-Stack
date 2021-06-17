@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import  { ChangeEvent, FC, FormEvent, useState } from 'react';
 import styled from 'styled-components';
+import {useDispatch } from 'react-redux';
+import { signInUser } from '../../redux/actions/authActions';
 
 const FormContainer = styled.form`
 	margin: 20px 0;
@@ -32,16 +34,37 @@ const FormContainer = styled.form`
 `;
 
 const SignInForm: FC = () => {
+	const dispatch = useDispatch();
+	const [userData, setUserData] = useState({
+		email: '',
+		password: ''
+	});
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setUserData({ ...userData, [e.target.name]: e.target.value });
+	}
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		dispatch(signInUser(userData))
+	}
 	return (
 		<div>
-			<FormContainer>
+			<FormContainer onSubmit={handleSubmit}>
 				<label htmlFor='email'>Email Address:</label>
-				<input type='email' placeholder='example@example.com' name='email' />
+				<input
+					type='email'
+					placeholder='example@example.com'
+					name='email'
+					value={userData.email}
+					onChange={handleChange}
+				/>
 				<label htmlFor='password'>Password:</label>
 				<input
 					type='password'
 					placeholder='Enter your password'
 					name='password'
+					value={userData.password}
+					onChange={handleChange}
 				/>
 				<button>Sign In</button>
 			</FormContainer>

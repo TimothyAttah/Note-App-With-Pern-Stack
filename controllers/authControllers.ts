@@ -6,7 +6,8 @@ const User = require('../config/db');
 const authController: any = {
   signUp: async (req: any, res: any) => {
     try {
-      const { firstName, lastName, email, password } = req.body;
+      const userData = req.body;
+      const { firstName, lastName, email, password } = userData;
       if (!firstName || !lastName || !email || !password)
         return res.status(422).json({ error: 'Please fill in all required fields.' });
       
@@ -55,7 +56,8 @@ const authController: any = {
   },
   getUsers: async (req:any, res:any) => {
     try {
-      res.send('I am a protected route');
+      const savedUsers = await User.query('SELECT * FROM users')
+      res.status(200).json(savedUsers.rows)
     } catch (err) {
        res.status(500).json({ error: err.message });
 			console.error(err);
