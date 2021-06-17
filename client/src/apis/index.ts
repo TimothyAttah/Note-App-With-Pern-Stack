@@ -19,3 +19,5 @@ export const signInUser = (userData: ISigninUser) => API.post('/auth/signin', us
 export const getUsers = () => API.get('/auth');
 
 export const listsTodos = () => API.get('/todos');
+
+export const deleteTodos = (id: number) => API.delete(`/todos/delete/${id}`);

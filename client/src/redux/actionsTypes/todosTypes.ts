@@ -14,14 +14,14 @@ interface CreateTodos {
 interface EditTodos {
   type: TodosTypes.EDIT_TODOS;
   payload: {
-    id: string,
+    id: number,
     todos: ITodos
   }
 }
 
 interface DeleteTodos {
   type: TodosTypes.DELETE_TODOS;
-  payload: string;
+  payload: number;
 }
 
 interface ToggleTodos {

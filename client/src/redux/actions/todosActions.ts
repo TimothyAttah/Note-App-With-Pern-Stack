@@ -26,14 +26,20 @@ export const createTodos = (task: object) => (dispatch: Dispatch) => {
   })
 }
 
-export const deleteTodos = (id: string) => (dispatch: Dispatch) => {
-  dispatch<TodosActionTypes>({
-    type: TodosTypes.DELETE_TODOS,
-    payload: id
-  })
+export const deleteTodo = (id: number ) => async (dispatch: Dispatch) => {
+ try {
+   const { data } = await api.deleteTodos(id);
+   dispatch<TodosActionTypes>({
+     type: TodosTypes.DELETE_TODOS,
+     payload: id
+   })
+    console.log(data);
+ } catch (err) {
+   console.log(err);
+ }
 }
 
-export const editTodos = (id: string, todos: ITodos) => (dispatch: Dispatch) => {
+export const editTodos = (id: number, todos: ITodos) => (dispatch: Dispatch) => {
   dispatch<TodosActionTypes>({
     type: TodosTypes.EDIT_TODOS,
     payload: {id, todos }

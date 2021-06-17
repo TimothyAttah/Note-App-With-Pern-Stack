@@ -1,7 +1,13 @@
 import  { FC, Fragment, useState, createRef, ChangeEvent } from 'react';
 import styled from 'styled-components';
-// import { useDispatch } from 'react-redux';
+ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import {
+	listsTodos,
+	deleteTodo,
+	toggleTodos,
+	editTodos,
+} from '../../redux/actions/todosActions';
 
 
 import { ITodos, DeleteTodos, IsCompleteTodos, EditTodos } from '../../redux/Interface';
@@ -102,20 +108,18 @@ interface ListsTodosItemProps {
 }
 
 const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, editTodos }) => {
-  // const dispatch = useDispatch()
+   const dispatch = useDispatch()
 	 const myRef = createRef<HTMLLIElement>()
-
-
   const  todosId  = useParams();
 
   const [onEdit, setOnEdit] = useState<boolean>(false);
   const [editVal, setEditVal] = useState(todo.task)
   
-  const onRemove = (id: string) => {
+  const onRemove = (id: number) => {
 		const node = myRef.current
 		if (node) return node.className = 'active';
     setTimeout(() => {
-     deleteTodos(id)
+     dispatch(deleteTodo(id))
    }, 500)
   }
 
@@ -152,7 +156,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 							/>
 						</TodosItemLeft>
 						<TodosItemRight>
-							<button onClick={() => handleSave(todo.todo_id || '', todo)}>Save</button>
+							<button onClick={() => handleSave(todo.todo_id, todo)}>Save</button>
 							<button onClick={() => setOnEdit(false)}>Cancel</button>
 						</TodosItemRight>
 					</li>
@@ -172,7 +176,8 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 						</TodosItemLeft>
 						<TodosItemRight>
 							<button onClick={onOpenEdit }>Edit</button>
-							<button onClick={() => onRemove(todo.todo_id || '')}>Delete</button>
+							{/* <button onClick={() => onRemove(todo.todo_id)}>Delete</button> */}
+							<button onClick={() => dispatch(deleteTodo(todo.todo_id))}>Delete</button>
 						</TodosItemRight>
 					</li>
 				)}

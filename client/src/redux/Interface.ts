@@ -1,9 +1,17 @@
 export interface ITodos {
-  todo_id?: string;
+  todo_id: number;
   task: string;
   isComplete: boolean;
   date?: Date | string;
 }
+
+export interface ITodosForm {
+  task: string;
+  isComplete: boolean;
+  date?: Date | string;
+}
+
+
 
 export type InitialTodos = {
   todos: ITodos[];
@@ -28,9 +36,9 @@ export type InitialUser = {
   users: IUser[];
 }
 
-export type DeleteTodos = (id: string) => void;
+export type DeleteTodos = (id: number ) => void;
 export type IsCompleteTodos = (todos: ITodos) => void;
-export type EditTodos = (id: string, todos: ITodos) => void;
+export type EditTodos = (id: number, todos: ITodos) => void;
 export type Storages = Storage["getItem"];
 export type MyRef = {
   className: string | object

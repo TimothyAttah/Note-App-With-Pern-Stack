@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 import { createTodos } from '../../redux/actions/todosActions';
-import { ITodos } from '../../redux/Interface';
-import { v4 } from 'uuid';
+import { ITodos, ITodosForm } from '../../redux/Interface';
 
 const FormContainer = styled.form`
 	height: 50px;
@@ -58,12 +57,12 @@ const TodosForm: FC = () => {
 	const [task, setTask] = useState<string>('');
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const newTodo: ITodos = {
+		const newTodo: ITodosForm = {
 			task,
 			isComplete: false,
 			date: new Date().toISOString(),
 		};
-		
+
 		dispatch(createTodos(newTodo));
 		setTask('');
 	};

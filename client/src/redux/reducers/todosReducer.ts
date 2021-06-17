@@ -33,7 +33,9 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
         ...state,
         todos: state.todos.map(todo => todo.todo_id === action.payload.id ? action.payload : todo)
       };
-    case TodosTypes.DELETE_TODOS:
+		case TodosTypes.DELETE_TODOS:
+			console.log('delete todos is here');
+			
       return {
         ...state,
         todos: state.todos.filter(todo => todo.todo_id !== action.payload)

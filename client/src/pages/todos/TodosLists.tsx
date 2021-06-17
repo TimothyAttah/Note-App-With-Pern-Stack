@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
 	listsTodos,
-	deleteTodos,
+	deleteTodo,
   toggleTodos,
   editTodos
 } from '../../redux/actions/todosActions';
@@ -20,7 +20,7 @@ const TodosLists: FC = () => {
 const { todos}  = useSelector((state: StoreState) => state.todos);
 
 	const handleDelete: DeleteTodos = id => {
-		dispatch(deleteTodos(id));
+		dispatch(deleteTodo(id));
 	};
 
 	const handleIsComplete: IsCompleteTodos = todos => {
