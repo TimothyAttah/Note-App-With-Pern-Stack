@@ -4,4 +4,6 @@ const todosController = require('../controllers/todosController');
 
 todosRouter.post('/create', todosAuth, todosController.createTodos);
 
+todosRouter.put('/update/:id', todosAuth, todosController.updateTodos);
+
 module.exports = todosRouter;
