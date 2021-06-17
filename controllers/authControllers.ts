@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-// const token = require('../utils/jwtGenerator');
+ const jwt = require('jsonwebtoken');
+ const jwtToken = require('../utils/jwtGenerator');
 const User = require('../config/db');
 
 const authController: any = {
@@ -43,8 +43,12 @@ const authController: any = {
 
       const validPassword = await bcrypt.compare(password, users.rows[0].user_password);
       if (!validPassword) return res.status(422).json({ error: 'Password or Email is incorrect.' })
-      
-      const token = await jwt.sign({ user: users.rows[0].user_id }, process.env.JWT_SECRET, { expiresIn: '1hr' });
+
+      // const token = jwtToken(users.rows[0].user_id);
+      const payload = {
+				user: { id: users.rows[0].user_id },
+			};
+      const token = await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1hr' });
 
       users.rows[0].user_password = undefined;
       res.status(200).json({message: 'Signin Successfully', token, results: users.rows[0]})
@@ -61,6 +65,22 @@ const authController: any = {
     } catch (err) {
        res.status(500).json({ error: err.message });
 			console.error(err);
+    }
+  },
+  getAuthUser: async (req: any, res: any) => {
+    try {
+      const authUser = await User.query(
+        'SELECT * FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
+        [req.user.id]
+      );
+
+      // authUser.rows[0].user_password = undefined;
+       res.status(200).json(authUser.rows);
+      console.log(req.user);
+      
+    } catch (err) {
+       res.status(500).json({ error: err.message });
+				console.error(err);
     }
   }
 }
