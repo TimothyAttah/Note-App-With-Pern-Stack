@@ -26,7 +26,7 @@ const { todos}  = useSelector((state: StoreState) => state.todos);
 	const handleIsComplete: IsCompleteTodos = todos => {
 		dispatch(toggleTodos(todos));
   };
-  
+
   const handleEdit: EditTodos = (id, todos) => {
     dispatch(editTodos(id, todos))
   }
@@ -37,7 +37,7 @@ const { todos}  = useSelector((state: StoreState) => state.todos);
 					todos.map(todo => {
 						return (
 							<TodosItem
-								key={todo.id}
+								key={todo.todo_id}
 								todo={todo}
 								deleteTodos={handleDelete}
                 isComplete={handleIsComplete}

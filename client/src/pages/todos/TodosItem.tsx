@@ -152,7 +152,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 							/>
 						</TodosItemLeft>
 						<TodosItemRight>
-							<button onClick={() => handleSave(todo.id, todo)}>Save</button>
+							<button onClick={() => handleSave(todo.todo_id || '', todo)}>Save</button>
 							<button onClick={() => setOnEdit(false)}>Cancel</button>
 						</TodosItemRight>
 					</li>
@@ -172,7 +172,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 						</TodosItemLeft>
 						<TodosItemRight>
 							<button onClick={onOpenEdit }>Edit</button>
-							<button onClick={() => onRemove(todo.id)}>Delete</button>
+							<button onClick={() => onRemove(todo.todo_id || '')}>Delete</button>
 						</TodosItemRight>
 					</li>
 				)}

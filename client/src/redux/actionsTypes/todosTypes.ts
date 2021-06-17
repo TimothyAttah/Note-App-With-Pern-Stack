@@ -3,6 +3,7 @@ import { TodosTypes } from '../types';
 
 interface ListsTodos {
   type: TodosTypes.LISTS_TODOS;
+  payload: object;
 }
 
 interface CreateTodos {

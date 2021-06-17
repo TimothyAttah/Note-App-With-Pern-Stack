@@ -2,11 +2,21 @@ import { Dispatch } from 'redux';
 import { TodosActionTypes } from '../actionsTypes/todosTypes';
 import { ITodos } from '../Interface';
 import { TodosTypes } from '../types';
+import * as api from '../../apis';
 
-export const listsTodos = () => (dispatch: Dispatch) => {
-  dispatch<TodosActionTypes>({
-    type: TodosTypes.LISTS_TODOS,
-  });
+export const listsTodos = () => async (dispatch: Dispatch) => {
+ try {
+   const { data } = await api.listsTodos();
+   console.log(data);
+   
+   dispatch<TodosActionTypes>({
+     type: TodosTypes.LISTS_TODOS,
+     payload: data.todos
+   })
+ } catch (err) {
+   console.log(err);
+   
+ }
 }
 
 export const createTodos = (task: object) => (dispatch: Dispatch) => {

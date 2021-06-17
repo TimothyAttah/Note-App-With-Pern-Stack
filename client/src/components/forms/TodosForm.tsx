@@ -59,11 +59,11 @@ const TodosForm: FC = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const newTodo: ITodos = {
-			id: v4(),
 			task,
 			isComplete: false,
 			date: new Date().toISOString(),
 		};
+		
 		dispatch(createTodos(newTodo));
 		setTask('');
 	};

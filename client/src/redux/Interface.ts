@@ -1,5 +1,5 @@
 export interface ITodos {
-  id: string;
+  todo_id?: string;
   task: string;
   isComplete: boolean;
   date?: Date | string;
