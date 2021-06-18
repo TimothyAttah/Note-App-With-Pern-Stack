@@ -3,6 +3,7 @@ import { TodosTypes } from '../types';
 
 interface ListsTodos {
   type: TodosTypes.LISTS_TODOS;
+  payload: object;
 }
 
 interface CreateTodos {
@@ -13,14 +14,14 @@ interface CreateTodos {
 interface EditTodos {
   type: TodosTypes.EDIT_TODOS;
   payload: {
-    id: string,
-    todos: ITodos
+    todo_id: number;
+    task: string
   }
 }
 
 interface DeleteTodos {
   type: TodosTypes.DELETE_TODOS;
-  payload: string;
+  payload: number;
 }
 
 interface ToggleTodos {
