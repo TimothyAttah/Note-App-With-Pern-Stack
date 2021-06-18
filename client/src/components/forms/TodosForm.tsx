@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 import { createTodos } from '../../redux/actions/todosActions';
-import { ITodos, ITodosForm } from '../../redux/Interface';
+import { ITodosForm } from '../../redux/Interface';
+
 
 const FormContainer = styled.form`
 	height: 50px;
@@ -62,7 +63,6 @@ const TodosForm: FC = () => {
 			isComplete: false,
 			date: new Date().toISOString(),
 		};
-
 		dispatch(createTodos(newTodo));
 		setTask('');
 	};

@@ -19,11 +19,18 @@ export const listsTodos = () => async (dispatch: Dispatch) => {
  }
 }
 
-export const createTodos = (task: object) => (dispatch: Dispatch) => {
-  dispatch<TodosActionTypes>({
-    type: TodosTypes.CREATE_TODOS,
-    payload: task
-  })
+export const createTodos = (task: object) => async (dispatch: Dispatch) => {
+ try {
+   const { data } = await api.createTodos(task);
+   dispatch<TodosActionTypes>({
+     type: TodosTypes.CREATE_TODOS,
+     payload: data.results
+   })
+   window.location = '/users/todos' as unknown as Location;
+ } catch (err) {
+   console.log(err);
+   
+ }
 }
 
 export const deleteTodo = (id: number ) => async (dispatch: Dispatch) => {
@@ -39,11 +46,19 @@ export const deleteTodo = (id: number ) => async (dispatch: Dispatch) => {
  }
 }
 
-export const editTodos = (id: number, todos: ITodos) => (dispatch: Dispatch) => {
-  dispatch<TodosActionTypes>({
-    type: TodosTypes.EDIT_TODOS,
-    payload: {id, todos }
-  })
+export const editTodos = (id: number, task: string) => async (dispatch: Dispatch) => {
+ try {
+   const { data } = await api.editTodos(id, task);
+   console.log(data);
+   
+   dispatch<TodosActionTypes>({
+     type: TodosTypes.EDIT_TODOS,
+     payload: data.results
+   })
+ } catch (err) {
+   console.log(err);
+   
+ }
 }
 
 export const toggleTodos = (todos: ITodos) => (dispatch: Dispatch) => {

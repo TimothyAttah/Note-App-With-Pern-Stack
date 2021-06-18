@@ -104,16 +104,16 @@ interface ListsTodosItemProps {
   todo: ITodos;
   deleteTodos: DeleteTodos;
   isComplete: IsCompleteTodos;
-  editTodos: EditTodos;
+  editTodo: EditTodos;
 }
 
-const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, editTodos }) => {
+const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, editTodo }) => {
    const dispatch = useDispatch()
 	 const myRef = createRef<HTMLLIElement>()
   const  todosId  = useParams();
 
   const [onEdit, setOnEdit] = useState<boolean>(false);
-  const [editVal, setEditVal] = useState(todo.task)
+  const [editVal, setEditVal] = useState({task: todo.task})
   
   const onRemove = (id: number) => {
 		const node = myRef.current
@@ -124,7 +124,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
   }
 
   const handleEditValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setEditVal(e.target.value);
+    setEditVal({...editVal, [e.target.name]: e.target.value});
 	}
 	
 	
@@ -135,7 +135,8 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
     //   // console.log(editVal);
     //   setEditVal({editVal: todo.task})
     // }
-  }
+	}
+	
 
   const onOpenEdit = () => {
 		setOnEdit(true)
@@ -150,13 +151,14 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 						<TodosItemLeft>
 							<input
 								type='text'
-								value={editVal}
+								value={editVal.task}
+								name='task'
 								className='checkbox'
 								onChange={handleEditValue}
 							/>
 						</TodosItemLeft>
 						<TodosItemRight>
-							<button onClick={() => handleSave(todo.todo_id, todo)}>Save</button>
+							<button onClick={() => dispatch(editTodos(todo.todo_id, todo.task))}>Save</button>
 							<button onClick={() => setOnEdit(false)}>Cancel</button>
 						</TodosItemRight>
 					</li>

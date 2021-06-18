@@ -23,6 +23,7 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
 				...state,
 				todos: action.payload
 			}
+		
     case TodosTypes.CREATE_TODOS:
       return {
         ...state,
@@ -31,8 +32,9 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
     case TodosTypes.EDIT_TODOS:
       return {
         ...state,
-        todos: state.todos.map(todo => todo.todo_id === action.payload.id ? action.payload : todo)
-      };
+        todos: state.todos.map(todo => todo.todo_id === action.payload.todo_id ? action.payload : todo)
+			};
+		
 		case TodosTypes.DELETE_TODOS:
 			console.log('delete todos is here');
 			

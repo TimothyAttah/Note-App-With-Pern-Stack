@@ -14,8 +14,8 @@ interface CreateTodos {
 interface EditTodos {
   type: TodosTypes.EDIT_TODOS;
   payload: {
-    id: number,
-    todos: ITodos
+    todo_id: number;
+    task: string
   }
 }
 
