@@ -1,7 +1,7 @@
-import React, { FC, useState} from 'react';
+import { FC, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-import { navMenu } from '../helpers'
+import { navMenu } from '../helpers';
 import { Button, Drawer, IconButton } from '@material-ui/core';
 import { AddCircle, AddOutlined, Menu } from '@material-ui/icons';
 
@@ -11,17 +11,17 @@ import {
 	NavsRight,
 	activeNav,
 	SidebarContainer,
-  Sidebars,
-  NavLists,
-  MenuBar
+	Sidebars,
+	NavLists,
+	MenuBar,
 } from './NavStyles';
 
 export const Nav: FC = () => {
-   const [isOpen, setIsOpen] = useState(false);
-		const handleDrawer = () => {
-			setIsOpen(true);
-		};
-  return (
+	const [isOpen, setIsOpen] = useState(false);
+	const handleDrawer = () => {
+		setIsOpen(true);
+	};
+	return (
 		<NavContainer>
 			<MenuBar>
 				<IconButton onClick={handleDrawer}>
@@ -73,4 +73,4 @@ export const Nav: FC = () => {
 			</Drawer>
 		</NavContainer>
 	);
-}
+};
