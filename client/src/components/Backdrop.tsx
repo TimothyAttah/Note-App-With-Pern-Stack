@@ -1,4 +1,16 @@
+import { FC, MouseEvent, MouseEventHandler } from 'react';
 import styled from 'styled-components';
+
+interface Props {
+	//close: MouseEvent<HTMLButtonElement>;
+	//close: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+	// close: (e: MouseEvent<HTMLButtonElement>) => void
+	// close: (e: MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	// close:  MouseEventHandler<HTMLDivElement>
+	 close:  MouseEventHandler<HTMLButtonElement>
+}
+
+
 
 const BackdropWrapper = styled.div`
 	top: 0;
@@ -15,4 +27,12 @@ const BackdropWrapper = styled.div`
 `;
 
 
-export const Backdrop = () => <BackdropWrapper></BackdropWrapper>
+export const Backdrop: FC = () => {
+  return (
+		<div>
+			<BackdropWrapper></BackdropWrapper>
+		</div>
+	);
+}
+
+ 

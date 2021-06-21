@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
+export const CloseButton = styled.div`
+	display: flex;
+	justify-content: flex-end;
+`;
+
 export const Container = styled.section`
-	/* border: 2px solid var(--gray-3);
-	/* max-width: 700px; 
-	margin: 0 auto;
-	padding: 0 15px; */
 	h1 {
 		text-align: center;
 		margin: 20px 0;
@@ -43,6 +44,10 @@ export const Container = styled.section`
 			font-size: 10px;
 			font-weight: 500;
 		}
+		small {
+			font-size: 10px;
+			font-weight: 700;
+		}
 	}
 `;
 
@@ -71,6 +76,11 @@ export const GoogleBox = styled.div`
 		span {
 			margin: 0 auto;
 			color: var(--white);
+		}
+	}
+	a > button {
+		img{
+			width: 20px;
 		}
 	}
 `;
