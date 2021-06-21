@@ -21,7 +21,6 @@ export const MenuBar = styled.div`
 	}
 `;
 
-
 export const NavLists = styled.ul`
 	width: 600px;
 	display: flex;
@@ -39,18 +38,18 @@ export const NavLists = styled.ul`
 		background-color: var(--white);
 		color: var(--black);
 		padding: 10px;
-    span{
-      margin-left: 5px;
-    }
+		span {
+			margin-left: 5px;
+		}
 		:hover {
 			color: #377cff;
 			background-color: #e5e5e5;
 			border-bottom: 1px solid #909090;
 		}
 	}
-  @media (max-width: 900px){
-    display: none;
-  }
+	@media (max-width: 900px) {
+		display: none;
+	}
 `;
 
 export const NavsLeft = styled.div`
@@ -80,11 +79,11 @@ export const NavsRight = styled.div`
 	display: none;
 	@media (max-width: 414px) {
 		display: block;
-    a {
-      .MuiSvgIcon-root {
-        font-size: 30px;
-      }
-    }
+		a {
+			.MuiSvgIcon-root {
+				font-size: 30px;
+			}
+		}
 	}
 `;
 
@@ -96,7 +95,7 @@ export const activeNav = {
 
 export const SidebarContainer = styled.div`
 	width: 250px;
-  padding: 50px 30px;
+	padding: 50px 30px;
 `;
 
 export const Sidebars = styled.ul`
@@ -121,9 +120,9 @@ export const Sidebars = styled.ul`
 			padding-left: 10px;
 		}
 		:hover {
-		color: #377cff;
-     background-color: #e5e5e5;
-     border-bottom: 1px solid #909090;
+			color: #377cff;
+			background-color: #e5e5e5;
+			border-bottom: 1px solid #909090;
 		}
 	}
 `;
