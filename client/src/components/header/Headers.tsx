@@ -57,7 +57,7 @@ const Headers: FC = () => {
 						<Link to='/auth/users/signup'>SignUp</Link>
 					</Button>
 					<Button>
-						<Link to='/auth/users/signin'>SignUp</Link>
+						<Link to='/auth/users/signin'>SignIn</Link>
 					</Button>
 				</ButtonGroup>
 			</HeaderButton>

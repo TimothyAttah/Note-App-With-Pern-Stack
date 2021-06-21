@@ -30,6 +30,7 @@ export const signInUser = (userData: ISigninUser) => async (dispatch: Dispatch) 
     localStorage.setItem('jwt', data.token);
     localStorage.setItem('user', JSON.stringify(data));
     history.push('/users/todos');
+    window.location.reload(false);
   } catch (err) {
     console.log(err);
   }

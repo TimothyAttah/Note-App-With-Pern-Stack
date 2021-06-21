@@ -1,5 +1,5 @@
 import React, { FC, Fragment, useEffect } from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 
 import Header from './components/header/Headers';
@@ -26,14 +26,27 @@ const App: FC = () => {
   return (
 		<Fragment>
 			<Router history={history}>
-        <Header />
-        {/* <Nav /> */}
-				<Switch>
+				<Header />
+				{/* <Nav /> */}
+				{user ? (
+					<Switch>
+						<Route path='/users/todos' exact component={Todos} />
+            <Route path='/users/todos/:todosId' component={Todos} />
+            <Redirect to='/users/todos' />
+					</Switch>
+				) : (
+					<Switch>
+						<Route path='/auth/users/signin' exact component={SignIn} />
+						<Route path='/auth/users/signup' exact component={SignUp} />
+						{/* <Redirect to='/auth/users/signin' /> */}
+					</Switch>
+				)}
+				{/* <Switch>
           <Route path='/auth/users/signin' exact component={SignIn}/>
           <Route path='/auth/users/signup' exact component={SignUp} />
           <Route path='/users/todos' exact component={Todos} />
           <Route path='/users/todos/:todosId' component={Todos} />
-        </Switch>
+        </> */}
 			</Router>
 		</Fragment>
 	);
