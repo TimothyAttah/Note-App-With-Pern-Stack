@@ -1,5 +1,6 @@
-import React, { FC, Fragment } from 'react';
+import  { FC, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 import SignInForm from '../../components/forms/SignInForm';
 import { images } from '../../components/Images';
@@ -16,7 +17,7 @@ const SignIn: FC = () => {
 			<Modal>
 				<Container>
 					<CloseButton>
-						<button onClick={() => history.push('/')}>X</button>
+						<Button onClick={() => history.push('/')}>X</Button>
 					</CloseButton>
 					<h1>Note3Sixty</h1>
 					<h3>Welcome back</h3>
