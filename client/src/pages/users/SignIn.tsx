@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 
 import SignInForm from '../../components/forms/SignInForm';
 import { images } from '../../components/Images';
+import { Modal } from '../../components/modal';
+import { Backdrop } from '../../components/Backdrop';
 import { Container, GoogleBox, Divider } from './Styles';
 
 
 const SignIn: FC = () => {
 	return (
 		<Fragment>
-			<Container>
+			<Backdrop />
+			<Modal>
+				<Container>
 				<h1>Note3Sixty</h1>
 				<h3>Welcome back</h3>
 				<p>Enter your personal details to sign in</p>
@@ -34,6 +38,7 @@ const SignIn: FC = () => {
 					</span>
 				</small>
 			</Container>
+			</Modal>
 		</Fragment>
 	);
 };

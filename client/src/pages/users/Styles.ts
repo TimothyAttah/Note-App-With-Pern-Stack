@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-	border: 2px solid var(--gray-3);
-	max-width: 500px;
+	/* border: 2px solid var(--gray-3);
+	/* max-width: 700px; 
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0 15px; */
 	h1 {
 		text-align: center;
 		margin: 20px 0;
