@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { ButtonGroup, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -42,7 +42,7 @@ const HeaderButton = styled.div`
 	}
 `;
 
-const Headers: FC = () => {
+export const Headers: FC = () => {
 	return (
 		<Header>
 			<h1>
@@ -64,5 +64,3 @@ const Headers: FC = () => {
 		</Header>
 	);
 };
-
-export default Headers;

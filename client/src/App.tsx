@@ -2,16 +2,14 @@ import React, { FC, Fragment, useEffect } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 
-import Header from './components/header/Headers';
+import {Headers} from './components/header/Headers';
 import history from './history';
-import Todos from './pages/todos/Todos';
+import {Todos} from './pages/todos/Todos';
 import SignIn from './pages/users/SignIn';
 import SignUp from './pages/users/SignUp';
 import { user} from './components/NameInitial';
 import { getUsers } from './redux/actions/authActions';
 import {Nav} from './components/nav/Nav'
-
-console.log(user);
 
 
 const App: FC = () => {
@@ -26,8 +24,8 @@ const App: FC = () => {
   return (
 		<Fragment>
 			<Router history={history}>
-				<Header />
-				{/* <Nav /> */}
+				<Headers />
+				{user && <Nav />}
 				{user ? (
 					<Switch>
 						<Route path='/users/todos' exact component={Todos} />
