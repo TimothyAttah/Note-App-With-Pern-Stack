@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
 	width: 100%;
-	background-color: #e5e5e5;
+	background-color: var(--cream);
 	padding: 30px 20px 20px 20px;
-	opacity: 0.9;
 	position: sticky;
-	top: 70px;
-	z-index: 500;
+	top: 80px;
+	z-index: 900;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
