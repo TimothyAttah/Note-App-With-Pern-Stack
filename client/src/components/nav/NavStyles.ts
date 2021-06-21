@@ -2,25 +2,22 @@ import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
 	width: 100%;
-	border: 2px solid red;
-	background-color: var(--crimson);
-	padding: 40px 20px 25px 25px;
+	background-color: #e5e5e5;
+	padding: 30px 20px 20px 20px;
 	opacity: 0.9;
 	position: sticky;
 	top: 70px;
-  z-index: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* margin-top: 30px; */
-  /* margin-bottom: 20px; */
- 
+	z-index: 500;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 `;
 
 export const MenuBar = styled.div`
 	.MuiSvgIcon-root {
-		color: var(--white);
-    font-size: 30px;
+		color: var(--black);
+		font-size: 30px;
 	}
 `;
 
@@ -42,54 +39,20 @@ export const NavLists = styled.ul`
 		background-color: var(--white);
 		color: var(--black);
 		padding: 10px;
-
+    span{
+      margin-left: 5px;
+    }
+		:hover {
+			color: #377cff;
+			background-color: #e5e5e5;
+			border-bottom: 1px solid #909090;
+		}
 	}
+  @media (max-width: 900px){
+    display: none;
+  }
 `;
 
-
-
-// export const NavsCenter = styled.ul`
-// 	display: flex;
-// 	justify-content: space-between;
-// 	align-items: center;
-// 	width: 600px;
-// 	margin: 0;
-// 	padding: 0;
-
-// 	li {
-// 		display: flex;
-// 		align-items: center;
-// 		background-color: crimson;
-// 		box-shadow: -2px -2px 2px #fff7, 2px 2px 2px #0002;
-// 		cursor: pointer;
-// 		:hover {
-// 			animation: opacity 0.2s linear;
-// 			@keyframes opacity {
-// 				from {
-// 					opacity: 0;
-// 					transform: scale(0.7);
-// 				}
-// 			}
-// 		}
-// 	}
-// 	li > a {
-// 		display: flex;
-// 		align-items: center;
-// 		padding: 10px 15px;
-// 		color: #fff;
-// 		span {
-// 			padding-left: 3px;
-// 		}
-// 		:hover {
-// 			border-bottom: 2px solid #909090;
-// 			color: #377cff;
-// 			background-color: #e5e5e5;
-// 		}
-// 	}
-// 	@media (max-width: 900px) {
-// 		display: none;
-// 	}
-// `;
 export const NavsLeft = styled.div`
 	.MuiButton-root {
 		padding: 5px 12px;
@@ -117,6 +80,11 @@ export const NavsRight = styled.div`
 	display: none;
 	@media (max-width: 414px) {
 		display: block;
+    a {
+      .MuiSvgIcon-root {
+        font-size: 30px;
+      }
+    }
 	}
 `;
 
