@@ -6,11 +6,11 @@ const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	position: sticky;
 	padding: 25px 20px;
 	top: 0;
-	z-index: 500;
+	z-index: 700;
 	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 	background-color: var(--white);
 	h1 a {

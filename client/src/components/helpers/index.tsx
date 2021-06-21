@@ -1,11 +1,8 @@
 import {
 	AttachMoneyOutlined,
-	Delete,
-	Edit,
 	Event,
 	ListAlt,
 	Notes,
-	Print,
 	Settings,
 } from '@material-ui/icons';
 
@@ -24,27 +21,27 @@ export const navMenu: NavMenu = {
 		{
 			name: 'Notes',
 			icon: <Notes />,
-			url: '/api/users/notes',
+			url: '/users/notes',
 		},
 			{
 		name: 'Todos',
 		icon: <ListAlt />,
-		url: '/api/users/todos',
+		url: '/users/todos',
 	},
 	{
 		name: 'Events',
 		icon: <Event />,
-		url: '/api/users/events',
+		url: '/users/events',
 	},
 	{
 		name: 'Budgets',
 		icon: <AttachMoneyOutlined />,
-		url: '/api/users/budgets',
+		url: '/users/budgets',
 	},
 	{
 		name: 'Settings',
 		icon: <Settings />,
-		url: '/api/users/settings',
+		url: '/users/settings',
 	}
 	]
 };
