@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import {ButtonGroup, Button} from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,11 +14,11 @@ const Header = styled.header`
 	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 	background-color: var(--white);
 	h1 a {
-		color: var(--light-blue);
+		color: #3f51b5;
 	}
 	h2 a {
 		display: none;
-		color: var(--light-blue);
+		color: #3f51b5;
 	}
 	@media (max-width: 500px) {
 		h1 {
@@ -30,15 +31,22 @@ const Header = styled.header`
 `;
 
 const HeaderButton = styled.div`
-	button {
+	/* button {
 		padding: 12px;
-		width: 100px;
+		/* width: 100px; 
 		background-color: var(--light-blue);
 		color: var(--white);
-		text-transform: uppercase;
+		/* text-transform: uppercase; 
 		letter-spacing: 1.5px;
+	} */
+	/* .MuiButton-root {
+		background-color: var(--light-blue);
+	} */
+	a {
+		color: var(--white);
+		padding: 5px 10px;
 	}
-	@media (max-width: 375px) {
+	@media (max-width: 500px) {
 		button {
 			width: 80px;
 		}
@@ -55,12 +63,14 @@ const Headers: FC = () => {
 				<Link to='/'>3Six</Link>
 			</h2>
 			<HeaderButton>
-				<Link to='/auth/users/signup'>
-					<button>SignUp</button>
-				</Link>
-				<Link to='/auth/users/signin'>
-					<button>SignIn</button>
-				</Link>
+				<ButtonGroup variant='contained' color='primary'>
+					<Button>
+						<Link to='/auth/users/signup'>SignUp</Link>
+					</Button>
+					<Button>
+						<Link to='/auth/users/signin'>SignUp</Link>
+					</Button>
+				</ButtonGroup>
 			</HeaderButton>
 		</Header>
 	);

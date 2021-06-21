@@ -55,7 +55,7 @@ export const NavLists = styled.ul`
 
 export const NavsLeft = styled.div`
 	.MuiButton-root {
-		padding: 5px 12px;
+		padding: 12px;
 		background-color: var(--white);
 		color: var(--black);
 		:hover {
