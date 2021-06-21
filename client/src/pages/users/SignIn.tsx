@@ -5,7 +5,7 @@ import SignInForm from '../../components/forms/SignInForm';
 import { images } from '../../components/Images';
 import { Modal } from '../../components/modal';
 import { Backdrop } from '../../components/Backdrop';
-import { Container, CloseButton, GoogleBox, Divider } from './Styles';
+import { Container, CloseButton, GoogleBox, Divider, ImgBox } from './Styles';
 import history from '../../history';
 
 
@@ -24,9 +24,9 @@ const SignIn: FC = () => {
 					<GoogleBox>
 						<Link to='/auth/users/google'>
 							<button>
-								<div>
+								<ImgBox>
 									<img src={images.GoogleIcon} alt='' width='30px' />
-								</div>
+								</ImgBox>
 								<span>Log in with Google</span>
 							</button>
 						</Link>

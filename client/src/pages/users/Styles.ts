@@ -53,34 +53,44 @@ export const Container = styled.section`
 
 export const GoogleBox = styled.div`
 	margin: 30px 0;
-	button {
-		position: relative;
+	a > button {
+		width: 100%;
 		display: flex;
 		align-items: center;
 		background-color: var(--crimson);
-		width: 100%;
 		border: 1px solid var(--crimson);
+		border-radius: 5px;
+		color: var(--white);
 		font-size: 15px;
-		padding: 12px 0;
 		:hover {
 			background-color: var(--sky-blue);
 			border: 1px solid var(--sky-blue);
 		}
-	}
-	a {
-		img {
-			background-color: white;
-			position: absolute;
-			width: 40px;
-		}
 		span {
 			margin: 0 auto;
-			color: var(--white);
+		}
+		img {
+			justify-content: flex-start;
+		}
+		@media (max-width: 360px) {
+			font-size: 12px;
 		}
 	}
-	a > button {
-		img{
-			width: 20px;
+`;
+
+export const ImgBox = styled.div`
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	background-color: var(--white);
+	padding: 7px 5px;
+	border-radius: 3px;
+	:hover {
+		border: 1px solid var(--sky-blue);
+	}
+	@media (max-width: 360px) {
+		img {
+			width: 25px;
 		}
 	}
 `;
