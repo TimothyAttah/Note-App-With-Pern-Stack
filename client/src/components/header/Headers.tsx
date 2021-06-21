@@ -14,11 +14,11 @@ const Header = styled.header`
 	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 	background-color: var(--white);
 	h1 a {
-		color: #3f51b5;
+		color: var(--dark-purple);
 	}
 	h2 a {
 		display: none;
-		color: #3f51b5;
+		color: var(--dark-purple);
 	}
 	@media (max-width: 500px) {
 		h1 {
