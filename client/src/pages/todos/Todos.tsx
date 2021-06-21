@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import TodosForm from '../../components/forms/TodosForm';
 import TodosLists from './TodosLists';
+import {Nav} from '../../components/nav/Nav'
 
 const MainContainer = styled.main`
 	background: linear-gradient(
@@ -63,6 +64,7 @@ const TodosContainer = styled.section`
 const Todos: FC = () => {
 	return (
 		<Fragment>
+			<Nav />
 			<MainContainer>
 				<TodosContainer>
 					<TodosForm />

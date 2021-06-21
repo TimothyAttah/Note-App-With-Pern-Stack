@@ -9,6 +9,7 @@ import SignIn from './pages/users/SignIn';
 import SignUp from './pages/users/SignUp';
 import { user} from './components/NameInitial';
 import { getUsers } from './redux/actions/authActions';
+import {Nav} from './components/nav/Nav'
 
 console.log(user);
 
@@ -25,7 +26,8 @@ const App: FC = () => {
   return (
 		<Fragment>
 			<Router history={history}>
-				<Header />
+        <Header />
+        {/* <Nav /> */}
 				<Switch>
           <Route path='/auth/users/signin' exact component={SignIn}/>
           <Route path='/auth/users/signup' exact component={SignUp} />
