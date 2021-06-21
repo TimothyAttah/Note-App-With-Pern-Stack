@@ -31,17 +31,6 @@ const Header = styled.header`
 `;
 
 const HeaderButton = styled.div`
-	/* button {
-		padding: 12px;
-		/* width: 100px; 
-		background-color: var(--light-blue);
-		color: var(--white);
-		/* text-transform: uppercase; 
-		letter-spacing: 1.5px;
-	} */
-	/* .MuiButton-root {
-		background-color: var(--light-blue);
-	} */
 	a {
 		color: var(--white);
 		padding: 5px 10px;
