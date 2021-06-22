@@ -42,8 +42,18 @@ export interface Expenses {
   value: number;
 }
 
+export interface Incomes {
+  id?: string | number;
+  description: string;
+  value: number;
+}
+
 export type InitialExpenses = {
-  expenses: Expenses[]
+  expenses: Expenses[];
+}
+
+export type InitialIncomes = {
+  incomes: Incomes[];
 }
 
 export type DeleteTodos = (id: number ) => void;
