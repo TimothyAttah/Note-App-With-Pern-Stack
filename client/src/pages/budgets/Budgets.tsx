@@ -1,5 +1,6 @@
 import { FC, Fragment } from 'react'
 import styled from 'styled-components';
+import { BudgetsForm } from '../../components/forms/BudgetsForm';
 
 import { Expenses } from './Expenses';
 import { Incomes } from './Incomes'
@@ -13,7 +14,10 @@ const ListsOfTransactions = styled.div`
 export const Budgets:FC = () => {
   return (
     <Fragment>
-      <Transactions/>
+      <Transactions />
+      <div>
+        <BudgetsForm />
+      </div>
       <ListsOfTransactions>
         <Incomes />
         <Expenses />
