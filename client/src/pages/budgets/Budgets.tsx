@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Expenses } from './Expenses';
 import { Incomes } from './Incomes'
+import { Transactions } from './Transactions';
 
 const ListsOfTransactions = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const ListsOfTransactions = styled.div`
 export const Budgets:FC = () => {
   return (
     <Fragment>
-      <h1>Budgets page</h1>
+      <Transactions/>
       <ListsOfTransactions>
         <Incomes />
         <Expenses />
