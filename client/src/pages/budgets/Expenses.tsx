@@ -7,12 +7,28 @@ import { listsExpenses } from '../../redux/actions/expensesActions';
 import { StoreState } from '../../redux/reducers';
 
 const BudgetsContainer = styled.div`
-	max-width: 500px;
+	max-width: 550px;
 	width: 100%;
 	background-color: var(--cream);
 	border-radius: 20px;
 	box-shadow: 10px 10px 13px #0002, -10px -10px 13px #fff7;
 	padding: 20px;
+	@media (max-width: 900px) {
+		max-width: 400px;
+	}
+	@media (max-width: 700px) {
+		max-width: 300px;
+		h2 {
+			font-size: 18px;
+		}
+	}
+	@media (max-width: 500px) {
+		max-width: 260px;
+		h2 {
+			font-size: 16px;
+			width: 80px;
+		}
+	}
 `;
 
 const BudgetsList = styled.ul`
@@ -57,6 +73,40 @@ const BudgetsList = styled.ul`
 				opacity: 0.8;
 			}
 		}
+		@media (max-width: 700px) {
+			position: relative;
+			flex-direction: column;
+			.transaction {
+				font-size: 15px;
+				margin-bottom: 30px;
+				width: 100%;
+				font-weight: bold;
+			}
+			.budgets__buttons {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				.MuiSvgIcon-root {
+					font-size: 15px;
+					margin-left: 7px;
+				}
+			}
+		}
+		@media (max-width: 500px) {
+			.transaction {
+				flex-direction: column;
+				align-items: flex-start;
+				border-bottom: 1px solid var(--white);
+				span {
+					margin: 10px 0;
+				}
+			}
+		}
+		@media (max-width: 360px) {
+			.transaction {
+				font-size: 12px;
+			}
+		}
 	}
 `;
 
@@ -77,7 +127,7 @@ export const Expenses:FC = () => {
 							<BudgetsList key={expense.id}>
 								<li>
 									<div className='transaction'>
-										{expense.description} - <span>{expense.value}</span>
+										{expense.description}: <span>{expense.value}</span>
 									</div>
 									<div className='budgets__buttons'>
 										<Edit />

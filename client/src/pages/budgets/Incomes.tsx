@@ -17,14 +17,14 @@ export const Incomes:FC = () => {
   return (
 		<Fragment>
 			<BudgetsContainer>
-				<h2>Income Transaction</h2>
+				<h2>Income Transactions</h2>
 				{incomes.length ? (
 					incomes.map(income => {
 						return (
 							<BudgetsList key={income.id}>
 								<li>
 									<div className='transaction'>
-										{income.description} -
+										{income.description}:
 										<span>{income.value}</span>
 									</div>
 									<div className='budgets__buttons'>
