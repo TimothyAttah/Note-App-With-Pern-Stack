@@ -1,6 +1,7 @@
 import React, { FC, Fragment, useEffect } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
+import {toast} from 'react-toastify'
 
 import {Headers} from './components/header/Headers';
 import history from './history';
@@ -14,6 +15,7 @@ import { Budgets } from './pages/budgets/Budgets';
 
 
 const App: FC = () => {
+  toast.configure();
   const dispatch = useDispatch();
   useEffect(() => {
     if (user) {
