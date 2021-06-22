@@ -42,7 +42,7 @@ export const Transactions: FC = () => {
 										.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
 								: `${totalBalance
 										.toString()
-										.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+										.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}.00
 						</span>
 					</h2>
 				</TotalBalances>
@@ -57,7 +57,7 @@ export const Transactions: FC = () => {
 											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
 									: `${totalIncomeValue
 											.toString()
-											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}.00
 							</span>
 						</h4>
 					</TotalIncomes>
@@ -71,7 +71,7 @@ export const Transactions: FC = () => {
 											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`
 									: `${totalExpensesValue
 											.toString()
-											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
+											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}.00
 							</span>
 						</h4>
 					</TotalExpenses>
