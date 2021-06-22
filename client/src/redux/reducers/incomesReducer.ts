@@ -13,7 +13,7 @@ const initialState: InitialIncomes = {
 		{
 			id: v4(),
 			description: 'Salary',
-			value: 4000,
+			value: 4000000,
 		},
 		{
 			id: v4(),

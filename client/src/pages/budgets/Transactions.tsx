@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listsIncomes } from '../../redux/actions/incomesActions';
 import { listsExpenses } from '../../redux/actions/expensesActions';
 import { StoreState } from '../../redux/reducers';
+import {TransactionsContainer, TotalBalances, TotalIncomes, TotalExpenses, TotalsWrapper} from './TransactionStyles'
 
 export const Transactions: FC = () => {
    const dispatch = useDispatch();
@@ -30,8 +31,8 @@ export const Transactions: FC = () => {
   
   return (
 		<Fragment>
-			<div>
-				<div>
+			<TransactionsContainer>
+				<TotalBalances>
 					<h2>
 						Balance:
 						<span>
@@ -44,9 +45,9 @@ export const Transactions: FC = () => {
 										.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
 						</span>
 					</h2>
-				</div>
-				<div>
-					<div>
+				</TotalBalances>
+				<TotalsWrapper>
+					<TotalIncomes>
 						<h4>
 							Income:
 							<span>
@@ -59,8 +60,8 @@ export const Transactions: FC = () => {
 											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
 							</span>
 						</h4>
-					</div>
-					<div>
+					</TotalIncomes>
+					<TotalExpenses>
 						<h4>
 							Expenses:
 							<span>
@@ -73,9 +74,9 @@ export const Transactions: FC = () => {
 											.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}
 							</span>
 						</h4>
-					</div>
-				</div>
-			</div>
+					</TotalExpenses>
+				</TotalsWrapper>
+			</TransactionsContainer>
 		</Fragment>
 	);
 };
