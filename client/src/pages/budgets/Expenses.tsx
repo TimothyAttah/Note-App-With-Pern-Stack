@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Delete, Edit } from '@material-ui/icons';
 import styled from 'styled-components';
 
-import { listsExpenses } from '../../redux/actions/expensesActions';
+import { listsExpenses, deleteExpenses } from '../../redux/actions/expensesActions';
 import { StoreState } from '../../redux/reducers';
 
 const BudgetsContainer = styled.div`
@@ -119,6 +119,9 @@ export const Expenses:FC = () => {
 	}, [dispatch]);
 	const { expenses } = useSelector((state: StoreState) => state.expenses);
   
+	const handleDelete = (id: string) => {
+		dispatch(deleteExpenses(id));
+	}
   return (
 		<Fragment>
 			<BudgetsContainer>
@@ -133,7 +136,7 @@ export const Expenses:FC = () => {
 									</div>
 									<div className='budgets__buttons'>
 										<Edit />
-										<Delete />
+										<Delete onClick={()=>handleDelete(expense.id)}/>
 									</div>
 								</li>
 							</BudgetsList>

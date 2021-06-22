@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { Dispatch } from 'redux';
 import { ExpensesActionTypes } from '../actionsTypes/expensesTypes';
 import { ExpensesTypes } from '../types';
@@ -15,16 +16,17 @@ export const createExpenses = (expenses: object) => (dispatch: Dispatch) => {
   })
 }
 
-export const editExpenses = (id: number, expenses: object) => (dispatch: Dispatch) => {
+export const editExpenses = (id: string, expenses: object) => (dispatch: Dispatch) => {
   dispatch<ExpensesActionTypes>({
     type: ExpensesTypes.EDIT_EXPENSES,
     payload: {id, expenses}
   })
 }
 
-export const deleteExpenses = (id: number) => (dispatch: Dispatch) => {
+export const deleteExpenses = (id: string) => (dispatch: Dispatch) => {
   dispatch<ExpensesActionTypes>({
     type: ExpensesTypes.DELETE_EXPENSES,
     payload: id
   })
+  toast.success('Expenses deleted...');
 }

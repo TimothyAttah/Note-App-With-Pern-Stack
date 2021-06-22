@@ -12,14 +12,14 @@ interface CreateExpenses {
 interface EditExpenses {
   type: ExpensesTypes.EDIT_EXPENSES;
   payload: {
-    id: number | string;
+    id:string;
     expenses: object;
   };
 }
 
 interface DeleteExpenses {
   type: ExpensesTypes.DELETE_EXPENSES;
-  payload: number | string;
+  payload:  string;
 }
 
 export type ExpensesActionTypes = ListsExpenses | CreateExpenses | EditExpenses | DeleteExpenses

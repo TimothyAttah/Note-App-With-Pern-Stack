@@ -37,7 +37,7 @@ export type InitialUser = {
 }
 
 export interface Expenses {
-  id?: string | number;
+  id: string;
   description: string;
   value: number;
 }
