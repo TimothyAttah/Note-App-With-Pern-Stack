@@ -10,6 +10,7 @@ import SignUp from './pages/users/SignUp';
 import { user} from './components/NameInitial';
 import { getUsers } from './redux/actions/authActions';
 import {Nav} from './components/nav/Nav'
+import { Budgets } from './pages/budgets/Budgets';
 
 
 const App: FC = () => {
@@ -30,6 +31,7 @@ const App: FC = () => {
 					<Switch>
 						<Route path='/users/todos' exact component={Todos} />
             <Route path='/users/todos/:todosId' component={Todos} />
+            <Route path='/users/budgets' exact component={Budgets} />
             <Redirect to='/users/todos' />
 					</Switch>
 				) : (
