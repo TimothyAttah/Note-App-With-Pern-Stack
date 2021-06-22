@@ -1,16 +1,17 @@
 import { combineReducers } from 'redux';
-import { InitialTodos, InitialUser } from '../Interface';
-import authReducer from './authReducer';
-import todosReducer from './todosReducer';
+import { InitialExpenses, InitialTodos, InitialUser } from '../Interface';
+import {authReducer} from './authReducer';
+import { expensesReducer } from './expensesReducer';
+import {todosReducer} from './todosReducer';
 
 export interface StoreState {
 	todos: InitialTodos;
 	auth: InitialUser;
+	expenses: InitialExpenses;
 }
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
 	todos: todosReducer,
-	auth: authReducer
+	auth: authReducer,
+	expenses: expensesReducer
 });
-
-export default reducers;

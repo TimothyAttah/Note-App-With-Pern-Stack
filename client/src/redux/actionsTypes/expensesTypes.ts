@@ -11,7 +11,10 @@ interface CreateExpenses {
 
 interface EditExpenses {
   type: ExpensesTypes.EDIT_EXPENSES;
-  payload: object;
+  payload: {
+    id: number | string;
+    expenses: object;
+  };
 }
 
 interface DeleteExpenses {
