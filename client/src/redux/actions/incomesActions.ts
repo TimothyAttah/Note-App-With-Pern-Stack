@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { Dispatch } from 'redux';
 import { IncomesActionTypes } from '../actionsTypes/incomesTypes';
 import { IncomesTypes } from '../types';
@@ -16,16 +17,17 @@ export const createIncomes = (Incomes: object) => (dispatch: Dispatch) => {
 };
 
 export const editIncomes =
-	(id: number, Incomes: object) => (dispatch: Dispatch) => {
+	(id: string, Incomes: object) => (dispatch: Dispatch) => {
 		dispatch<IncomesActionTypes>({
 			type: IncomesTypes.EDIT_INCOMES,
 			payload: { id, Incomes },
 		});
 	};
 
-export const deleteIncomes = (id: number) => (dispatch: Dispatch) => {
+export const deleteIncomes = (id: string) => (dispatch: Dispatch) => {
 	dispatch<IncomesActionTypes>({
 		type: IncomesTypes.DELETE_INCOMES,
 		payload: id,
 	});
+	toast.success('Income deleted...')
 };

@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+import {toast} from 'react-toastify'
 import { TodosActionTypes } from '../actionsTypes/todosTypes';
 import { ITodos } from '../Interface';
 import { TodosTypes } from '../types';
@@ -27,7 +28,11 @@ export const createTodos = (task: object) => async (dispatch: Dispatch) => {
      payload: data.results
    })
    window.location = '/users/todos' as unknown as Location;
+   toast.success(data.message)
  } catch (err) {
+   	if (err.response && err.response.data) {
+			return toast.error(err.response.data.error);
+		}
    console.log(err);
    
  }
@@ -40,8 +45,11 @@ export const deleteTodo = (id: number ) => async (dispatch: Dispatch) => {
      type: TodosTypes.DELETE_TODOS,
      payload: id
    })
-    console.log(data);
+    toast.success(data.message);
  } catch (err) {
+   	if (err.response && err.response.data) {
+			return toast.error(err.response.data.error);
+		}
    console.log(err);
  }
 }
@@ -55,7 +63,11 @@ export const editTodos = (id: number, task: string) => async (dispatch: Dispatch
      type: TodosTypes.EDIT_TODOS,
      payload: data.results
    })
+   toast.success(data.message);
  } catch (err) {
+   	if (err.response && err.response.data) {
+			return toast.error(err.response.data.error);
+		}
    console.log(err);
    
  }

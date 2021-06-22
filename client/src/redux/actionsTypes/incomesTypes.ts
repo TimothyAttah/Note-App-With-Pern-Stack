@@ -12,14 +12,14 @@ interface CreateIncomes {
 interface EditIncomes {
 	type: IncomesTypes.EDIT_INCOMES;
 	payload: {
-		id: number | string;
+		id: string;
 		Incomes: object;
 	};
 }
 
 interface DeleteIncomes {
 	type: IncomesTypes.DELETE_INCOMES;
-	payload: number | string;
+	payload: string;
 }
 
 export type IncomesActionTypes =

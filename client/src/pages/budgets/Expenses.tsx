@@ -71,6 +71,8 @@ const BudgetsList = styled.ul`
 			.MuiSvgIcon-root {
 				color: var(--cream);
 				opacity: 0.8;
+				cursor: pointer;
+        margin-left: 5px;
 			}
 		}
 		@media (max-width: 700px) {

@@ -26,6 +26,15 @@ export const BudgetsContainer = styled.div`
 `;
 
 export const BudgetsList = styled.ul`
+	.active {
+		animation: del 0.3s linear;
+	}
+	@keyframes del {
+		to {
+			opacity: 0;
+			transform: rotate(15deg) skew(25deg) scale(0);
+		}
+	}
 	li {
 		border: 1px solid ${(props: any) => (props.primary ? 'red' : 'greenyellow')};
 		display: flex;
@@ -67,6 +76,8 @@ export const BudgetsList = styled.ul`
 			.MuiSvgIcon-root {
 				color: ${(props: any) => (props.primary ? 'red' : '#e5e5e5')};
 				opacity: 0.7;
+				cursor: pointer;
+				margin-left: 5px;
 			}
 		}
 		@media (max-width: 700px) {
@@ -82,10 +93,10 @@ export const BudgetsList = styled.ul`
 				position: absolute;
 				bottom: 10px;
 				right: 10px;
-        .MuiSvgIcon-root{
-          font-size: 15px;
-          margin-left: 7px;
-        }
+				.MuiSvgIcon-root {
+					font-size: 15px;
+					margin-left: 7px;
+				}
 			}
 		}
 		@media (max-width: 500px) {

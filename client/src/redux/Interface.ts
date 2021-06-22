@@ -43,7 +43,7 @@ export interface Expenses {
 }
 
 export interface Incomes {
-  id?: string | number;
+  id: string;
   description: string;
   value: number;
 }
