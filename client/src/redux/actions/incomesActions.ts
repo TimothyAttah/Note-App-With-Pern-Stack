@@ -14,6 +14,7 @@ export const createIncomes = (Incomes: object) => (dispatch: Dispatch) => {
 		type: IncomesTypes.CREATE_INCOMES,
 		payload: Incomes,
 	});
+		toast.success('New income added...');
 };
 
 export const editIncomes =

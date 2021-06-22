@@ -1,13 +1,25 @@
-import {  useState } from 'react';
+import {  useState, FC, Fragment } from 'react';
 import { IconButton, Menu } from '@material-ui/core';
-
-import { ArrowDropDown } from '@material-ui/icons';
-import { FC } from 'react';
-//import { HeaderDropDown } from '../header/HeaderNavsStyles';
+import styled from 'styled-components';
+import { ArrowDropDown, Add } from '@material-ui/icons';
 
 interface Props {
   setIsOpen: (open:boolean) => void;
 }
+
+const ModalWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 50px;
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}
+`;
 
 export const BudgetsModal:FC<Props> = ({ setIsOpen }) => {
 	const [anchorEl, setAnchorEl] = useState(null);
@@ -21,7 +33,7 @@ export const BudgetsModal:FC<Props> = ({ setIsOpen }) => {
 	};
 
 	return (
-		<>
+		<Fragment>
 			<IconButton onClick={handleClick}>
 				<ArrowDropDown />
 			</IconButton>
@@ -31,14 +43,15 @@ export const BudgetsModal:FC<Props> = ({ setIsOpen }) => {
 				keepMounted
 				open={Boolean(anchorEl)}
 				onClose={handleClose}
-				style={{ top: '50px', padding: '0', margin: '0' }}
+				className='modal__menu'
+				 style={{ top: '50px', padding: '0', margin: '0' }}
 			>
-				<div>
-					<div onClick={() => setIsOpen(false)}>+</div>
-					<div onClick={() => setIsOpen(true)}>	-	</div>
-				</div>
+				<ModalWrapper>
+					<div className='green' onClick={() => setIsOpen(false)}><Add /></div>
+					<div className='red' onClick={() => setIsOpen(true)}>	-	</div>
+				</ModalWrapper>
 			</Menu>
-		</>
+		</Fragment>
 	);
 };
 

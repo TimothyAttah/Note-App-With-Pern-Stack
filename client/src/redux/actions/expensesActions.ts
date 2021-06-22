@@ -14,6 +14,7 @@ export const createExpenses = (expenses: object) => (dispatch: Dispatch) => {
     type: ExpensesTypes.CREATE_EXPENSES,
     payload: expenses
   })
+  toast.success('New expenses added...');
 }
 
 export const editExpenses = (id: string, expenses: object) => (dispatch: Dispatch) => {
