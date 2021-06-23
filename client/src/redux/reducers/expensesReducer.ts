@@ -7,7 +7,7 @@ const initialState: InitialExpenses  = {
   expenses: [
     {
       id: v4(),
-      description: 'Bought car',
+      description: 'Bought cars',
       value: 5000
     },
     {
