@@ -19,7 +19,6 @@ const todosControllers = {
         [req.user.id]
       );
        res.status(200).json({todos: todos.rows});
-      console.log(req.user);
       
     } catch (err) {
        res.status(500).json({ error: err.message });

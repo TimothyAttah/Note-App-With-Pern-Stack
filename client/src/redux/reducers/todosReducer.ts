@@ -16,7 +16,7 @@ const initialState: InitialTodos = {
 };
 
 
-const todosReducer = (state = initialState, action: TodosActionTypes) => {
+export const todosReducer = (state = initialState, action: TodosActionTypes) => {
   switch (action.type) {
     case TodosTypes.LISTS_TODOS:
 			return {
@@ -51,5 +51,3 @@ const todosReducer = (state = initialState, action: TodosActionTypes) => {
 			return state;
 	}
 };
-
-export default todosReducer;

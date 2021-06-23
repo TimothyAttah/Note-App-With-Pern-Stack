@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { ButtonGroup, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,19 +7,18 @@ const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 50px;
 	position: sticky;
 	padding: 25px 20px;
 	top: 0;
-	z-index: 500;
+	z-index: 700;
 	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
 	background-color: var(--white);
 	h1 a {
-		color: var(--light-blue);
+		color: var(--dark-purple);
 	}
 	h2 a {
 		display: none;
-		color: var(--light-blue);
+		color: var(--dark-purple);
 	}
 	@media (max-width: 500px) {
 		h1 {
@@ -31,22 +31,18 @@ const Header = styled.header`
 `;
 
 const HeaderButton = styled.div`
-	button {
-		padding: 12px;
-		width: 100px;
-		background-color: var(--light-blue);
+	a {
 		color: var(--white);
-		text-transform: uppercase;
-		letter-spacing: 1.5px;
+		padding: 5px 10px;
 	}
-	@media (max-width: 375px) {
+	@media (max-width: 500px) {
 		button {
 			width: 80px;
 		}
 	}
 `;
 
-const Headers: FC = () => {
+export const Headers: FC = () => {
 	return (
 		<Header>
 			<h1>
@@ -56,15 +52,15 @@ const Headers: FC = () => {
 				<Link to='/'>3Six</Link>
 			</h2>
 			<HeaderButton>
-				<Link to='/auth/users/signup'>
-					<button>SignUp</button>
-				</Link>
-				<Link to='/auth/users/signin'>
-					<button>SignIn</button>
-				</Link>
+				<ButtonGroup variant='contained' color='primary'>
+					<Button>
+						<Link to='/auth/users/signup'>SignUp</Link>
+					</Button>
+					<Button>
+						<Link to='/auth/users/signin'>SignIn</Link>
+					</Button>
+				</ButtonGroup>
 			</HeaderButton>
 		</Header>
 	);
 };
-
-export default Headers;

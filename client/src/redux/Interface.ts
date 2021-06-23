@@ -36,6 +36,26 @@ export type InitialUser = {
   users: IUser[];
 }
 
+export interface Expenses {
+  id: string;
+  description: string;
+  value: number;
+}
+
+export interface Incomes {
+  id: string;
+  description: string;
+  value: number;
+}
+
+export type InitialExpenses = {
+  expenses: Expenses[];
+}
+
+export type InitialIncomes = {
+  incomes: Incomes[];
+}
+
 export type DeleteTodos = (id: number ) => void;
 export type IsCompleteTodos = (todos: ITodos) => void;
 export type EditTodos = (id: number, task: string) => void;
