@@ -8,4 +8,6 @@ incomesRouter.get('/', incomesAuth, incomesController.getIncomes);
 
 incomesRouter.put('/edit/:id', incomesAuth, incomesController.editIncomes);
 
+incomesRouter.delete('/delete/:id', incomesAuth, incomesController.deleteIncomes);
+
 module.exports = incomesRouter;

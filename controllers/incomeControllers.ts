@@ -39,14 +39,35 @@ const incomeControllers = {
        if (incomes.rows.length === 0) {
 					return res
 						.status(403)
-						.json({ error: 'This todo is not yours. Authorization denied.' });
+						.json({ error: 'This income is not yours. Authorization denied.' });
 				}
 				res
 					.status(200)
 					.json({
-						message: 'Todo updated successfully',
+						message: 'Income updated successfully',
 						results: incomes.rows[0],
 					});
+    } catch (err) {
+       console.error(err);
+				return res.status(500).json({ error: err });
+    }
+  },
+  deleteIncomes: async (req: any, res: any) => {
+    try {
+      const { id } = req.params;
+       const deleteIncome = await Incomes.query(
+					'DELETE FROM incomes WHERE incomes_id = $1 AND user_id = $2 RETURNING *',
+					[id, req.user.id]
+				);
+				if (deleteIncome.rows.length === 0) {
+					return res
+						.status(403)
+						.json({ error: 'This Income is not yours. Authorization denied.' });
+				}
+				res.status(200).json({
+					message: 'Income deleted successfully',
+					results: deleteIncome.rows[0],
+				});
     } catch (err) {
        console.error(err);
 				return res.status(500).json({ error: err });
