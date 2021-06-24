@@ -8,6 +8,7 @@ app.use(cors());
 
 app.use('/auth', require('./routes/authRoutes'));
 app.use('/todos', require('./routes/todosRoutes'));
+app.use('/incomes', require('./routes/incomesRoutes'));
 
 const PORT = process.env.PORT || 5000;
 
