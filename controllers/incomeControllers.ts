@@ -15,6 +15,18 @@ const incomeControllers = {
       console.error(err)
       return res.status(500).json({ error: err })
     }
+  },
+  getIncomes: async (req: any, res: any) => {
+    try {
+      const incomes = await Incomes.query(
+				'SELECT * FROM users LEFT JOIN incomes ON users.user_id = incomes.user_id WHERE users.user_id = $1',
+				[req.user.id]
+      );
+       res.status(200).json({ incomes: incomes.rows });
+    } catch (err) {
+       console.error(err);
+				return res.status(500).json({ error: err });
+    }
   }
 }
 
