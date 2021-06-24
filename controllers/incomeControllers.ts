@@ -27,6 +27,30 @@ const incomeControllers = {
        console.error(err);
 				return res.status(500).json({ error: err });
     }
+  },
+  editIncomes: async (req: any, res: any) => {
+    try {
+      const { description, values } = req.body;
+      const { id } = req.params;
+      const incomes = await Incomes.query(
+				'UPDATE incomes SET (description, values) = ($1, $2) WHERE incomes_id = $3 AND user_id = $4 RETURNING *',
+				[description, values, id, req.user.id]
+      );
+       if (incomes.rows.length === 0) {
+					return res
+						.status(403)
+						.json({ error: 'This todo is not yours. Authorization denied.' });
+				}
+				res
+					.status(200)
+					.json({
+						message: 'Todo updated successfully',
+						results: incomes.rows[0],
+					});
+    } catch (err) {
+       console.error(err);
+				return res.status(500).json({ error: err });
+    }
   }
 }
 

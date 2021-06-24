@@ -6,4 +6,6 @@ incomesRouter.post('/create', incomesAuth, incomesController.createIncomes);
 
 incomesRouter.get('/', incomesAuth, incomesController.getIncomes);
 
+incomesRouter.put('/edit/:id', incomesAuth, incomesController.editIncomes);
+
 module.exports = incomesRouter;
