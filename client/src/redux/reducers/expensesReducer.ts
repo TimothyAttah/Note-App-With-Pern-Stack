@@ -5,21 +5,21 @@ import { ExpensesTypes } from '../types'
 
 const initialState: InitialExpenses  = {
   expenses: [
-    {
-      id: v4(),
-      description: 'Bought cars',
-      value: 5000
-    },
-    {
-      id: v4(),
-      description: 'Paid house rent',
-      value: 2000
-    },
-    {
-      id: v4(),
-      description: 'Groceries',
-      value: 1000
-    },
+    // {
+    //   id: v4(),
+    //   description: 'Bought cars',
+    //   value: 5000
+    // },
+    // {
+    //   id: v4(),
+    //   description: 'Paid house rent',
+    //   value: 2000
+    // },
+    // {
+    //   id: v4(),
+    //   description: 'Groceries',
+    //   value: 1000
+    // },
   ]
 }
 
@@ -27,7 +27,8 @@ export const expensesReducer = (state = initialState, action: ExpensesActionType
   switch (action.type) {
     case ExpensesTypes.LISTS_EXPENSES:
       return {
-        ...state
+        ...state,
+        expenses: action.payload
       };
     case ExpensesTypes.CREATE_EXPENSES:
       return {
@@ -37,12 +38,12 @@ export const expensesReducer = (state = initialState, action: ExpensesActionType
     case ExpensesTypes.EDIT_EXPENSES:
       return {
         ...state,
-        expenses: state.expenses.map(expense => expense.id === action.payload.id ? action.payload : expense)
+        expenses: state.expenses.map(expense => expense.expenses_id === action.payload.id ? action.payload : expense)
       };
     case ExpensesTypes.DELETE_EXPENSES:
       return {
         ...state,
-        expenses: state.expenses.filter(expense => expense.id !== action.payload)
+        expenses: state.expenses.filter(expense => expense.expenses_id !== action.payload)
       };
     default:
       return state;

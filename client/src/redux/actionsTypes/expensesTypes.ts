@@ -2,6 +2,7 @@ import { ExpensesTypes } from '../types';
 
 interface ListsExpenses {
   type: ExpensesTypes.LISTS_EXPENSES;
+  payload: object;
 }
 
 interface CreateExpenses {

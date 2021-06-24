@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ISigninUser, ITodos} from '../redux/Interface';
+import { ISigninUser} from '../redux/Interface';
 
 const baseURL = 'http://localhost:5000'
 
@@ -33,3 +33,11 @@ export const createIncomes = (incomes: object) => API.post('/incomes/create', in
 export const editIncomes = (id: string, incomes: object) => API.put(`/incomes/edit/${id}`, incomes);
 
 export const deleteIncomes = (id: string) => API.delete(`/incomes/delete/${id}`);
+
+export const listsExpenses = () => API.get('/expenses');
+
+export const createExpenses = (expenses: object) => API.post('/expenses/create', expenses);
+
+export const editExpenses = (id: string, expenses: object) => API.put(`/expenses/edit/${id}`, expenses);
+
+export const deleteExpenses = (id: string) => API.delete(`/expenses/delete/${id}`);

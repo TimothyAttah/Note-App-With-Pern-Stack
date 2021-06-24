@@ -129,14 +129,14 @@ export const Expenses:FC = () => {
 				{expenses.length ? (
 					expenses.map(expense => {
 						return (
-							<BudgetsList key={expense.id}>
+							<BudgetsList key={expense.expenses_id}>
 								<li>
 									<div className='transaction'>
-										{expense.description}: <span>{expense.value}</span>
+										{expense.description}: <span>{expense.values}</span>
 									</div>
 									<div className='budgets__buttons'>
 										<Edit />
-										<Delete onClick={()=>handleDelete(expense.id)}/>
+										<Delete onClick={()=>handleDelete(expense.expenses_id)}/>
 									</div>
 								</li>
 							</BudgetsList>
