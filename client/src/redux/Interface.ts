@@ -43,9 +43,9 @@ export interface Expenses {
 }
 
 export interface Incomes {
-  id: string;
+  incomes_id: string;
   description: string;
-  value: number;
+  values: number;
 }
 
 export type InitialExpenses = {

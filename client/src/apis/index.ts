@@ -25,3 +25,11 @@ export const listsTodos = () => API.get('/todos');
 export const deleteTodos = (id: number) => API.delete(`/todos/delete/${id}`);
 
 export const editTodos = (id: number, task: string) => API.put(`/todos/update/${id}`, task);
+
+export const listsIncomes = () => API.get('/incomes');
+
+export const createIncomes = (incomes: object) => API.post('/incomes/create', incomes);
+
+export const editIncomes = (id: string, incomes: object) => API.put(`/incomes/edit/${id}`, incomes);
+
+export const deleteIncomes = (id: string) => API.delete(`/incomes/delete/${id}`);

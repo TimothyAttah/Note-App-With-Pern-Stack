@@ -15,7 +15,7 @@ export const Transactions: FC = () => {
 		const { incomes } = useSelector((state: StoreState) => state.incomes);
   const { expenses } = useSelector((state: StoreState) => state.expenses);
   
-  const incomeTransaction = incomes.map(income => income.value);
+  const incomeTransaction = incomes.map(income => income.values);
 	const expensesTransaction = expenses.map(expense => expense.value);
 	const totalIncome = incomeTransaction
 		.reduce((acc, result) => (acc += result), 0)

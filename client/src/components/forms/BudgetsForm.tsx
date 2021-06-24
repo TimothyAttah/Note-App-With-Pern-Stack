@@ -21,17 +21,16 @@ export const BudgetsForm: FC = () => {
       const newTransaction = {
         id: v4(),
 				description,
-				value: parseInt(value),
+				values: parseInt(value),
 			};
 
 			if (isOpen) {
-        if (description && value !== '') {
-          	dispatch(createExpenses(newTransaction));
-        }
+				dispatch(createExpenses(newTransaction));
 			} else {
-        if (description && value !== '') {
-          dispatch(createIncomes(newTransaction));
-        }
+        // if (description && value !== '') {
+        //   dispatch(createIncomes(newTransaction));
+        // }
+				dispatch(createIncomes(newTransaction));
 			}
 
 			setDescription('');

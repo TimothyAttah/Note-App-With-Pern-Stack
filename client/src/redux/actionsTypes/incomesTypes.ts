@@ -2,6 +2,7 @@ import { IncomesTypes } from '../types';
 
 interface ListsIncomes {
 	type: IncomesTypes.LISTS_INCOMES;
+	payload: object;
 }
 
 interface CreateIncomes {
