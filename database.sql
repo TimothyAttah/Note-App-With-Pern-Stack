@@ -28,5 +28,14 @@ CREATE TABLE incomes(
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE expenses(
+  expenses_id uuid DEFAULT uuid_generate_v4(),
+  user_id UUID,
+  description VARCHAR(255) NOT NULL,
+  values INTEGER NOT NULL,
+  PRIMARY KEY (expenses_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
 INSERT INTO users(first_name, last_name, user_email, user_password) VALUES ('Jane', 'Doe', 'jane@gmail.com', '123456');
-INSERT INTO incomes(description, values) VALUES ('Salary', 5000);
+INSERT INTO expenses(description, values) VALUES ('Salary', 5000);
