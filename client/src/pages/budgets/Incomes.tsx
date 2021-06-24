@@ -13,7 +13,10 @@ export const Incomes:FC = () => {
   useEffect(() => {
     dispatch(listsIncomes())
   }, [dispatch]);
-  const { incomes } = useSelector((state: StoreState) => state.incomes);
+	const { incomes } = useSelector((state: StoreState) => state.incomes);
+	
+	console.log(incomes);
+	
 
   const onRemove = (id: string) => {
 		const node = myRef.current;
@@ -30,14 +33,14 @@ export const Incomes:FC = () => {
 				{incomes.length ? (
 					incomes.map(income => {
 						return (
-							<BudgetsList key={income.id}>
+							<BudgetsList key={income.incomes_id}>
 								<li ref={myRef}>
 									<div className='transaction'>
-										{income.description}:<span>{income.value}</span>
+										{income.description}:<span>{income.values}</span>
 									</div>
 									<div className='budgets__buttons'>
 										<Edit />
-										<Delete onClick={() => dispatch(deleteIncomes(income.id))} />
+										<Delete onClick={() => dispatch(deleteIncomes(income.incomes_id))} />
 									</div>
 								</li>
 							</BudgetsList>

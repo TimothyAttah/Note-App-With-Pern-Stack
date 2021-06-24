@@ -37,15 +37,15 @@ export type InitialUser = {
 }
 
 export interface Expenses {
-  id: string;
+  expenses_id: string;
   description: string;
-  value: number;
+  values: number;
 }
 
 export interface Incomes {
-  id: string;
+  incomes_id: string;
   description: string;
-  value: number;
+  values: number;
 }
 
 export type InitialExpenses = {
