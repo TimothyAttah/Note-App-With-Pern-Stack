@@ -13,7 +13,7 @@ import {Backdrop} from '../../components/Backdrop'
 const SignUp: FC = () => {
 	return (
 		<Fragment>
-			<Backdrop />
+			<Backdrop close={()=> history.push('/')} />
 			<Modal>
 				<Container>
 					<CloseButton>

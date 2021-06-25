@@ -1,13 +1,8 @@
-import { FC, MouseEvent, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 
 interface Props {
-	//close: MouseEvent<HTMLButtonElement>;
-	//close: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-	// close: (e: MouseEvent<HTMLButtonElement>) => void
-	// close: (e: MouseEvent<HTMLDivElement, MouseEvent>) => void;
-	// close:  MouseEventHandler<HTMLDivElement>
-	 close:  MouseEventHandler<HTMLButtonElement>
+	 close?:  MouseEventHandler<HTMLDivElement>
 }
 
 
@@ -27,12 +22,5 @@ const BackdropWrapper = styled.div`
 `;
 
 
-export const Backdrop: FC = () => {
-  return (
-		<div>
-			<BackdropWrapper></BackdropWrapper>
-		</div>
-	);
-}
-
+export const Backdrop: FC<Props> = ({ close }) => <BackdropWrapper onClick={close}></BackdropWrapper>;
  

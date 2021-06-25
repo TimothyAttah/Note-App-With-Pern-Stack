@@ -13,7 +13,7 @@ import history from '../../history';
 const SignIn: FC = () => {
 	return (
 		<Fragment>
-			<Backdrop />
+			<Backdrop close={() => history.push('/')} />
 			<Modal>
 				<Container>
 					<CloseButton>
