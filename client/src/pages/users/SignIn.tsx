@@ -1,4 +1,4 @@
-import  { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
@@ -8,7 +8,6 @@ import { Modal } from '../../components/modal';
 import { Backdrop } from '../../components/Backdrop';
 import { Container, CloseButton, GoogleBox, Divider, ImgBox } from './Styles';
 import history from '../../history';
-
 
 const SignIn: FC = () => {
 	return (

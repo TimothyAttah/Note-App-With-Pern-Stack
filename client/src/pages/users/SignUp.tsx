@@ -1,19 +1,18 @@
-import  { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
 import SignUpForm from '../../components/forms/SignUpForm';
 import { images } from '../../components/Images';
 import { Container, Divider, GoogleBox, ImgBox, CloseButton } from './Styles';
-import {Modal} from '../../components/modal'
+import { Modal } from '../../components/modal';
 import history from '../../history';
-import {Backdrop} from '../../components/Backdrop'
-
+import { Backdrop } from '../../components/Backdrop';
 
 const SignUp: FC = () => {
 	return (
 		<Fragment>
-			<Backdrop close={()=> history.push('/')} />
+			<Backdrop close={() => history.push('/')} />
 			<Modal>
 				<Container>
 					<CloseButton>
