@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import TodosForm from '../../components/forms/TodosForm';
 import TodosLists from './TodosLists';
 
-
 const MainContainer = styled.main`
 	background: linear-gradient(
 		90deg,
@@ -60,7 +59,6 @@ const TodosContainer = styled.section`
 	}
 `;
 
-
 export const Todos: FC = () => {
 	return (
 		<Fragment>
@@ -74,4 +72,3 @@ export const Todos: FC = () => {
 		</Fragment>
 	);
 };
-
