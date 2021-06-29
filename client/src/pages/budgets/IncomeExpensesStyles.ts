@@ -20,7 +20,7 @@ export const BudgetsContainer = styled.div`
 		max-width: 260px;
 		h2 {
 			font-size: 16px;
-      width: 80px;
+			width: 80px;
 		}
 	}
 `;
