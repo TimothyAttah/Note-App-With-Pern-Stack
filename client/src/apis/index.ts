@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ISigninUser} from '../redux/Interface';
 
-const baseURL = 'http://localhost:5000'
+const baseURL = 'http://localhost:5000/api/v1'
 
 const API = axios.create({ baseURL: baseURL });
 

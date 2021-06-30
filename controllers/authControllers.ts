@@ -21,8 +21,8 @@ const authController: any = {
         'INSERT INTO users (first_name, last_name, user_email, user_password) VALUES($1, $2, $3, $4) RETURNING *',
         [firstName, lastName, email, hashedPassword]
       );
-
-       res.status(200).json({message: 'Signup successfully', users: user.rows[0]})
+         users.rows[0].user_password = undefined;
+       res.status(201).json({message: 'Signup successfully', users: user.rows[0]})
      
    } catch (err) {
      console.error(err.message);
@@ -48,10 +48,13 @@ const authController: any = {
       const payload = {
 				user: { id: users.rows[0].user_id },
 			};
-      const token = await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1hr' });
+      const token = await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1day' });
 
+      
+      
       users.rows[0].user_password = undefined;
-      res.status(200).json({message: 'Signin Successfully', token, results: users.rows[0]})
+      console.log(users);
+      res.status(201).json({message: 'Signin Successfully', token, results: users.rows[0]})
       
     } catch (err) {
       res.status(500).json({ error: err.message })
