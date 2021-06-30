@@ -13,8 +13,9 @@ CREATE TABLE users(
 
 CREATE TABLE todos(
   todo_id SERIAL,
-  user_id UUID,
+  user_id UUID NOT NULL,
   task VARCHAR(255) NOT NULL,
+  isComplete boolean,
   PRIMARY KEY (todo_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

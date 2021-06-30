@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
  app.use('/api/v1/auth', require('./routes/authRoutes'));
-// app.use('/todos', require('./routes/todosRoutes'));
+ app.use('/api/v1/todos', require('./routes/todosRoutes'));
 // app.use('/incomes', require('./routes/incomesRoutes'));
 // app.use('/expenses', require('./routes/expensesRoutes'));
 

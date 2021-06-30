@@ -27,7 +27,7 @@ export const createTodos = (task: object) => async (dispatch: Dispatch) => {
      type: TodosTypes.CREATE_TODOS,
      payload: data.results
    })
-   window.location = '/users/todos' as unknown as Location;
+  // window.location = '/users/todos' as unknown as Location;
    toast.success(data.message)
  } catch (err) {
    	if (err.response && err.response.data) {

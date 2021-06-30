@@ -21,7 +21,7 @@ const authController: any = {
         'INSERT INTO users (first_name, last_name, user_email, user_password) VALUES($1, $2, $3, $4) RETURNING *',
         [firstName, lastName, email, hashedPassword]
       );
-         users.rows[0].user_password = undefined;
+        // users.rows[0].user_password = undefined;
        res.status(201).json({message: 'Signup successfully', users: user.rows[0]})
      
    } catch (err) {

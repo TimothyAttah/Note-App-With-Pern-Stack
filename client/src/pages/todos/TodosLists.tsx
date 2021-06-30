@@ -35,8 +35,8 @@ const TodosLists: FC = () => {
   }
 	return (
 		<Fragment>
-			{todos.length && todos[0].todo_id !== null ? (
-		  	todos.map(todo => {
+			{todos.length ? (
+				todos.map(todo => {
 					return (
 						<TodosItem
 							key={todo.todo_id}
@@ -53,43 +53,8 @@ const TodosLists: FC = () => {
 				</div>
 			)}
 			<div>
-				<h2>
-					{todos.length !== 0 && todos[0].todo_id !== null 
-						? `You have ${todos.length} thing's to do`
-						: ''}
-				</h2>
+				{todos.length > 0 ? <h2>You have {todos.length} things to do</h2> : ''}
 			</div>
-
-			{/* {todos ? (
-				todos.length ? (
-					todos.map(todo => {
-						// return (
-						// 	todo.todo_id !== null &&(
-						// 	<TodosItem
-						// 		key={todo.todo_id}
-						// 		todo={todo}
-						// 		deleteTodos={handleDelete}
-            //     isComplete={handleIsComplete}
-            //     editTodos={handleEdit}
-						// 	/>
-						// 	)
-						// )
-					})
-				) : (
-					<div>
-							<h2>You have nothing to do</h2>
-					</div>
-				)
-			) : (
-				<h2>Loading</h2>
-			)}
-			<div>
-				<h2>
-					{todos && todo.todo_id && todos.length > 0
-						? `You have ${todos.length} things to do`
-						: ''}
-				</h2>
-			</div> */}
 		</Fragment>
 	);
 };

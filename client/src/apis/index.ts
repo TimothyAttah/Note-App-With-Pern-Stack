@@ -20,7 +20,7 @@ export const getUsers = () => API.get('/auth');
 
 export const createTodos = (todos: object) => API.post('/todos/create', todos);
 
-export const listsTodos = () => API.get('/todos');
+export const listsTodos = () => API.get('/todos/auth');
 
 export const deleteTodos = (id: number) => API.delete(`/todos/delete/${id}`);
 

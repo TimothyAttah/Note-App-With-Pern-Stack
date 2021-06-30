@@ -3,25 +3,60 @@ const Todos = require('../config/db');
 const todosControllers = {
   createTodos: async (req:any, res:any) => {
     try {
-      const { task } = req.body;
+      const { task, isComplete } = req.body;
       if (!task) return res.status(422).json({ error: 'Please enter a todo' })
-      const todos = await Todos.query('INSERT INTO todos (user_id, task) VALUES ($1, $2) RETURNING *', [req.user.id, task])
-      res.status(200).json({message: 'New todo added', results: todos.rows[0]})
+      const todos = await Todos.query('INSERT INTO todos (user_id, task, isComplete) VALUES ($1, $2, $3) RETURNING *', [req.user.id, task, isComplete])
+      res.status(201).json({message: 'New todo added', results: todos.rows[0]})
     } catch (err) {
       res.status(500).json({ error: err });
       console.log(err);
     }
   },
-  getTodos: async (req: any, res: any) => {
-    try {
-      const todos = await Todos.query(
-        'SELECT * FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
-        [req.user.id]
-      );
-       res.status(200).json({todos: todos.rows});
+  // getTodos: async (req: any, res: any) => {
+  //   try {
+  //     const todos = await Todos.query(
+  //       'SELECT * FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
+  //       [req.user.id]
+  //     );
+  //      res.status(200).json({todos: todos.rows});
       
+  //   } catch (err) {
+  //      res.status(500).json({ error: err.message });
+	// 			console.error(err);
+  //   }
+  // },
+
+  getAllTodos: async (req: any, res: any) => {
+    try {
+      const allTodos = await Todos.query(
+        'select * from  todos'
+      )
+      console.log(allTodos);
+      
+      res.status(200).json({
+        total: allTodos.rows.length,
+        todos: allTodos.rows
+      });
+		} catch (err) {
+			res.status(500).json({ error: err.message });
+			console.error(err);
+		}
+  },
+
+  getMyTodos: async (req: any, res: any) => {
+    try {
+      const myTodos = await Todos.query(
+				'select * from todos where user_id = $1',
+				[req.user.id]
+      );
+       console.log(myTodos);
+
+				res.status(200).json({
+					total: myTodos.rows.length,
+					todos: myTodos.rows,
+				});
     } catch (err) {
-       res.status(500).json({ error: err.message });
+      	res.status(500).json({ error: err.message });
 				console.error(err);
     }
   },
