@@ -8,6 +8,7 @@ export enum UsersTypes {
 export enum TodosTypes {
   CREATE_TODOS = 'CREATE_TODOS',
   LISTS_TODOS = 'LISTS_TODOS',
+  LISTS_TODO = 'LISTS_TODO',
   EDIT_TODOS = 'EDIT_TODOS',
   DELETE_TODOS = 'DELETE_TODOS',
   TOGGLE_TODOS = 'TOGGLE_TODOS'

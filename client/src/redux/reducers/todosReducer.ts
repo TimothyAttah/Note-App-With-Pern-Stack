@@ -19,6 +19,7 @@ const initialState: InitialTodos = {
 export const todosReducer = (state = initialState, action: TodosActionTypes) => {
   switch (action.type) {
     case TodosTypes.LISTS_TODOS:
+    case TodosTypes.LISTS_TODO:
 			return {
 				...state,
 				todos: action.payload

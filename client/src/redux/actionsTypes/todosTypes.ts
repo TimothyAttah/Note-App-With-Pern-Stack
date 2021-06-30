@@ -6,6 +6,11 @@ interface ListsTodos {
   payload: object;
 }
 
+interface ListsTodo {
+  type: TodosTypes.LISTS_TODO;
+  payload: object;
+}
+
 interface CreateTodos {
   type: TodosTypes.CREATE_TODOS;
   payload: object;
@@ -29,4 +34,4 @@ interface ToggleTodos {
   payload: ITodos;
 }
 
-export type TodosActionTypes = ListsTodos | CreateTodos | EditTodos | DeleteTodos | ToggleTodos
+export type TodosActionTypes = ListsTodos | CreateTodos | EditTodos | DeleteTodos | ToggleTodos | ListsTodo

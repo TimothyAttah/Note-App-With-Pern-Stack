@@ -12,27 +12,10 @@ const todosControllers = {
       console.log(err);
     }
   },
-  // getTodos: async (req: any, res: any) => {
-  //   try {
-  //     const todos = await Todos.query(
-  //       'SELECT * FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
-  //       [req.user.id]
-  //     );
-  //      res.status(200).json({todos: todos.rows});
-      
-  //   } catch (err) {
-  //      res.status(500).json({ error: err.message });
-	// 			console.error(err);
-  //   }
-  // },
 
   getAllTodos: async (req: any, res: any) => {
     try {
-      const allTodos = await Todos.query(
-        'select * from  todos'
-      )
-      console.log(allTodos);
-      
+      const allTodos = await Todos.query('select * from  todos');
       res.status(200).json({
         total: allTodos.rows.length,
         todos: allTodos.rows
@@ -49,12 +32,27 @@ const todosControllers = {
 				'select * from todos where user_id = $1',
 				[req.user.id]
       );
-       console.log(myTodos);
 
 				res.status(200).json({
 					total: myTodos.rows.length,
 					todos: myTodos.rows,
 				});
+    } catch (err) {
+      	res.status(500).json({ error: err.message });
+				console.error(err);
+    }
+  },
+
+  getATodo: async (req: any, res: any) => {
+    try {
+      const { id } = req.params;
+      const todos = await Todos.query(
+        'select * from todos where todo_id = $1 and user_id = $2 returning *',
+        [id, req.user.id]
+      );
+      console.log(todos);
+      
+      res.status(200).json({message: 'Success', todos: todos.rows[0]})
     } catch (err) {
       	res.status(500).json({ error: err.message });
 				console.error(err);

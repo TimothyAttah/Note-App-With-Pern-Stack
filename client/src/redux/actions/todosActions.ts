@@ -20,6 +20,21 @@ export const listsTodos = () => async (dispatch: Dispatch) => {
  }
 }
 
+export const listsTodo = (id: number) => async (dispatch: Dispatch) => {
+ try {
+   const { data } = await api.listsTodo(id);
+   console.log(data);
+   
+   dispatch<TodosActionTypes>({
+     type: TodosTypes.LISTS_TODO,
+     payload: data.todos
+   })
+ } catch (err) {
+   console.log(err);
+   
+ }
+}
+
 export const createTodos = (task: object) => async (dispatch: Dispatch) => {
  try {
    const { data } = await api.createTodos(task);

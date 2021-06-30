@@ -10,6 +10,8 @@ todosRouter.get('/', todosController.getAllTodos);
 
 todosRouter.get('/auth', todosAuth, todosController.getMyTodos);
 
+todosRouter.get('/auth/:id', todosAuth, todosController.getATodo);
+
 todosRouter.put('/update/:id', todosAuth, todosController.updateTodos);
 
 todosRouter.delete('/delete/:id', todosAuth, todosController.deleteTodos);

@@ -21,7 +21,6 @@ const authController: any = {
         'INSERT INTO users (first_name, last_name, user_email, user_password) VALUES($1, $2, $3, $4) RETURNING *',
         [firstName, lastName, email, hashedPassword]
       );
-        // users.rows[0].user_password = undefined;
        res.status(201).json({message: 'Signup successfully', users: user.rows[0]})
      
    } catch (err) {
@@ -70,6 +69,7 @@ const authController: any = {
 			console.error(err);
     }
   },
+
   getAuthUser: async (req: any, res: any) => {
     try {
       const authUser = await User.query(
@@ -77,7 +77,6 @@ const authController: any = {
         [req.user.id]
       );
 
-      // authUser.rows[0].user_password = undefined;
        res.status(200).json(authUser.rows);
       console.log(req.user);
       
