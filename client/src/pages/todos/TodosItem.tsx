@@ -3,7 +3,7 @@ import styled from 'styled-components';
  import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
-	listsTodos,
+	listsTodo,
 	deleteTodo,
 	toggleTodos,
 	editTodos,
@@ -11,6 +11,8 @@ import {
 
 
 import { ITodos, DeleteTodos, IsCompleteTodos, EditTodos } from '../../redux/Interface';
+import history from '../../history';
+import { useEffect } from 'react';
 
 const TodosItemContainer = styled.ul`
 position: relative;
@@ -110,10 +112,17 @@ interface ListsTodosItemProps {
 const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, editTodo }) => {
    const dispatch = useDispatch()
 	 const myRef = createRef<HTMLLIElement>()
-  const  todosId  = useParams();
+  const  id: object  = useParams();
 
   const [onEdit, setOnEdit] = useState<boolean>(false);
-  const [editVal, setEditVal] = useState({task: todo.task})
+	// const [editVal, setEditVal] = useState({ task: todo.task })
+	const [editVal, setEditVal] = useState(todo.task)
+	
+	useEffect(() => {
+		// if (editVal) setEditVal(todo.task);
+		dispatch(listsTodo(id))
+	}, [id, dispatch])
+	
   
   const onRemove = (id: number) => {
 		const node = myRef.current
@@ -123,9 +132,10 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
    }, 500)
   }
 
-  const handleEditValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setEditVal({...editVal, [e.target.name]: e.target.value});
-	}
+  // const handleEditValue = (e: ChangeEvent<HTMLInputElement>) => {
+  //   // setEditVal({...editVal, [e.target.name]: e.target.value});
+
+	// }
 	
 	
 
@@ -138,10 +148,11 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 	}
 	
 
-  const onOpenEdit = () => {
+  const onOpenEdit = (id:number) => {
 		setOnEdit(true)
-	console.log('todosId:', todosId);
-  }
+		history.push(`/users/todos/${id}/update`)
+	}
+	
 
 	return (
 		<Fragment>
@@ -151,10 +162,10 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 						<TodosItemLeft>
 							<input
 								type='text'
-								value={editVal.task}
+								value={editVal}
 								name='task'
 								className='checkbox'
-								onChange={handleEditValue}
+								onChange={(e) => setEditVal(e.target.value)}
 							/>
 						</TodosItemLeft>
 						<TodosItemRight>
@@ -177,7 +188,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 							</div>
 						</TodosItemLeft>
 						<TodosItemRight>
-							<button onClick={onOpenEdit }>Edit</button>
+							<button onClick={() => onOpenEdit(todo.todo_id) }>Edit</button>
 							{/* <button onClick={() => onRemove(todo.todo_id)}>Delete</button> */}
 							<button onClick={() => dispatch(deleteTodo(todo.todo_id))}>Delete</button>
 						</TodosItemRight>

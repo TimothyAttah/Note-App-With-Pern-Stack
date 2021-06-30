@@ -47,8 +47,8 @@ const todosControllers = {
     try {
       const { id } = req.params;
       const todos = await Todos.query(
-        'select * from todos where todo_id = $1 and user_id = $2 returning *',
-        [id, req.user.id]
+        'select * from todos where todo_id = $1 returning *',
+        [id]
       );
       console.log(todos);
       

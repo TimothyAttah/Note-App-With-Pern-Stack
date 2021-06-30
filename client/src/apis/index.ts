@@ -22,7 +22,7 @@ export const createTodos = (todos: object) => API.post('/todos/create', todos);
 
 export const listsTodos = () => API.get('/todos/auth');
 
-export const listsTodo = (id: number) => API.get(`/todos/auth/${id}`);
+export const listsTodo = (id: object) => API.get(`/todos/auth/${id}`);
 
 export const deleteTodos = (id: number) => API.delete(`/todos/delete/${id}`);
 

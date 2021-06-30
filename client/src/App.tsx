@@ -32,7 +32,7 @@ const App: FC = () => {
 				{user ? (
 					<Switch>
 						<Route path='/users/todos' exact component={Todos} />
-            <Route path='/users/todos/:todosId' component={Todos} />
+            <Route path='/users/todos/:id/update' component={Todos} />
             <Route path='/users/budgets' exact component={Budgets} />
             <Redirect to='/users/todos' />
 					</Switch>
