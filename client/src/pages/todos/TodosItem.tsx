@@ -123,13 +123,13 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 	}, [id, dispatch])
 	
   
-  const onRemove = (id: number) => {
-		const node = myRef.current
-		if (node) return node.className = 'active';
-    setTimeout(() => {
-     dispatch(deleteTodo(id))
-   }, 500)
-  }
+  // const onRemove = (id: number) => {
+	// 	const node = myRef.current
+	// 	if (node) return node.className = 'active';
+  //   setTimeout(() => {
+  //    dispatch(deleteTodo(id))
+  //  }, 500)
+  // }
 
   // const handleEditValue = (e: ChangeEvent<HTMLInputElement>) => {
   //   // setEditVal({...editVal, [e.target.name]: e.target.value});
@@ -137,13 +137,13 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
 	// }
 
 
-  const handleSave: EditTodos = (id, todos) => {
-    // if (editVal === '') {
-    //   // editTodos(id, todos)
-    //   // console.log(editVal);
-    //   setEditVal({editVal: todo.task})
-    // }
-	}
+  // const handleSave: EditTodos = (id, todos) => {
+  //   // if (editVal === '') {
+  //   //   // editTodos(id, todos)
+  //   //   // console.log(editVal);
+  //   //   setEditVal({editVal: todo.task})
+  //   // }
+	// }
 	
 
   const onOpenEdit = (id:number) => {
