@@ -1,11 +1,10 @@
-import  { FC, Fragment, useState, createRef, ChangeEvent } from 'react';
+import  { FC, Fragment, useState, createRef } from 'react';
 import styled from 'styled-components';
  import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
 	listsTodo,
 	deleteTodo,
-	toggleTodos,
 	editTodos,
 } from '../../redux/actions/todosActions';
 
@@ -136,8 +135,7 @@ const TodosItem: FC<ListsTodosItemProps> = ({ todo, deleteTodos, isComplete, edi
   //   // setEditVal({...editVal, [e.target.name]: e.target.value});
 
 	// }
-	
-	
+
 
   const handleSave: EditTodos = (id, todos) => {
     // if (editVal === '') {
