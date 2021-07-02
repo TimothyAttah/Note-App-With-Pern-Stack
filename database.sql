@@ -22,7 +22,7 @@ CREATE TABLE todos(
 
 CREATE TABLE incomes(
   incomes_id uuid DEFAULT uuid_generate_v4(),
-  user_id UUID,
+  user_id UUID NOT NULL,
   description VARCHAR(255) NOT NULL,
   values INTEGER NOT NULL,
   PRIMARY KEY (incomes_id),
