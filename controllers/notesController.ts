@@ -6,7 +6,7 @@ const notesControllers = {
       const { description, values } = req.body;
       if (!description || !values)
         return res.status(422).json({ error: 'Please enter all fields' });
-      const incomes = await Incomes.query(
+      const incomes = await Notes.query(
         'INSERT INTO incomes(user_id, description, values) VALUES($1, $2, $3) RETURNING * ',
         [req.user.id, description, values]
       );
@@ -21,7 +21,7 @@ const notesControllers = {
       const { description, values } = req.body;
       if (!description || !values)
         return res.status(422).json({ error: 'Please enter all fields' });
-      const incomes = await Incomes.query(
+      const incomes = await Notes.query(
         'INSERT INTO incomes(user_id, description, values) VALUES($1, $2, $3) RETURNING * ',
         [req.user.id, description, values]
       );

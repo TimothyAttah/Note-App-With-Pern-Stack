@@ -48,9 +48,6 @@ const authController: any = {
 				user: { id: users.rows[0].user_id },
 			};
       const token = await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1day' });
-
-      
-      
       users.rows[0].user_password = undefined;
       console.log(users);
       res.status(201).json({message: 'Signin Successfully', token, results: users.rows[0]})
