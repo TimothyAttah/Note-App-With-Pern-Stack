@@ -29,7 +29,7 @@ const notesControllers = {
 			);
 			res
 				.status(200)
-				.json({ message: 'New income added', results: incomes.rows[0] });
+				.json({ message: 'New note added', results: incomes.rows[0] });
 		} catch (err) {
 			console.error(err);
 			return res.status(500).json({ error: err });
