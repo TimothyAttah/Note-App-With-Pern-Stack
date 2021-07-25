@@ -38,5 +38,32 @@ CREATE TABLE expenses(
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+
+
+--  Test DATABASE
+ CREATE TABLE users(
+ UserId SERIAL PRIMARY KEY,
+ FirstName VARCHAR(255) NOT NULL,
+ LastName VARCHAR(255) NOT NULL,
+ Email VARCHAR(255) NOT NULL UNIQUE,
+ Password VARCHAR(255) NOT NULL,
+ ProfilePicture VARCHAR(500),
+ CoverPicture VARCHAR(500),
+ Followers TEXT[],
+ Followings TEXT[],
+ IsAdmin boolean,
+ Description VARCHAR(255),
+ City VARCHAR(255),
+ Country VARCHAR(255),
+ Relationship INTEGER,
+ CreatedAt DATE);
+
+
+
+INSERT INTO users(FirstName, LastName, Email, Password) VALUES ('John', 'McCall', 'john@gmail.com', '123456');
+
+
+
+
 INSERT INTO users(first_name, last_name, user_email, user_password) VALUES ('Jane', 'Doe', 'jane@gmail.com', '123456');
 INSERT INTO expenses(description, values) VALUES ('Salary', 5000);
