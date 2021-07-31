@@ -1,26 +1,9 @@
-import { v4 } from 'uuid'
 import { ExpensesActionTypes } from '../actionsTypes/expensesTypes'
 import { InitialExpenses } from '../Interface'
 import { ExpensesTypes } from '../types'
 
 const initialState: InitialExpenses  = {
-  expenses: [
-    // {
-    //   id: v4(),
-    //   description: 'Bought cars',
-    //   value: 5000
-    // },
-    // {
-    //   id: v4(),
-    //   description: 'Paid house rent',
-    //   value: 2000
-    // },
-    // {
-    //   id: v4(),
-    //   description: 'Groceries',
-    //   value: 1000
-    // },
-  ]
+  expenses: []
 }
 
 export const expensesReducer = (state = initialState, action: ExpensesActionTypes) => {
