@@ -8,11 +8,10 @@ app.use(cors());
 
  app.use('/api/v1/auth', require('./routes/authRoutes'));
  app.use('/api/v1/todos', require('./routes/todosRoutes'));
-// app.use('/incomes', require('./routes/incomesRoutes'));
 // app.use('/expenses', require('./routes/expensesRoutes'));
 
 app.use('/', (req: any, res: any) => {
-  hello: 'world post!!!'
+  hello: 'This is a testing app.'
 })
 
 const PORT = process.env.PORT || 5000;
