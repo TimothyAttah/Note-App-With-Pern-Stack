@@ -77,12 +77,10 @@ const todosControllers = {
 					.status(403)
 					.json({ error: 'This todo is not yours. Authorization denied.' });
 			}
-			res
-				.status(200)
-				.json({
-					message: 'Todo updated successfully!!!',
-					results: updateTodo.rows[0],
-				});
+			res.status(200).json({
+				message: 'Todo updated successfully!!!',
+				results: updateTodo.rows[0],
+			});
 		} catch (err) {
 			res.status(500).json({ error: err });
 			console.log(err);
