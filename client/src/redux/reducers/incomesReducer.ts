@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import { IncomesActionTypes } from '../actionsTypes/incomesTypes';
 import { InitialIncomes } from '../Interface';
 import { IncomesTypes } from '../types';
@@ -36,7 +35,7 @@ export const incomesReducer = (
 		case IncomesTypes.LISTS_INCOMES:
 			return {
 				...state,
-				incomes: action.payload
+				incomes: action.payload,
 			};
 		case IncomesTypes.CREATE_INCOMES:
 			return {
@@ -53,7 +52,9 @@ export const incomesReducer = (
 		case IncomesTypes.DELETE_INCOMES:
 			return {
 				...state,
-				incomes: state.incomes.filter(income => income.incomes_id !== action.payload),
+				incomes: state.incomes.filter(
+					income => income.incomes_id !== action.payload
+				),
 			};
 		default:
 			return state;

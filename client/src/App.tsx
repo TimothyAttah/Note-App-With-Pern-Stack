@@ -1,30 +1,29 @@
 import React, { FC, Fragment, useEffect } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify';
 
-import {Headers} from './components/header/Headers';
+import { Headers } from './components/header/Headers';
 import history from './history';
-import {Todos} from './pages/todos/Todos';
+import { Todos } from './pages/todos/Todos';
 import SignIn from './pages/users/SignIn';
 import SignUp from './pages/users/SignUp';
-import { user} from './components/NameInitial';
+import { user } from './components/NameInitial';
 import { getUsers } from './redux/actions/authActions';
-import {Nav} from './components/nav/Nav'
+import { Nav } from './components/nav/Nav';
 import { Budgets } from './pages/budgets/Budgets';
 
-
 const App: FC = () => {
-  toast.configure();
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (user) {
-      dispatch(getUsers())
-    } else {
-      history.push('/auth/users/signin');
-    }
-  },[dispatch])
-  return (
+	toast.configure();
+	const dispatch = useDispatch();
+	useEffect(() => {
+		if (user) {
+			dispatch(getUsers());
+		} else {
+			history.push('/auth/users/signin');
+		}
+	}, [dispatch]);
+	return (
 		<Fragment>
 			<Router history={history}>
 				<Headers />
@@ -32,9 +31,9 @@ const App: FC = () => {
 				{user ? (
 					<Switch>
 						<Route path='/users/todos' exact component={Todos} />
-            <Route path='/users/todos/:id/update' component={Todos} />
-            <Route path='/users/budgets' exact component={Budgets} />
-            <Redirect to='/users/todos' />
+						<Route path='/users/todos/:id/update' component={Todos} />
+						<Route path='/users/budgets' exact component={Budgets} />
+						<Redirect to='/users/todos' />
 					</Switch>
 				) : (
 					<Switch>
@@ -52,6 +51,6 @@ const App: FC = () => {
 			</Router>
 		</Fragment>
 	);
-}
+};
 
 export default App;
