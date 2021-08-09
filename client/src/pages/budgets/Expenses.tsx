@@ -147,7 +147,7 @@ export const Expenses: FC = () => {
 					})
 				) : (
 					<div>
-						<h2>You don't have any expense</h2>
+						<h2>You don't have any expenses</h2>
 					</div>
 				)}
 			</BudgetsContainer>

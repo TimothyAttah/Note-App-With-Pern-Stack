@@ -2,31 +2,32 @@ import { FC, Fragment, useEffect, createRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Delete, Edit } from '@material-ui/icons';
 
-import { listsIncomes, deleteIncomes } from '../../redux/actions/incomesActions';
+import {
+	listsIncomes,
+	deleteIncomes,
+} from '../../redux/actions/incomesActions';
 import { StoreState } from '../../redux/reducers';
-import {BudgetsContainer, BudgetsList} from './IncomeExpensesStyles'
+import { BudgetsContainer, BudgetsList } from './IncomeExpensesStyles';
 
-
-export const Incomes:FC = () => {
-  const dispatch = useDispatch();
-  const myRef = createRef<HTMLLIElement>();
-  useEffect(() => {
-    dispatch(listsIncomes())
-  }, [dispatch]);
+export const Incomes: FC = () => {
+	const dispatch = useDispatch();
+	const myRef = createRef<HTMLLIElement>();
+	useEffect(() => {
+		dispatch(listsIncomes());
+	}, [dispatch]);
 	const { incomes } = useSelector((state: StoreState) => state.incomes);
-	
-	console.log(incomes);
-	
 
-  const onRemove = (id: string) => {
+	console.log(incomes);
+
+	const onRemove = (id: string) => {
 		const node = myRef.current;
 		if (node) return (node.className = 'active');
 		setTimeout(() => {
 			return dispatch(deleteIncomes(id));
 		}, 500);
 	};
-  
-  return (
+
+	return (
 		<Fragment>
 			<BudgetsContainer>
 				<h2>Income Transactions</h2>
@@ -40,7 +41,9 @@ export const Incomes:FC = () => {
 									</div>
 									<div className='budgets__buttons'>
 										<Edit />
-										<Delete onClick={() => dispatch(deleteIncomes(income.incomes_id))} />
+										<Delete
+											onClick={() => dispatch(deleteIncomes(income.incomes_id))}
+										/>
 									</div>
 								</li>
 							</BudgetsList>
@@ -54,4 +57,4 @@ export const Incomes:FC = () => {
 			</BudgetsContainer>
 		</Fragment>
 	);
-}
+};
