@@ -3,14 +3,7 @@ import { InitialTodos } from '../Interface';
 import { TodosActionTypes } from '../actionsTypes/todosTypes';
 
 const initialState: InitialTodos = {
-	todos: [
-		// {
-		// 	todo_id: v4(),
-		// 	task: 'Get a job',
-		// 	isComplete: true,
-		// 	date: 'Today at 12:00',
-		// },
-	],
+	todos: [],
 	isLoading: false,
 };
 

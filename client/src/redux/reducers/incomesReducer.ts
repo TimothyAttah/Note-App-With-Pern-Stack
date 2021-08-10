@@ -3,28 +3,7 @@ import { InitialIncomes } from '../Interface';
 import { IncomesTypes } from '../types';
 
 const initialState: InitialIncomes = {
-	incomes: [
-		// {
-		// 	id: v4(),
-		// 	description: 'Finish projects',
-		// 	value: 3000,
-		// },
-		// {
-		// 	id: v4(),
-		// 	description: 'Salary',
-		// 	value: 4000000,
-		// },
-		// {
-		// 	id: v4(),
-		// 	description: 'Testing',
-		// 	value: 1000,
-		// },
-		// {
-		// 	id: v4(),
-		// 	description: 'Side job',
-		// 	value: 2000,
-		// },
-	],
+	incomes: [],
 };
 
 export const incomesReducer = (
