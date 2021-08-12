@@ -1,10 +1,10 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import {useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../redux/actions/authActions';
 import styled from 'styled-components';
 
 const FormContainer = styled.form`
-margin: 20px 0;
+	margin: 20px 0;
 	label {
 		font-weight: bolder;
 	}
@@ -34,23 +34,23 @@ margin: 20px 0;
 `;
 
 const SignUpForm: FC = () => {
-  const dispatch = useDispatch();
-  const [userData, setUserData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  })
+	const dispatch = useDispatch();
+	const [userData, setUserData] = useState({
+		firstName: '',
+		lastName: '',
+		email: '',
+		password: '',
+	});
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>{
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-  }
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setUserData({ ...userData, [e.target.name]: e.target.value });
+	};
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    dispatch(signUpUser(userData));
-  }
-  return (
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		dispatch(signUpUser(userData));
+	};
+	return (
 		<div>
 			<FormContainer onSubmit={handleSubmit}>
 				<label htmlFor='firstName'>First Name:</label>
@@ -89,6 +89,6 @@ const SignUpForm: FC = () => {
 			</FormContainer>
 		</div>
 	);
-}
+};
 
 export default SignUpForm;

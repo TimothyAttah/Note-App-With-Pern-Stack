@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { createTodos } from '../../redux/actions/todosActions';
 import { ITodosForm } from '../../redux/Interface';
 
-
 const FormContainer = styled.form`
 	height: 50px;
 	display: flex;

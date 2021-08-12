@@ -1,42 +1,41 @@
-import { FC, FormEvent, Fragment, useState } from 'react'
+import { FC, FormEvent, Fragment, useState } from 'react';
 import { Button } from '@material-ui/core';
-import { Add,  } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
 import { createIncomes } from '../../redux/actions/incomesActions';
 import { createExpenses } from '../../redux/actions/expensesActions';
 import { v4 } from 'uuid';
 import { BudgetsModal } from '../modal/BudgetsModal';
-import {ModalBox, ExpensesForm, IncomesForm} from './BudgetsFormStyles'
-
+import { ModalBox, ExpensesForm, IncomesForm } from './BudgetsFormStyles';
 
 export const BudgetsForm: FC = () => {
-  	const [isOpen, setIsOpen] = useState(false);
-		const [description, setDescription] = useState('');
-		const [value, setValue] = useState('');
-  const dispatch = useDispatch();
-  
-  	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-			e.preventDefault();
-      const newTransaction = {
-        id: v4(),
-				description,
-				values: parseInt(value),
-			};
+	const [isOpen, setIsOpen] = useState(false);
+	const [description, setDescription] = useState('');
+	const [value, setValue] = useState('');
+	const dispatch = useDispatch();
 
-			if (isOpen) {
-				dispatch(createExpenses(newTransaction));
-			} else {
-        // if (description && value !== '') {
-        //   dispatch(createIncomes(newTransaction));
-        // }
-				dispatch(createIncomes(newTransaction));
-			}
-
-			setDescription('');
-			setValue('');
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const newTransaction = {
+			id: v4(),
+			description,
+			values: parseInt(value),
 		};
-  return (
+
+		if (isOpen) {
+			dispatch(createExpenses(newTransaction));
+		} else {
+			// if (description && value !== '') {
+			//   dispatch(createIncomes(newTransaction));
+			// }
+			dispatch(createIncomes(newTransaction));
+		}
+
+		setDescription('');
+		setValue('');
+	};
+	return (
 		<Fragment>
 			<ModalBox>
 				<h4>Choose Transaction </h4>
@@ -96,4 +95,4 @@ export const BudgetsForm: FC = () => {
 			)}
 		</Fragment>
 	);
-}
+};

@@ -4,7 +4,7 @@ export const ModalBox = styled.div`
 	display: flex;
 	align-items: center;
 	margin-left: 100px;
-  margin-top: 20px;
+	margin-top: 20px;
 	@media (max-width: 780px) {
 		margin-left: 10px;
 	}
