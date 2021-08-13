@@ -18,16 +18,4 @@ const notesControllers = {
 			return res.status(500).json({ error: err });
 		}
 	},
-	getExpenses: async (req: any, res: any) => {
-		try {
-			const expenses = await Notes.query(
-				'SELECT * FROM users LEFT JOIN expenses ON users.user_id = expenses.user_id WHERE users.user_id = $1',
-				[req.user.id]
-			);
-			res.status(200).json({ expenses: expenses.rows });
-		} catch (err) {
-			console.error(err);
-			return res.status(500).json({ error: err });
-		}
-	},
 };
