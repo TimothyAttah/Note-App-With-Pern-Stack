@@ -56,7 +56,7 @@ export const TotalIncomes = styled.div`
 	span {
 		position: absolute;
 		right: 20px;
-		opacity: 0.8;
+		opacity: 0.7;
 	}
 `;
 
