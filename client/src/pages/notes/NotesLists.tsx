@@ -17,6 +17,7 @@ import {
   NoteContainerPrimary,
   NoteTop,
 } from './NotesListStyles';
+import { Popup } from "../../components/nav/Popup";
 
 
 export const NotesLists: FC = () => {
@@ -68,9 +69,7 @@ export const NotesLists: FC = () => {
 									<small>
 										{moment(note.createdAt).format('llll')}
 									</small>
-									<IconButton>
-										<MoreVert />
-									</IconButton>
+									<Popup note={note} />
 								</NoteCenterBottom>
 								<Divider />
 								<NoteBottom>
