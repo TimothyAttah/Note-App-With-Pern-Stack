@@ -1,20 +1,10 @@
 import { FC, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
-import { navMenu } from '../helpers';
 import { Button, Drawer, IconButton } from '@material-ui/core';
-import { AddCircle, AddOutlined, Menu } from '@material-ui/icons';
+import { AddCircle, Menu } from '@material-ui/icons';
 
-import {
-	NavContainer,
-	NavsLeft,
-	NavsRight,
-	activeNav,
-	SidebarContainer,
-	Sidebars,
-	NavLists,
-	MenuBar,
-} from './NavStyles';
+import { navMenu } from '../helper/Helper';
+import { NavCenter, NavRight, NavContainer, ActiveLink } from './NavStyles';
 
 export const Nav: FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -22,55 +12,50 @@ export const Nav: FC = () => {
 		setIsOpen(true);
 	};
 	return (
-		<NavContainer>
-			<MenuBar>
-				<IconButton onClick={handleDrawer}>
-					<Menu />
-				</IconButton>
-			</MenuBar>
-			<NavLists>
-				{navMenu.nav.map((item, index) => {
-					return (
-						<li key={index}>
-							<NavLink to={item.url} exact activeStyle={activeNav}>
-								{item.name}
-								<span>{item.icon}</span>
-							</NavLink>
-						</li>
-					);
-				})}
-			</NavLists>
-			<NavsLeft>
-				<Link to='/api/users/notes/create/note'>
-					<Button>
-						<AddOutlined />
-						Create Note
-					</Button>
-				</Link>
-			</NavsLeft>
-			<NavsRight>
-				<Link to='/api/users/notes/create/note'>
-					<IconButton>
-						<AddCircle />
+		<div>
+			<NavContainer>
+				<div>
+					<IconButton onClick={handleDrawer}>
+						<Menu htmlColor='white' />
 					</IconButton>
-				</Link>
-			</NavsRight>
+				</div>
+				<NavCenter>
+					{navMenu.nav.map((item, index) => {
+						return (
+							<li key={index}>
+								<NavLink to={item.path} exact activeStyle={ActiveLink}>
+									{item.name}
+									<span>{item.icon}</span>
+								</NavLink>
+							</li>
+						);
+					})}
+				</NavCenter>
+				<NavRight className='nav__right'>
+					<Link to='/users/notes/create/note'>
+						<Button variant='contained'>
+							<AddCircle />
+							<span className='txt'>Create Note</span>
+						</Button>
+					</Link>
+				</NavRight>
+			</NavContainer>
 			<Drawer anchor='left' open={isOpen} onClose={() => setIsOpen(false)}>
-				<SidebarContainer>
-					<Sidebars>
+				<div className='drawer__container'>
+					<ul>
 						{navMenu.nav.map((item, index) => {
 							return (
 								<li key={index}>
-									<NavLink to={item.url} exact activeStyle={activeNav}>
+									<NavLink to={item.path} exact>
 										{item.name}
 										<span>{item.icon}</span>
 									</NavLink>
 								</li>
 							);
 						})}
-					</Sidebars>
-				</SidebarContainer>
+					</ul>
+				</div>
 			</Drawer>
-		</NavContainer>
+		</div>
 	);
 };

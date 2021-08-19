@@ -1,12 +1,14 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { Button } from '@material-ui/core';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { signInUser } from '../../redux/actions/authActions';
+// import { useDispatch } from 'react-redux';
+
+// import { signIn } from '../../redux/actions/auth';
 
 const FormContainer = styled.form`
 	margin: 20px 0;
 	label {
-		font-weight: bolder;
+		font-weight: var(--fw-bold);
 	}
 	input {
 		display: block;
@@ -16,6 +18,7 @@ const FormContainer = styled.form`
 		margin-bottom: 20px;
 		padding: 15px;
 		border-radius: 5px;
+		font-size: 1rem;
 		background: rgba(196, 196, 196, 0.05);
 		::placeholder {
 			color: var(--gray-4);
@@ -23,32 +26,39 @@ const FormContainer = styled.form`
 	}
 	button {
 		width: 100%;
-		padding: 15px;
+		padding: 12px;
 		border-radius: 5px;
 		background-color: var(--sky-blue);
-		color: var(--white);
+		color: var(--clr-light);
+		font-weight: var(--fw-bold);
 		:hover {
 			background-color: var(--darker-sky-blue);
 		}
 	}
 `;
 
-const SignInForm: FC = () => {
-	const dispatch = useDispatch();
+export const SigninForm = () => {
+	// const dispatch = useDispatch();
+	// const {isLoading }= useSelector( state => state.auth )
+
+	// const [isFetching, setIsFetching] = useState(isLoading)
 	const [userData, setUserData] = useState({
 		email: '',
 		password: '',
 	});
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
 		setUserData({ ...userData, [e.target.name]: e.target.value });
 	};
+
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		dispatch(signInUser(userData));
+		// dispatch(signIn(userData));
+		// setIsFetching( !isLoading )
+		// setIsFetching(isLoading)
 	};
 	return (
-		<div>
+		<>
 			<FormContainer onSubmit={handleSubmit}>
 				<label htmlFor='email'>Email Address:</label>
 				<input
@@ -66,10 +76,12 @@ const SignInForm: FC = () => {
 					value={userData.password}
 					onChange={handleChange}
 				/>
-				<button>Sign In</button>
+				{/* <Button type="submit" variant='contained'>{isFetching ? 'Loading': 'Sign In'}</Button> */}
+				<Button type='submit' variant='contained'>
+					{' '}
+					Sign In
+				</Button>
 			</FormContainer>
-		</div>
+		</>
 	);
 };
-
-export default SignInForm;

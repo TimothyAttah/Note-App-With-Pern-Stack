@@ -1,56 +1,51 @@
-import React, { FC, Fragment, useEffect } from 'react';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-
-import { Headers } from './components/header/Headers';
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import { Header } from './components/header/Header';
 import history from './history';
-import { Todos } from './pages/todos/Todos';
-import SignIn from './pages/users/SignIn';
-import SignUp from './pages/users/SignUp';
-import { user } from './components/NameInitial';
-import { getUsers } from './redux/actions/authActions';
-import { Nav } from './components/nav/Nav';
-import { Budgets } from './pages/budgets/Budgets';
+import { Home } from './pages/home/Home';
+import { Notes } from './pages/notes/Notes';
+import { NotesCreate } from './pages/notes/NotesCreate';
+import { Profile } from './pages/profile/Profile';
+import { Signin } from './pages/user/Signin';
+import { Signup } from './pages/user/Signup';
 
-const App: FC = () => {
-	toast.configure();
-	const dispatch = useDispatch();
-	useEffect(() => {
-		if (user) {
-			dispatch(getUsers());
-		} else {
-			history.push('/auth/users/signin');
-		}
-	}, [dispatch]);
+export const App = () => {
 	return (
-		<Fragment>
+		<>
 			<Router history={history}>
-				<Headers />
-				{user && <Nav />}
-				{user ? (
-					<Switch>
-						<Route path='/users/todos' exact component={Todos} />
-						<Route path='/users/todos/:id/update' component={Todos} />
-						<Route path='/users/budgets' exact component={Budgets} />
-						<Redirect to='/users/todos' />
-					</Switch>
-				) : (
-					<Switch>
-						<Route path='/auth/users/signin' exact component={SignIn} />
-						<Route path='/auth/users/signup' exact component={SignUp} />
-						{/* <Redirect to='/auth/users/signin' /> */}
-					</Switch>
-				)}
-				{/* <Switch>
-          <Route path='/auth/users/signin' exact component={SignIn}/>
-          <Route path='/auth/users/signup' exact component={SignUp} />
-          <Route path='/users/todos' exact component={Todos} />
-          <Route path='/users/todos/:todosId' component={Todos} />
-        </> */}
+				<Header />
+				<Switch>
+					{/* <Route path='/' exact>
+						<Home />
+					</Route>
+					<Route path='/users/profile/:username'>
+						<Profile />
+					</Route>
+					<Route path='/users/notes' exact>
+						<Notes />
+					</Route>
+					<Route path='/users/notes/create/note' component={NotesCreate} />
+					<Route path='/users/notes/create/note'>
+						<NotesCreate />
+					</Route>
+					<Route path='/users/signup'>
+						<Signup />
+					</Route>
+					<Route path='/users/signin'>
+						<Signin />
+					</Route> */}
+					<Route path='/' exact component={Home} />
+					<Route path='/users/signin' exact component={Signin} />
+					<Route path='/users/signup' exact component={Signup} />
+					<Route path='/users/notes' exact component={Notes} />
+					<Route
+						path='/users/notes/create/note'
+						exact
+						component={NotesCreate}
+					/>
+					<Route path='/users/profile/:username' exact component={Profile} />
+				</Switch>
 			</Router>
-		</Fragment>
+		</>
 	);
 };
-
-export default App;
