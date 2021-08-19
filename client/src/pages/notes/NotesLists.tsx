@@ -4,7 +4,7 @@ import { Avatar, Button, Divider, IconButton } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 // import { format, TDate } from 'timeago.js';
 import moment from "moment";
-import { ThumbUp, Person, MoreVert } from '@material-ui/icons';
+import { ThumbUp, Person } from '@material-ui/icons';
 
 import { notesLists } from "../../redux/actions/notes";
 import { StoreState } from "../../redux/reducers";
