@@ -13,15 +13,54 @@ const initialState: Notes = {
 			createdAt: new Date(),
 			name: 'Jane Jack',
 			profilePicture: images.PostThree,
+			comments: [
+				{
+					_id: v4(),
+					content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum`,
+					name: 'Tony Black',
+					profilePicture: '',
+					createdAt: new Date(),
+				},
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Jane Jack',
+					profilePicture: images.Alex,
+					createdAt: new Date(),
+				},
+			],
 		},
 		{
 			_id: v4(),
 			title: 'Congratulations on Finishing yor projects',
-      content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum 
+			content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum 
       cumque tenetur nemo unde quis veniam modi officia error iusto incidunt reprehenderit labore corrupti blanditiis a tempora repellendus! Natus consequuntur possimus, fugiat deleniti fuga ipsam doloremque voluptate dolorum, illo commodi cupiditate.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum cumque tenetur nemo unde quis veniam modi officia error iusto incidunt reprehenderit labore corrupti blanditiis a tempora repellendus! Natus consequuntur possimus, fugiat deleniti fuga ipsam doloremque voluptate dolorum, illo commodi cupiditate.`,
 			createdAt: new Date(),
 			name: 'JohnWalker MatthewStar',
 			profilePicture: '',
+			comments: [
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Tony Black',
+					profilePicture: images.Alex,
+					createdAt: new Date(),
+				},
+				{
+					_id: v4(),
+					content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum`,
+					name: 'JohnWalker MatthewStar',
+					profilePicture: images.Soka,
+					createdAt: new Date(),
+				},
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Alex WillowStar',
+					profilePicture: '',
+					createdAt: new Date(),
+				},
+			],
 		},
 		{
 			_id: v4(),
@@ -31,7 +70,24 @@ const initialState: Notes = {
 			createdAt: new Date(),
 			name: 'Willow Black',
 			profilePicture: images.Alex,
+			comments: [
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Tony Black',
+					profilePicture: '',
+					createdAt: new Date(),
+				},
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Jane Jack',
+					profilePicture: '',
+					createdAt: new Date(),
+				},
+			],
 		},
+
 		{
 			_id: v4(),
 			title: 'Thanking God',
@@ -40,6 +96,15 @@ const initialState: Notes = {
 			createdAt: new Date(),
 			name: 'Austin Carter',
 			profilePicture: images.Soka,
+			comments: [
+				{
+					_id: v4(),
+					content: `Nice one`,
+					name: 'Tony Black',
+					profilePicture: '',
+					createdAt: new Date(),
+				},
+			],
 		},
 	],
 };

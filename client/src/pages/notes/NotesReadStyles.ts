@@ -8,12 +8,14 @@ export const NotesContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin: 0 10px;
+	@media (max-width: 800px){
+		flex-direction: column;
+	}
 `;
 
 export const NotesLeft = styled.div`
-	max-width: 220px;
+	max-width: 230px;
 	width: 100%;
-	/* border: 3px solid green; */
 	text-align: center;
 	h2 {
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
@@ -28,31 +30,44 @@ export const NotesLeft = styled.div`
 			font-size: 5rem;
 		}
 	}
+	.MuiButton-root {
+		display: none;
+	}
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
-	@media (max-width: 600px) {
-		max-width: 130px;
+	@media (max-width: 800px) {
+		max-width: 180px;
+		margin: 10px auto;
 		h2 {
-			font-size: 1.4rem;
+			font-size: 1.8rem;
+		}
+		.MuiButton-root {
+			display: block;
+		margin:  10px auto;
 		}
 	}
 `;
 
-export const NotesLeftBottom = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.3rem;
-	font-weight: bold;
-	margin: 12px 0;
-	.MuiAvatar-root {
-		margin-right: 10px;
-		background-color: var(--clr-lightBlue);
-	}
-`;
+// export const NotesLeftBottom = styled.div`
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	font-size: 1.3rem;
+// 	font-weight: bold;
+// 	margin: 12px 0;
+// 	.MuiAvatar-root {
+// 		margin-right: 10px;
+// 		background-color: var(--clr-lightBlue);
+// 	}
+// 	@media (max-width: 600px){
+// 		font-size: 1rem;
+// 	}
+// `;
+
+
 
 export const NotesRight = styled.div`
 	width: 100%;
@@ -69,8 +84,56 @@ export const NotesRight = styled.div`
 		font-size: 1.3rem;
 		margin-top: 20px;
 	}
-	@media (max-width: 600px) {
+	@media (max-width: 800px) {
 		padding: 0px 10px;
-		margin-left: 20px;
+		margin-left: 0px;
 	}
 `;
+
+export const NotesBottom = styled.div`
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	@media (max-width: 350px){
+		font-size: 1rem;
+	}
+	`;
+
+	export const NotesBottomLikes = styled.div`
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 400px;
+		width: 100%;
+		.MuiAvatar-root {
+			margin-right: 10px;
+			background-color: var(--clr-lightBlue);
+		}
+		@media (max-width: 800px) {
+			max-width: 120px;
+			.MuiButton-root {
+				display: none;
+			}
+			/* .MuiAvatar-root {
+			width: 30px;
+			height: 30px;
+			.MuiSvgIcon-root {
+				font-size: 1.2rem;
+			}
+		} */
+		}
+		@media (max-width: 350px) {
+			max-width: 100px;
+			.MuiAvatar-root {
+				width: 30px;
+				height: 30px;
+				.MuiSvgIcon-root {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	`;
+
+	export const NotesComment = styled.div`
+		position: relative;
+	`;

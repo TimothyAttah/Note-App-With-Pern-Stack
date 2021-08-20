@@ -11,10 +11,15 @@ import moment from 'moment';
 import {
   NotesContainer,
   NotesLeft,
-  NotesLeftBottom,
+  // NotesLeftBottom,
   NotesReadContainer,
-  NotesRight
+	NotesRight,
+	NotesComment,
+	NotesBottom,
+	NotesBottomLikes
  } from './NotesReadStyles';
+import { Comment } from '../../components/comments/Comments';
+import { NotesReadComment } from './NotesReadComment';
 
 
 export const NotesRead = () => {
@@ -28,47 +33,78 @@ export const NotesRead = () => {
   return (
 		<NotesReadContainer>
 			{note ? (
-				<NotesContainer>
-					<NotesLeft className='note__left'>
-						<Link to='/users/profile/username'>
-							{note.profilePicture ? (
-								<Avatar>
-									<img src={note.profilePicture} alt='' />
-								</Avatar>
-							) : (
-								<Avatar>
-									<Person />
-								</Avatar>
-							)}
-						</Link>
-						<h2>
-							<Link to='/users/profile/username'>{note.name}</Link>
-						</h2>
-						<h4>jane@gmail.com</h4>
-						<small className='top__date'>
-							{moment(note.createdAt).format('llll')}
-						</small>
-						<Divider />
-						<div style={{marginTop: '30px'}}>
+				<div>
+					<NotesContainer>
+						<NotesLeft className='note__left'>
 							<Link to='/users/profile/username'>
-								<Button variant='contained' color='secondary'>More From</Button>
-              </Link>
-              <NotesLeftBottom>
-                <Avatar><ThumbUp /></Avatar>
-                24 likes
-                {/* <IconButton><ThumbUp/></IconButton> */}
-              </NotesLeftBottom>
-              <NotesLeftBottom>
-                300 comments
-              </NotesLeftBottom>
-						</div>
-					</NotesLeft>
-					<NotesRight className='note__right'>
-            <h1>{note.title}</h1>
-            <Divider />
-						<p>{note.content}</p>
-					</NotesRight>
-				</NotesContainer>
+								{note.profilePicture ? (
+									<Avatar>
+										<img src={note.profilePicture} alt='' />
+									</Avatar>
+								) : (
+									<Avatar>
+										<Person />
+									</Avatar>
+								)}
+							</Link>
+							<h2>
+								<Link to='/users/profile/username'>{note.name}</Link>
+							</h2>
+							<h4>jane@gmail.com</h4>
+							<small className='top__date'>
+								{moment(note.createdAt).format('llll')}
+							</small>
+								<Link to='/users/profile/username'>
+									<Button variant='contained' color='secondary'>
+										More From
+									</Button>
+								</Link>
+							<Divider />
+							{/* <div style={{ marginTop: '30px' }}>
+								<Link to='/users/profile/username'>
+									<Button variant='contained' color='secondary'>
+										More From
+									</Button>
+								</Link>
+								<NotesLeftBottom>
+									<Avatar>
+										<ThumbUp />
+									</Avatar>
+									24 likes
+								</NotesLeftBottom>
+								<NotesComment>
+									<CommentsOpen
+										note={note}
+										comments={<Comment note={note} />}
+									/>
+								</NotesComment>
+							</div> */}
+						</NotesLeft>
+						<NotesRight className='note__right'>
+							<h1>{note.title}</h1>
+							<Divider />
+							<p>{note.content}</p>
+						</NotesRight>
+					</NotesContainer>
+					<NotesBottom style={{ marginTop: '30px' }}>
+						<NotesBottomLikes>
+							<Link to='/users/profile/username'>
+								<Button variant='contained' color='secondary'>
+									More From
+								</Button>
+							</Link>
+							<NotesBottom>
+								<Avatar>
+									<ThumbUp />
+								</Avatar>
+								24 likes
+							</NotesBottom>
+						</NotesBottomLikes>
+					</NotesBottom>
+					<NotesComment>
+						<NotesReadComment note={note} comments={<Comment note={note} />} />
+					</NotesComment>
+				</div>
 			) : (
 				<h2>Loading...</h2>
 			)}

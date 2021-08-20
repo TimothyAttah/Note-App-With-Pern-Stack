@@ -15,9 +15,12 @@ import {
   NoteCenterBottom,
   NoteContainer,
   NoteContainerPrimary,
-  NoteTop,
+	NoteTop,
+	NoteComments
 } from './NotesListStyles';
 import { Popup } from "../../components/nav/Popup";
+import { Comment } from "../../components/comments/Comments";
+import { CommentsOpen } from "../../components/comments/CommentsOpen";
 
 
 export const NotesLists: FC = () => {
@@ -66,22 +69,23 @@ export const NotesLists: FC = () => {
 									<Link to={`/users/notes/${note._id}/note/read`}>
 										<Button variant='contained'>Read More</Button>
 									</Link>
-									<small>
-										{moment(note.createdAt).format('llll')}
-									</small>
+									<small>{moment(note.createdAt).format('llll')}</small>
 									<Popup note={note} />
 								</NoteCenterBottom>
 								<Divider />
 								<NoteBottom>
-									<NoteBottom className='note__bottom-likes'>
-										<IconButton>
+									<NoteBottom className='note__bottom-primary'>
+										<Avatar>
 											<ThumbUp />
-										</IconButton>
+										</Avatar>
 										<h4>45 likes</h4>
 									</NoteBottom>
-									<div className='note__bottom-comments'>
+									{/* <div className='note__bottom-comments'>
 										<h4>123 Comments</h4>
-									</div>
+									</div> */}
+									{/* <NoteComments className='note__bottom-comments'>
+										<Comment note={note} />
+									</NoteComments> */}
 								</NoteBottom>
 							</NoteCenter>
 						</NoteContainerPrimary>
@@ -96,6 +100,10 @@ export const NotesLists: FC = () => {
 								<h4>123 Comments</h4>
 							</div>
 						</NoteBottom> */}
+
+						<NoteComments className='note__bottom-comments'>
+							<CommentsOpen note={note} comments={<Comment note={note} />} />
+						</NoteComments>
 					</NoteContainer>
 				))
 			) : (
