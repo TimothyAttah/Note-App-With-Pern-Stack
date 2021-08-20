@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const MainHeaderContainer = styled.div`
-	/* width: 100%;
-	background-color: var(--clr-lightBlue);
-	position: sticky;
-	top: 0;
-	z-index: 999; */
 	position: fixed;
 	max-width: 1500px;
 	width: 100%;
@@ -20,6 +15,9 @@ export const MainHeaderContainer = styled.div`
 	right: 0;
 	z-index: 9990;
 	/* padding-bottom: 50px; */
+	/* @media (max-width: 412px){
+		max-width: 410px;
+	} */
 `;
 
 export const HeaderContainer = styled.div`

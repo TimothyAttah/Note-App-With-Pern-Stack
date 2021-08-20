@@ -63,7 +63,7 @@ export const NotesLists: FC = () => {
 								<Divider />
 								<ReadMore>{note.content}</ReadMore>
 								<NoteCenterBottom className='note__center-button'>
-									<Link to='/users/notes'>
+									<Link to={`/users/notes/${note._id}/note/read`}>
 										<Button variant='contained'>Read More</Button>
 									</Link>
 									<small>

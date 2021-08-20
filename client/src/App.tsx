@@ -6,6 +6,7 @@ import { Home } from './pages/home/Home';
 import { Notes } from './pages/notes/Notes';
 import { NotesCreate } from './pages/notes/NotesCreate';
 import { NotesDelete } from './pages/notes/NotesDelete';
+import { NotesRead } from './pages/notes/NotesRead';
 import { Profile } from './pages/profile/Profile';
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
@@ -30,6 +31,9 @@ export const App = () => {
 					</Route>
 					<Route path='/users/notes/:noteId/note/delete'>
 						<NotesDelete />
+					</Route>
+					<Route path='/users/notes/:noteId/note/read'>
+						<NotesRead />
 					</Route>
 					<Route path='/users/signup'>
 						<Signup />
