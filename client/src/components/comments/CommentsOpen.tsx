@@ -44,14 +44,34 @@ const Container = styled.div`
 	}
 `;
 
+const ContainerPrimary = styled.div`
+	.icon {
+		position: absolute;
+		right: 0;
+		top: -45px;
+		.MuiSvgIcon-root {
+			margin-right: 10px;
+		}
+		span {
+			margin-right: 3px;
+		}
+	}
+	@media (max-width: 350px) {
+		.icon {
+			font-size: 17px;
+			font-weight: bolder;
+			top: -40px;
+			right: 0;
+		}
+	}
+`;
+
 export const CommentsOpen:FC<CommentOpenProps> = ({ comments, note }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleClick = () => {
 		setIsOpen(!isOpen);
 	};
-
-	
 
 	return (
 		<Container>
@@ -62,5 +82,23 @@ export const CommentsOpen:FC<CommentOpenProps> = ({ comments, note }) => {
 			</IconButton>
 			<div>{isOpen && comments}</div>
 		</Container>
+	);
+};
+
+
+export const NotesReadComment: FC<CommentOpenProps> = ({ comments, note }) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const handleClick = () => {
+		setIsOpen(!isOpen);
+	};
+	return (
+		<ContainerPrimary>
+			<IconButton onClick={handleClick} className='icon'>
+				<InsertComment />
+				<span>{note.comments?.length}</span>
+				<span>Comments</span>
+			</IconButton>
+			<div>{isOpen && comments}</div>
+		</ContainerPrimary>
 	);
 };

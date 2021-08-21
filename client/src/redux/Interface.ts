@@ -1,6 +1,6 @@
 export interface NotesComments {
 	_id: string | number;
-	content: string;
+	comment: string;
 	name: string;
 	profilePicture: string;
 	createdAt: Date | string;
@@ -14,7 +14,7 @@ export interface NotesList {
   name: string;
   profilePicture: string;
   createdAt?: Date | string;
-  comments?: NotesComments[];
+  comments: NotesComments[];
 }
 
 export type Notes = {

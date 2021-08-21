@@ -19,7 +19,7 @@ import {
 	NotesBottomLikes
  } from './NotesReadStyles';
 import { Comment } from '../../components/comments/Comments';
-import { NotesReadComment } from './NotesReadComment';
+import { NotesReadComment } from '../../components/comments/CommentsOpen';
 
 
 export const NotesRead = () => {

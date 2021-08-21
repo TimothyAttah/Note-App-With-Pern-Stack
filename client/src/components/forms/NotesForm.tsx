@@ -59,7 +59,8 @@ export const NotesForm = () => {
       content,
       createdAt: new Date(),
       profilePicture: '',
-      name: 'Tosin Love'
+			name: 'Tosin Love',
+			comments: []
     };
 
     dispatch(noteCreate(newNote));

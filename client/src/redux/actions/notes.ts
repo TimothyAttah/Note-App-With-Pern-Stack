@@ -14,6 +14,18 @@ export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
     }
   }
 }
+export const noteComments = (id: string | number, note: string | object) => (dispatch: Dispatch) => {
+  try {
+    dispatch<NotesActionsTypes>({
+      type: NotesTypes.NOTE_COMMENT,
+      payload: {id, note}
+    })
+  } catch (err) {
+    if (err.response && err.response.data) {
+      console.log(err.response.data.err);
+    }
+  }
+}
 
 export const notesLists = () => (dispatch: Dispatch) => {
   try {
