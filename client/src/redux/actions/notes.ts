@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { NotesActionsTypes } from "../actionsTypes/actionsTypes";
+import { NotesComments } from "../interface";
 import { NotesTypes } from "../types";
 
 export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
@@ -14,12 +15,12 @@ export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
     }
   }
 }
-export const noteComments = (id: string | number, note: string | object) => (dispatch: Dispatch) => {
+export const noteComments = (_id: string | number, comment: NotesComments) => (dispatch: Dispatch) => {
   try {
     dispatch<NotesActionsTypes>({
       type: NotesTypes.NOTE_COMMENT,
-      payload: {id, note}
-    })
+      payload: { _id, comment }
+    });
   } catch (err) {
     if (err.response && err.response.data) {
       console.log(err.response.data.err);

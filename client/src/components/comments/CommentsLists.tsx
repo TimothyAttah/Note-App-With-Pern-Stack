@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 interface CommentsListsProps {
-	name: string;
-	date:  Date | string;
-	profilePicture: string;
-	content: string
+	// name: string;
+	// date:  Date | string;
+	// profilePicture: string;
+	content: string | object;
 }
 
 const CommentsContainer = styled.div`
@@ -71,12 +71,12 @@ const CommentsBottom = styled.div`
 `;
 
 
-export const CommentsLists:FC<CommentsListsProps> = ({name, date, profilePicture, content}) => {
+export const CommentsLists:FC<CommentsListsProps> = ({ content}) => {
   return (
 		<CommentsContainer>
 			<CommentsTop>
 				<CommentsTop>
-					{profilePicture ? (
+					{/* {profilePicture ? (
 						<Avatar>
 							<img src={profilePicture} alt='' />
 						</Avatar>
@@ -85,9 +85,12 @@ export const CommentsLists:FC<CommentsListsProps> = ({name, date, profilePicture
 						<Avatar>
 							<Person />
 						</Avatar>
-					)}
-					<h4>{name}</h4>
-					<small>{moment(date).format('llll')}</small>
+					)} */}
+					<Avatar>
+						<Person />
+					</Avatar>
+					<h4>Emmanuel Thoughtful</h4>
+					<small>{moment(new Date()).format('llll')}</small>
 				</CommentsTop>
 				<div className='delete-icon'>
 					<Delete color='secondary' titleAccess='Delete' />

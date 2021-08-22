@@ -44,24 +44,20 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newComment: NotesComments = {
+    const newComment:NotesComments = {
       _id: v4(),
       comment,
-      createdAt: new Date(),
-      profilePicture: '',
-      name: 'Tosin Love'
+      // createdAt: new Date(),
+      // profilePicture: '',
+      // name: 'Tosin Love'
     };
     
     dispatch(noteComments(note._id, newComment))
-    console.log('this is new comment', newComment);
+    setComment('');
   }
   return (
     <div>
       <Form
-        // onSubmit={(e:FormEvent<HTMLFormElement>) => {
-        // 	e.preventDefault();
-        //   // dispatch(noteComments(note._id, (e as any).target[0].value));
-        //   console.log((e as any).target[0].value)
           
         //   dispatch(noteComments(note._id, (e as any).target[0].value))
         // }}
@@ -72,9 +68,8 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
         <div className='icon-image'><Avatar><Person /></Avatar></div>
         <input
           placeholder='Write a comment...'
-          // onChange={onChange}
+          value={comment}
           onChange={e => setComment(e.target.value)}
-        // onChange={e => setContent(e.target.value)}
         />
         <button type='submit'></button>
       </Form>

@@ -1,9 +1,18 @@
 export interface NotesComments {
 	_id: string | number;
-	comment: string;
-	name: string;
-	profilePicture: string;
-	createdAt: Date | string;
+	comment: string | object;
+	// name: string;
+	// profilePicture: string;
+	// createdAt: Date | string;
+}
+
+export type Comments = {
+  comments: NotesComments[]
+}
+
+export type NoteComment = {
+  _id: string;
+  comment: string | object;
 }
 
 

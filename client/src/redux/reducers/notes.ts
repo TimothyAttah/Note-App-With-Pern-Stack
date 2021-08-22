@@ -17,16 +17,16 @@ const initialState: Notes = {
 				{
 					_id: v4(),
 					comment: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum`,
-					name: 'Tony Black',
-					profilePicture: '',
-					createdAt: new Date(),
+					// name: 'Tony Black',
+					// profilePicture: '',
+					// createdAt: new Date(),
 				},
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Jane Jack',
-					profilePicture: images.Alex,
-					createdAt: new Date(),
+					// name: 'Jane Jack',
+					// profilePicture: images.Alex,
+					// createdAt: new Date(),
 				},
 			],
 		},
@@ -42,23 +42,23 @@ const initialState: Notes = {
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Tony Black',
-					profilePicture: images.Alex,
-					createdAt: new Date(),
+					// name: 'Tony Black',
+					// profilePicture: images.Alex,
+					// createdAt: new Date(),
 				},
 				{
 					_id: v4(),
 					comment: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error eaque dolorum eius! Sunt voluptate quisquam nostrum explicabo sapiente iusto illo quod incidunt labore, dignissimos ea minima ratione, voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum`,
-					name: 'JohnWalker MatthewStar',
-					profilePicture: images.Soka,
-					createdAt: new Date(),
+					// name: 'JohnWalker MatthewStar',
+					// profilePicture: images.Soka,
+					// createdAt: new Date(),
 				},
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Alex WillowStar',
-					profilePicture: '',
-					createdAt: new Date(),
+					// name: 'Alex WillowStar',
+					// profilePicture: '',
+					// createdAt: new Date(),
 				},
 			],
 		},
@@ -74,16 +74,16 @@ const initialState: Notes = {
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Tony Black',
-					profilePicture: '',
-					createdAt: new Date(),
+					// name: 'Tony Black',
+					// profilePicture: '',
+					// createdAt: new Date(),
 				},
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Jane Jack',
-					profilePicture: '',
-					createdAt: new Date(),
+					// name: 'Jane Jack',
+					// profilePicture: '',
+					// createdAt: new Date(),
 				},
 			],
 		},
@@ -100,9 +100,9 @@ const initialState: Notes = {
 				{
 					_id: v4(),
 					comment: `Nice one`,
-					name: 'Tony Black',
-					profilePicture: '',
-					createdAt: new Date(),
+					// name: 'Tony Black',
+					// profilePicture: '',
+					// createdAt: new Date(),
 				},
 			],
 		},
@@ -138,13 +138,16 @@ export const notes = (state = initialState, action: NotesActionsTypes) => {
 		case NotesTypes.NOTE_COMMENT:
 			return {
 				...state,
-				notes: state.notes.map(note =>
-					note._id === action.payload.id ? action.payload : note
-				),
+				// notes: state.notes.map(note =>
+				// 	note._id === action.payload.id ? action.payload : note
+				// ),
 
-				// notes: state.notes.map(note => note._id === action.payload.id ? {...note, comments: [...note.comments, action.payload]} : note)
+				notes: state.notes.map(note => note._id === action.payload._id ? {...note, comments: [...note.comments, action.payload.comment]} : note)
 
 				// notes: state.notes.map(note => note._id === action.payload.id ? [...note.comments, action.payload] : note)
+
+
+				// notes: state.notes.map(note => note._id === action.payload.id ? [action.payload, ...state.notes.map] )
 
 				// notes: state.notes.map(note => {
 				// 	if (note._id !== action.payload.id) return note;

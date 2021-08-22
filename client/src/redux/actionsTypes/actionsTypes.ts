@@ -33,8 +33,8 @@ interface NoteEdit {
 interface NotesComments {
 	type: NotesTypes.NOTE_COMMENT;
 	payload: {
-		id: string | number;
-		note: string | object;
+		_id: string | number;
+		comment: string | object;
 	}
 }
 

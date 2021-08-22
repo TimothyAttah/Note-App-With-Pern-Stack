@@ -63,8 +63,10 @@ export const NotesForm = () => {
 			comments: []
     };
 
-    dispatch(noteCreate(newNote));
-    history.push('/users/notes')
+		dispatch(noteCreate(newNote));
+		console.log('this newNote', newNote);
+		
+    // history.push('/users/notes')
 
 		// if (noteId) {
 		// 	dispatch(notesEdit(noteId, newNote));

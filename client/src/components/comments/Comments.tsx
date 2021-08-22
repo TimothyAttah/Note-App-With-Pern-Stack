@@ -41,10 +41,10 @@ export const Comment:FC<CommentProps> = ({ note }) => {
 				note.comments?.map(item => (
 					<CommentsLists
 						key={item._id}
-						name={item.name}
 						content={item.comment}
-						profilePicture={item.profilePicture}
-						date={item.createdAt}
+						// name={item.name}
+						// profilePicture={item.profilePicture}
+						// date={item.createdAt}
 					/>
 			 ))
 			) : (
