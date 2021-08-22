@@ -38,10 +38,20 @@ interface NotesComments {
 	}
 }
 
+interface DeleteComment {
+	type: NotesTypes.DELETE_COMMENT;
+	payload: string | number;
+	// payload: {
+	// 	noteId: string | number;
+	// 	commentId: string | number;
+	// }
+}
+
 export type NotesActionsTypes =
 	| NoteCreate
 	| NotesLists
 	| NoteList
 	| NoteDelete
 	| NoteEdit
-	| NotesComments;
+	| NotesComments
+	| DeleteComment;

@@ -28,6 +28,19 @@ export const noteComments = (_id: string | number, comment: NotesComments) => (d
   }
 }
 
+export const deleteComment = (commentId: string | number) => (dispatch: Dispatch) => {
+  try {
+    dispatch<NotesActionsTypes>({
+      type: NotesTypes.DELETE_COMMENT,
+      payload: commentId
+    });
+  } catch (err) {
+    if (err.response && err.response.data) {
+      console.log(err.response.data.err);
+    }
+  }
+}
+
 export const notesLists = () => (dispatch: Dispatch) => {
   try {
     dispatch<NotesActionsTypes>({

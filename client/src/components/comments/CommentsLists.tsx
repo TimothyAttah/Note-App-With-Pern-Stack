@@ -3,12 +3,16 @@ import { Avatar, Divider } from '@material-ui/core';
 import { Delete, Person, ThumbUp } from '@material-ui/icons';
 import styled from 'styled-components';
 import moment from 'moment';
+import {useDispatch} from 'react-redux';
+
+import {deleteComment} from '../../redux/actions/notes'
 
 interface CommentsListsProps {
 	// name: string;
 	// date:  Date | string;
 	// profilePicture: string;
 	content: string | object;
+	commentId: string | number;
 }
 
 const CommentsContainer = styled.div`
@@ -71,7 +75,8 @@ const CommentsBottom = styled.div`
 `;
 
 
-export const CommentsLists:FC<CommentsListsProps> = ({ content}) => {
+export const CommentsLists:FC<CommentsListsProps> = ({ content, commentId}) => {
+	const dispatch = useDispatch();
   return (
 		<CommentsContainer>
 			<CommentsTop>
@@ -93,7 +98,11 @@ export const CommentsLists:FC<CommentsListsProps> = ({ content}) => {
 					<small>{moment(new Date()).format('llll')}</small>
 				</CommentsTop>
 				<div className='delete-icon'>
-					<Delete color='secondary' titleAccess='Delete' />
+					<Delete 
+					color='secondary' 
+					titleAccess='Delete' 
+					onClick={()=> dispatch(deleteComment(commentId))}
+					/>
 				</div>
 			</CommentsTop>
 			<Divider />

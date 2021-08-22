@@ -42,9 +42,11 @@ export const Comment:FC<CommentProps> = ({ note }) => {
 					<CommentsLists
 						key={item._id}
 						content={item.comment}
+						commentId={item._id}
 						// name={item.name}
 						// profilePicture={item.profilePicture}
 						// date={item.createdAt}
+					
 					/>
 			 ))
 			) : (

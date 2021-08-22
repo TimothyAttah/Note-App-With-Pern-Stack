@@ -138,23 +138,18 @@ export const notes = (state = initialState, action: NotesActionsTypes) => {
 		case NotesTypes.NOTE_COMMENT:
 			return {
 				...state,
-				// notes: state.notes.map(note =>
-				// 	note._id === action.payload.id ? action.payload : note
-				// ),
-
 				notes: state.notes.map(note => note._id === action.payload._id ? {...note, comments: [...note.comments, action.payload.comment]} : note)
-
-				// notes: state.notes.map(note => note._id === action.payload.id ? [...note.comments, action.payload] : note)
-
-
-				// notes: state.notes.map(note => note._id === action.payload.id ? [action.payload, ...state.notes.map] )
-
 				// notes: state.notes.map(note => {
 				// 	if (note._id !== action.payload.id) return note;
 				// 	// return {...note.comments, comments:[...note.comments, action.payload]}
 				// 	return [...note.comments, action.payload]
 				// })
 			};
+		case NotesTypes.DELETE_COMMENT:
+			return {
+				...state,
+				notes: state.notes.map(note => ({...note, comments: note.comments.filter(comment => comment._id !== action.payload)}))
+			}
     default:
       return {
         ...state
