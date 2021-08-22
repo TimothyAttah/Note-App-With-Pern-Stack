@@ -5,7 +5,7 @@ import { Avatar, Fab, Divider, Button } from '@material-ui/core';
 // import { useDispatch } from 'react-redux';
 // import axios from 'axios';
 import styled from 'styled-components';
-import { Header } from '../../components/header/Header';
+// import { Header } from '../../components/header/Header';
 import { SideBar } from '../../components/sidebar/SideBar';
 import { user, fullName } from '../../components/NameInitials';
 import { images } from '../../components/images';
@@ -77,7 +77,7 @@ export const Profile = () => {
 
 	return (
 		<>
-			<Header />
+			{/* <Header /> */}
 			<ProfileContainer>
 				<SideBar />
 				<ProfileRight>

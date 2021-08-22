@@ -54,11 +54,11 @@ export const NotesRead = () => {
 							<small className='top__date'>
 								{moment(note.createdAt).format('llll')}
 							</small>
-								<Link to='/users/profile/username'>
-									<Button variant='contained' color='secondary'>
-										More From
-									</Button>
-								</Link>
+							<Link to='/users/profile/notes/my-notes'>
+								<Button variant='contained' color='secondary'>
+									More From
+								</Button>
+							</Link>
 							<Divider />
 							{/* <div style={{ marginTop: '30px' }}>
 								<Link to='/users/profile/username'>
@@ -88,7 +88,7 @@ export const NotesRead = () => {
 					</NotesContainer>
 					<NotesBottom style={{ marginTop: '30px' }}>
 						<NotesBottomLikes>
-							<Link to='/users/profile/username'>
+							<Link to='/users/profile/notes/my-notes'>
 								<Button variant='contained' color='secondary'>
 									More From
 								</Button>

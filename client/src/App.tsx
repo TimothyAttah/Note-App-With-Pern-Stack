@@ -7,6 +7,7 @@ import { Notes } from './pages/notes/Notes';
 import { NotesCreate } from './pages/notes/NotesCreate';
 import { NotesDelete } from './pages/notes/NotesDelete';
 import { NotesRead } from './pages/notes/NotesRead';
+import { UserNotes } from './pages/notes/UserNotes';
 import { Profile } from './pages/profile/Profile';
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
@@ -20,7 +21,7 @@ export const App = () => {
 					<Route path='/' exact>
 						<Home />
 					</Route>
-					<Route path='/users/profile/:username'>
+					<Route path='/users/profile/:username' exact>
 						<Profile />
 					</Route>
 					<Route path='/users/notes' exact>
@@ -34,6 +35,9 @@ export const App = () => {
 					</Route>
 					<Route path='/users/notes/:noteId/note/read'>
 						<NotesRead />
+					</Route>
+					<Route path='/users/profile/notes/my-notes'>
+						<UserNotes />
 					</Route>
 					<Route path='/users/signup'>
 						<Signup />

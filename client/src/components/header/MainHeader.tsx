@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Book, Chat, Notifications, Person, Search } from '@material-ui/icons';
 
-import ProfileModal from '../modal/ProfileModal';
+import { ProfileModal } from '../modal/ProfileModal';
 import {
 	MainHeaderContainer,
 	HeaderLeftPrimary,
