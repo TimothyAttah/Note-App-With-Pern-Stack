@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import { Person } from '@material-ui/icons';
 import { Avatar, Fab, Divider, Button } from '@material-ui/core';
 // import { useParams } from 'react-router-dom';
@@ -12,6 +12,10 @@ import { images } from '../images';
 import { Feed } from '../feed/Feed';
 import { RightBar } from '../rightbar/RightBar';
 // import { listPost } from '../../redux/actions/posts';
+
+interface ProfileMenuProps {
+  children: ReactNode;
+}
 
 const ProfileContainer = styled.div`
 	margin-top: 120px;
@@ -72,7 +76,7 @@ const ProfileInfoPrimary = styled.div`
 	}
 `;
 
-export const ProfileMenu = () => {
+export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
   	const [showFollow, setShowFollow] = useState({});
   return (
 		<ProfileContainer>
@@ -150,7 +154,8 @@ export const ProfileMenu = () => {
 						</div>
 					</ProfileInfoPrimary>
 				</div>
-				<ProfileContainer>
+        <ProfileContainer>
+          {children}
 					{/* <Feed />
 					<RightBar profile /> */}
 
