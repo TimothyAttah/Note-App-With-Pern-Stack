@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../../components/images';
-import { SigninForm } from '../../components/forms/SigninForm';
+import { SigninForm } from '../../components/forms/SignInForm';
 import { Modal } from '../../components/modal/Modal';
 import { Backdrop } from '../../components/Backdrop';
 import { UserContainer, GoogleBox, GoogleImg, Divider } from './Styles';

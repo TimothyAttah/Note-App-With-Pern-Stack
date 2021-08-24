@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { NotesActionsTypes } from "../actionsTypes/actionsTypes";
+import { NotesComments } from "../InterfaceRedux";
 import { NotesTypes } from "../types";
 
 export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
@@ -8,6 +9,31 @@ export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
       type: NotesTypes.NOTE_CREATE,
       payload: notes
     })
+  } catch (err) {
+    if (err.response && err.response.data) {
+      console.log(err.response.data.err);
+    }
+  }
+}
+export const noteComments = (_id: string | number, comment: NotesComments) => (dispatch: Dispatch) => {
+  try {
+    dispatch<NotesActionsTypes>({
+      type: NotesTypes.NOTE_COMMENT,
+      payload: { _id, comment }
+    });
+  } catch (err) {
+    if (err.response && err.response.data) {
+      console.log(err.response.data.err);
+    }
+  }
+}
+
+export const deleteComment = (commentId: string | number) => (dispatch: Dispatch) => {
+  try {
+    dispatch<NotesActionsTypes>({
+      type: NotesTypes.DELETE_COMMENT,
+      payload: commentId
+    });
   } catch (err) {
     if (err.response && err.response.data) {
       console.log(err.response.data.err);

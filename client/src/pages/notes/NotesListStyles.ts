@@ -24,6 +24,7 @@ export const NoteTop = styled.div`
 	flex-direction: column;
 	align-items: center;
 	margin-right: 20px;
+	text-align: center;
 	a .MuiAvatar-colorDefault {
 		color: var(--clr-dark);
 	}
@@ -50,17 +51,17 @@ export const NoteTop = styled.div`
 			width: 150px;
 		}
 	}
-	@media (max-width: 400px) {
+	@media (max-width: 414px) {
 		h3 a {
 			font-size: 1rem;
-			width: 100px;
+			width: 70px;
 		}
 	}
-	@media (max-width: 280px) {
+	@media (max-width: 285px) {
 		text-align: center;
 		h3 a {
 			font-size: 0.7rem;
-			width: 70px;
+			width: 60px;
 		}
 	}
 `;
@@ -132,10 +133,38 @@ export const NoteBottom = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	@media (max-width: 460px) {
+	margin-top: 20px;
+	cursor: pointer;
+	.note__bottom-primary {
+		margin-top: 0px;
+		.MuiAvatar-colorDefault {
+			background-color: var(--clr-lightBlue);
+			margin-right: 5px;
+		}
+	}
+
+	@media (max-width: 600px) {
 		font-size: 12px;
 		.MuiSvgIcon-root {
 			font-size: 15px;
 		}
+		.MuiAvatar-root {
+			width: 25px;
+			height: 25px;
+		}
 	}
+	@media (max-width: 300px) {
+		font-size: 12px;
+		.MuiSvgIcon-root {
+			font-size: 12px;
+		}
+		.MuiAvatar-root {
+			width: 18px;
+			height: 18px;
+		}
+	}
+`;
+
+export const NoteComments = styled.div`
+	position: relative;
 `;

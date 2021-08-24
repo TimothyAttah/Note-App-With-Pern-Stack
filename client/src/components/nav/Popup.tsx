@@ -4,10 +4,11 @@ import { MoreVert } from '@material-ui/icons';
 import { popupNav } from '../helper/Helper';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { NotesList } from '../../redux/InterfaceRedux';
 
 interface PopupProps {
-	note: object;
-	events: (e: MouseEventHandler<HTMLAnchorElement>) => void;
+	note: NotesList
+	events?: (e: MouseEventHandler<HTMLAnchorElement>) => void;
 }
 
 const NavContainer = styled.div`
@@ -63,8 +64,7 @@ export const Popup:FC<PopupProps> = ({ note }) => {
 						return (
 							<NavContainer key={index}>
 								<Link
-									// to={`${item.url}/${note._id}/${item.path}`}
-									to='/'
+									to={`${item.url}/${note._id}/${item.path}`}
 									onClick={handleScroll}
 								>
 									{item.icon}

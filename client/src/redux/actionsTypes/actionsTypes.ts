@@ -30,9 +30,28 @@ interface NoteEdit {
 	};
 }
 
+interface NotesComments {
+	type: NotesTypes.NOTE_COMMENT;
+	payload: {
+		_id: string | number;
+		comment: string | object;
+	}
+}
+
+interface DeleteComment {
+	type: NotesTypes.DELETE_COMMENT;
+	payload: string | number;
+	// payload: {
+	// 	noteId: string | number;
+	// 	commentId: string | number;
+	// }
+}
+
 export type NotesActionsTypes =
 	| NoteCreate
 	| NotesLists
 	| NoteList
 	| NoteDelete
-	| NoteEdit;
+	| NoteEdit
+	| NotesComments
+	| DeleteComment;

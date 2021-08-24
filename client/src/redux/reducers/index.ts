@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { Notes } from '../interface';
+import { Notes } from '../InterfaceRedux';
 
 import { notes } from './notes';
 

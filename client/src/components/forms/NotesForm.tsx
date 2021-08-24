@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { noteCreate } from '../../redux/actions/notes';
 import { v4 } from 'uuid';
-import { NotesList } from '../../redux/interface';
+import { NotesList } from '../../redux/InterfaceRedux';
 import history from '../../history';
 
 const FormContainer = styled.form`
@@ -59,10 +59,13 @@ export const NotesForm = () => {
       content,
       createdAt: new Date(),
       profilePicture: '',
-      name: 'Tosin Love'
+			name: 'Tosin Love',
+			comments: []
     };
 
-    dispatch(noteCreate(newNote));
+		dispatch(noteCreate(newNote));
+		console.log('this newNote', newNote);
+		
     history.push('/users/notes')
 
 		// if (noteId) {

@@ -21,7 +21,10 @@ const ModalContainer = styled.div`
 	box-sizing: border-box;
 	padding: 10px 30px;
   @media (min-width: 700px){
-    top: 120px;
+    top: 130px;
+  }
+  @media (max-width: 700px){
+    top: 150px;
   }
 `;
 

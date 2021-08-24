@@ -1,7 +1,6 @@
 import { PostLists, UserLists } from '../Interface';
 import { images } from './images';
 
-
 export const Users: UserLists = {
 	userLists: [
 		{
