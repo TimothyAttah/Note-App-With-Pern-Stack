@@ -29,3 +29,22 @@ export interface NotesList {
 export type Notes = {
   notes: NotesList[]
 }
+
+
+export interface ITodos {
+	todo_id: number;
+	task: string;
+	isComplete: boolean;
+	date?: Date | string;
+}
+
+export interface ITodosForm {
+	task: string;
+	isComplete: boolean;
+	date?: Date | string;
+}
+
+export type InitialTodos = {
+	todos: ITodos[];
+	isLoading: boolean;
+};
