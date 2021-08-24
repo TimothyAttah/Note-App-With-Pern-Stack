@@ -9,6 +9,7 @@ import { NotesDelete } from './pages/notes/NotesDelete';
 import { NotesRead } from './pages/notes/NotesRead';
 import { UserNotes } from './pages/notes/UserNotes';
 import { Profile } from './pages/profile/Profile';
+import { Todos } from './pages/todos/Todos';
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
 
@@ -38,6 +39,9 @@ export const App = () => {
 					</Route>
 					<Route path='/users/profile/notes/my-notes'>
 						<UserNotes />
+					</Route>
+					<Route path='/users/todos' exact>
+						<Todos />
 					</Route>
 					<Route path='/users/signup'>
 						<Signup />
