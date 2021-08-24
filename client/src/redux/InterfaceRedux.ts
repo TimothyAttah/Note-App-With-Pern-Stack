@@ -32,7 +32,7 @@ export type Notes = {
 
 
 export interface ITodos {
-	todo_id: number;
+	todo_id: number | string;
 	task: string;
 	isComplete: boolean;
 	date?: Date | string;

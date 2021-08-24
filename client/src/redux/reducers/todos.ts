@@ -1,9 +1,35 @@
 import { TodosTypes } from '../types';
 import { InitialTodos } from '../InterfaceRedux';
 import { TodosActionTypes } from '../actionsTypes/todosTypes';
+import { v4 } from 'uuid';
 
 const initialState: InitialTodos = {
-	todos: [],
+  todos: [
+    {
+      todo_id: v4(),
+      task: 'Buy milk',
+      isComplete: true,
+      date: new Date()
+    },
+    {
+      todo_id: v4(),
+      task: 'Finish homework',
+      isComplete: false,
+      date: new Date()
+    },
+    {
+      todo_id: v4(),
+      task: 'Take out trash',
+      isComplete: true,
+      date: new Date()
+    },
+    {
+      todo_id: v4(),
+      task: 'Build your projects',
+      isComplete: false,
+      date: new Date()
+    },
+  ],
 	isLoading: false,
 };
 
