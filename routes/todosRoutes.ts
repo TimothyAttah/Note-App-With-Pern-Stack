@@ -4,7 +4,13 @@ const todosController = require('../controllers/todosController');
 
 todosRouter.post('/create', todosAuth, todosController.createTodos);
 
-todosRouter.get('/', todosAuth, todosController.getTodos);
+// todosRouter.get('/', todosController.getTodos);
+
+todosRouter.get('/', todosController.getAllTodos);
+
+todosRouter.get('/auth', todosAuth, todosController.getMyTodos);
+
+todosRouter.get('/auth/:id', todosAuth, todosController.getATodo);
 
 todosRouter.put('/update/:id', todosAuth, todosController.updateTodos);
 

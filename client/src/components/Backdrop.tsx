@@ -1,16 +1,10 @@
-import { FC, MouseEvent, MouseEventHandler } from 'react';
+import React, { MouseEventHandler } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-interface Props {
-	//close: MouseEvent<HTMLButtonElement>;
-	//close: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-	// close: (e: MouseEvent<HTMLButtonElement>) => void
-	// close: (e: MouseEvent<HTMLDivElement, MouseEvent>) => void;
-	// close:  MouseEventHandler<HTMLDivElement>
-	 close:  MouseEventHandler<HTMLButtonElement>
+interface BackdropProps {
+	close?: MouseEventHandler<HTMLDivElement>;
 }
-
-
 
 const BackdropWrapper = styled.div`
 	top: 0;
@@ -26,13 +20,6 @@ const BackdropWrapper = styled.div`
 	-webkit-tap-highlight-color: transparent;
 `;
 
-
-export const Backdrop: FC = () => {
-  return (
-		<div>
-			<BackdropWrapper></BackdropWrapper>
-		</div>
-	);
-}
-
- 
+export const Backdrop: FC<BackdropProps> = ({ close }) => {
+	return <BackdropWrapper onClick={close}></BackdropWrapper>;
+};

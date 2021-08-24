@@ -5,6 +5,6 @@ import { reducers } from './reducers';
 const initialState = {};
 const middleware = [thunk];
 
-const store = createStore( reducers, initialState, compose(applyMiddleware(...middleware)));
-
-export default store;
+export const store = createStore(reducers, initialState, compose(
+  applyMiddleware(...middleware)
+));
