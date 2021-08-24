@@ -3,7 +3,7 @@ import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
 import { CommentsLists } from './CommentsLists';
 // import { images } from '../Images';
-import { NotesList } from '../../redux/interface';
+import { NotesList } from '../../redux/InterfaceRedux';
 import { CommentsForm } from '../forms/CommentsForm';
 
 interface CommentProps {

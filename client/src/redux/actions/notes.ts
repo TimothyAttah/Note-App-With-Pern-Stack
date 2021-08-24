@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { NotesActionsTypes } from "../actionsTypes/actionsTypes";
-import { NotesComments } from "../interface";
+import { NotesComments } from "../InterfaceRedux";
 import { NotesTypes } from "../types";
 
 export const noteCreate = (notes: object) => (dispatch: Dispatch) => {

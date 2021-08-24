@@ -4,7 +4,7 @@ import { MoreVert } from '@material-ui/icons';
 import { popupNav } from '../helper/Helper';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { NotesList } from '../../redux/interface';
+import { NotesList } from '../../redux/InterfaceRedux';
 
 interface PopupProps {
 	note: NotesList

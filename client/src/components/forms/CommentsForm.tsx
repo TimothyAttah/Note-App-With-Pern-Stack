@@ -4,7 +4,7 @@ import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
-import { NotesComments, NotesList } from '../../redux/interface'; 
+import { NotesComments, NotesList } from '../../redux/InterfaceRedux'; 
 import { noteComments } from '../../redux/actions/notes'
 import { v4 } from 'uuid';
 

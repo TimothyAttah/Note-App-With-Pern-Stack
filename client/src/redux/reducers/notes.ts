@@ -1,7 +1,7 @@
 import { v4 } from 'uuid';
 import { NotesTypes } from "../types";
 import { NotesActionsTypes } from "../actionsTypes/actionsTypes";
-import { Notes } from "../interface";
+import { Notes } from "../InterfaceRedux";
 import { images } from '../../components/images';
 
 const initialState: Notes = {
