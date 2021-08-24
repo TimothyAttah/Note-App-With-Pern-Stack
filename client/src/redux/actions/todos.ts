@@ -50,7 +50,7 @@ export const createTodos = (task: object) => async (dispatch: Dispatch) => {
 	}
 };
 
-export const deleteTodo = (id: number) => async (dispatch: Dispatch) => {
+export const deleteTodo = (id: number | string) => async (dispatch: Dispatch) => {
 	try {
 		// const { data } = await api.deleteTodos(id);
 		dispatch<TodosActionTypes>({
@@ -67,7 +67,7 @@ export const deleteTodo = (id: number) => async (dispatch: Dispatch) => {
 };
 
 export const editTodos =
-	(todo_id: number, task: string) => async (dispatch: Dispatch) => {
+	(todo_id: number | string, task: string) => async (dispatch: Dispatch) => {
 		try {
 			// const { data } = await api.editTodos(id, task);
 			// console.log(data);

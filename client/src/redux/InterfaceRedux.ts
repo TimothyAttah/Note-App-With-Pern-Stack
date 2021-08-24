@@ -48,3 +48,7 @@ export type InitialTodos = {
 	todos: ITodos[];
 	isLoading: boolean;
 };
+
+export type DeleteTodos = (id: number | string) => void;
+export type IsCompleteTodos = (todos: ITodos) => void;
+export type EditTodos = (id: number | string, task: string) => void;

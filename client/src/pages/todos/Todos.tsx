@@ -1,8 +1,8 @@
 import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 
-import TodosForm from '../../components/forms/TodosForm';
-import TodosLists from './TodosLists';
+import { TodosForm } from '../../components/forms/TodosForm';
+import { TodosLists } from './TodosLists';
 
 const MainContainer = styled.main`
 	background: linear-gradient(
@@ -11,6 +11,7 @@ const MainContainer = styled.main`
 		rgba(44, 114, 251, 1) 100%
 	);
 	padding: 20px 0;
+  padding-top: 150px;
 `;
 
 const TodosContainer = styled.section`

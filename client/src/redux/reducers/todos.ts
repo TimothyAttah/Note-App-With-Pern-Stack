@@ -33,7 +33,7 @@ const initialState: InitialTodos = {
 	isLoading: false,
 };
 
-export const todosReducer = (
+export const todos = (
 	state = initialState,
 	action: TodosActionTypes
 ) => {
