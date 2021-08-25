@@ -4,39 +4,36 @@ import { TodosActionTypes } from '../actionsTypes/todosTypes';
 import { v4 } from 'uuid';
 
 const initialState: InitialTodos = {
-  todos: [
-    {
-      todo_id: v4(),
-      task: 'Buy milk',
-      isComplete: true,
-      date: new Date()
-    },
-    {
-      todo_id: v4(),
-      task: 'Finish homework',
-      isComplete: false,
-      date: new Date()
-    },
-    {
-      todo_id: v4(),
-      task: 'Take out trash',
-      isComplete: true,
-      date: new Date()
-    },
-    {
-      todo_id: v4(),
-      task: 'Build your projects',
-      isComplete: false,
-      date: new Date()
-    },
-  ],
+	todos: [
+		{
+			todo_id: v4(),
+			task: 'Buy milk',
+			isComplete: true,
+			date: new Date(),
+		},
+		{
+			todo_id: v4(),
+			task: 'Finish homework',
+			isComplete: false,
+			date: new Date(),
+		},
+		{
+			todo_id: v4(),
+			task: 'Take out trash',
+			isComplete: true,
+			date: new Date(),
+		},
+		{
+			todo_id: v4(),
+			task: 'Build your projects',
+			isComplete: false,
+			date: new Date(),
+		},
+	],
 	isLoading: false,
 };
 
-export const todos = (
-	state = initialState,
-	action: TodosActionTypes
-) => {
+export const todos = (state = initialState, action: TodosActionTypes) => {
 	switch (action.type) {
 		case TodosTypes.LISTS_TODOS:
 		case TodosTypes.LISTS_TODO:
