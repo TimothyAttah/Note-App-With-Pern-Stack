@@ -9,8 +9,6 @@ import styled from 'styled-components';
 import { SideBar } from '../sidebar/SideBar';
 import { user, fullName } from '../NameInitials';
 import { images } from '../images';
-import { Feed } from '../feed/Feed';
-import { RightBar } from '../rightbar/RightBar';
 // import { listPost } from '../../redux/actions/posts';
 
 interface ProfileMenuProps {
@@ -156,9 +154,6 @@ export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
 				</div>
         <ProfileContainer>
           {children}
-					{/* <Feed />
-					<RightBar profile /> */}
-
 				</ProfileContainer>
 			</ProfileRight>
 		</ProfileContainer>
