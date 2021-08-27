@@ -14,6 +14,8 @@ app.use('/', (req: any, res: any) => {
   res.send('Hello from Note3Sixty')
 })
 
+app.use('/api/users', require('./routes/authRoutes'));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
