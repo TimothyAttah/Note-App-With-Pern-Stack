@@ -15,4 +15,13 @@ interface SignOut {
   payload: object | string;
 }
 
-export type AuthTypesActions = SignUp | SignIn | SignOut;
+interface GetUsers {
+  type: UserTypes.GET_USERS;
+  payload: object;
+}
+
+export type AuthTypesActions =
+  SignUp
+  | SignIn
+  | SignOut
+  | GetUsers;

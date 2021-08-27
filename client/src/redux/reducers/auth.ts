@@ -14,6 +14,11 @@ export const auth = (state = initialState, action: AuthTypesActions) => {
         ...state,
         auth: [action.type, ...state.auth]
       }
+    case UserTypes.GET_USERS:
+      return {
+        ...state,
+        auth: action.payload
+      }
     default:
       return state
   }

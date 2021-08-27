@@ -42,3 +42,19 @@ export const signIn = (userData: object) => async (dispatch: Dispatch) => {
     }
   }
 }
+
+export const getUsers = () => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.getUsers();
+    console.log(data);
+    
+    dispatch<AuthTypesActions>({
+      type: UserTypes.GET_USERS,
+      payload: data.allUsers
+    })
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
+  }
+}
