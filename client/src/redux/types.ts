@@ -7,3 +7,13 @@ export enum NotesTypes {
   NOTE_COMMENT = 'NOTE_COMMENT',
   DELETE_COMMENT = 'DELETE_COMMENT',
 }
+
+export enum UserTypes {
+  SIGN_IN = 'SIGN_IN',
+	SIGN_UP = 'SIGN_UP',
+	SIGN_OUT = 'SIGN_OUT',
+	GET_USERS = 'GET_USERS',
+  GET_USER = 'GET_USER',
+	FOLLOW_USER = 'FOLLOW_USER',
+	UNFOLLOW_USER = 'UNFOLLOW_USER',
+}
