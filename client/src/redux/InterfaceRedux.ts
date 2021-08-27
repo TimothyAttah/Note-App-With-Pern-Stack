@@ -29,3 +29,17 @@ export interface NotesList {
 export type Notes = {
   notes: NotesList[]
 }
+
+export interface UserList {
+	_id: string | number;
+	firstName: string;
+	lastName: string;
+  email: string;
+  password?: string
+	profilePicture: string;
+	createdAt?: Date | string;
+}
+
+export type Auth = {
+	auth: UserList[];
+};
