@@ -10,9 +10,9 @@ connectingDB();
 app.use(express.json());
 app.use(cors());
 
-app.use('/', (req: any, res: any) => {
-  res.send('Hello from Note3Sixty')
-})
+// app.use('/', (req: any, res: any) => {
+//   res.send('Hello from Note3Sixty')
+// })
 
 app.use('/api/users', require('./routes/authRoutes'));
 

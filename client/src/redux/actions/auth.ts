@@ -8,6 +8,7 @@ import history from "../../history";
 export const signUp = (userData: object) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.signUp(userData);
+    
     dispatch<AuthTypesActions>({
       type: UserTypes.SIGN_UP,
       payload: data
@@ -24,10 +25,17 @@ export const signUp = (userData: object) => async (dispatch: Dispatch) => {
 export const signIn = (userData: object) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.signIn(userData);
+    console.log(data);
+    
     dispatch<AuthTypesActions>({
       type: UserTypes.SIGN_IN,
       payload: data.results
     })
+    localStorage.setItem('jwt', data.token);
+    localStorage.setItem('user', JSON.stringify(data.results))
+    history.push('/');
+    window.location.reload(false);
+		toast.success(data.message);
   } catch (err) {
     if (err.response && err.response.data) {
       toast.error(err.response.data.error);

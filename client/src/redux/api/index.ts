@@ -16,5 +16,5 @@ API.interceptors.request.use(req => {
   return req;
 })
 
-export const signUp = (userData: object) => API.post('/api/users/signup', userData);
-export const signIn = (userData: object) => API.post('/api/users/signin', userData);
+export const signUp = (userData: object) => API.post('/users/signup', userData);
+export const signIn = (userData: object) => API.post('/users/signin', userData);

@@ -22,10 +22,10 @@ const userControllers = {
         email,
         password: hashedPassword
       })
-      await User.save();
+      await user.save();
       res.status(200).json({message: 'User successfully signup.', user})
     } catch (err) {
-      res.status(500).json({error: err})
+      res.status(500).json({error: err.message})
     }
   },
   signIn: async (req: any, res: any) => {
