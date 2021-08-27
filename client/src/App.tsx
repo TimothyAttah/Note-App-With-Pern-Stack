@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { Header } from './components/header/Header';
 import history from './history';
 import { Home } from './pages/home/Home';
@@ -13,6 +14,7 @@ import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
 
 export const App = () => {
+	toast.configure();
 	return (
 		<>
 			<Router history={history}>
