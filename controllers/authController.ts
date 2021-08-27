@@ -54,6 +54,14 @@ const userControllers = {
     } catch (err) {
        res.status(500).json({ error: err });
     }
+  },
+  getUsers: async (req: any, res: any) => {
+    try {
+      const allUsers = await User.find();
+      res.status(200).json({ message: 'All users', allUsers });
+    } catch (err) {
+       res.status(500).json({ error: err });
+    }
   }
 }
 
