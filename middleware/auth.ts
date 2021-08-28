@@ -1,7 +1,7 @@
 const jwtAuth = require('jsonwebtoken');
 const UserAuth = require('../model/UserModel');
 
-const auth = (req, res, next) => {
+const auth = (req:any, res:any, next:any) => {
   const { authorization } = req.headers;
   if (!authorization)
      return res
@@ -10,7 +10,7 @@ const auth = (req, res, next) => {
   
   const token = authorization.replace('Bearer ', '');
 
-  jwtAuth.verify(token, process.env.JWT_SECRET, async (err, payload) => {
+  jwtAuth.verify(token, process.env.JWT_SECRET, async (err:any, payload:any) => {
     if (err)
        return res
 					.status(403)
