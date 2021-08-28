@@ -43,3 +43,18 @@ export interface UserList {
 export type Auth = {
 	auth: UserList[];
 };
+
+export interface PostList {
+	post_id: number | string;
+	desc?: string;
+	photo?: string;
+	date: Date | string;
+	userId: string | number;
+	// likes: number | string;
+	likes: any;
+	comment: any;
+}
+
+export type Posts = {
+	posts: PostList[]
+};

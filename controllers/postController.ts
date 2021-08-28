@@ -18,6 +18,15 @@ const postControllers = {
     } catch (err) {
       return res.status(500).json({error: err})
     }
+  },
+  allPosts: async (req: any, res: any) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: -1 })
+      .populate('postedBy', '-password')
+      res.status(200).json({ message: 'All posts', posts });
+    } catch (err) {
+       return res.status(500).json({ error: err });
+    }
   }
 }
 
