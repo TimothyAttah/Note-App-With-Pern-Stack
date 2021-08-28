@@ -25,7 +25,7 @@ export const allPosts = () => async (dispatch: Dispatch) => {
     const { data } = await api.allPosts();
     dispatch<PostActionTypes>({
       type: PostTypes.POSTS_LISTS,
-      payload: data
+      payload: data.posts
     })
   } catch (err) {
      if (err.response && err.response.data) {

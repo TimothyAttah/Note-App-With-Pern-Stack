@@ -128,3 +128,18 @@ export const popupNav = [
 		path: 'note/print',
 	},
 ];
+
+export const postPopupNav = [
+	{
+		name: 'Edit',
+		icon: <Edit />,
+		url: '/',
+		path: 'post/edit',
+	},
+	{
+		name: 'Delete',
+		icon: <Delete />,
+		url: '/',
+		path: 'post/delete',
+	}
+];

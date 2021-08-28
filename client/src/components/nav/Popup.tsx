@@ -1,14 +1,15 @@
 import React, { FC, MouseEventHandler, useState } from 'react';
 import { IconButton, Menu } from '@material-ui/core';
 import { MoreVert } from '@material-ui/icons';
-import { popupNav } from '../helper/Helper';
+import { popupNav, postPopupNav } from '../helper/Helper';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { NotesList } from '../../redux/InterfaceRedux';
+import { NotesList, PostList } from '../../redux/InterfaceRedux';
 
 interface PopupProps {
-	note: NotesList
+	note?: NotesList;
 	events?: (e: MouseEventHandler<HTMLAnchorElement>) => void;
+	post?: PostList;
 }
 
 const NavContainer = styled.div`
@@ -26,7 +27,7 @@ const NavContainer = styled.div`
 	}
 `;
 
-export const Popup:FC<PopupProps> = ({ note }) => {
+export const Popup:FC<PopupProps> = ({ note, post }) => {
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	const handleClick = (e: any) => {
@@ -60,19 +61,33 @@ export const Popup:FC<PopupProps> = ({ note }) => {
 				onClose={handleClose}
 			>
 				<div>
-					{popupNav.map((item, index) => {
-						return (
-							<NavContainer key={index}>
-								<Link
-									to={`${item.url}/${note._id}/${item.path}`}
-									onClick={handleScroll}
-								>
-									{item.icon}
-									<span>{item.name}</span>
-								</Link>
-							</NavContainer>
-						);
-					})}
+					{note
+						? popupNav.map((item, index) => {
+								return (
+									<NavContainer key={index}>
+										<Link
+											to={`${item.url}/${note?._id}/${item.path}`}
+											onClick={handleScroll}
+										>
+											{item.icon}
+											<span>{item.name}</span>
+										</Link>
+									</NavContainer>
+								);
+						  })
+						: postPopupNav.map((item, index) => {
+								return (
+									<NavContainer key={index}>
+										<Link
+											to={`${item.url}/${post?._id}/${item.path}`}
+											onClick={handleScroll}
+										>
+											{item.icon}
+											<span>{item.name}</span>
+										</Link>
+									</NavContainer>
+								);
+						  })}
 				</div>
 			</Menu>
 		</div>

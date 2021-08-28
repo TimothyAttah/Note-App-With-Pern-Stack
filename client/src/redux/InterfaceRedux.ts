@@ -44,15 +44,28 @@ export type Auth = {
 	auth: UserList[];
 };
 
+export interface PostedBy {
+	_id: string;
+	coverPicture?: string;
+	createdAt?: string | Date;
+	email?: string;
+	firstName: string;
+	followers?: [];
+	following?: [];
+	isAdmin?: boolean;
+	lastName: string;
+	profilePicture?: string
+}
+
 export interface PostList {
-	post_id: number | string;
+	_id: number | string;
 	desc?: string;
-	photo?: string;
-	date: Date | string;
+	img?: string;
+	createdAt: Date | string;
 	userId: string | number;
-	// likes: number | string;
 	likes: any;
-	comment: any;
+	comments: any;
+	postedBy: PostedBy;
 }
 
 export type Posts = {

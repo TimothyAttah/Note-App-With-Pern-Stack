@@ -1,5 +1,5 @@
 import { useEffect, useState, FC } from 'react';
-import { IconButton } from '@material-ui/core';
+import { Avatar, IconButton } from '@material-ui/core';
 import { ThumbUp, Person, ThumbDown, MoreVert } from '@material-ui/icons';
 // import { format } from 'timeago.js';
 // import { useDispatch } from 'react-redux';
@@ -17,13 +17,13 @@ import {
 	PostWrapper,
 } from './Styles';
 import axios from 'axios';
-import { Posts } from '../../Interface';
-// import { Popup } from '../nav/Popup';
+import { PostList } from '../../redux/InterfaceRedux';
+import { Popup } from '../nav/Popup';
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 interface PostProps {
-  post: Posts
+  post: PostList
 }
 
 export const Post: FC<PostProps> = ({ post }) => {
@@ -41,7 +41,7 @@ export const Post: FC<PostProps> = ({ post }) => {
 	const likeHandler = async () => {
 		// dispatch(likePost(postId, user.results._id))
 		try {
-			await axios.put(`/posts/${post.post_id}/like`, { userId: user.results?._id });
+			await axios.put(`/posts/${post._id}/like`, { userId: user.results?._id });
 		} catch (err) {
 			console.log(err);
 		}
@@ -49,44 +49,36 @@ export const Post: FC<PostProps> = ({ post }) => {
 		setIsLiked(!isLiked);
 	};
 
-	// const fullName = `${post.postedBy?.firstName} ${post.postedBy?.lastName}`;
-  const fullName = 'Jane Jack'
+	const fullName = `${post.postedBy?.firstName} ${post.postedBy?.lastName}`;
+
 	return (
 		<PostContainer>
 			<PostWrapper>
 				<PostTopLeft>
-					{post.photo ? (
-						<img
-							src={post.photo}
-							// src={`${PF}/${post?.photo}`}
-							alt=''
-							className='share__profile-img'
-						/>
+					{post.postedBy.profilePicture ? (
+						<Avatar>
+							<img
+								// src={post.photo}
+								src={`${PF}/${post?.img}`}
+								alt=''
+								className='share__profile-img'
+							/>
+						</Avatar>
 					) : (
 						<Person />
 					)}
-					{/* {post.postedBy?.profilePicture ? (
-						<img
-							src={post.postedBy?.profilePicture}
-							alt=''
-							className='share__profile-img'
-						/>
-					) : (
-						<Person />
-					)} */}
 					<span className='post__username'>{fullName}</span>
-					{/* <span className='post__date'>{format(post.createdAt)}</span> */}
-					<span className='post__date'>{moment(post.date).format('llll')}</span>
+					<span className='post__date'>
+						{moment(post.createdAt).format('llll')}
+					</span>
 				</PostTopLeft>
 				<div>
-					<MoreVert />
-					{/* {post.postedBy?._id === user.results?._id && <Popup post={post} />} */}
+					{post.postedBy?._id === user?._id && <Popup post={post} />}
 				</div>
 			</PostWrapper>
 			<PostCenter>
 				<span>{post?.desc}</span>
-				<img src={post.photo} alt='' />
-				{/* <img src={`${PF}/${post?.photo}`} alt='' /> */}
+				<img src={`${PF}/${post?.img}`} alt='' />
 			</PostCenter>
 			<PostWrapper>
 				<PostBottomLeft>
@@ -103,7 +95,7 @@ export const Post: FC<PostProps> = ({ post }) => {
 					<span className='post__like-counter'>{like} people like it</span>
 				</PostBottomLeft>
 				<PostBottomRight>
-					<span>{post?.comment.length} comments</span>
+					<span>{post?.comments.length} comments</span>
 				</PostBottomRight>
 			</PostWrapper>
 		</PostContainer>
