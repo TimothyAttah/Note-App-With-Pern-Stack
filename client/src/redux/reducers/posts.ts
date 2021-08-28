@@ -13,6 +13,11 @@ export const posts = (state = initialState, action: PostActionTypes) => {
         ...state,
         posts: [action.payload, ...state.posts]
       }
+    case PostTypes.POSTS_LISTS:
+      return {
+        ...state,
+        posts: action.payload
+      }
     default:
       return state;
   }

@@ -3,9 +3,10 @@ const UserPost = require('../model/UserModel');
 
 const postControllers = {
   createPost: async (req: any, res: any) => {
+    const newPost = req.body;
+    const { userId, desc, img } = newPost;
+    console.log(userId, desc, img);
     try {
-      const newPost = req.body;
-      const { userId, desc, img } = newPost;
       req.user.password = undefined;
       const post = await new Post({
         userId,

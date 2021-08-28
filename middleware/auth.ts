@@ -16,7 +16,7 @@ const auth = (req:any, res:any, next:any) => {
 					.status(403)
          .json({ error: 'Unauthorized User. Request Denied' });
     const { _id } = payload;
-    const userData = await User.findById(_id);
+    const userData = await UserAuth.findById(_id);
     req.user = userData;
     next();
   })

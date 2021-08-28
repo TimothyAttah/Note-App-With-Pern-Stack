@@ -7,13 +7,29 @@ import { PostActionTypes } from "../actionsTypes/postTypes";
 export const createPost = (postData: object) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.createPost(postData);
+   console.log('This is action post', data);
+    
     dispatch<PostActionTypes>({
       type: PostTypes.POST_CREATE,
-      payload: data
+      payload: data.post
     })
   } catch (err) {
     if (err.response && err.response.data) {
       toast.error(err.response.data.error)
     }
+  }
+}
+
+export const allPosts = () => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.allPosts();
+    dispatch<PostActionTypes>({
+      type: PostTypes.POSTS_LISTS,
+      payload: data
+    })
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
   }
 }

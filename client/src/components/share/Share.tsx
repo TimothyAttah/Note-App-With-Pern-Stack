@@ -9,8 +9,8 @@ import {
 	Cancel,
 	Person,
 } from '@material-ui/icons';
-// import { useDispatch } from 'react-redux';
-// import { createPost } from '../../redux/actions/posts';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../redux/actions/posts';
 import { user, fullName } from '../NameInitials';
 import {
 	ShareContainer,
@@ -25,16 +25,20 @@ import {
 } from './Styles';
 
 export const Share = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const [desc, setDesc] = useState('');
 	const [img] = useState();
 
 	const [file, setFile] = useState('');
 	const [uploadedFile, setUploadedFile] = useState({});
 
-	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		// setFile(e.target.files[0]);
+	const onChange = (e: any) => {
+		setFile(e.target.files[0]);
 	};
+
+	// React.Dispatch<React.SetStateAction<string>>
+	// HTMLInputElement.files: FileList | null
+// React.ChangeEvent<HTMLInputElement>.target: EventTarget & HTMLInputElement
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -42,7 +46,7 @@ export const Share = () => {
 		formData.append('file', file);
 
 		try {
-			const res = await axios.post('/upload', formData, {
+			const res = await axios.post('/api/upload', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},
@@ -53,13 +57,14 @@ export const Share = () => {
 			setUploadedFile({ fileName, filePath });
 
 			const newPost = {
-				userId: user.results?._id,
+				userId: user?._id,
 				desc,
 				img: fileName,
 			};
-			// dispatch(createPost(newPost));
+			dispatch(createPost(newPost));
 			setDesc('');
 			// setFile(null);
+			setFile('');
 		} catch (err) {
 			if (err.response.status === 500) {
 				console.log('There was a problem with the server');
@@ -72,17 +77,15 @@ export const Share = () => {
 	return (
 		<ShareContainer>
 			<ShareTop>
-					<Person />
-				
-				{/* {user.results?.profilePicture ? (
+				{user?.profilePicture ? (
 					<img
-						src={user.results?.profilePicture}
+						src={user?.profilePicture}
 						alt=''
 						className='share__profile-img'
 					/>
 				) : (
 					<Person />
-				)} */}
+				)}
 
 				<input
 					placeholder={`What's on your mind ${fullName}?`}
@@ -97,7 +100,7 @@ export const Share = () => {
 			{file && (
 				<ShareImgContainer>
 					<img src={URL.createObjectURL(file)} alt='' />
-					{/* <Cancel color='inherit' onClick={() => setFile(null)} /> */}
+					<Cancel color='inherit' onClick={() => setFile('')} />
 				</ShareImgContainer>
 			)}
 			<ShareBottom onSubmit={onSubmit}>
@@ -109,6 +112,7 @@ export const Share = () => {
 							type='file'
 							id='file'
 							accept='.png, .jpg, .jpeg'
+							// value={file}
 							onChange={onChange}
 						/>
 					</FileLabel>
