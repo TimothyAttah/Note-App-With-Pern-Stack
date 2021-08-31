@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 import { toast } from "react-toastify";
 import { PostActionTypes } from "../actionsTypes/postTypes";
 
+
 export const createPost = (postData: object) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.createPost(postData);
@@ -26,6 +27,22 @@ export const allPosts = () => async (dispatch: Dispatch) => {
     dispatch<PostActionTypes>({
       type: PostTypes.POSTS_LISTS,
       payload: data.posts
+    })
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
+  }
+}
+
+export const likePost = (id: string, userId: string) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.likePost(id, userId)
+    console.log('this is like post', data);
+    
+    dispatch<PostActionTypes>({
+      type: PostTypes.POST_LIKE,
+      payload: {id, data}
     })
   } catch (err) {
      if (err.response && err.response.data) {

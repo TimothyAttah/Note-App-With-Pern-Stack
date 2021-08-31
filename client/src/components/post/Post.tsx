@@ -1,12 +1,12 @@
 import { useEffect, useState, FC } from 'react';
 import { Avatar, IconButton } from '@material-ui/core';
-import { ThumbUp, Person, ThumbDown, MoreVert } from '@material-ui/icons';
+import { ThumbUp, Person, ThumbDown } from '@material-ui/icons';
 // import { format } from 'timeago.js';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import moment from 'moment';
 
 import { user } from '../NameInitials';
-// import { likePost } from '../../redux/actions/posts';
+import { likePost } from '../../redux/actions/posts';
 
 import {
 	PostBottomLeft,
@@ -29,23 +29,24 @@ interface PostProps {
 export const Post: FC<PostProps> = ({ post }) => {
 	console.log(post);
 	
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const [like, setLike] = useState(post.likes.length);
-	const [isLiked, setIsLiked] = useState(false);
+	const [isLiked, setIsLiked] = useState<any>(false);
 
 	useEffect(() => {
-		// setIsLiked(post.likes.includes(user.results._id));
+		setIsLiked(post.likes.includes(user._id));
 	}, [setIsLiked, post.likes]);
 
 	// const posts = useSelector(state => postId !== null ? state.posts.posts.find(post => post._id): null)
 	const likeHandler = async () => {
-		// dispatch(likePost(postId, user.results._id))
+		// dispatch(likePost(post._id, user._id))
+		
 		try {
-			await axios.put(`/posts/${post._id}/like`, { userId: user.results?._id });
+			await axios.put(`/posts/${post._id}/like`, { userId: user?._id });
 		} catch (err) {
 			console.log(err);
 		}
-		// setLike(isLiked > 0 ? like - 1 : like + 1);
+		setLike(isLiked > 0 ? like - 1 : like + 1);
 		setIsLiked(!isLiked);
 	};
 
@@ -58,7 +59,6 @@ export const Post: FC<PostProps> = ({ post }) => {
 					{post.postedBy.profilePicture ? (
 						<Avatar>
 							<img
-								// src={post.photo}
 								src={`${PF}/${post?.img}`}
 								alt=''
 								className='share__profile-img'

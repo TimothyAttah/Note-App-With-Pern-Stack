@@ -23,10 +23,18 @@ interface EditPost {
     post: object;
   };
 }
+interface LikePost {
+  type: PostTypes.POST_LIKE;
+  payload: {
+    id: string;
+    data: object | string;
+  }
+}
 
 
 export type PostActionTypes = CreatePost
   | ListPost
   | ListPosts
   | DeletePost
-  | EditPost;
+  | EditPost
+  | LikePost;

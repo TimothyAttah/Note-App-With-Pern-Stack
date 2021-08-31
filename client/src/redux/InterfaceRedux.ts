@@ -58,7 +58,7 @@ export interface PostedBy {
 }
 
 export interface PostList {
-	_id: number | string;
+	_id: string;
 	desc?: string;
 	img?: string;
 	createdAt: Date | string;
