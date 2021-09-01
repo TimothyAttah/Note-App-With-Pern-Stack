@@ -71,3 +71,15 @@ export interface PostList {
 export type Posts = {
 	posts: PostList[]
 };
+
+export interface PostCommentsLists {
+	_id: string | number;
+	text: string | object;
+	// name: string;
+	// profilePicture: string;
+	// createdAt: Date | string;
+}
+
+export type PostComments = {
+	comments: PostCommentsLists[];
+};
