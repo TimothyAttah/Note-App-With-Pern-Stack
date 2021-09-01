@@ -9,7 +9,8 @@ import { noteComments } from '../../redux/actions/notes'
 import { v4 } from 'uuid';
 
 interface CommentsFormProps {
-  note: NotesList;
+  note?: NotesList;
+  post?: any;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -26,7 +27,7 @@ const Form = styled.form`
 		outline: none;
     border: none;
     border-bottom: 1px solid gray;
-    background-color: #e5e5e5;
+    background-color: #eee;
     font-size: 1.1rem;
 		::placeholder {
 			color: grey;
@@ -38,7 +39,7 @@ const Form = styled.form`
 	}
 `;
 
-export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
+export const CommentsForm: FC<CommentsFormProps> = ({ note, post}) => {
   const dispatch = useDispatch<any>();
   const [comment, setComment] = useState('')
 
@@ -51,8 +52,14 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
       // profilePicture: '',
       // name: 'Tosin Love'
     };
+
+    if (note) {
+       dispatch(noteComments(note._id, newComment));
+    } else {
+      return null;
+    }
     
-    dispatch(noteComments(note._id, newComment))
+   
     setComment('');
   }
   return (

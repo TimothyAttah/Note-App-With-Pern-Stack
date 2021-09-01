@@ -15,10 +15,12 @@ import {
 	PostContainer,
 	PostTopLeft,
 	PostWrapper,
-} from './Styles';
+} from './styles';
 import axios from 'axios';
 import { PostList } from '../../redux/InterfaceRedux';
 import { Popup } from '../nav/Popup';
+import { PostsComments } from '../comments/PostsComments';
+import { PostComments } from '../comments/CommentsOpen';
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -30,16 +32,16 @@ export const Post: FC<PostProps> = ({ post }) => {
 	console.log(post);
 	
 	const dispatch = useDispatch();
-	const [like, setLike] = useState(post.likes.length);
+	const [like, setLike] = useState(post.likes?.length);
 	const [isLiked, setIsLiked] = useState<any>(false);
 
 	useEffect(() => {
-		setIsLiked(post.likes.includes(user._id));
+		setIsLiked(post.likes?.includes(user._id));
 	}, [setIsLiked, post.likes]);
 
 	// const posts = useSelector(state => postId !== null ? state.posts.posts.find(post => post._id): null)
 	const likeHandler = async () => {
-		// dispatch(likePost(post._id, user._id))
+		// dispatch(likePost(post._id, {userId: user?._id}))
 		
 		try {
 			await axios.put(`/posts/${post._id}/like`, { userId: user?._id });
@@ -56,7 +58,7 @@ export const Post: FC<PostProps> = ({ post }) => {
 		<PostContainer>
 			<PostWrapper>
 				<PostTopLeft>
-					{post.postedBy.profilePicture ? (
+					{post.postedBy?.profilePicture ? (
 						<Avatar>
 							<img
 								src={`${PF}/${post?.img}`}
@@ -72,9 +74,7 @@ export const Post: FC<PostProps> = ({ post }) => {
 						{moment(post.createdAt).format('llll')}
 					</span>
 				</PostTopLeft>
-				<div>
-					{post.postedBy?._id === user?._id && <Popup post={post} />}
-				</div>
+				<div>{post.postedBy?._id === user?._id && <Popup post={post} />}</div>
 			</PostWrapper>
 			<PostCenter>
 				<span>{post?.desc}</span>
@@ -94,10 +94,11 @@ export const Post: FC<PostProps> = ({ post }) => {
 
 					<span className='post__like-counter'>{like} people like it</span>
 				</PostBottomLeft>
-				<PostBottomRight>
-					<span>{post?.comments.length} comments</span>
-				</PostBottomRight>
 			</PostWrapper>
+			<PostBottomRight>
+				{/* <span>{post.comments?.length} comments</span> */}
+				<PostComments post={post} comments={<PostsComments post={post} />} />
+			</PostBottomRight>
 		</PostContainer>
 	);
 };

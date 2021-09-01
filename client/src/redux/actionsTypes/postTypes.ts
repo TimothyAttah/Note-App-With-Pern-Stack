@@ -26,7 +26,7 @@ interface EditPost {
 interface LikePost {
   type: PostTypes.POST_LIKE;
   payload: {
-    id: string;
+    _id: string;
     data: object | string;
   }
 }

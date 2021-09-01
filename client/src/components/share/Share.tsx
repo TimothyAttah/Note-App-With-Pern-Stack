@@ -46,7 +46,7 @@ export const Share = () => {
 		formData.append('file', file);
 
 		try {
-			const res = await axios.post('/api/upload', formData, {
+			const res = await axios.post('/upload', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 				},

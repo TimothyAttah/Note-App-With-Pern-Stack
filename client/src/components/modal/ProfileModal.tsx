@@ -37,9 +37,11 @@ export const ProfileModal = () => {
 	};
 
 	const handleLogout = () => {
-		localStorage.clear();
+		localStorage.removeItem('user');
+		localStorage.removeItem('jwt');
+		// localStorage.clear();
 		// dispatch(logout());
-		history.push('/user/signin');
+		// history.push('/user/signin');
 		window.location.reload(false);
 	};
 

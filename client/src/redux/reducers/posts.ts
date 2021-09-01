@@ -21,7 +21,7 @@ export const posts = (state = initialState, action: PostActionTypes) => {
     case PostTypes.POST_LIKE:
       return {
         ...state,
-        posts: state.posts.map(post => post._id === action.payload.id ? action.payload : post)
+        posts: state.posts.map(post => post._id === action.payload._id ? action.payload : post)
       }
     default:
       return state;

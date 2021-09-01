@@ -30,10 +30,7 @@ export const Feed = () => {
 	return (
 		<FeedContainer>
 			<Share />
-			{/* {posts.map(p => {
-				return <Post key={p._id} post={p} />;
-			})} */}
-			{posts.map(post => (
+			{posts?.map(post => (
 				<Post key={post._id} post={post} />
 			))}
 		</FeedContainer>
