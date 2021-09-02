@@ -31,10 +31,19 @@ interface LikePost {
   }
 }
 
+interface CommentPost {
+  type: PostTypes.POST_COMMENT;
+  payload: {
+    _id: string;
+    data: object
+  }
+}
+
 
 export type PostActionTypes = CreatePost
   | ListPost
   | ListPosts
   | DeletePost
   | EditPost
-  | LikePost;
+  | LikePost
+  | CommentPost;

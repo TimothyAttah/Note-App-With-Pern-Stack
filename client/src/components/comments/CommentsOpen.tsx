@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useState } from 'react';
 import { IconButton } from '@material-ui/core';
 import { InsertComment } from '@material-ui/icons';
 import styled from 'styled-components';
-import { NotesList } from '../../redux/InterfaceRedux';
+import { NotesList, PostList } from '../../redux/InterfaceRedux';
 
 interface CommentOpenProps {
 	comments: ReactNode;
@@ -11,7 +11,7 @@ interface CommentOpenProps {
 
 interface PostCommentProps {
 	comments: ReactNode;
-	post: any;
+	post: PostList;
 }
 
 const Container = styled.div`

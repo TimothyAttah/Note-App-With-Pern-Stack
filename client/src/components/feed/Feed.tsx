@@ -24,7 +24,7 @@ export const Feed = () => {
 		dispatch(allPosts());
 	}, [dispatch]);
 
-	console.log('This is feed post', posts);
+	// console.log('This is feed post', posts);
 	
 
 	return (

@@ -22,3 +22,4 @@ export const getUsers = () => API.get('/users');
 export const createPost = (postData: object) => API.post('/posts/create', postData);
 export const allPosts = () => API.get('/posts');
 export const likePost = (id: string, userId: string) => API.put(`/posts/${id}/like`, userId);
+export const postComments = ( text: object) => API.put('/posts/comments', text)

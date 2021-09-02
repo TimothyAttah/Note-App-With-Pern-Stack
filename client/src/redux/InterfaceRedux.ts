@@ -56,6 +56,18 @@ export interface PostedBy {
 	lastName: string;
 	profilePicture?: string
 }
+export interface PostedByComments {
+	// _id?: string;
+	// coverPicture?: string;
+	// createdAt?: string | Date;
+	// email?: string;
+	// followers?: [];
+	// following?: [];
+	// isAdmin?: boolean;
+	firstName: string;
+	lastName: string;
+	profilePicture: string
+}
 
 export interface PostList {
 	_id: string;
@@ -64,7 +76,7 @@ export interface PostList {
 	createdAt: Date | string;
 	userId: string | number;
 	likes: any;
-	comments: any;
+	comments: PostCommentsLists[];
 	postedBy: PostedBy;
 }
 
@@ -73,10 +85,9 @@ export type Posts = {
 };
 
 export interface PostCommentsLists {
-	_id: string | number;
+	_id: string;
 	text: string | object;
-	// name: string;
-	// profilePicture: string;
+	postedBy: PostedByComments
 	// createdAt: Date | string;
 }
 

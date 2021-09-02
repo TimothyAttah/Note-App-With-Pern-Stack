@@ -29,7 +29,7 @@ interface PostProps {
 }
 
 export const Post: FC<PostProps> = ({ post }) => {
-	console.log(post);
+	// console.log(post);
 	
 	const dispatch = useDispatch();
 	const [like, setLike] = useState(post.likes?.length);

@@ -49,20 +49,28 @@ const postControllers = {
 	postComments: async (req: any, res: any) => {
 		const comment = {
 			text: req.body.text,
-			postedBy: req.user._id
-		}
+			postedBy: req.user,
+			// date: Date.now()
+			// postedBy: req.user._id
+		};
 		try {
-			await Post.findByIdAndUpdate(req.body.postId, {
-				$push:{comments: comment}
-			}, { new: true })
+			await Post.findByIdAndUpdate(
+				req.body.postId,
+				{
+					$push: { comments: comment },
+				},
+				{ new: true }
+			)
 				.populate('postedBy', '-password')
+				.populate('comments.postedBy', '_id firstName lastName profilePicture')
+				// .populate('comments.postedBy', 'postedBy')
 				.exec((err: any, result: any) => {
 					if (err) {
-						 return res.status(404).json({ error: err.message });
+						return res.status(404).json({ error: err.message });
 					} else {
-						 return res.status(200).json({ message: 'You commented', result });
+						return res.status(200).json({ message: 'You commented', result });
 					}
-				})
+				});
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });

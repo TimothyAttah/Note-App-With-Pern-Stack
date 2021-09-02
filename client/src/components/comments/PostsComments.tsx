@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
-import { CommentsLists } from './CommentsLists';
 // import { images } from '../Images';
-import { NotesList } from '../../redux/InterfaceRedux';
-import { CommentsForm } from '../forms/CommentsForm';
+import { PostList } from '../../redux/InterfaceRedux';
+import { CommentsForm } from '../forms/PostCommentsForm';
+import { PostCommentLists } from './PostCommentLists';
 
 interface CommentProps {
-  post: any;
+  post: PostList;
 }
 
 const Comments = styled.div`
@@ -30,12 +30,30 @@ const Comments = styled.div`
 `;
 
 export const PostsComments: FC<CommentProps> = ({ post }) => {
-	console.log(post);
-	console.log(post.comments);
+	// console.log(post);
+	// console.log('this is post.comment', post);
 	return (
 		<Comments>
 			<Divider />
 			<h5>Recent comments</h5>
+			{post ? (
+				post.comments.map(item => {
+					console.log('this is post.comment.item', item)
+					return (
+						<PostCommentLists
+							key={item._id}
+							text={item.text}
+							commentId={item._id}
+							firstName={item.postedBy.firstName}
+							lastName={item.postedBy.lastName}
+							profilePicture={item.postedBy.profilePicture}
+						/>
+					);
+				})
+			) : (
+				<h2>loading...</h2>
+			)}
+		
 			{/* {post ? (
 				post.comments?.map(item => (
 					<CommentsLists

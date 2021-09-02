@@ -18,6 +18,7 @@ const PostSchema = new mongoosePost.Schema(
 				text: String,
 				postedBy: { type: ObjectId, ref: 'User' },
 			},
+			{timestamps: true}
 		],
 		postedBy: {
 			type: ObjectId,
