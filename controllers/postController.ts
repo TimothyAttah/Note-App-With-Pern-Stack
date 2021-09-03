@@ -76,6 +76,24 @@ const postControllers = {
 			return res.status(500).json({ error: err });
 		}
 	},
+	deletePost: async (req: any, res: any) => {
+		try {
+			await Post.findOne({ _id: req.params.postId })
+				.populate('postedBy', '_id')
+				.exec(async (err: any, post: any) => {
+					if (err) {
+						return res.status(404).json({ error: err.message });
+					}
+					if (post.postedBy._id.toString() === req.user._id.toString()) {
+						const deletedPost = await post.remove();
+						return res.status(200).json({ message: 'Post deleted successfully', deletedPost })
+					}
+				})
+		} catch (err) {
+				console.log(err);
+				return res.status(500).json({ error: err });
+		}
+	},
 	deletePostComments: async (req: any, res: any) => {
 		try {
 			await Post.findOne({ _id: req.params.postId })

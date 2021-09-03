@@ -9,6 +9,11 @@ postRouter.post('/upload', uploadController.createUpload);
 postRouter.put('/:id/like', postController.likePost);
 postRouter.put('/comments', postAuth, postController.postComments)
 postRouter.delete(
+	'/:postId/delete',
+	postAuth,
+	postController.deletePost
+);
+postRouter.delete(
 	'/comments/:postId/delete',
 	postAuth,
 	postController.deletePostComments
