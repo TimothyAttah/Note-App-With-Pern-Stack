@@ -2,6 +2,7 @@ import { Posts } from '../InterfaceRedux';
 import { PostTypes } from '../types';
 import { PostActionTypes } from '../actionsTypes/postTypes';
 import { v4 } from 'uuid';
+import { Post } from '../../components/post/Post';
 
 const initialState: Posts = {
 	posts: [
@@ -47,6 +48,11 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 					post._id === action.payload._id ? action.payload : post
 				),
 			};
+		case PostTypes.POST_DELETE:
+			return {
+				...state,
+				posts: state.posts.filter(post => post._id !== action.payload)
+			}
 		case PostTypes.POST_COMMENT:
 			return {
 				...state,

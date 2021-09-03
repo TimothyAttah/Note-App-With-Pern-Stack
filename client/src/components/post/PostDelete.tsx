@@ -11,7 +11,7 @@ import { Backdrop } from '../../components/Backdrop';
 import history from '../../history';
 import { StoreState } from '../../redux/reducers';
 import { Home } from '../../pages/home/Home';
-import { deletePostComments } from '../../redux/actions/posts';
+import { deletePost } from '../../redux/actions/posts';
 
 const NoteDeleteContainer = styled.div`
 	margin-top: 150px;
@@ -50,7 +50,7 @@ export const PostDelete = () => {
   const posts = useSelector((state:StoreState)=> postId !== null ? state.posts.posts.find(post => post._id === postId): null)
 
 	const handleDelete = (id: string | undefined) => {
-		dispatch(deletePostComments(id));
+		dispatch(deletePost(id));
 		history.push('/');
 	};
 

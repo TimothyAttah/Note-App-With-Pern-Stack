@@ -96,6 +96,20 @@ export const postComments = (id: string, text:string) => (dispatch: Dispatch) =>
 		});
 };
 
+export const deletePost = (postId: string | undefined) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.deletePost(postId);
+    dispatch<PostActionTypes>({
+      type: PostTypes.POST_DELETE,
+      payload: postId
+    })
+    toast.success(data.message)
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
+  }
+}
 export const deletePostComments = (postId: string | undefined) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.deletePostComments(postId);

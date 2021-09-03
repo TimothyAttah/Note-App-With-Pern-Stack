@@ -14,7 +14,7 @@ interface ListPost {
 }
 interface DeletePost {
   type: PostTypes.POST_DELETE;
-  payload: string | number;
+  payload: string | undefined;
 }
 interface DeletePostComments {
   type: PostTypes.DELETE_COMMENT;
