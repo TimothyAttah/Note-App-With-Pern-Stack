@@ -23,3 +23,4 @@ export const createPost = (postData: object) => API.post('/posts/create', postDa
 export const allPosts = () => API.get('/posts');
 export const likePost = (id: string, userId: string) => API.put(`/posts/${id}/like`, userId);
 export const postComments = ( text: object) => API.put('/posts/comments', text)
+export const deletePostComments = (postId:string | undefined) => API.delete(`/posts/comments/${postId}/delete`);

@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { deleteComment } from '../../redux/actions/notes';
+import { deletePostComments } from '../../redux/actions/posts';
 
 interface CommentsListsProps {
 	// name: string;
 	// date:  Date | string;
 	profilePicture: string;
 	text: string | object;
-  commentId: string | number;
+  commentId: string;
   firstName: string;
   lastName: string
 }
@@ -105,7 +105,7 @@ export const PostCommentLists: FC<CommentsListsProps> = ({
 					<Delete
 						color='secondary'
 						titleAccess='Delete'
-						onClick={() => dispatch(deleteComment(commentId))}
+						onClick={() => dispatch(deletePostComments(commentId))}
 					/>
 				</div>
 			</CommentsTop>

@@ -133,13 +133,13 @@ export const postPopupNav = [
 	{
 		name: 'Edit',
 		icon: <Edit />,
-		url: '/',
+		url: '/users/posts',
 		path: 'post/edit',
 	},
 	{
 		name: 'Delete',
 		icon: <Delete />,
-		url: '/',
+		url: '/users/posts',
 		path: 'post/delete',
 	}
 ];

@@ -58,6 +58,18 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 				posts: state.posts.map(post =>
 					post._id === action.payload._id ? action.payload : post
 				),
+      };
+    case PostTypes.DELETE_COMMENT:
+     	return {
+				...state,
+				// posts: state.posts.map(post => ({
+				// 	...post,
+				// 	comments: post.comments.filter(
+				// 		comment => comment._id !== action.payload
+				// 	),
+				// })),
+          
+				posts: state.posts.filter(post => post._id !== action.payload),
 			};
 		default:
 			return state;

@@ -71,7 +71,8 @@ export const Post: FC<PostProps> = ({ post }) => {
 					)}
 					<span className='post__username'>{fullName}</span>
 					<span className='post__date'>
-						{moment(post.createdAt).format('llll')}
+						{moment(post.createdAt).fromNow()}
+						{/* {moment(post.createdAt).format('llll')} */}
 					</span>
 				</PostTopLeft>
 				<div>{post.postedBy?._id === user?._id && <Popup post={post} />}</div>

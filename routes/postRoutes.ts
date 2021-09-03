@@ -8,5 +8,10 @@ postRouter.get('/', postController.allPosts);
 postRouter.post('/upload', uploadController.createUpload);
 postRouter.put('/:id/like', postController.likePost);
 postRouter.put('/comments', postAuth, postController.postComments)
+postRouter.delete(
+	'/comments/:postId/delete',
+	postAuth,
+	postController.deletePostComments
+);
 
 module.exports = postRouter;

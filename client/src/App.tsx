@@ -4,6 +4,7 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Header } from './components/header/Header';
 import { user } from './components/NameInitials';
+import { PostDelete } from './components/post/PostDelete';
 import history from './history';
 import { Home } from './pages/home/Home';
 import { Notes } from './pages/notes/Notes';
@@ -45,6 +46,9 @@ export const App = () => {
 					</Route>
 					<Route path='/users/notes/:noteId/note/delete'>
 						<NotesDelete />
+					</Route>
+					<Route path='/users/posts/:postId/post/delete'>
+						<PostDelete />
 					</Route>
 					<Route path='/users/notes/:noteId/note/read'>
 						<NotesRead />

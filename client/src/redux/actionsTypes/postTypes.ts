@@ -16,6 +16,12 @@ interface DeletePost {
   type: PostTypes.POST_DELETE;
   payload: string | number;
 }
+interface DeletePostComments {
+  type: PostTypes.DELETE_COMMENT;
+  // payload: object | string
+  payload:  string | undefined
+}
+
 interface EditPost {
   type: PostTypes.POST_EDIT;
   payload: {
@@ -46,4 +52,5 @@ export type PostActionTypes = CreatePost
   | DeletePost
   | EditPost
   | LikePost
-  | CommentPost;
+  | CommentPost
+  | DeletePostComments;
