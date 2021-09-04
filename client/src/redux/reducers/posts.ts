@@ -2,7 +2,6 @@ import { Posts } from '../InterfaceRedux';
 import { PostTypes } from '../types';
 import { PostActionTypes } from '../actionsTypes/postTypes';
 import { v4 } from 'uuid';
-import { Post } from '../../components/post/Post';
 
 const initialState: Posts = {
 	posts: [

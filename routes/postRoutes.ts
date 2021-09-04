@@ -18,5 +18,6 @@ postRouter.delete(
 	postAuth,
 	postController.deletePostComments
 );
+postRouter.post('/comments/create', postAuth, postController.createPostComment);
 
 module.exports = postRouter;

@@ -1,5 +1,6 @@
 const Post = require('../model/PostModel');
 const UserPost = require('../model/UserModel');
+const PostComment = require('../model/CommentModel');
 
 const postControllers = {
 	createPost: async (req: any, res: any) => {
@@ -30,12 +31,13 @@ const postControllers = {
 			return res.status(500).json({ error: err });
 		}
 	},
-	likePost: async (req:any, res:any) => {
+	likePost: async (req: any, res: any) => {
 		try {
 			const post = await Post.findById(req.params.id);
 			if (!post.likes.includes(req.body.userId)) {
-        await post.updateOne({ $push: { likes: req.body.userId } })
-          .populate('postedBy', '-password');
+				await post
+					.updateOne({ $push: { likes: req.body.userId } })
+					.populate('postedBy', '-password');
 				res.status(200).json({ message: 'The post has been liked.' });
 			} else {
 				await post.updateOne({ $pull: { likes: req.body.userId } });
@@ -86,12 +88,29 @@ const postControllers = {
 					}
 					if (post.postedBy._id.toString() === req.user._id.toString()) {
 						const deletedPost = await post.remove();
-						return res.status(200).json({ message: 'Post deleted successfully', deletedPost })
+						return res
+							.status(200)
+							.json({ message: 'Post deleted successfully', deletedPost });
 					}
-				})
+				});
 		} catch (err) {
-				console.log(err);
-				return res.status(500).json({ error: err });
+			console.log(err);
+			return res.status(500).json({ error: err });
+		}
+	},
+	createPostComment: async (req: any, res: any) => {
+		const newPostComment = req.body;
+		const { text } = newPostComment;
+		try {
+			req.user.password = undefined;
+			const postComment = await new PostComment({
+				text,
+				postedBy: req.user,
+			});
+			await postComment.save();
+			res.status(200).json({ message: 'You post a comment', postComment });
+		} catch (err) {
+			return res.status(500).json({ error: err });
 		}
 	},
 	deletePostComments: async (req: any, res: any) => {
@@ -104,14 +123,16 @@ const postControllers = {
 					}
 					if (post.postedBy._id.toString() === req.user._id.toString()) {
 						const deletedNote = await post.remove();
-						return res.status(200).json({ message: 'Note deleted successfully', deletedNote })
+						return res
+							.status(200)
+							.json({ message: 'Note deleted successfully', deletedNote });
 					}
-				})
+				});
 		} catch (err) {
-				console.log(err);
-				return res.status(500).json({ error: err });
+			console.log(err);
+			return res.status(500).json({ error: err });
 		}
-	}
+	},
 };
 
 module.exports = postControllers;
