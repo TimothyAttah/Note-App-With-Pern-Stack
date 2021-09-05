@@ -99,20 +99,80 @@ const postControllers = {
 		}
 	},
 	createPostComment: async (req: any, res: any) => {
-		const newPostComment = req.body;
-		const { text } = newPostComment;
-		try {
+		const { id } = req.params;
+		const { text } = req.body;
+
 			req.user.password = undefined;
 			const postComment = await new PostComment({
 				text,
 				postedBy: req.user,
+				date: new Date
 			});
 			await postComment.save();
+
+		try {
+			const post = await Post.findById(id);
+			post.comments.push(postComment);
+
+			// const updatedPost = await Post.findByIdAndUpdate(id, post, {
+			// 	new: true,
+			// })
+				// .populate('postedBy', '-password')
+				// .populate('comments.postedBy', '_id firstName lastName profilePicture createdAt');
+			// res.status(200).json({ message: 'You commented', updatedPost });
 			res.status(200).json({ message: 'You post a comment', postComment });
 		} catch (err) {
+			console.log(err);
 			return res.status(500).json({ error: err });
 		}
+
+		// try {
+		// 	req.user.password = undefined;
+		// 	const postComment = await new PostComment({
+		// 		text,
+		// 		postedBy: req.user,
+		// 	});
+		// 	await postComment.save();
+		// 		await Post.findByIdAndUpdate(
+		// 			req.body.postId,
+		// 			{
+		// 				$push: { comments: postComment },
+		// 			},
+		// 			{ new: true }
+		// 		)
+		// 	.exec((err: any, result: any) => {
+		// 			if (err) {
+		// 				return res.status(404).json({ error: err.message });
+		// 			} else {
+		// 				return res.status(200).json({ message: 'You commented', result });
+		// 			}
+		// 		});
+		// 	// res.status(200).json({ message: 'You post a comment', postComment });
+		// } catch (err) {
+		// 	return res.status(500).json({ error: err });
+		// }
 	},
+
+
+	allPostComment: async (req: any, res: any) => {
+		try {
+			const { id } = req.params;
+				const posts = await PostComment.find(id)
+					.sort({ createdAt: -1 })
+					.populate('postedBy', '-password');
+				res.status(200).json({ message: 'All posts', posts });
+		} catch (err) {
+				console.log(err);
+				return res.status(500).json({ error: err });
+		}
+	},
+
+
+
+
+
+
+
 	deletePostComments: async (req: any, res: any) => {
 		try {
 			await Post.findOne({ _id: req.params.postId })

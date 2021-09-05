@@ -1,10 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
 // import { images } from '../Images';
 import { PostList } from '../../redux/InterfaceRedux';
 import { CommentsForm } from '../forms/PostCommentsForm';
 import { PostCommentLists } from './PostCommentLists';
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreState } from '../../redux/reducers';
 
 interface CommentProps {
   post: PostList;
@@ -30,8 +32,12 @@ const Comments = styled.div`
 `;
 
 export const PostsComments: FC<CommentProps> = ({ post }) => {
-	// console.log(post);
-	// console.log('this is post.comment', post);
+	 const dispatch = useDispatch();
+		useEffect(() => {
+			dispatch(notesLists());
+		}, [dispatch]);
+		const { notes } = useSelector((state: StoreState) => state.notes);
+		console.log(notes);
 	return (
 		<Comments>
 			<Divider />
@@ -39,16 +45,16 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 			{post ? (
 				post.comments.map(item => {
 					console.log('this is post.comment.item', item)
-					return (
-						<PostCommentLists
-							key={item._id}
-							text={item.text}
-							commentId={item._id}
-							firstName={item.postedBy.firstName}
-							lastName={item.postedBy.lastName}
-							profilePicture={item.postedBy.profilePicture}
-						/>
-					);
+					// return (
+					// 	<PostCommentLists
+					// 		key={item._id}
+					// 		text={item.text}
+					// 		commentId={item._id}
+					// 		firstName={item.postedBy?.firstName}
+					// 		lastName={item.postedBy?.lastName}
+					// 		profilePicture={item.postedBy?.profilePicture}
+					// 	/>
+					// );
 				})
 			) : (
 				<h2>loading...</h2>

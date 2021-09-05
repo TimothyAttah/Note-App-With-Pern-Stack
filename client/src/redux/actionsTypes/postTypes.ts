@@ -40,9 +40,17 @@ interface LikePost {
 interface CommentPost {
   type: PostTypes.POST_COMMENT;
   payload: {
-    _id: string;
+    id: string;
     data: object
   }
+}
+
+interface ListPostComment {
+	type: PostTypes.POST_COMMENT_LIST;
+	payload: {
+		id: string;
+		data: object;
+	};
 }
 
 
@@ -53,4 +61,5 @@ export type PostActionTypes = CreatePost
   | EditPost
   | LikePost
   | CommentPost
-  | DeletePostComments;
+  | DeletePostComments
+  | ListPostComment;

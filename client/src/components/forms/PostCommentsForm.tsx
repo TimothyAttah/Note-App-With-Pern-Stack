@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import {  PostList } from '../../redux/InterfaceRedux';
 import { postComments } from '../../redux/actions/posts';
 // import { v4 } from 'uuid';
+import { user } from '../NameInitials';
 
 interface CommentsFormProps {
 	post: PostList;
@@ -42,22 +43,19 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post }) => {
 	const dispatch = useDispatch<any>();
 	const [text, setText] = useState('');
 
+
 	// console.log('this is comments form post list', post);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		// const newComment: NotesComments = {
-		// 	_id: v4(),
-		// 	comment,
-		// 	// createdAt: new Date(),
-		// 	// profilePicture: '',
-		// 	// name: 'Tosin Love'
-		// };
+	
+		
+		const fullName = `${user?.firstName} ${user?.lastName}`
+		
+		const newComment = `${fullName}: ${text}`
 
-		// const newPostComment = {
-		// 	text,
-    // };
     dispatch(postComments(post?._id, text));
+    // dispatch(postComments(post?._id, newComment));
 
 		setText('');
 	};

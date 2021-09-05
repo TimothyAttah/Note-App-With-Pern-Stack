@@ -20,6 +20,7 @@ const PostSchema = new mongoosePost.Schema(
 			},
 			{timestamps: true}
 		],
+		// comments: {type: [String], default: []},
 		postedBy: {
 			type: ObjectId,
 			ref: 'User',
