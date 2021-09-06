@@ -105,8 +105,7 @@ const postControllers = {
 			req.user.password = undefined;
 			const postComment = await new PostComment({
 				text,
-				postedBy: req.user,
-				date: new Date
+				// postedBy: req.user,
 			});
 			await postComment.save();
 
@@ -114,13 +113,13 @@ const postControllers = {
 			const post = await Post.findById(id);
 			post.comments.push(postComment);
 
-			// const updatedPost = await Post.findByIdAndUpdate(id, post, {
-			// 	new: true,
-			// })
-				// .populate('postedBy', '-password')
-				// .populate('comments.postedBy', '_id firstName lastName profilePicture createdAt');
-			// res.status(200).json({ message: 'You commented', updatedPost });
-			res.status(200).json({ message: 'You post a comment', postComment });
+			const updatedPost = await Post.findByIdAndUpdate(id, post, {
+				new: true,
+			})
+				.populate('postedBy', '-password')
+				.populate('comments.postedBy', '_id firstName lastName profilePicture createdAt');
+			res.status(200).json({ message: 'You commented', updatedPost });
+			// res.status(200).json({ message: 'You post a comment', postComment });
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });
@@ -157,7 +156,9 @@ const postControllers = {
 	allPostComment: async (req: any, res: any) => {
 		try {
 			const { id } = req.params;
-				const posts = await PostComment.find(id)
+				const post = await Post.findById(id);
+				// post.comments.push(postComment);
+				const posts = await PostComment.findById(id)
 					.sort({ createdAt: -1 })
 					.populate('postedBy', '-password');
 				res.status(200).json({ message: 'All posts', posts });

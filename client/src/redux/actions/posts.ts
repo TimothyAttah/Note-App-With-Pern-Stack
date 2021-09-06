@@ -70,7 +70,7 @@ export const postComments = (id: any, text: string) => async (dispatch: Dispatch
   }
 }
 
-export const allPostComment = (id: string) => async (dispatch: Dispatch) => {
+export const allPostComment = (id: any) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.allPostComments(id)
     console.log(' All post actions comments', data);

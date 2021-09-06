@@ -76,8 +76,12 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 		case PostTypes.POST_COMMENT_LIST:
 			return {
 				...state,
-				posts: state.posts.map(post => post._id === action.payload.id ? {...post, comments: action.payload}: post)
-			}
+				// posts: state.posts.map(post => post._id === action.payload.id ? {...post, comments: action.payload}: post)
+				posts: state.posts.map(post => {
+					if (post._id === action.payload.id) return action.payload;
+					return post
+				})
+			};
 		
 		
     case PostTypes.DELETE_COMMENT:

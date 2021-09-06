@@ -7,6 +7,7 @@ import { CommentsForm } from '../forms/PostCommentsForm';
 import { PostCommentLists } from './PostCommentLists';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
+import { allPostComment } from '../../redux/actions/posts';
 
 interface CommentProps {
   post: PostList;
@@ -34,15 +35,17 @@ const Comments = styled.div`
 export const PostsComments: FC<CommentProps> = ({ post }) => {
 	 const dispatch = useDispatch();
 		useEffect(() => {
-			dispatch(notesLists());
-		}, [dispatch]);
-		const { notes } = useSelector((state: StoreState) => state.notes);
-		console.log(notes);
+			dispatch(allPostComment(post?._id));
+		}, [dispatch, post?._id]);
+	
+		const { posts } = useSelector((state: StoreState) => state.posts);
+	console.log(posts);
+	
 	return (
 		<Comments>
 			<Divider />
 			<h5>Recent comments</h5>
-			{post ? (
+			{/* {post ? (
 				post.comments.map(item => {
 					console.log('this is post.comment.item', item)
 					// return (
@@ -59,7 +62,7 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 			) : (
 				<h2>loading...</h2>
 			)}
-		
+		 */}
 			{/* {post ? (
 				post.comments?.map(item => (
 					<CommentsLists
