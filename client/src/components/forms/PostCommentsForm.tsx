@@ -51,10 +51,14 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post }) => {
 	
 		
 		const fullName = `${user?.firstName} ${user?.lastName}`
-		
-		const newComment = `${fullName}: ${text}`
+		const pics = `${user?.profilePicture}`
+		const newComment = {
+			fullName,
+			pics,
+			text
+		}
 
-    dispatch(postComments(post?._id, text));
+    dispatch(postComments(post?._id,text));
     // dispatch(postComments(post?._id, newComment));
 
 		setText('');

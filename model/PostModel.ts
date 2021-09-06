@@ -13,13 +13,20 @@ const PostSchema = new mongoosePost.Schema(
 			type: String,
 		},
 		likes: [{ type: ObjectId, ref: 'User' }],
-		comments: [
-			{
-				text: String,
-				postedBy: { type: ObjectId, ref: 'User' },
+		// comments: [
+		// 	{
+		// 		type: String,
+		// 		postedBy: { type: ObjectId, ref: 'User' },
+		// 	},
+		// 	{timestamps: true}
+		// ],
+		comments: [{
+			text: {
+				type: String
 			},
-			{timestamps: true}
-		],
+			postedBy: { type: ObjectId, ref: 'User' },
+			
+		}, {timestamps: true}],
 		// comments: {type: [String], default: []},
 		postedBy: {
 			type: ObjectId,

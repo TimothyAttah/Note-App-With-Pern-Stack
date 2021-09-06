@@ -8,7 +8,7 @@ import { PostCommentLists } from './PostCommentLists';
 import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from '../../redux/reducers';
 import { allPostComment } from '../../redux/actions/posts';
-
+import { user } from '../NameInitials';
 interface CommentProps {
   post: PostList;
 }
@@ -38,31 +38,32 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 			dispatch(allPostComment(post?._id));
 		}, [dispatch, post?._id]);
 	
-		const { posts } = useSelector((state: StoreState) => state.posts);
-	console.log(posts);
+	// 	const { posts } = useSelector((state: StoreState) => state.posts);
+	// console.log(posts);
 	
 	return (
 		<Comments>
 			<Divider />
 			<h5>Recent comments</h5>
-			{/* {post ? (
+			{post ? (
 				post.comments.map(item => {
-					console.log('this is post.comment.item', item)
-					// return (
-					// 	<PostCommentLists
-					// 		key={item._id}
-					// 		text={item.text}
-					// 		commentId={item._id}
-					// 		firstName={item.postedBy?.firstName}
-					// 		lastName={item.postedBy?.lastName}
-					// 		profilePicture={item.postedBy?.profilePicture}
-					// 	/>
-					// );
+					console.log(item);
+					
+					return (
+						<PostCommentLists
+							key={item._id}
+							text={item.text}
+							commentId={item._id}
+							firstName={user?.firstName}
+							lastName={user?.lastName}
+							profilePicture={user?.profilePicture}
+						/>
+					);
 				})
 			) : (
 				<h2>loading...</h2>
 			)}
-		 */}
+		
 			{/* {post ? (
 				post.comments?.map(item => (
 					<CommentsLists

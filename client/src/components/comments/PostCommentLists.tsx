@@ -99,7 +99,7 @@ export const PostCommentLists: FC<CommentsListsProps> = ({
 						</Avatar>
 					)}
 					<h4>{fullName}</h4>
-					<small>{moment(new Date()).format('llll')}</small>
+					{/* <small>{moment(new Date()).fromNow()}</small> */}
 				</CommentsTop>
 				<div className='delete-icon'>
 					<Delete

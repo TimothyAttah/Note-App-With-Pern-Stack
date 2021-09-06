@@ -102,24 +102,26 @@ const postControllers = {
 		const { id } = req.params;
 		const { text } = req.body;
 
-			req.user.password = undefined;
-			const postComment = await new PostComment({
-				text,
-				// postedBy: req.user,
-			});
-			await postComment.save();
-
+		
 		try {
-			const post = await Post.findById(id);
-			post.comments.push(postComment);
+				req.user.password = undefined;
+				const postComment = await new PostComment({
+					text,
+					postedBy: req.user,
+				});
+			await postComment.save();
+			const comments = await Post.findByIdAndUpdate(id, {
+				$push: {comments: postComment}
+			}, {new: true})
+			// post.comments.push(postComment)
 
-			const updatedPost = await Post.findByIdAndUpdate(id, post, {
-				new: true,
-			})
+			// const updatedPost = await Post.findByIdAndUpdate(id, post, {
+			// 	new: true,
+			// })
 				.populate('postedBy', '-password')
 				.populate('comments.postedBy', '_id firstName lastName profilePicture createdAt');
-			res.status(200).json({ message: 'You commented', updatedPost });
-			// res.status(200).json({ message: 'You post a comment', postComment });
+			// res.status(200).json({ message: 'You commented', comments });
+			res.status(200).json({ message: 'You post a comment', postComment });
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });
@@ -156,12 +158,25 @@ const postControllers = {
 	allPostComment: async (req: any, res: any) => {
 		try {
 			const { id } = req.params;
-				const post = await Post.findById(id);
+				const post = await Post.findById(id)
 				// post.comments.push(postComment);
-				const posts = await PostComment.findById(id)
-					.sort({ createdAt: -1 })
-					.populate('postedBy', '-password');
-				res.status(200).json({ message: 'All posts', posts });
+				// const posts = await PostComment.findById(id)
+				// 	.sort({ createdAt: -1 })
+				// 	.populate('postedBy', '-password');
+				// res.status(200).json({ message: 'All posts', posts });
+			
+			
+					.exec(async (err: any, post: any) => {
+						if (err) {
+
+							return res.status(404).json({ error: err.message });
+						} else {
+							res.status(200).json({ message: 'All posts', post });
+						}
+						
+			})
+
+			
 		} catch (err) {
 				console.log(err);
 				return res.status(500).json({ error: err });

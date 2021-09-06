@@ -61,7 +61,7 @@ export const postComments = (id: any, text: string) => async (dispatch: Dispatch
     dispatch<PostActionTypes>({
 			type: PostTypes.POST_COMMENT,
 			// payload: data.postComment
-			payload: { id, data: data.updatedPost },
+			payload: { id, data: data.postComment },
 		});
   } catch (err) {
      if (err.response && err.response.data) {
