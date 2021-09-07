@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Avatar, Divider } from '@material-ui/core';
 import { Delete, Person, ThumbUp } from '@material-ui/icons';
 import styled from 'styled-components';
-import moment from 'moment';
+// import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import { deletePostComments } from '../../redux/actions/posts';
