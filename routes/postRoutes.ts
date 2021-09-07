@@ -14,7 +14,7 @@ postRouter.delete(
 	postController.deletePost
 );
 postRouter.delete(
-	'/comments/:postId/delete',
+	'/comments/:id/delete',
 	postAuth,
 	postController.deletePostComments
 );

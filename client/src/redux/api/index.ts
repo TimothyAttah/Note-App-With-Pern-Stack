@@ -27,4 +27,4 @@ export const postComments = (id: string, text: string) =>
 export const allPostComments = (id: string) =>
 	API.post(`/posts/${id}/comments`);
 export const deletePost = (postId:string | undefined) => API.delete(`/posts/${postId}/delete`);
-export const deletePostComments = (postId:string | undefined) => API.delete(`/posts/comments/${postId}/delete`);
+export const deletePostComments = (id:string | undefined) => API.delete(`/posts/comments/${id}/delete`);

@@ -191,19 +191,21 @@ const postControllers = {
 
 	deletePostComments: async (req: any, res: any) => {
 		try {
-			await Post.findOne({ _id: req.params.postId })
-				.populate('postedBy', '_id')
-				.exec(async (err: any, post: any) => {
-					if (err) {
-						return res.status(404).json({ error: err.message });
-					}
-					if (post.postedBy._id.toString() === req.user._id.toString()) {
-						const deletedNote = await post.remove();
-						return res
-							.status(200)
-							.json({ message: 'Note deleted successfully', deletedNote });
-					}
-				});
+			// await Post.findOne({ _id: req.params.postId })
+			// 	.populate('postedBy', '_id')
+			// 	.exec(async (err: any, post: any) => {
+			// 		if (err) {
+			// 			return res.status(404).json({ error: err.message });
+			// 		}
+			// 		if (post.postedBy._id.toString() === req.user._id.toString()) {
+			// 			const deletedNote = await post.remove();
+			// 			return res
+			// 				.status(200)
+			// 				.json({ message: 'Note deleted successfully', deletedNote });
+			// 		}
+			// 	});
+			const deleteComment = await Post.findByIdAndDelete(req.params.id)
+			res.status(200).json({message: 'Comment deleted', deleteComment})
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });

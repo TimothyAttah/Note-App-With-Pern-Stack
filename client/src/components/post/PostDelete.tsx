@@ -47,7 +47,7 @@ export const PostDelete = () => {
 	const dispatch = useDispatch();
 	const { postId } = useParams<any>();
   
-  const posts = useSelector((state:StoreState)=> postId !== null ? state.posts.posts.find(post => post._id === postId): null)
+  const posts = useSelector((state:StoreState)=> postId !== null ? state.posts.posts.find(post => post.comments.filter(comment => comment._id !== postId)): null)
 
 	const handleDelete = (id: string | undefined) => {
 		dispatch(deletePost(id));
