@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 // import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
 // import { images } from '../Images';
@@ -13,7 +13,7 @@ interface CommentProps {
 }
 
 const CommentsBox = styled.div`
-	border: 2px solid red;
+	/* border: 2px solid red; */
 	margin-top: 20px;
 	display: flex;
 `;
@@ -39,7 +39,8 @@ const Comments = styled.div`
 `;
 
 export const PostsComments: FC<CommentProps> = ({ post }) => {
-	 const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	const commentsRef = useRef<any>();
 		useEffect(() => {
 			dispatch(allPostComment(post?._id));
 		}, [dispatch, post?._id]);
@@ -49,14 +50,28 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 	
 	return (
 		<CommentsBox>
-			<div style={{maxWidth: '350px', width: '100%'}}>
-				<h5 style={{padding: '10px'}}>Recent comments</h5>
+			<div style={{ maxWidth: '350px', width: '100%' }}>
+				<h5 style={{ padding: '10px' }}>Recent comments</h5>
 				<Comments>
 					{post ? (
-						post.comments.map(item => {
-							console.log(item);
+						// post.comments.map(item => {
+						// 	// console.log(item);
 
-							return (
+						// 	return (
+						// 		<div>
+						// 			<PostCommentLists
+						// 				key={item._id}
+						// 				text={item.text}
+						// 				commentId={item._id}
+						// 				firstName={user?.firstName}
+						// 				lastName={user?.lastName}
+						// 				profilePicture={user?.profilePicture}
+						// 			/>
+						// 		</div>
+						// 	);
+						// })
+						post.comments.map(item => (
+							<div>
 								<PostCommentLists
 									key={item._id}
 									text={item.text}
@@ -65,15 +80,16 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 									lastName={user?.lastName}
 									profilePicture={user?.profilePicture}
 								/>
-							);
-						})
+								<div ref={commentsRef} />
+							</div>
+						))
 					) : (
 						<h2>loading...</h2>
 					)}
 					{/* <h4 className='view'>View more comments...</h4> */}
 				</Comments>
 			</div>
-			<CommentsForm post={post} />
+			<CommentsForm commentsRef={commentsRef} post={post} />
 		</CommentsBox>
 	);
 };

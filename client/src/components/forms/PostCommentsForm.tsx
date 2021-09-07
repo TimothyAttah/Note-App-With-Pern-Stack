@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
@@ -11,6 +11,7 @@ import { user } from '../NameInitials';
 
 interface CommentsFormProps {
 	post: PostList;
+	commentsRef: any;
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -27,8 +28,7 @@ const Form = styled.form`
 		padding: 10px;
 		outline: none;
 		border: 1px solid gray;
-		/* border-bottom: 1px solid gray; */
-		background-color: #eee;
+		background-color: #fff;
 		font-size: 1.1rem;
 		::placeholder {
 			color: grey;
@@ -40,9 +40,10 @@ const Form = styled.form`
 	}
 `;
 
-export const CommentsForm: FC<CommentsFormProps> = ({ post }) => {
+export const CommentsForm: FC<CommentsFormProps> = ({ post, commentsRef }) => {
 	const dispatch = useDispatch<any>();
 	const [text, setText] = useState('');
+	
 
 
 	// console.log('this is comments form post list', post);
@@ -61,7 +62,7 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post }) => {
 
     dispatch(postComments(post?._id,text));
     // dispatch(postComments(post?._id, newComment));
-
+		commentsRef.current.scrollIntoView({ behavior: 'smooth' })
 		setText('');
 	};
 	return (
