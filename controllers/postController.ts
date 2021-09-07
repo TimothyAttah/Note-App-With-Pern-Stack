@@ -105,11 +105,10 @@ const postControllers = {
 		
 		try {
 				req.user.password = undefined;
-				const postComment = await new PostComment({
+				const postComment = ({
 					text,
 					postedBy: req.user,
 				});
-			await postComment.save();
 			const comments = await Post.findByIdAndUpdate(id, {
 				$push: {comments: postComment}
 			}, {new: true})

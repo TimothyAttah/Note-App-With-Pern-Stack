@@ -128,13 +128,15 @@ export const deletePost = (postId: string | undefined) => async (dispatch: Dispa
 }
 export const deletePostComments = (id: string | undefined) => async (dispatch: Dispatch) => {
   try {
-    const { data } = await api.deletePostComments(id);
-    dispatch<PostActionTypes>({
-      type: PostTypes.DELETE_COMMENT,
-      // payload: data.deletedNote
-      payload: id
-    })
-  } catch (err) {
+		const { data } = await api.deletePostComments(id);
+console.log('delete comment actions',data);
+
+		dispatch<PostActionTypes>({
+			type: PostTypes.DELETE_COMMENT,
+			// payload: data.deletedNote
+			payload: id,
+		});
+	} catch (err) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}

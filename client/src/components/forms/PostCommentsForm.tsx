@@ -17,16 +17,17 @@ interface CommentsFormProps {
 const Form = styled.form`
 	display: flex;
 	width: 100%;
-	padding-top: 40px;
+	padding-top: 20px;
 	.icon-image {
 		padding: 0px 10px;
 	}
 	input {
 		width: 100%;
+		height: 100px;
 		padding: 10px;
 		outline: none;
-		border: none;
-		border-bottom: 1px solid gray;
+		border: 1px solid gray;
+		/* border-bottom: 1px solid gray; */
 		background-color: #eee;
 		font-size: 1.1rem;
 		::placeholder {

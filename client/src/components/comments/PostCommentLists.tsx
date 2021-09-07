@@ -19,6 +19,8 @@ interface CommentsListsProps {
 
 const CommentsContainer = styled.div`
 	padding: 20px;
+	max-width: 350px;
+	width: 100%;
 	margin-bottom: 20px;
 	box-shadow: -5px -5px 5px #fff7, 5px 5px 5px #0002;
 `;
@@ -30,6 +32,14 @@ const CommentsTop = styled.div`
 	padding-bottom: 5px;
 	h4 {
 		margin-left: 10px;
+		font-size: 14px;
+	}
+	.MuiSvgIcon-root {
+		font-size: 16px;
+	}
+	.MuiAvatar-root {
+		width: 30px;
+		height: 30px;
 	}
 	img {
 		width: 100%;
@@ -43,7 +53,7 @@ const CommentsTop = styled.div`
 	}
 	@media (max-width: 300px) {
 		h4 {
-			font-size: 0.7rem;
+			font-size: 0.6rem;
 			/* margin-left: 5px; */
 		}
 		small {
@@ -66,9 +76,14 @@ const CommentsBottom = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 10px;
+	font-size: 14px;
+	.MuiSvgIcon-root {
+		font-size: 14px;
+	}
 	.likes {
 		display: flex;
 		align-items: center;
+
 		span {
 			margin: 0 5px;
 		}
