@@ -20,13 +20,13 @@ const PostSchema = new mongoosePost.Schema(
 		// 	},
 		// 	{timestamps: true}
 		// ],
-		comments: [{
-			text: {
-				type: String
+		comments: [
+			{
+				text: String,
+				postedBy: { type: ObjectId, ref: 'User' },
 			},
-			postedBy: { type: ObjectId, ref: 'User' },
-			
-		}, {timestamps: true}],
+			{ timestamps: true },
+		],
 		// comments: {type: [String], default: []},
 		postedBy: {
 			type: ObjectId,

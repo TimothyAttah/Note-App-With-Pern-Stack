@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, useState, useRef } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';

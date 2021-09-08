@@ -25,7 +25,11 @@ const postControllers = {
 		try {
 			const posts = await Post.find()
 				.sort({ createdAt: -1 })
-				.populate('postedBy', '-password');
+				.populate('postedBy', '-password')
+				.populate(
+					'comments.postedBy',
+					'_id firstName lastName profilePicture createdAt'
+				);
 			res.status(200).json({ message: 'All posts', posts });
 		} catch (err) {
 			return res.status(500).json({ error: err });
@@ -37,7 +41,11 @@ const postControllers = {
 			if (!post.likes.includes(req.body.userId)) {
 				await post
 					.updateOne({ $push: { likes: req.body.userId } })
-					.populate('postedBy', '-password');
+					.populate('postedBy', '-password')
+					.populate(
+						'comments.postedBy',
+						'_id firstName lastName profilePicture createdAt'
+					);
 				res.status(200).json({ message: 'The post has been liked.' });
 			} else {
 				await post.updateOne({ $pull: { likes: req.body.userId } });
@@ -105,10 +113,10 @@ const postControllers = {
 		
 		try {
 				req.user.password = undefined;
-				const postComment = ({
+				const postComment = {
 					text,
-					postedBy: req.user,
-				});
+					postedBy: req.user._id,
+				};
 			const comments = await Post.findByIdAndUpdate(id, {
 				$push: {comments: postComment}
 			}, {new: true})
@@ -117,10 +125,18 @@ const postControllers = {
 			// const updatedPost = await Post.findByIdAndUpdate(id, post, {
 			// 	new: true,
 			// })
+				
 				.populate('postedBy', '-password')
-				.populate('comments.postedBy', '_id firstName lastName profilePicture createdAt');
-			// res.status(200).json({ message: 'You commented', comments });
-			res.status(200).json({ message: 'You post a comment', postComment });
+				.populate('comments.postedBy', '_id firstName lastName profilePicture createdAt')
+			res.status(200).json({ message: 'You commented', comments });
+			// res.status(200).json({ message: 'You post a comment', postComment });
+			//  .exec( ( err:any, result:any ) => {
+      //   if ( err ) {
+      //     return res.status( 404 ).json( { error: err.message } );
+      //   } else {
+      //     return res.status( 200 ).json( { message: 'You commented', result } )
+      // }
+    // })
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });
@@ -157,23 +173,25 @@ const postControllers = {
 	allPostComment: async (req: any, res: any) => {
 		try {
 			const { id } = req.params;
-				const post = await Post.findById(id)
+			const post = await Post.findById(id)
+				.populate('postedBy', '-password')
+				.populate(
+					'comments.postedBy',
+					'_id firstName lastName profilePicture createdAt'
+				)
 				// post.comments.push(postComment);
 				// const posts = await PostComment.findById(id)
 				// 	.sort({ createdAt: -1 })
 				// 	.populate('postedBy', '-password');
 				// res.status(200).json({ message: 'All posts', posts });
-			
-			
-					.exec(async (err: any, post: any) => {
-						if (err) {
 
-							return res.status(404).json({ error: err.message });
-						} else {
-							res.status(200).json({ message: 'All posts', post });
-						}
-						
-			})
+				.exec(async (err: any, post: any) => {
+					if (err) {
+						return res.status(404).json({ error: err.message });
+					} else {
+						res.status(200).json({ message: 'All posts', post });
+					}
+				});
 
 			
 		} catch (err) {
@@ -190,21 +208,21 @@ const postControllers = {
 
 	deletePostComments: async (req: any, res: any) => {
 		try {
-			// await Post.findOne({ _id: req.params.postId })
-			// 	.populate('postedBy', '_id')
-			// 	.exec(async (err: any, post: any) => {
-			// 		if (err) {
-			// 			return res.status(404).json({ error: err.message });
-			// 		}
-			// 		if (post.postedBy._id.toString() === req.user._id.toString()) {
-			// 			const deletedNote = await post.remove();
-			// 			return res
-			// 				.status(200)
-			// 				.json({ message: 'Note deleted successfully', deletedNote });
-			// 		}
-			// 	});
-			const deleteComment = await Post.findByIdAndDelete(req.params.id)
-			res.status(200).json({message: 'Comment deleted', deleteComment})
+			await Post.findOne({ _id: req.params.id })
+				.populate('postedBy', '_id')
+				.exec(async (err: any, post: any) => {
+					if (err) {
+						return res.status(404).json({ error: err.message });
+					}
+					if (post.postedBy._id.toString() === post.comments._id.toString()) {
+						const deletedNote = await post.remove();
+						return res
+							.status(200)
+							.json({ message: 'Note deleted successfully', deletedNote });
+					}
+				});
+			// const deleteComment = await Post.findByIdAndDelete(req.params.id)
+			// res.status(200).json({message: 'Comment deleted', deleteComment})
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });

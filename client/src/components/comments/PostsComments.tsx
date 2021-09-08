@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
 // import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
 // import { images } from '../Images';
@@ -6,8 +6,10 @@ import { PostList } from '../../redux/InterfaceRedux';
 import { CommentsForm } from '../forms/PostCommentsForm';
 import { PostCommentLists } from './PostCommentLists';
 import { useDispatch } from 'react-redux';
-import { allPostComment } from '../../redux/actions/posts';
+import { allPostComment, postComments } from '../../redux/actions/posts';
 import { user } from '../NameInitials';
+import { Avatar } from '@material-ui/core';
+import { Person } from '@material-ui/icons';
 interface CommentProps {
   post: PostList;
 }
@@ -38,9 +40,35 @@ const Comments = styled.div`
 	}
 `;
 
+const Form = styled.form`
+	display: flex;
+	width: 100%;
+	padding-top: 20px;
+	.icon-image {
+		padding: 0px 10px;
+	}
+	input {
+		width: 100%;
+		height: 100px;
+		padding: 10px;
+		outline: none;
+		border: 1px solid gray;
+		background-color: #fff;
+		font-size: 1.1rem;
+		::placeholder {
+			color: grey;
+			font-weight: bold;
+		}
+	}
+	button {
+		display: none;
+	}
+`;
+
 export const PostsComments: FC<CommentProps> = ({ post }) => {
 	const dispatch = useDispatch();
 	const commentsRef = useRef<any>();
+		const [text, setText] = useState('');
 		useEffect(() => {
 			dispatch(allPostComment(post?._id));
 		}, [dispatch, post?._id]);
@@ -48,48 +76,73 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 	// 	const { posts } = useSelector((state: StoreState) => state.posts);
 	// console.log(posts);
 	
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		dispatch(postComments(post?._id, text));
+		// commentsRef.current.scrollIntoView({ behavior: 'smooth' });
+		commentsRef.current.scrollIntoView({behavior: 'smooth'})
+		setText('');
+	};
+
+
 	return (
 		<CommentsBox>
 			<div style={{ maxWidth: '350px', width: '100%' }}>
 				<h5 style={{ padding: '10px' }}>Recent comments</h5>
 				<Comments>
 					{post ? (
-						// post.comments.map(item => {
-						// 	// console.log(item);
+						post.comments.map(item => {
+							console.log(item);
 
-						// 	return (
-						// 		<div>
-						// 			<PostCommentLists
-						// 				key={item._id}
-						// 				text={item.text}
-						// 				commentId={item._id}
-						// 				firstName={user?.firstName}
-						// 				lastName={user?.lastName}
-						// 				profilePicture={user?.profilePicture}
-						// 			/>
-						// 		</div>
-						// 	);
-						// })
-						post.comments.map(item => (
-							<div>
-								<PostCommentLists
-									key={item._id}
-									text={item.text}
-									commentId={item._id}
-									firstName={user?.firstName}
-									lastName={user?.lastName}
-									profilePicture={user?.profilePicture}
-								/>
-								<div ref={commentsRef} />
-							</div>
-						))
+							return (
+								<div>
+									<PostCommentLists
+										key={item._id}
+										text={item.text}
+										commentId={item._id}
+										firstName={user?.firstName}
+										lastName={user?.lastName}
+										profilePicture={user?.profilePicture}
+									/>
+								</div>
+							);
+						})
 					) : (
+						// post.comments.map(item => (
+
+						// 	<div>
+						// 		<PostCommentLists
+						// 			key={item._id}
+						// 			text={item.text}
+						// 			commentId={item._id}
+						// 			firstName={user?.firstName}
+						// 			lastName={user?.lastName}
+						// 			profilePicture={user?.profilePicture}
+						// 		/>
+						// 		<div ref={commentsRef} />
+						// 	</div>
+						// ))
 						<h2>loading...</h2>
 					)}
 					{/* <h4 className='view'>View more comments...</h4> */}
+					<div ref={commentsRef} />
 				</Comments>
 			</div>
-			<CommentsForm commentsRef={commentsRef} post={post} />
+			<Form onSubmit={handleSubmit}>
+				<div className='icon-image'>
+					<Avatar>
+						<Person />
+					</Avatar>
+				</div>
+				<input
+					placeholder='Write a comment...'
+					value={text}
+					onChange={e => setText(e.target.value)}
+				/>
+				<button type='submit'></button>
+			</Form>
+			{/* <CommentsForm commentsRef={commentsRef} post={post} /> */}
 		</CommentsBox>
 	);
 };

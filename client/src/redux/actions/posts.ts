@@ -60,8 +60,8 @@ export const postComments = (id: any, text: string) => async (dispatch: Dispatch
     
     dispatch<PostActionTypes>({
 			type: PostTypes.POST_COMMENT,
-			// payload: data.postComment
-			payload: { id, data: data.postComment },
+			payload: data.comments.comments
+			// payload: { id, data: data.result.comments },
 		});
   } catch (err) {
      if (err.response && err.response.data) {
@@ -76,7 +76,7 @@ export const allPostComment = (id: any) => async (dispatch: Dispatch) => {
     console.log(' All post actions comments', data);
     dispatch<PostActionTypes>({
       type: PostTypes.POST_COMMENT_LIST,
-      payload: data
+      payload: data.post.comments
     })
   } catch (err) {
       if (err.response && err.response.data) {
