@@ -7,7 +7,6 @@ postRouter.post('/create', postAuth, postController.createPost);
 postRouter.get('/', postController.allPosts);
 postRouter.post('/upload', uploadController.createUpload);
 postRouter.put('/:id/like', postController.likePost);
-postRouter.put('/comments', postAuth, postController.postComments)
 postRouter.delete(
 	'/:postId/delete',
 	postAuth,
@@ -18,7 +17,7 @@ postRouter.delete(
 	postAuth,
 	postController.deletePostComments
 );
-postRouter.post('/:id/comments/create', postAuth, postController.createPostComment);
-postRouter.post('/:id/comments', postController.allPostComment);
+postRouter.put('/:id/comments/create', postAuth, postController.createPostComment);
+postRouter.get('/:id/comments', postAuth, postController.allPostComment);
 
 module.exports = postRouter;

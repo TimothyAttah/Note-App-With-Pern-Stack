@@ -59,7 +59,7 @@ export interface PostedBy {
 export interface PostedByComments {
 	// _id?: string;
 	// coverPicture?: string;
-	// createdAt?: string | Date;
+	createdAt?: string | Date | undefined;
 	// email?: string;
 	// followers?: [];
 	// following?: [];

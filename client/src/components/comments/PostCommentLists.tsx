@@ -6,10 +6,11 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 import { deletePostComments } from '../../redux/actions/posts';
+import moment from 'moment';
 
 interface CommentsListsProps {
 	// name: string;
-	// date:  Date | string;
+	date:  Date | string | undefined;
 	profilePicture: string;
 	text: string | object;
   commentId: string;
@@ -95,7 +96,8 @@ export const PostCommentLists: FC<CommentsListsProps> = ({
   commentId,
   profilePicture,
   lastName,
-  firstName
+	firstName,
+	date
 }) => {
   const dispatch = useDispatch();
   const fullName = `${firstName} ${lastName}`
@@ -114,7 +116,7 @@ export const PostCommentLists: FC<CommentsListsProps> = ({
 						</Avatar>
 					)}
 					<h4>{fullName}</h4>
-					{/* <small>{moment(new Date()).fromNow()}</small> */}
+					<small>{moment(date).fromNow()}</small>
 				</CommentsTop>
 				<div className='delete-icon'>
 					<Delete

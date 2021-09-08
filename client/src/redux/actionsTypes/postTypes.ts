@@ -40,7 +40,7 @@ interface LikePost {
 interface CommentPost {
   type: PostTypes.POST_COMMENT;
   payload: {
-    id: string;
+    _id: string;
     data: object
   }
 }

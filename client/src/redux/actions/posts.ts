@@ -60,8 +60,7 @@ export const postComments = (id: any, text: string) => async (dispatch: Dispatch
     
     dispatch<PostActionTypes>({
 			type: PostTypes.POST_COMMENT,
-			payload: data.comments.comments
-			// payload: { id, data: data.result.comments },
+			payload: data.post
 		});
   } catch (err) {
      if (err.response && err.response.data) {
@@ -69,6 +68,7 @@ export const postComments = (id: any, text: string) => async (dispatch: Dispatch
 			}
   }
 }
+
 
 export const allPostComment = (id: any) => async (dispatch: Dispatch) => {
   try {
@@ -85,32 +85,6 @@ export const allPostComment = (id: any) => async (dispatch: Dispatch) => {
   }
 }
 
-
-// export const postComments = (id: string, text:string) => (dispatch: Dispatch) => {
-// 	fetch('/posts/comments', {
-// 		method: 'PUT',
-// 		headers: {
-// 			'Content-Type': 'application/json',
-// 			Authorization: 'Bearer ' + localStorage.getItem('jwt'),
-// 		},
-// 		body: JSON.stringify({ postId: id, text }),
-// 	})
-// 		.then(res => res.json())
-// 		.then(data => {
-// 			if (data.error) {
-// 				console.log(data.error);
-// 			} else {
-// 				console.log(data);
-// 				dispatch({
-// 					type: PostTypes.POST_COMMENT,
-// 					payload: data.result,
-// 				});
-// 			}
-// 		})
-// 		.catch(err => {
-// 			console.log(err);
-// 		});
-// };
 
 export const deletePost = (postId: string | undefined) => async (dispatch: Dispatch) => {
   try {

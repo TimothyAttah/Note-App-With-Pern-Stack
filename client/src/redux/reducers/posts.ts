@@ -55,22 +55,23 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 		case PostTypes.POST_COMMENT:
 			return {
 				...state,
-				posts: state.posts.map(post => post._id === action.payload.id ? { ...post, comments: [...post.comments, action.payload.data] } : post)
-				
+				// posts: state.posts.map(post => post._id === action.payload.id ? { ...post, comments: [...post.comments, action.payload.data] } : post)
+
+				posts: state.posts.map(post =>
+					post._id === action.payload._id ? action.payload : post
+				),
+
 				// posts: state.posts.map(post => {
 				// 	if (post._id === action.payload.id) return action.payload;
 				// 	return post
 				// })
 
-
-			//	posts: state.posts.map(post =>
+				//	posts: state.posts.map(post =>
 				// 	post._id === action.payload._id
 				// 		? { ...post, comments: [...post.comments, action.payload.data] }
 				// 		: post
 				// ),
-				// posts: state.posts.map(post =>
-				// 	post._id === action.payload._id ? action.payload : post
-				// ),
+				
 			};
 		
 		case PostTypes.POST_COMMENT_LIST:

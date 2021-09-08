@@ -69,9 +69,9 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 	const dispatch = useDispatch();
 	const commentsRef = useRef<any>();
 		const [text, setText] = useState('');
-		useEffect(() => {
-			dispatch(allPostComment(post?._id));
-		}, [dispatch, post?._id]);
+		// useEffect(() => {
+		// 	dispatch(allPostComment(post?._id));
+		// }, [dispatch, post?._id]);
 	
 	// 	const { posts } = useSelector((state: StoreState) => state.posts);
 	// console.log(posts);
@@ -80,7 +80,6 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 		e.preventDefault();
 
 		dispatch(postComments(post?._id, text));
-		// commentsRef.current.scrollIntoView({ behavior: 'smooth' });
 		commentsRef.current.scrollIntoView({behavior: 'smooth'})
 		setText('');
 	};
@@ -96,14 +95,14 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 							console.log(item);
 
 							return (
-								<div>
+								<div key={item._id}>
 									<PostCommentLists
-										key={item._id}
 										text={item.text}
 										commentId={item._id}
-										firstName={user?.firstName}
-										lastName={user?.lastName}
-										profilePicture={user?.profilePicture}
+										firstName={item.postedBy?.firstName}
+										lastName={item.postedBy?.lastName}
+										profilePicture={item.postedBy?.profilePicture}
+									  date={item.postedBy?.createdAt}
 									/>
 								</div>
 							);

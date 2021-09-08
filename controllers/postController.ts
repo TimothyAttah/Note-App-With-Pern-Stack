@@ -56,36 +56,7 @@ const postControllers = {
 			return res.status(500).json({ error: err });
 		}
 	},
-	postComments: async (req: any, res: any) => {
-		const comment = {
-			text: req.body.text,
-			postedBy: req.user,
-			// date: Date.now()
-			// postedBy: req.user._id
-		};
-		try {
-			await Post.findByIdAndUpdate(
-				req.body.postId,
-				{
-					$push: { comments: comment },
-				},
-				{ new: true }
-			)
-				.populate('postedBy', '-password')
-				.populate('comments.postedBy', '_id firstName lastName profilePicture')
-				// .populate('comments.postedBy', 'postedBy')
-				.exec((err: any, result: any) => {
-					if (err) {
-						return res.status(404).json({ error: err.message });
-					} else {
-						return res.status(200).json({ message: 'You commented', result });
-					}
-				});
-		} catch (err) {
-			console.log(err);
-			return res.status(500).json({ error: err });
-		}
-	},
+	
 	deletePost: async (req: any, res: any) => {
 		try {
 			await Post.findOne({ _id: req.params.postId })
@@ -109,64 +80,29 @@ const postControllers = {
 	createPostComment: async (req: any, res: any) => {
 		const { id } = req.params;
 		const { text } = req.body;
-
-		
 		try {
 				req.user.password = undefined;
 				const postComment = {
 					text,
 					postedBy: req.user._id,
 				};
-			const comments = await Post.findByIdAndUpdate(id, {
+			const post = await Post.findByIdAndUpdate(id, {
 				$push: {comments: postComment}
-			}, {new: true})
-			// post.comments.push(postComment)
-
-			// const updatedPost = await Post.findByIdAndUpdate(id, post, {
-			// 	new: true,
-			// })
-				
+			}, {new: true})	
 				.populate('postedBy', '-password')
 				.populate('comments.postedBy', '_id firstName lastName profilePicture createdAt')
-			res.status(200).json({ message: 'You commented', comments });
-			// res.status(200).json({ message: 'You post a comment', postComment });
-			//  .exec( ( err:any, result:any ) => {
-      //   if ( err ) {
-      //     return res.status( 404 ).json( { error: err.message } );
-      //   } else {
-      //     return res.status( 200 ).json( { message: 'You commented', result } )
-      // }
+			res.status(200).json({ message: 'You commented', post });
+		// 	 .exec( ( err:any, post:any ) => {
+    //     if ( err ) {
+    //       return res.status( 404 ).json( { error: err.message } );
+    //     } else {
+    //       return res.status( 200 ).json( { message: 'You commented', post } )
+    //   }
     // })
 		} catch (err) {
 			console.log(err);
 			return res.status(500).json({ error: err });
 		}
-
-		// try {
-		// 	req.user.password = undefined;
-		// 	const postComment = await new PostComment({
-		// 		text,
-		// 		postedBy: req.user,
-		// 	});
-		// 	await postComment.save();
-		// 		await Post.findByIdAndUpdate(
-		// 			req.body.postId,
-		// 			{
-		// 				$push: { comments: postComment },
-		// 			},
-		// 			{ new: true }
-		// 		)
-		// 	.exec((err: any, result: any) => {
-		// 			if (err) {
-		// 				return res.status(404).json({ error: err.message });
-		// 			} else {
-		// 				return res.status(200).json({ message: 'You commented', result });
-		// 			}
-		// 		});
-		// 	// res.status(200).json({ message: 'You post a comment', postComment });
-		// } catch (err) {
-		// 	return res.status(500).json({ error: err });
-		// }
 	},
 
 
@@ -179,11 +115,7 @@ const postControllers = {
 					'comments.postedBy',
 					'_id firstName lastName profilePicture createdAt'
 				)
-				// post.comments.push(postComment);
-				// const posts = await PostComment.findById(id)
-				// 	.sort({ createdAt: -1 })
-				// 	.populate('postedBy', '-password');
-				// res.status(200).json({ message: 'All posts', posts });
+					.sort({ createdAt: -1 })
 
 				.exec(async (err: any, post: any) => {
 					if (err) {
