@@ -34,6 +34,20 @@ const postControllers = {
 			return res.status(500).json({ error: err });
 		}
 	},
+	myPosts: async (req: any, res: any) => {
+		try {
+			const posts = await Post.find({ postedBy: req.user._id })
+				.sort({ createdAt: -1 })
+				.populate('postedBy', '-password')
+				.populate(
+					'comments.postedBy',
+					'_id firstName lastName profilePicture createdAt'
+			);
+				res.status(200).json({ message: 'My posts', posts });
+		} catch (err) {
+				return res.status(500).json({ error: err });
+		}
+	},
 	likePost: async (req: any, res: any) => {
 		try {
 			const post = await Post.findById(req.params.id);

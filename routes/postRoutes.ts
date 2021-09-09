@@ -5,6 +5,7 @@ const uploadController = require('../controllers/uploadController');
 
 postRouter.post('/create', postAuth, postController.createPost);
 postRouter.get('/', postController.allPosts);
+postRouter.get('/users/post', postAuth, postController.myPosts);
 postRouter.post('/upload', uploadController.createUpload);
 postRouter.put('/:id/like', postController.likePost);
 postRouter.delete(
