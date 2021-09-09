@@ -19,8 +19,8 @@ interface CommentsListsProps {
 }
 
 const CommentsContainer = styled.div`
-	padding: 20px;
-	max-width: 350px;
+	padding: 20px 10px;
+	max-width: 380px;
 	width: 100%;
 	margin-bottom: 20px;
 	box-shadow: -5px -5px 5px #fff7, 5px 5px 5px #0002;
@@ -32,7 +32,7 @@ const CommentsTop = styled.div`
 	align-items: center;
 	padding-bottom: 5px;
 	h4 {
-		margin-left: 10px;
+		margin-left: 5px;
 		font-size: 14px;
 	}
 	.MuiSvgIcon-root {
@@ -47,10 +47,12 @@ const CommentsTop = styled.div`
 		object-fit: cover;
 	}
 	small {
-		margin-left: 20px;
+		margin-left: 10px;
+		font-size: 10px;
 		padding-top: 2px;
 		display: flex;
 		align-items: center;
+		font-style: italic;
 	}
 	@media (max-width: 300px) {
 		h4 {
@@ -58,7 +60,7 @@ const CommentsTop = styled.div`
 			/* margin-left: 5px; */
 		}
 		small {
-			font-size: 0.5rem;
+			font-size: 8px;
 			margin-right: 20px;
 			font-weight: bold;
 		}

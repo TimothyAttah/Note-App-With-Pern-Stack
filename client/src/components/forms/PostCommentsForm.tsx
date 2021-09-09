@@ -60,7 +60,8 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post, commentsRef }) => {
 			text
 		}
 
-    dispatch(postComments(post?._id,text));
+    // dispatch(postComments(post?._id,text));
+		
     // dispatch(postComments(post?._id, newComment));
 		commentsRef.current.scrollIntoView({ behavior: 'smooth' })
 		setText('');

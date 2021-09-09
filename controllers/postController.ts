@@ -6,7 +6,6 @@ const postControllers = {
 	createPost: async (req: any, res: any) => {
 		const newPost = req.body;
 		const { userId, desc, img } = newPost;
-		console.log(userId, desc, img);
 		try {
 			req.user.password = undefined;
 			const post = await new Post({
@@ -79,7 +78,15 @@ const postControllers = {
 	},
 	createPostComment: async (req: any, res: any) => {
 		const { id } = req.params;
-		const { text } = req.body;
+		const commentData = req.body;
+		const { text, date } = commentData;
+
+		
+			// const comment = await new PostComment({
+			// text,
+			// 	postedBy: req.user,
+			// });
+			// await comment.save();
 		try {
 				req.user.password = undefined;
 				const postComment = {
@@ -109,22 +116,23 @@ const postControllers = {
 	allPostComment: async (req: any, res: any) => {
 		try {
 			const { id } = req.params;
-			const post = await Post.findById(id)
-				.populate('postedBy', '-password')
-				.populate(
-					'comments.postedBy',
-					'_id firstName lastName profilePicture createdAt'
-				)
-					.sort({ createdAt: -1 })
+			// const post = await Post.findById(id)
+			const comment = await PostComment.find({ _id: req.params.id })
+				.sort({ createdAt: -1 })
+				.populate('postedBy', '-password');
+				// .populate(
+				// 	'comments.postedBy',
+				// 	'_id firstName lastName profilePicture createdAt'
+				// )
 
-				.exec(async (err: any, post: any) => {
-					if (err) {
-						return res.status(404).json({ error: err.message });
-					} else {
-						res.status(200).json({ message: 'All posts', post });
-					}
-				});
-
+				// .exec(async (err: any, post: any) => {
+				// 	if (err) {
+				// 		return res.status(404).json({ error: err.message });
+				// 	} else {
+				// 		res.status(200).json({ message: 'All posts', post });
+				// 	}
+				// });
+	res.status(200).json({ message: 'All posts comments', comment });
 			
 		} catch (err) {
 				console.log(err);

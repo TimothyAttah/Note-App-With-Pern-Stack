@@ -86,7 +86,10 @@ export type Posts = {
 
 export interface PostCommentsLists {
 	_id: string;
-	text: string | object;
+	text: {
+		text: string;
+		date: string 
+	};
 	postedBy: PostedByComments
 	// createdAt: Date | string;
 }

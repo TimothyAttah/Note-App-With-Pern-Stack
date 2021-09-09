@@ -13,16 +13,18 @@ const PostSchema = new mongoosePost.Schema(
 			type: String,
 		},
 		likes: [{ type: ObjectId, ref: 'User' }],
-		// comments: [
-		// 	{
+		// comments: {
+		// 	text: {
 		// 		type: String,
-		// 		postedBy: { type: ObjectId, ref: 'User' },
 		// 	},
-		// 	{timestamps: true}
-		// ],
+		// 	date: {
+		// 		type: String,
+		// 	},
+		// 	postedBy: { type: ObjectId, ref: 'User' },
+		// },
 		comments: [
 			{
-				text: String,
+				text: {},
 				postedBy: { type: ObjectId, ref: 'User' },
 			},
 			{ timestamps: true },

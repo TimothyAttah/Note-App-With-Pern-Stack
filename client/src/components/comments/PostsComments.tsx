@@ -7,7 +7,6 @@ import { CommentsForm } from '../forms/PostCommentsForm';
 import { PostCommentLists } from './PostCommentLists';
 import { useDispatch } from 'react-redux';
 import { allPostComment, postComments } from '../../redux/actions/posts';
-import { user } from '../NameInitials';
 import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 interface CommentProps {
@@ -79,7 +78,13 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		dispatch(postComments(post?._id, text));
+		const newComments = {
+			date: Date.now(),
+			text
+		}
+
+
+		dispatch(postComments(post?._id, newComments));
 		commentsRef.current.scrollIntoView({behavior: 'smooth'})
 		setText('');
 	};
@@ -87,26 +92,26 @@ export const PostsComments: FC<CommentProps> = ({ post }) => {
 
 	return (
 		<CommentsBox>
-			<div style={{ maxWidth: '350px', width: '100%' }}>
+			<div style={{ maxWidth: '380px', width: '100%' }}>
 				<h5 style={{ padding: '10px' }}>Recent comments</h5>
 				<Comments>
 					{post ? (
 						post.comments.map(item => {
 							console.log(item);
-
 							return (
 								<div key={item._id}>
 									<PostCommentLists
-										text={item.text}
+										text={item.text.text}
 										commentId={item._id}
 										firstName={item.postedBy?.firstName}
 										lastName={item.postedBy?.lastName}
 										profilePicture={item.postedBy?.profilePicture}
-									  date={item.postedBy?.createdAt}
+									  date={item.text?.date}
 									/>
 								</div>
 							);
 						})
+					
 					) : (
 						// post.comments.map(item => (
 
