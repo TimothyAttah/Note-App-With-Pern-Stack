@@ -43,7 +43,7 @@ export const myPosts = () => async (dispatch: Dispatch) => {
     
     dispatch<PostActionTypes>({
       type: PostTypes.USER_POSTS_LISTS,
-      payload: data
+      payload: data.posts
     })
   } catch (err) {
      if (err.response && err.response.data) {
