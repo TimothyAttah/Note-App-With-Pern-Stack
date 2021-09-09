@@ -48,7 +48,7 @@ const CommentsTop = styled.div`
 	}
 	small {
 		margin-left: 10px;
-		font-size: 10px;
+		font-size: 11px;
 		padding-top: 2px;
 		display: flex;
 		align-items: center;

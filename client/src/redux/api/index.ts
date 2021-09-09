@@ -22,11 +22,11 @@ export const getUsers = () => API.get('/users');
 export const createPost = (postData: object) => API.post('/posts/create', postData);
 export const allPosts = () => API.get('/posts');
 export const likePost = (id: string, userId: string) => API.put(`/posts/${id}/like`, userId);
-export const postComments = (id: string, text: string) =>
+export const postComments = (id: string, text: object) =>
   API.put(`/posts/${id}/comments/create`, { text });
   
 export const allPostComments = (id: string) =>
   API.get(`/posts/${id}/comments`);
   
 export const deletePost = (postId:string | undefined) => API.delete(`/posts/${postId}/delete`);
-export const deletePostComments = (id:string | undefined) => API.delete(`/posts/comments/${id}/delete`);
+export const deletePostComments = (id:string | undefined) => API.put(`/posts/comments/${id}/delete`);

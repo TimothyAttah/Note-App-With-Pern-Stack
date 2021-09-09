@@ -12,7 +12,7 @@ postRouter.delete(
 	postAuth,
 	postController.deletePost
 );
-postRouter.delete(
+postRouter.put(
 	'/comments/:id/delete',
 	postAuth,
 	postController.deletePostComments

@@ -17,9 +17,12 @@ interface DeletePost {
   payload: string | undefined;
 }
 interface DeletePostComments {
-  type: PostTypes.DELETE_COMMENT;
-  // payload: object | string
-  payload:  string | undefined
+	type: PostTypes.DELETE_COMMENT;
+	// payload: object | string
+	payload: {
+		_id: string;
+		data: object;
+	};
 }
 
 interface EditPost {

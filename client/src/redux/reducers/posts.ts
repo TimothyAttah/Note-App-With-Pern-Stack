@@ -50,9 +50,10 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 		case PostTypes.POST_DELETE:
 			return {
 				...state,
-				posts: state.posts.filter(post => post._id !== action.payload)
-			}
+				posts: state.posts.filter(post => post._id !== action.payload),
+			};
 		case PostTypes.POST_COMMENT:
+		case PostTypes.DELETE_COMMENT:
 			return {
 				...state,
 				// posts: state.posts.map(post => post._id === action.payload.id ? { ...post, comments: [...post.comments, action.payload.data] } : post)
@@ -71,32 +72,30 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 				// 		? { ...post, comments: [...post.comments, action.payload.data] }
 				// 		: post
 				// ),
-				
 			};
-		
+
 		case PostTypes.POST_COMMENT_LIST:
 			return {
 				...state,
 				// posts: state.posts.map(post => post._id === action.payload.id ? {...post, comments: action.payload}: post)
 				posts: state.posts.map(post => {
 					if (post._id === action.payload.id) return action.payload;
-					return post
-				})
+					return post;
+				}),
 			};
-		
-		
-    case PostTypes.DELETE_COMMENT:
-     	return {
-				...state,
-				posts: state.posts.map(post => ({
-					...post,
-					comments: post.comments.filter(
-						comment => comment._id !== action.payload
-					),
-				})),
-          
-				// posts: state.posts.filter(post => post._id !== action.payload),
-			};
+
+		// case PostTypes.DELETE_COMMENT:
+		//  	return {
+		// 		...state,
+		// 		posts: state.posts.map(post => ({
+		// 			...post,
+		// 			comments: post.comments.filter(
+		// 				comment => comment._id !== action.payload
+		// 			),
+		// 		})),
+
+		// 		// posts: state.posts.filter(post => post._id !== action.payload),
+		// 	};
 		default:
 			return state;
 	}

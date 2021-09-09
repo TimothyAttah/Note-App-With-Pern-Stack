@@ -2,11 +2,11 @@ import { useEffect, useState, FC } from 'react';
 import { Avatar, IconButton } from '@material-ui/core';
 import { ThumbUp, Person, ThumbDown } from '@material-ui/icons';
 // import { format } from 'timeago.js';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import moment from 'moment';
 
 import { user } from '../NameInitials';
-import { likePost } from '../../redux/actions/posts';
+// import { likePost } from '../../redux/actions/posts';
 
 import {
 	PostBottomLeft,
@@ -31,7 +31,7 @@ interface PostProps {
 export const Post: FC<PostProps> = ({ post }) => {
 	// console.log(post);
 	
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	const [like, setLike] = useState(post.likes?.length);
 	const [isLiked, setIsLiked] = useState<any>(false);
 

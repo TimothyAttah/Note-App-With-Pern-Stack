@@ -53,7 +53,7 @@ export const likePost = (_id: string, userId: any) => async (dispatch: Dispatch)
   }
 }
 
-export const postComments = (id: any, text: any) => async (dispatch: Dispatch) => {
+export const postComments = (id: string, text: object) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.postComments(id, text)
     console.log('post actions comments', data);
@@ -107,8 +107,7 @@ console.log('delete comment actions',data);
 
 		dispatch<PostActionTypes>({
 			type: PostTypes.DELETE_COMMENT,
-			// payload: data.deletedNote
-			payload: id,
+			payload: data.deletePostComment
 		});
 	} catch (err) {
      if (err.response && err.response.data) {
