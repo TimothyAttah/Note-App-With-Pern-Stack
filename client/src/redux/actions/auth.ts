@@ -58,3 +58,19 @@ export const getUsers = () => async (dispatch: Dispatch) => {
 			}
   }
 }
+export const getUser = (id: string) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.getUser(id);
+    console.log(data);
+    
+    dispatch<AuthTypesActions>({
+      type: UserTypes.GET_USER,
+      payload: data
+    })
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
+  }
+}
+

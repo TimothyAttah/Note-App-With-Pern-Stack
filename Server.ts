@@ -38,7 +38,7 @@ app.post('/api/upload', (req:any, res:any) => {
 
 
 
-app.use('/api/users', require('./routes/authRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/posts', require('./routes/postRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 

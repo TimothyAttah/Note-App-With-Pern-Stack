@@ -19,9 +19,14 @@ interface GetUsers {
   type: UserTypes.GET_USERS;
   payload: object;
 }
+interface GetUser {
+  type: UserTypes.GET_USER;
+  payload: object;
+}
 
 export type AuthTypesActions =
   SignUp
   | SignIn
   | SignOut
-  | GetUsers;
+  | GetUsers
+  | GetUser;
