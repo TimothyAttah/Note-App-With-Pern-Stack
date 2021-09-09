@@ -12,13 +12,16 @@ interface ListPost {
   type: PostTypes.POST_LIST;
   payload: object;
 }
+interface UserListPost {
+  type: PostTypes.USER_POSTS_LISTS;
+  payload: object;
+}
 interface DeletePost {
   type: PostTypes.POST_DELETE;
   payload: string | undefined;
 }
 interface DeletePostComments {
 	type: PostTypes.DELETE_COMMENT;
-	// payload: object | string
 	payload: {
 		_id: string;
 		data: object;
@@ -65,4 +68,5 @@ export type PostActionTypes = CreatePost
   | LikePost
   | CommentPost
   | DeletePostComments
-  | ListPostComment;
+  | ListPostComment
+  | UserListPost;

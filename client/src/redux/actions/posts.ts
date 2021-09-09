@@ -36,6 +36,22 @@ export const allPosts = () => async (dispatch: Dispatch) => {
   }
 }
 
+export const myPosts = () => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.myPosts();
+    console.log('this is my post', data);
+    
+    dispatch<PostActionTypes>({
+      type: PostTypes.USER_POSTS_LISTS,
+      payload: data
+    })
+  } catch (err) {
+     if (err.response && err.response.data) {
+				toast.error(err.response.data.error);
+			}
+  }
+}
+
 export const likePost = (_id: string, userId: any) => async (dispatch: Dispatch) => {
   try {
     const { data } = await api.likePost(_id, userId)
