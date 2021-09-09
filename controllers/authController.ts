@@ -1,8 +1,8 @@
-const User = require('../model/UserModel');
+const AuthUser = require('../model/UserModel');
 const userBcrypt = require('bcryptjs');
 const userJwt = require('jsonwebtoken');
 
-const userControllers = {
+const authControllers = {
   signUp: async (req: any, res: any) => {
     const userData = req.body;
     const { firstName, lastName, email, password } = userData;
@@ -10,13 +10,13 @@ const userControllers = {
     if (!firstName || !lastName || !email || !password)
       return res.status(422).json({ error: 'Please fill in all fields' });
     
-    const user = await User.findOne({ email });
+    const user = await AuthUser.findOne({ email });
     if (user) return res.status(400).json({ error: 'User with this email already exists.' });
 
     const hashedPassword = await userBcrypt.hash(password, 12);
 
     try {
-      const user = await new User({
+      const user = await new AuthUser({
         firstName,
         lastName,
         email,
@@ -36,7 +36,7 @@ const userControllers = {
       return res.status(422).json({ error: 'Please fill in all fields' });
     
     try {
-        const user = await User.findOne({ email });
+        const user = await AuthUser.findOne({ email });
 				if (!user)
 					return res.status(400).json({ error: 'Wrong password or email' });
 
@@ -57,7 +57,7 @@ const userControllers = {
   },
   getUsers: async (req: any, res: any) => {
     try {
-      const allUsers = await User.find();
+      const allUsers = await AuthUser.find();
       allUsers.password = undefined;
       res.status(200).json({ message: 'All users', allUsers });
     } catch (err) {
@@ -66,4 +66,4 @@ const userControllers = {
   }
 }
 
-module.exports = userControllers;
+module.exports = authControllers;
