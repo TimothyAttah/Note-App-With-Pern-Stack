@@ -1,16 +1,11 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
+import React, { FC, ReactNode, useEffect } from 'react'
 import { Person } from '@material-ui/icons';
-import { Avatar, Fab, Divider, Button } from '@material-ui/core';
-// import { useParams } from 'react-router-dom';
+import { Avatar, Fab, Divider } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-// import axios from 'axios';
 import styled from 'styled-components';
-// import { Header } from '../../components/header/Header';
 import { SideBar } from '../sidebar/SideBar';
 import { user, fullName } from '../NameInitials';
 import { images } from '../images';
-import { Feed } from '../feed/Feed';
-import { RightBar } from '../rightbar/RightBar';
 import { myPosts } from '../../redux/actions/posts';
 import { StoreState } from '../../redux/reducers';
 
@@ -78,14 +73,12 @@ const ProfileInfoPrimary = styled.div`
 `;
 
 export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
-	const [showFollow, setShowFollow] = useState({});
 	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(myPosts())
 	}, [dispatch])
 	
 	const { posts } = useSelector((state: StoreState) => state.posts)
-	console.log(user);
 	
   return (
 		<ProfileContainer>
@@ -140,17 +133,6 @@ export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
 							</span>
 							Following
 						</h4>
-						{/* <div>
-							{showFollow ? (
-								<Button variant='contained' color='primary'>
-									Follow
-								</Button>
-							) : (
-								<Button variant='contained' color='primary'>
-									Unfollow
-								</Button>
-							)}
-						</div> */}
 					</ProfileInfoPrimary>
 				</div>
 				<ProfileContainer>

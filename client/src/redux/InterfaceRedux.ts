@@ -38,11 +38,28 @@ export interface UserList {
   password?: string
 	profilePicture: string;
 	createdAt?: Date | string;
+	coverPicture?: string | undefined
+}
+export type AuthUserList = {
+	_id: string;
+	coverPicture?: string;
+	createdAt?: string | Date;
+	email?: string;
+	firstName: string;
+	followers?: [];
+	followings?: [];
+	isAdmin?: boolean;
+	lastName: string;
+	profilePicture?: string;
 }
 
 export interface UserAuthList {
-	user: UserList;
-	posts: PostList;
+	user: AuthUserList;
+	posts: PostList[];
+	// user: {
+	// 	user: UserList;
+	// 	posts: PostList
+	// }
 }
 
 export type Auth = {
@@ -50,7 +67,7 @@ export type Auth = {
 };
 
 export type User = {
-	user: UserAuthList[];
+	user: UserAuthList;
 };
 
 export interface PostedBy {

@@ -12,7 +12,7 @@ import { NotesCreate } from './pages/notes/NotesCreate';
 import { NotesDelete } from './pages/notes/NotesDelete';
 import { NotesRead } from './pages/notes/NotesRead';
 import { UserNotes } from './pages/notes/UserNotes';
-import { Profile } from './pages/profile/Profile';
+import { MyProfile } from './pages/profile/MyProfile';
 import { UserProfile } from './pages/profile/UserProfile';
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
@@ -37,7 +37,7 @@ export const App = () => {
 						{user ? <Home /> : <Signin />}
 					</Route>
 					<Route path='/users/profile/:username' exact>
-						<Profile />
+						<MyProfile />
 					</Route>
 					<Route path='/users/:id/user/profile' exact>
 						<UserProfile />
