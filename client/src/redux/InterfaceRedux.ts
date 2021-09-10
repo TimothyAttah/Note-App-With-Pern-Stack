@@ -40,8 +40,17 @@ export interface UserList {
 	createdAt?: Date | string;
 }
 
+export interface UserAuthList {
+	user: UserList;
+	posts: PostList;
+}
+
 export type Auth = {
 	auth: UserList[];
+};
+
+export type User = {
+	user: UserAuthList[];
 };
 
 export interface PostedBy {

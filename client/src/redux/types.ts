@@ -17,6 +17,11 @@ export enum UserTypes {
 	FOLLOW_USER = 'FOLLOW_USER',
 	UNFOLLOW_USER = 'UNFOLLOW_USER',
 }
+export enum UserAuthTypes {
+  GET_USER = 'GET_USER',
+	FOLLOW_USER = 'FOLLOW_USER',
+	UNFOLLOW_USER = 'UNFOLLOW_USER',
+}
 
 export enum PostTypes {
 	POST_CREATE = 'POST_CREATE',

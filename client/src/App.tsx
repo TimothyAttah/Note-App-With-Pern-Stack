@@ -13,6 +13,7 @@ import { NotesDelete } from './pages/notes/NotesDelete';
 import { NotesRead } from './pages/notes/NotesRead';
 import { UserNotes } from './pages/notes/UserNotes';
 import { Profile } from './pages/profile/Profile';
+import { UserProfile } from './pages/profile/UserProfile';
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
 import { getUsers } from './redux/actions/auth';
@@ -37,6 +38,9 @@ export const App = () => {
 					</Route>
 					<Route path='/users/profile/:username' exact>
 						<Profile />
+					</Route>
+					<Route path='/users/:id/user/profile' exact>
+						<UserProfile />
 					</Route>
 					<Route path='/users/notes' exact>
 						<Notes />

@@ -15,6 +15,7 @@ export const auth = (state = initialState, action: AuthTypesActions) => {
         auth: [action.type, ...state.auth]
       }
     case UserTypes.GET_USERS:
+      case UserTypes.GET_USER:
       return {
         ...state,
         auth: action.payload

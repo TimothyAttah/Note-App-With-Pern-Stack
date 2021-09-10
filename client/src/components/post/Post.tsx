@@ -21,6 +21,7 @@ import { PostList } from '../../redux/InterfaceRedux';
 import { Popup } from '../nav/Popup';
 import { PostsComments } from '../comments/PostsComments';
 import { PostComments } from '../comments/CommentsOpen';
+import { Link } from 'react-router-dom';
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -69,7 +70,9 @@ export const Post: FC<PostProps> = ({ post }) => {
 					) : (
 						<Person />
 					)}
+					<Link to={post && post.postedBy._id !== user?._id ? `/users/${post.postedBy._id}/user/profile` : `/users/profile/${fullName}`}>	
 					<span className='post__username'>{fullName}</span>
+					 </Link>
 					<span className='post__date'>
 						{moment(post.createdAt).fromNow()}
 						{/* {moment(post.createdAt).format('llll')} */}
