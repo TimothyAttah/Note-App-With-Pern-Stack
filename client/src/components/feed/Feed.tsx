@@ -7,6 +7,7 @@ import { allPosts, myPosts } from '../../redux/actions/posts';
 import { StoreState } from '../../redux/reducers';
 import { useParams } from 'react-router-dom';
 import { PostList } from '../../redux/InterfaceRedux';
+import { user } from '../NameInitials';
 
 interface FeedProps {
 	profile?: boolean;
@@ -66,13 +67,15 @@ export const Feed: FC<FeedProps> = ({ profile }) => {
 			}
 		}, [id]);
 
-		// console.log('user profile', userProfile);
+		console.log('user profile', userProfile);
 
 		const { posts } = useSelector((state: StoreState) => state.posts);
 
 		return (
 			<FeedContainer>
-				<Share />
+				{/* {userProfile?.user._id !== user._id && <Share />} */}
+				{!userProfile && <Share />}
+
 				{userProfile
 					? userProfile?.posts?.map((post: PostList) => (
 							<Post key={post._id} post={post} />

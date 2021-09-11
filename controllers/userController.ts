@@ -80,7 +80,7 @@ const userControllers = {
 				const { _id, firstName, lastName, profilePicture } = friend;
 				friendsList.push({ _id, firstName, lastName, profilePicture });
 			});
-			res.status(200).json({ message: 'All my friends', friendsList });
+			res.status(200).json(friendsList);
 		} catch (err) {
 			res.status(500).json({ error: err.message });
 		}
