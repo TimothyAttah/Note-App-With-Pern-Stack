@@ -5,5 +5,6 @@ const userController = require('../controllers/userController');
 userRouter.get('/:id/user', userAuth, userController.getUser)
 userRouter.put('/:id/follow', userController.followUser)
 userRouter.put('/:id/unfollow', userController.unfollowUser)
+userRouter.get('/friends/:userId', userController.getFriends)
 
 module.exports = userRouter;

@@ -64,6 +64,26 @@ const userControllers = {
 			} else {
 				res.status(403).json({error: 'You can\'t unfollow yourself'})
 			}
+	},
+	getFriends: async (req: any, res: any) => {
+		try {
+			const user = await User.findById(req.params.userId);
+			const friends = await Promise.all(
+				user.followings.map((friendId: any) => {
+					return User.findById(friendId);
+				})
+			);
+			// res.status(200).json({ message: 'All my friends', friends })
+
+			let friendsList = <any>[];
+			friends.map((friend: any) => {
+				const { _id, firstName, lastName, profilePicture } = friend;
+				friendsList.push({ _id, firstName, lastName, profilePicture });
+			});
+			res.status(200).json({ message: 'All my friends', friendsList });
+		} catch (err) {
+			res.status(500).json({ error: err.message });
+		}
 	}
 };
 
