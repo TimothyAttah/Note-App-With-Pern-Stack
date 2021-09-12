@@ -1,4 +1,4 @@
-import { User, UserList, AuthUserList } from '../InterfaceRedux';
+import { User } from '../InterfaceRedux';
 import { UserAuthTypes } from '../types';
 import { UserTypesActions } from '../actionsTypes/userTypes';
 
