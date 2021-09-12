@@ -19,3 +19,34 @@ export const getUser = (id: string) => async (dispatch: Dispatch) => {
 		}
 	}
 };
+export const followUser = (id: string, userId:object | string) => async (dispatch: Dispatch) => {
+	try {
+		const { data } = await api.followUser(id, userId);
+		console.log(data);
+
+		dispatch<UserTypesActions>({
+			type: UserAuthTypes.FOLLOW_USER,
+			payload: userId,
+		});
+	} catch (err) {
+		if (err.response && err.response.data) {
+			toast.error(err.response.data.error);
+		}
+	}
+};
+
+export const unfollowUser = (id: string, userId:object | string) => async (dispatch: Dispatch) => {
+	try {
+		const { data } = await api.unfollowUser(id, userId);
+		console.log(data);
+
+		dispatch<UserTypesActions>({
+			type: UserAuthTypes.UNFOLLOW_USER,
+			payload: userId,
+		});
+	} catch (err) {
+		if (err.response && err.response.data) {
+			toast.error(err.response.data.error);
+		}
+	}
+};

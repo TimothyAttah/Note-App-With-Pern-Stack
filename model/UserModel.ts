@@ -1,4 +1,5 @@
 const userMongoose = require('mongoose');
+const UserObjectId = userMongoose.Schema.Types.ObjectId;
 
 const UserSchema = new userMongoose.Schema(
 	{
@@ -34,14 +35,16 @@ const UserSchema = new userMongoose.Schema(
 			type: String,
 			default: '',
 		},
-		followers: {
-			type: Array,
-			default: [],
-		},
-		followings: {
-			type: Array,
-			default: [],
-		},
+		// followers: {
+		// 	type: Array,
+		// 	default: [],
+		// },
+		// followings: {
+		// 	type: Array,
+		// 	default: [],
+		// },
+		followers: [{ type: UserObjectId, ref: 'User' }],
+		followings: [{ type: UserObjectId, ref: 'User' }],
 		isAdmin: {
 			type: Boolean,
 			default: false,

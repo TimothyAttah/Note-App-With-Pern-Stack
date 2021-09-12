@@ -46,8 +46,8 @@ export type AuthUserList = {
 	createdAt?: string | Date;
 	email?: string;
 	firstName: string;
-	followers?: [];
-	followings?: [];
+	followers: [];
+	followings: [];
 	isAdmin?: boolean;
 	lastName: string;
 	profilePicture?: string;

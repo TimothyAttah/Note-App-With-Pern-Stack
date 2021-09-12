@@ -20,6 +20,15 @@ export const signUp = (userData: object) => API.post('/auth/signup', userData);
 export const signIn = (userData: object) => API.post('/auth/signin', userData);
 export const getUsers = () => API.get('/auth');
 export const getUser = (id: string) => API.get(`/users/${id}/user`);
+
+export const followUser = (id: string, userId: object | string) =>
+  API.put(`/users/${id}/follow`, { userId });
+  
+export const unfollowUser = (id: string, userId: object | string) =>
+	API.put(`/users/${id}/unfollow`, {userId});
+
+
+
 export const createPost = (postData: object) => API.post('/posts/create', postData);
 export const allPosts = () => API.get('/posts');
 export const myPosts = () => API.get('/posts/users/post');

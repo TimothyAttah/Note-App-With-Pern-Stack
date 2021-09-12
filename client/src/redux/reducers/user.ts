@@ -48,6 +48,20 @@ export const user = (state = initialState, action: UserTypesActions) => {
 				...state,
 				user: action.payload,
 			};
+		case UserAuthTypes.FOLLOW_USER:
+			return {
+				...state,
+				user: {
+					...state.user.user, followings: [...state.user.user.followings, action.payload],
+				}
+			}; 
+		case UserAuthTypes.UNFOLLOW_USER:
+			return {
+				...state,
+				user: {
+					...state.user.user, followings: state.user.user.followings.filter(following => following !== action.payload)
+				}
+			}; 
 		default:
 			return state;
 	}

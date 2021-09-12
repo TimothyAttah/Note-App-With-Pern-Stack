@@ -6,9 +6,12 @@ import styled from 'styled-components';
 import { SideBar } from '../../components/sidebar/SideBar';
 import { images } from '../../components/images';
 import { myPosts } from '../../redux/actions/posts';
+import { followUser, unfollowUser } from '../../redux/actions/user';
 import { useParams } from 'react-router-dom';
 import { RightBar } from '../../components/rightbar/RightBar';
 import { Feed } from '../../components/feed/Feed';
+import { user } from '../../components/NameInitials';
+import axios from 'axios';
 
 const ProfileContainer = styled.div`
 	margin-top: 120px;
@@ -70,8 +73,14 @@ const ProfileInfoPrimary = styled.div`
 `;
 
 export const UserProfile: FC = () => {
-	const [showFollow] = useState({});
+	
 	const [userProfile, setUserProfile] = useState<any>();
+	const [showFollow, setShowFollow] = useState(
+	user ? !user.following?.includes(userProfile?.user._id) : true
+	);
+		// const [followed, setFollowed] = useState(
+		// 	user.followings?.includes(userProfile?.user._id)
+		// );
 	const dispatch = useDispatch();
 	const { id } = useParams<any>();
 	useEffect(() => {
@@ -100,8 +109,115 @@ export const UserProfile: FC = () => {
 	}, [dispatch, id]);
 
 
-	const name = `${userProfile?.user?.firstName} ${userProfile?.user?.lastName}`;
+	// useEffect(() => {
+	// 	setFollowed();
+	// }, [userProfile?.user._id]);
+	
+	console.log(user);
+	
 
+	
+	const handleClick = async () => {
+		// try { 
+		// 	if (followed) {
+		// 		dispatch(unfollowUser(`${userProfile?.user._id}`,  user._id));
+		// 		// await axios.put(`/users/${userProfile?.user._id}/follow`, {
+		// 		// 	userId: user._id
+		// 		// });
+		// 	} else {
+		// 		// await axios.put(`/users/${userProfile?.user._id}/unfollow`, {
+		// 			// 	userId: user._id
+		// 			// });
+		// 		dispatch(followUser(`${userProfile?.user._id}`, user._id));
+		// 	}
+		// } catch (err) {
+		// 	console.log(err);
+		// }
+		// setFollowed(!followed)
+	}
+
+	// console.log('ff', followed);
+
+
+
+
+
+	const followUser = () => {
+		fetch(`/users/follow`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+			},
+			body: JSON.stringify({ followId: id }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+				localStorage.setItem('user', JSON.stringify(data.results));
+				setUserProfile((prevState:any) => {
+					return {
+						...prevState,
+						user: {
+							...prevState.user,
+							followers: [...prevState.user.followers, data._id],
+						},
+					};
+				});
+				setShowFollow(false);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
+
+
+
+
+	const unFollowUser = () => {
+		fetch(`/users/unfollow`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + localStorage.getItem('jwt'),
+			},
+			body: JSON.stringify({ unfollowId: id }),
+		})
+			.then(res => res.json())
+			.then(data => {
+				localStorage.setItem('user', JSON.stringify(data.results));
+				setUserProfile((prevState:any) => {
+					const newFollower = prevState.user.followers.filter(
+						(item:any) => item !== data._id
+					);
+					return {
+						...prevState,
+						user: {
+							...prevState.user,
+							followers: newFollower,
+						},
+					};
+				});
+				setShowFollow(true);
+				//  window.location.reload( false );
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	};
+
+
+
+
+
+
+
+
+
+	
+	
+	const name = `${userProfile?.user?.firstName} ${userProfile?.user?.lastName}`;
 	return (
 		<ProfileContainer>
 			<SideBar />
@@ -165,14 +281,26 @@ export const UserProfile: FC = () => {
 						</h4>
 						<div>
 							{showFollow ? (
-								<Button variant='contained' color='primary'>
+								<Button
+									variant='contained'
+									color='primary'
+									onClick={() => followUser()}
+								>
 									Follow
 								</Button>
 							) : (
-								<Button variant='contained' color='primary'>
+								<Button
+									variant='contained'
+									color='primary'
+									onClick={() => unFollowUser()}
+								>
 									Unfollow
 								</Button>
 							)}
+
+							{/* <Button variant='contained' color='primary' onClick={handleClick}>
+								{followed ? 'Unfollow' : 'Follow'}
+							</Button> */}
 						</div>
 					</ProfileInfoPrimary>
 				</div>

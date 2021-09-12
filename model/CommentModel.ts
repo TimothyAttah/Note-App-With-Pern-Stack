@@ -1,15 +1,15 @@
 const mongooseComments = require('mongoose');
-const  UserObjectId  = mongooseComments.Schema.Types.ObjectId;
+const  UserCommentsObjectId  = mongooseComments.Schema.Types.ObjectId;
 
 const CommentsSchema = new mongooseComments.Schema(
 	{
 		text: {
 			type: String,
 		},
-		postedBy: {
-			type: UserObjectId,
-			ref: 'User',
-		},
+		// postedBy: {
+		// 	type: UserCommentsObjectId,
+		// 	ref: 'User',
+		// },
 	},
 	{ timestamps: true }
 );
