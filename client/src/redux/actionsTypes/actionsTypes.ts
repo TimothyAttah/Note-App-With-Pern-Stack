@@ -13,8 +13,8 @@ interface NotesLists {
 interface NoteList {
 	type: NotesTypes.NOTE_LIST;
 	payload: {
-		id: string | number
-	}
+		id: string | number;
+	};
 }
 
 interface NoteDelete {
@@ -35,7 +35,7 @@ interface NotesComments {
 	payload: {
 		_id: string | number;
 		comment: string | object;
-	}
+	};
 }
 
 interface DeleteComment {

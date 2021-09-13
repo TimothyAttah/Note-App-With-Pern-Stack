@@ -1,32 +1,27 @@
-import { UserTypes } from "../types";
+import { UserTypes } from '../types';
 
 interface SignUp {
-  type: UserTypes.SIGN_UP;
-  payload: object;
+	type: UserTypes.SIGN_UP;
+	payload: object;
 }
 
 interface SignIn {
-  type: UserTypes.SIGN_IN;
-  payload: object;
+	type: UserTypes.SIGN_IN;
+	payload: object;
 }
 
 interface SignOut {
-  type: UserTypes.SIGN_OUT;
-  payload: object | string;
+	type: UserTypes.SIGN_OUT;
+	payload: object | string;
 }
 
 interface GetUsers {
-  type: UserTypes.GET_USERS;
-  payload: object;
+	type: UserTypes.GET_USERS;
+	payload: object;
 }
 interface GetUser {
-  type: UserTypes.GET_USER;
-  payload: object;
+	type: UserTypes.GET_USER;
+	payload: object;
 }
 
-export type AuthTypesActions =
-  SignUp
-  | SignIn
-  | SignOut
-  | GetUsers
-  | GetUser;
+export type AuthTypesActions = SignUp | SignIn | SignOut | GetUsers | GetUser;
