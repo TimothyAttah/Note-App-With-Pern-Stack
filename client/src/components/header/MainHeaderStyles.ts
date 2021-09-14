@@ -5,6 +5,7 @@ export const MainHeaderContainer = styled.div`
 	max-width: 1500px;
 	width: 100%;
 	margin: 0 auto;
+	/* background-color: #121212; */
 	background-color: var(--clr-lightBlue);
 	/* padding: 10px 0px; */
 	padding-top: 10px;
