@@ -42,10 +42,10 @@ const postControllers = {
 				.populate(
 					'comments.postedBy',
 					'_id firstName lastName profilePicture createdAt'
-			);
-				res.status(200).json({ message: 'My posts', posts });
+				);
+			res.status(200).json({ message: 'My posts', posts });
 		} catch (err) {
-				return res.status(500).json({ error: err });
+			return res.status(500).json({ error: err });
 		}
 	},
 	likePost: async (req: any, res: any) => {
@@ -165,7 +165,9 @@ const postControllers = {
 					'comments.postedBy',
 					'_id firstName lastName profilePicture createdAt'
 				);
-			res.status(200).json({ message: ' commented deleted', deletePostComment });
+			res
+				.status(200)
+				.json({ message: ' commented deleted', deletePostComment });
 
 			// await Post.findOne({ _id: req.params.id })
 			// 	.populate('postedBy', '_id')
