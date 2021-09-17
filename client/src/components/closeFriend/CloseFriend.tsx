@@ -18,10 +18,10 @@ const CloseFriendList = styled.li`
 `;
 
 interface CloseFriendProps {
-  user: Users
+	user: Users;
 }
 
-export const CloseFriend:FC<CloseFriendProps> = ({ user }) => {
+export const CloseFriend: FC<CloseFriendProps> = ({ user }) => {
 	return (
 		<CloseFriendList>
 			<img src={user.profilePicture} alt='' />
