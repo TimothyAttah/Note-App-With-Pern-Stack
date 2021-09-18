@@ -38,7 +38,7 @@ export const Share = () => {
 
 	// React.Dispatch<React.SetStateAction<string>>
 	// HTMLInputElement.files: FileList | null
-// React.ChangeEvent<HTMLInputElement>.target: EventTarget & HTMLInputElement
+	// React.ChangeEvent<HTMLInputElement>.target: EventTarget & HTMLInputElement
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();

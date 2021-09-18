@@ -27,14 +27,14 @@ const NavContainer = styled.div`
 	}
 `;
 
-export const Popup:FC<PopupProps> = ({ note, post }) => {
+export const Popup: FC<PopupProps> = ({ note, post }) => {
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	const handleClick = (e: any) => {
 		setAnchorEl(e.currentTarget);
-  };
-  
-  // MouseEventHandler<HTMLAnchorElement>
+	};
+
+	// MouseEventHandler<HTMLAnchorElement>
 	// MouseEvent<HTMLAnchorElement, MouseEvent>
 
 	const handleScroll = () => {
