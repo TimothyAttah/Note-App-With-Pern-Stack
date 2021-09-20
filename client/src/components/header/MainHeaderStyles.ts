@@ -22,7 +22,7 @@ export const MainHeaderContainer = styled.div`
 `;
 
 export const HeaderContainer = styled.div`
-position: relative;
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -30,7 +30,7 @@ position: relative;
 `;
 
 export const HeaderLeft = styled.div`
-position: relative;
+	position: relative;
 	flex: 2;
 	margin-right: 40px;
 	a h1 {
@@ -42,7 +42,7 @@ position: relative;
 `;
 
 export const HeaderLeftPrimary = styled.div`
-position: relative;
+	position: relative;
 	display: none;
 	a .MuiSvgIcon-root {
 		color: var(--clr-light);
@@ -89,7 +89,7 @@ export const HeaderCenter = styled.div`
 `;
 
 export const HeaderRight = styled.div`
-position: relative;
+	position: relative;
 	flex: 2;
 	display: flex;
 	color: var(--clr-light);
@@ -104,7 +104,7 @@ position: relative;
 `;
 
 export const HeaderRightLink = styled.div`
-position: relative;
+	position: relative;
 	span {
 		margin-right: 10px;
 		font-size: 14px;
