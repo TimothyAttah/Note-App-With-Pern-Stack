@@ -151,6 +151,6 @@ export const ShareImgContainer = styled.div`
 		right: 20px;
 		cursor: pointer;
 		opacity: 0.7;
-		color: #fff;
+		color: #ffffff;
 	}
 `;
