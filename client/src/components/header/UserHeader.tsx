@@ -67,10 +67,10 @@ export const UserHeader = () => {
 			<HeaderButton>
 				<ButtonGroup variant='contained' color='primary'>
 					<Button>
-						<Link to='/users/signup'>SignUp</Link>
+						<Link to='/users/signup'>Sign Up</Link>
 					</Button>
 					<Button>
-						<Link to='/users/signin'>SignIn</Link>
+						<Link to='/users/signin'>Sign In</Link>
 					</Button>
 				</ButtonGroup>
 			</HeaderButton>
