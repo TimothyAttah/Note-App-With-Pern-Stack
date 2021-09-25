@@ -23,7 +23,7 @@ const initialState: Posts = {
 				lastName: 'Doe',
 				profilePicture: '',
 			},
-			comments: [	],
+			comments: [],
 		},
 	],
 };
@@ -36,7 +36,7 @@ export const posts = (state = initialState, action: PostActionTypes) => {
 				posts: [action.payload, ...state.posts],
 			};
 		case PostTypes.POSTS_LISTS:
-			case PostTypes.USER_POSTS_LISTS:
+		case PostTypes.USER_POSTS_LISTS:
 			return {
 				...state,
 				posts: action.payload,
