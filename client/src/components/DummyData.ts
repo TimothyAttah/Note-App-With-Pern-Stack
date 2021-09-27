@@ -6,7 +6,7 @@ export const Users: UserLists = {
 		{
 			id: 1,
 			profilePicture: images.Alex,
-			username: 'Samson Kelly',
+			username: 'Samson White',
 		},
 		{
 			id: 2,
