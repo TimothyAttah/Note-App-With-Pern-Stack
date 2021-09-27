@@ -11,12 +11,12 @@ export const Users: UserLists = {
 		{
 			id: 2,
 			profilePicture: images.Mary,
-			username: 'Mary Jane',
+			username: 'Jane Peters',
 		},
 		{
 			id: 3,
 			profilePicture: images.JaneDoe,
-			username: 'Kate McCall',
+			username: 'Faith Dolly',
 		},
 		{
 			id: 4,
