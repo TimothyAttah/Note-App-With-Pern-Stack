@@ -65,7 +65,7 @@ export const Share = () => {
 			setDesc('');
 			// setFile(null);
 			setFile('');
-		} catch (err) {
+		} catch (err:any) {
 			if (err.response.status === 500) {
 				console.log('There was a problem with the server');
 			} else {
