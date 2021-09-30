@@ -47,7 +47,7 @@ export const Posts: PostLists = {
 		},
 		{
 			post_id: 3,
-			desc: 'This is just amazing',
+			desc: 'This is just amazingly great',
 			photo: images.PostThree,
 			date: '9 mins ago',
 			userId: 3,
@@ -56,7 +56,7 @@ export const Posts: PostLists = {
 		},
 		{
 			post_id: 4,
-			desc: 'I hope your day is fine?',
+			desc: 'Happy new month everyone',
 			photo: images.PostFour,
 			date: '40 mins ago',
 			userId: 4,
