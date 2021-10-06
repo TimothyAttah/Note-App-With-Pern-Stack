@@ -7,12 +7,14 @@ export const PostContainer = styled.div`
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	margin: 30px 0;
 	padding: 10px;
+	position: relative;
 `;
 
 export const PostWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	/* position: relative; */
 `;
 
 export const PostTopLeft = styled.div`
@@ -85,5 +87,5 @@ export const PostBottomLeft = styled.div`
 
 export const PostBottomRight = styled.div`
 	cursor: pointer;
-	font-size: 15px;
+	position: relative;
 `;

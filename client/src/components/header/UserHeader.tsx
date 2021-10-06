@@ -13,7 +13,7 @@ const Header = styled.header`
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 9990;
+	z-index: 9999;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -67,10 +67,10 @@ export const UserHeader = () => {
 			<HeaderButton>
 				<ButtonGroup variant='contained' color='primary'>
 					<Button>
-						<Link to='/users/signup'>SignUp</Link>
+						<Link to='/users/signup'>Sign Up</Link>
 					</Button>
 					<Button>
-						<Link to='/users/signin'>SignIn</Link>
+						<Link to='/users/signin'>Sign In</Link>
 					</Button>
 				</ButtonGroup>
 			</HeaderButton>

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const NavContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	/* background-color: white; */
-	background-color: var(--clr-accent);
+	background-color: #121212;
+	/* background-color: var(--clr-accent); */
 	margin-top: 20px;
 	padding-right: 10px;
 `;
@@ -24,7 +24,7 @@ export const NavCenter = styled.ul`
 			margin-left: 8px;
 		}
 		:hover {
-			border-bottom: 2px solid black;
+			border-bottom: 2px solid white;
 		}
 	}
 	@media (max-width: 650px) {
@@ -65,6 +65,6 @@ export const NavRight = styled.div`
 `;
 
 export const ActiveLink = {
-	borderBottom: '2px solid black',
+	borderBottom: '2px solid white',
 	backgroundColor: 'blue',
 };

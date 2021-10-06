@@ -4,12 +4,14 @@ import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
-import { NotesComments, NotesList } from '../../redux/InterfaceRedux'; 
-import { noteComments } from '../../redux/actions/notes'
+import { NotesComments, NotesList, PostList } from '../../redux/InterfaceRedux'; 
+import { noteComments } from '../../redux/actions/notes';
+import { postComments } from '../../redux/actions/posts';
 import { v4 } from 'uuid';
 
 interface CommentsFormProps {
   note: NotesList;
+  post?: PostList;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -26,7 +28,7 @@ const Form = styled.form`
 		outline: none;
     border: none;
     border-bottom: 1px solid gray;
-    background-color: #e5e5e5;
+    background-color: #eee;
     font-size: 1.1rem;
 		::placeholder {
 			color: grey;
@@ -38,9 +40,13 @@ const Form = styled.form`
 	}
 `;
 
-export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
+export const CommentsForm: FC<CommentsFormProps> = ({ note, post}) => {
   const dispatch = useDispatch<any>();
   const [comment, setComment] = useState('')
+  const [text, setText] = useState('')
+
+  console.log('this is comments form post list', post);
+  
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,9 +57,20 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
       // profilePicture: '',
       // name: 'Tosin Love'
     };
+
+    // const newPostComment = {
+    //   text
+    // }
+     dispatch(noteComments(note._id, newComment));
+    // if (note) {
+    //   dispatch(noteComments(note._id, newComment))
+    // } else {
+    //   dispatch(postComments(post?._id, text))
+    // }
+
+    console.log(text);
     
-    dispatch(noteComments(note._id, newComment))
-    setComment('');
+    setText('');
   }
   return (
     <div>
@@ -68,8 +85,8 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note}) => {
         <div className='icon-image'><Avatar><Person /></Avatar></div>
         <input
           placeholder='Write a comment...'
-          value={comment}
-          onChange={e => setComment(e.target.value)}
+          value={text}
+          onChange={e => setText(e.target.value)}
         />
         <button type='submit'></button>
       </Form>

@@ -2,11 +2,16 @@ import React, { FC, ReactNode, useState } from 'react';
 import { IconButton } from '@material-ui/core';
 import { InsertComment } from '@material-ui/icons';
 import styled from 'styled-components';
-import { NotesList } from '../../redux/InterfaceRedux';
+import { NotesList, PostList } from '../../redux/InterfaceRedux';
 
 interface CommentOpenProps {
 	comments: ReactNode;
 	note: NotesList;
+}
+
+interface PostCommentProps {
+	comments: ReactNode;
+	post: PostList;
 }
 
 const Container = styled.div`
@@ -66,6 +71,28 @@ const ContainerPrimary = styled.div`
 	}
 `;
 
+const ContainerSecondary = styled.div`
+	.icon {
+		position: absolute;
+		right: 0;
+		top: -40px;
+		.MuiSvgIcon-root {
+			margin-right: 10px;
+		}
+		span {
+			margin-right: 3px;
+		}
+	}
+	@media (max-width: 350px) {
+		.icon {
+			font-size: 17px;
+			font-weight: bolder;
+			top: -40px;
+			right: 0;
+		}
+	}
+`;
+
 export const CommentsOpen:FC<CommentOpenProps> = ({ comments, note }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -100,5 +127,22 @@ export const NotesReadComment: FC<CommentOpenProps> = ({ comments, note }) => {
 			</IconButton>
 			<div>{isOpen && comments}</div>
 		</ContainerPrimary>
+	);
+};
+
+export const PostComments: FC<PostCommentProps> = ({ comments, post }) => {
+	const [isOpen, setIsOpen] = useState(false);
+	const handleClick = () => {
+		setIsOpen(!isOpen);
+	};
+	return (
+		<ContainerSecondary>
+			<IconButton onClick={handleClick} className='icon'>
+				<InsertComment />
+				<span>{post.comments?.length}</span>
+				<span>Comments</span>
+			</IconButton>
+			<div>{isOpen && comments}</div>
+		</ContainerSecondary>
 	);
 };

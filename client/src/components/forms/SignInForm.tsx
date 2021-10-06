@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// import { signIn } from '../../redux/actions/auth';
+import { signIn } from '../../redux/actions/auth';
 
 const FormContainer = styled.form`
 	margin: 20px 0;
@@ -38,7 +38,7 @@ const FormContainer = styled.form`
 `;
 
 export const SigninForm = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	// const {isLoading }= useSelector( state => state.auth )
 
 	// const [isFetching, setIsFetching] = useState(isLoading)
@@ -53,7 +53,7 @@ export const SigninForm = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		// dispatch(signIn(userData));
+		dispatch(signIn(userData));
 		// setIsFetching( !isLoading )
 		// setIsFetching(isLoading)
 	};

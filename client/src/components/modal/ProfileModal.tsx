@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import { useDispatch } from 'react-redux';
 import history from '../../history';
-import {nameToInitials, fullName,  } from '../NameInitials';
+import {nameToInitials, fullName, user } from '../NameInitials';
 
 
 
@@ -22,7 +22,7 @@ const NameContainer = styled.h5`
 export const ProfileModal = () => {
 	// const dispatch = useDispatch();
 	const [auth] = useState(true);
-	const [user] = useState(true);
+	// const [user] = useState(true);
 
 	const [ anchorEl, setAnchorEl ] = useState( null );
 	
@@ -37,9 +37,11 @@ export const ProfileModal = () => {
 	};
 
 	const handleLogout = () => {
-		localStorage.clear();
+		localStorage.removeItem('user');
+		localStorage.removeItem('jwt');
+		// localStorage.clear();
 		// dispatch(logout());
-		history.push('/user/signin');
+		// history.push('/user/signin');
 		window.location.reload(false);
 	};
 
@@ -79,7 +81,7 @@ export const ProfileModal = () => {
 						}}
 					>
 						<MenuItem onClick={handleClose}>
-							<Link to='/users/profile/username'>Profile</Link>
+							<Link to={`/users/profile/${fullName}`}>Profile</Link>
 						</MenuItem>
 						<MenuItem onClick={handleClose}>
 							<Link to='/user/friends/profile'>Friends Posts</Link>

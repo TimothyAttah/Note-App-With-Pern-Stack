@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// import { signUp } from '../../redux/actions/auth';
+import { signUp } from '../../redux/actions/auth';
 import { toast } from 'react-toastify';
 
 const FormContainer = styled.form`
@@ -39,7 +39,7 @@ const FormContainer = styled.form`
 `;
 
 export const SignupForm = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const [userData, setUserData] = useState({
 		firstName: '',
 		lastName: '',
@@ -59,8 +59,9 @@ export const SignupForm = () => {
 			toast.error("passwords don't match. Try again.");
 		} else {
 			console.log(userData);
-			// dispatch(signUp(userData));
+			dispatch(signUp(userData));
 		}
+		
 		// setUserData({
 		// 	firstName: '',
 		// 	lastName: '',

@@ -1,15 +1,17 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, ReactNode, useEffect } from 'react'
 import { Person } from '@material-ui/icons';
-import { Avatar, Fab, Divider, Button } from '@material-ui/core';
-// import { useParams } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import axios from 'axios';
+import { Avatar, Fab, Divider } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-// import { Header } from '../../components/header/Header';
 import { SideBar } from '../sidebar/SideBar';
 import { user, fullName } from '../NameInitials';
 import { images } from '../images';
+<<<<<<< HEAD
 // import { listPost } from '../../redux/actions/posts';
+=======
+import { myPosts } from '../../redux/actions/posts';
+import { StoreState } from '../../redux/reducers';
+>>>>>>> User-Feature
 
 interface ProfileMenuProps {
   children: ReactNode;
@@ -75,43 +77,40 @@ const ProfileInfoPrimary = styled.div`
 `;
 
 export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
-  	const [showFollow, setShowFollow] = useState({});
+	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(myPosts())
+	}, [dispatch])
+	
+	const { posts } = useSelector((state: StoreState) => state.posts)
+	
   return (
 		<ProfileContainer>
 			<SideBar />
 			<ProfileRight>
 				<div className='profile_right-top'>
 					<ProfileCover>
-						<img src={images.PostOne} alt='' className='profile__cover-img' />
-						{/* <img
-								src={
-									user.results?.coverPicture
-										? user.results?.coverPicture
-										: images.PostOne
-								}
-								alt=''
-								className='profile__cover-img'
-							/> */}
-						<Avatar>
-							<Person />
-						</Avatar>
+						<img
+							src={user?.coverPicture ? user?.coverPicture : images.PostOne}
+							alt=''
+							className='profile__cover-img'
+						/>
 
-						{/* {!user.results.profilePicture ? (
-								<img
-									src={user.results.profilePicture}
-									alt=''
-									className='profile__user-img'
-								/>
-							) : (
-								<Avatar>
-									<Person />
-								</Avatar>
-							)} */}
+						{user?.profilePicture ? (
+							<img
+								src={user?.profilePicture}
+								alt=''
+								className='profile__user-img'
+							/>
+						) : (
+							<Avatar>
+								<Person />
+							</Avatar>
+						)}
 					</ProfileCover>
 					<ProfileInfo>
 						<h1 className='profile__info-name'>{fullName}</h1>
-						<h4>jane@gmail.com</h4>
-						{/* <h4>{user.results.email}</h4> */}
+						<h4>{user?.email}</h4>
 						<span className='profile__info-desc'>
 							Wow welcome to my profile
 						</span>
@@ -119,41 +118,34 @@ export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
 					</ProfileInfo>
 					<Divider />
 					<ProfileInfoPrimary>
-						{/* <h4>
-								<span>
-									<Fab color='secondary'>{notes.length}</Fab>
-								</span>
-								Posts
-							</h4> */}
+						<h4>
+							<span>
+								<Fab color='secondary'>{posts.length}</Fab>
+							</span>
+							Posts
+						</h4>
 
 						<h4>
 							<span>
-								{/* <Fab color='secondary'>{user.results.followers.length}</Fab> */}
-								<Fab color='secondary'>33</Fab>
+								<Fab color='secondary'>{user.followers?.length}</Fab>
 							</span>
 							Followers
 						</h4>
 						<h4>
 							<span>
-								<Fab color='secondary'>100</Fab>
+								<Fab color='secondary'>{user.followings?.length}</Fab>
 							</span>
 							Following
 						</h4>
-						<div>
-							{showFollow ? (
-								<Button variant='contained' color='primary'>
-									Follow
-								</Button>
-							) : (
-								<Button variant='contained' color='primary'>
-									Unfollow
-								</Button>
-							)}
-						</div>
 					</ProfileInfoPrimary>
 				</div>
+<<<<<<< HEAD
         <ProfileContainer>
           {children}
+=======
+				<ProfileContainer>
+					{children}
+>>>>>>> User-Feature
 				</ProfileContainer>
 			</ProfileRight>
 		</ProfileContainer>

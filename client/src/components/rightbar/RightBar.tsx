@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { images } from '../images';
 import { Users } from '../DummyData';
 import { Online } from '../online/Online';
-import { Cake } from '@material-ui/icons';
+import { Cake, Person } from '@material-ui/icons';
 import {
 	RightBarContainer,
 	RightBarContainerWrapper,
@@ -13,12 +13,28 @@ import {
 	RightBarFollowings,
 	RightBarInfo,
 } from './Styles';
+import axios from 'axios';
+import { user } from '../NameInitials';
+import { Avatar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 interface RightBarProps {
-  profile?: boolean
+	profile?: boolean;
 }
 
-export const RightBar: FC<RightBarProps > = ({ profile }) => {
+export const RightBar: FC<RightBarProps> = ({ profile }) => {
+	const [friends, setFriends] = useState([]);
+	useEffect(() => {
+		const getFriends = async () => {
+			try {
+				const friendList = await axios.get(`/users/friends/${user._id}`);
+				setFriends(friendList.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		getFriends();
+	}, []);
 	const HomeRightBar = () => {
 		return (
 			<RightBarContainerWrapper>
@@ -61,35 +77,26 @@ export const RightBar: FC<RightBarProps > = ({ profile }) => {
 					</RightBarInfoItem>
 				</RightBarInfo>
 				<h4 className='rightbar__title-profile'>User Friends</h4>
+
 				<RightBarFollowings>
-					<RightBarFollowing>
-						<img src={images.Naruto} alt='' />
-						<span>John Carter</span>
-					</RightBarFollowing>
-					<RightBarFollowing>
-						<img src={images.Mary} alt='' />
-						<span>John Carter</span>
-					</RightBarFollowing>
-					<RightBarFollowing>
-						<img src={images.Alex} alt='' />
-						<span>John Carter</span>
-					</RightBarFollowing>
-					<RightBarFollowing>
-						<img src={images.JaneDoe} alt='' />
-						<span>John Carter</span>
-					</RightBarFollowing>
-					<RightBarFollowing>
-						<img src={images.Soka} alt='' />
-						<span>John Carter</span>
-					</RightBarFollowing>
-					<RightBarFollowing>
-						<img
-							src={images.ProfileIcon}
-							alt=''
-							className='rightbar__following-img'
-						/>
-						<span className='rightbar__following-name'>John Carter</span>
-					</RightBarFollowing>
+					{friends.length ? (
+						friends.map((friend: any) => (
+							<Link to={`/users/${user._id}/user/profile`}>
+								<RightBarFollowing>
+									{friend.profilePicture ? (
+										<img src={friend.profilePicture} alt='' />
+									) : (
+										<Avatar>
+											<Person />
+										</Avatar>
+									)}
+									<span>{`${friend.firstName} ${friend.lastName}`}</span>
+								</RightBarFollowing>
+							</Link>
+						))
+					) : (
+						<h3>You have no friends yet</h3>
+					)}
 				</RightBarFollowings>
 			</ProfileRightBarContainer>
 		);

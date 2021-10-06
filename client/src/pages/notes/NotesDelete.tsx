@@ -74,12 +74,12 @@ export const NotesDelete = () => {
 						<>
 							<p>
 								<span className='name'>{notes.name}</span>
-								<span> are you sure you want to delete this note?</span>
+								<span> Are you sure you want to delete this note?</span>
 							</p>
 							<h4>{notes.title}</h4>
 						</>
 					) : (
-						<h3>Please select a post to delete</h3>
+						<h3>Please select a note to delete</h3>
 					)}
 				</Content>
 				<Divider />
