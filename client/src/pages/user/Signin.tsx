@@ -15,7 +15,7 @@ export const Signin = () => {
 				<UserContainer>
 					<h1>Note3Sixty</h1>
 					<h3>Create your account</h3>
-					<p>Enter your personal details to start your journey today</p>
+					<p>Enter your personal details to continue your journey today</p>
 					<GoogleBox>
 						<Link to='/api/auth/google'>
 							<GoogleImg>

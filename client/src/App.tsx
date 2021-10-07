@@ -12,13 +12,8 @@ import { NotesCreate } from './pages/notes/NotesCreate';
 import { NotesDelete } from './pages/notes/NotesDelete';
 import { NotesRead } from './pages/notes/NotesRead';
 import { UserNotes } from './pages/notes/UserNotes';
-<<<<<<< HEAD
-import { Profile } from './pages/profile/Profile';
-import { Todos } from './pages/todos/Todos';
-=======
 import { MyProfile } from './pages/profile/MyProfile';
 import { UserProfile } from './pages/profile/UserProfile';
->>>>>>> User-Feature
 import { Signin } from './pages/user/Signin';
 import { Signup } from './pages/user/Signup';
 import { getUsers } from './redux/actions/auth';
@@ -65,9 +60,9 @@ export const App = () => {
 					<Route path='/users/profile/notes/my-notes'>
 						<UserNotes />
 					</Route>
-					<Route path='/users/todos' exact>
+					{/* <Route path='/users/todos' exact>
 						<Todos />
-					</Route>
+					</Route> */}
 					<Route path='/users/signup'>
 						{user ? <Redirect to='/' /> : <Signup />}
 					</Route>
