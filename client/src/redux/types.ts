@@ -8,15 +8,6 @@ export enum NotesTypes {
   DELETE_COMMENT = 'DELETE_COMMENT',
 }
 
-<<<<<<< HEAD
-export enum TodosTypes {
-	CREATE_TODOS = 'CREATE_TODOS',
-	LISTS_TODOS = 'LISTS_TODOS',
-	LISTS_TODO = 'LISTS_TODO',
-	EDIT_TODOS = 'EDIT_TODOS',
-	DELETE_TODOS = 'DELETE_TODOS',
-	TOGGLE_TODOS = 'TOGGLE_TODOS',
-=======
 export enum UserTypes {
   SIGN_IN = 'SIGN_IN',
 	SIGN_UP = 'SIGN_UP',
@@ -43,5 +34,4 @@ export enum PostTypes {
 	POST_COMMENT = 'POST_COMMENT',
 	POST_COMMENT_LIST = 'POST_COMMENT_LIST',
 	DELETE_COMMENT = 'DELETE_COMMENT',
->>>>>>> User-Feature
 }
