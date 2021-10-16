@@ -59,7 +59,7 @@ export const NotesForm = () => {
       content,
       createdAt: new Date(),
       profilePicture: '',
-			name: 'Tosin Love',
+			name: 'Elizabeth Lily',
 			comments: []
     };
 
