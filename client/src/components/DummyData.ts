@@ -6,17 +6,17 @@ export const Users: UserLists = {
 		{
 			id: 1,
 			profilePicture: images.Alex,
-			username: 'Ben Gates',
+			username: 'Linus Thomas',
 		},
 		{
 			id: 2,
 			profilePicture: images.Mary,
-			username: 'Joseph Caleb',
+			username: 'John Caleb',
 		},
 		{
 			id: 3,
 			profilePicture: images.JaneDoe,
-			username: 'Lori Triggers',
+			username: 'Andrew Triggers',
 		},
 		{
 			id: 4,
