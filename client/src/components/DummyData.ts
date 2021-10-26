@@ -6,22 +6,22 @@ export const Users: UserLists = {
 		{
 			id: 1,
 			profilePicture: images.Alex,
-			username: 'Linus Thomas',
+			username: 'Geraldine Okafor',
 		},
 		{
 			id: 2,
 			profilePicture: images.Mary,
-			username: 'John Caleb',
+			username: 'Jacob Maxwell',
 		},
 		{
 			id: 3,
 			profilePicture: images.JaneDoe,
-			username: 'Andrew Triggers',
+			username: 'Hanna Victoria',
 		},
 		{
 			id: 4,
 			profilePicture: images.ProfileIcon,
-			username: 'Stuart Little',
+			username: 'Olamide Johnson',
 		},
 	],
 };
