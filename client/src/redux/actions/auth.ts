@@ -15,7 +15,7 @@ export const signUp = (userData: object) => async (dispatch: Dispatch) => {
     })
     history.push('/users/signin');
     toast.success(data.message);
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       toast.error(err.response.data.error)
     }
@@ -34,9 +34,9 @@ export const signIn = (userData: object) => async (dispatch: Dispatch) => {
     localStorage.setItem('jwt', data.token);
     localStorage.setItem('user', JSON.stringify(data.results))
     history.push('/');
-    window.location.reload(false);
+    window.location.reload();
 		toast.success(data.message);
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       toast.error(err.response.data.error);
     }
@@ -52,7 +52,7 @@ export const getUsers = () => async (dispatch: Dispatch) => {
       type: UserTypes.GET_USERS,
       payload: data.allUsers
     })
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -67,7 +67,7 @@ export const getUser = (id: string) => async (dispatch: Dispatch) => {
       type: UserTypes.GET_USER,
       payload: data
     })
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
