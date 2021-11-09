@@ -6,6 +6,18 @@ export interface NotesComments {
 	// createdAt: Date | string;
 }
 
+export interface ITodos {
+		todo_id: string
+			task: string
+			isComplete: boolean
+			date: Date | string
+}
+
+export interface InitialTodos {
+	todos: ITodos[];
+	isLoading?: boolean
+}
+
 export type Comments = {
   comments: NotesComments[]
 }
@@ -123,3 +135,7 @@ export interface PostCommentsLists {
 export type PostComments = {
 	comments: PostCommentsLists[];
 };
+
+export type DeleteTodos = {
+	id : any
+}

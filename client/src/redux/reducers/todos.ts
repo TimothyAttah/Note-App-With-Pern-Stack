@@ -1,5 +1,5 @@
 import { TodosTypes } from '../types';
-import { InitialTodos } from '../InterfaceRedux';
+import { InitialTodos, ITodos } from '../InterfaceRedux';
 import { TodosActionTypes } from '../actionsTypes/todosTypes';
 import { v4 } from 'uuid';
 
@@ -35,37 +35,37 @@ const initialState: InitialTodos = {
 
 export const todos = (state = initialState, action: TodosActionTypes) => {
 	switch (action.type) {
-		case TodosTypes.LISTS_TODOS:
-		case TodosTypes.LISTS_TODO:
+		case TodosTypes.TODOS_LISTS:
+		case TodosTypes.TODO_LIST:
 			return {
 				...state,
 				// todos: action.payload,
 			};
 
-		case TodosTypes.CREATE_TODOS:
+		case TodosTypes.TODO_CREATE:
 			return {
 				...state,
 				todos: [action.payload, ...state.todos],
 			};
-		case TodosTypes.EDIT_TODOS:
+		case TodosTypes.TODO_EDIT:
 			return {
 				...state,
-				todos: state.todos.map(todo =>
+				todos: state.todos.map((todo: { todo_id: string | number; }) =>
 					todo.todo_id === action.payload.todo_id ? action.payload : todo
 				),
 			};
 
-		case TodosTypes.DELETE_TODOS:
+		case TodosTypes.TODO_DELETE:
 			console.log('delete todos is here');
 
 			return {
 				...state,
-				todos: state.todos.filter(todo => todo.todo_id !== action.payload),
+				todos: state.todos.filter((todo: { todo_id: string | number; }) => todo.todo_id !== action.payload),
 			};
-		case TodosTypes.TOGGLE_TODOS:
+		case TodosTypes.TODO_TOGGLE:
 			return {
 				...state,
-				todos: state.todos.map(todo =>
+				todos: state.todos.map((todo: ITodos) =>
 					todo === action.payload
 						? { ...todo, isComplete: !todo.isComplete }
 						: todo

@@ -8,6 +8,15 @@ export enum NotesTypes {
   DELETE_COMMENT = 'DELETE_COMMENT',
 }
 
+export enum TodosTypes {
+  TODO_CREATE = 'TODO_CREATE',
+  TODOS_LISTS = 'TODOS_LISTS',
+  TODO_LIST = 'TODO_LIST',
+  TODO_DELETE = 'TODO_DELETE',
+  TODO_EDIT = 'TODO_EDIT',
+  TODO_TOGGLE = 'TODO_TOGGLE',
+}
+
 export enum UserTypes {
   SIGN_IN = 'SIGN_IN',
 	SIGN_UP = 'SIGN_UP',

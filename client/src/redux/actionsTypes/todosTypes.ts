@@ -2,22 +2,22 @@ import { ITodos } from '../InterfaceRedux';
 import { TodosTypes } from '../types';
 
 interface ListsTodos {
-	type: TodosTypes.LISTS_TODOS;
+	type: TodosTypes.TODOS_LISTS;
 	payload?: object ;
 }
 
 interface ListsTodo {
-	type: TodosTypes.LISTS_TODO;
+	type: TodosTypes.TODO_LIST;
 	payload?: object;
 }
 
 interface CreateTodos {
-	type: TodosTypes.CREATE_TODOS;
+	type: TodosTypes.TODO_CREATE
 	payload: object;
 }
 
 interface EditTodos {
-	type: TodosTypes.EDIT_TODOS;
+	type: TodosTypes.TODO_EDIT
 	payload: {
 		todo_id: number | string;
 		task: string;
@@ -25,12 +25,12 @@ interface EditTodos {
 }
 
 interface DeleteTodos {
-	type: TodosTypes.DELETE_TODOS;
+	type: TodosTypes.TODO_DELETE
 	payload: number | string;
 }
 
 interface ToggleTodos {
-	type: TodosTypes.TOGGLE_TODOS;
+	type: TodosTypes.TODO_TOGGLE
 	payload: ITodos;
 }
 

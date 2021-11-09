@@ -7,7 +7,7 @@ import {
 	toggleTodos,
 	editTodos,
 } from '../../redux/actions/todos';
-import { DeleteTodos, EditTodos, IsCompleteTodos } from '../../redux/InterfaceRedux';
+// import { DeleteTodos, EditTodos, IsCompleteTodos, ITodos } from '../../redux/InterfaceRedux';
 import { StoreState } from '../../redux/reducers';
 import { TodosItem } from './TodosItem';
 
@@ -22,21 +22,21 @@ export const TodosLists: FC = () => {
 
 	console.log(todos);
 
-	const handleDelete: DeleteTodos = id => {
+	const handleDelete = (id: string | number) => {
 		dispatch(deleteTodo(id));
 	};
 
-	const handleIsComplete: IsCompleteTodos = todos => {
+	const handleIsComplete = (todos: any) => {
 		dispatch(toggleTodos(todos));
 	};
 
-	const handleEdit: EditTodos = (id, todos) => {
+	const handleEdit = (id: string | number, todos: string) => {
 		dispatch(editTodos(id, todos));
 	};
 	return (
 		<Fragment>
 			{todos.length ? (
-				todos.map(todo => {
+				todos.map((todo: any) => {
 					return (
 						<TodosItem
 							key={todo.todo_id}

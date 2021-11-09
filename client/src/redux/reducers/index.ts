@@ -8,6 +8,7 @@ import { user } from './user';
 
 
 export interface StoreState {
+	todos: any;
   notes: Notes;
   auth: Auth;
   posts: Posts;
