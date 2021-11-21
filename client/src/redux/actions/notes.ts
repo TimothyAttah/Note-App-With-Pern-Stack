@@ -9,9 +9,9 @@ export const noteCreate = (notes: object) => (dispatch: Dispatch) => {
       type: NotesTypes.NOTE_CREATE,
       payload: notes
     })
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
-      console.log(err.response.data.err);
+      console.log(err.response.data.error);
     }
   }
 }
@@ -21,9 +21,9 @@ export const noteComments = (_id: string | number, comment: NotesComments) => (d
       type: NotesTypes.NOTE_COMMENT,
       payload: { _id, comment }
     });
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
-      console.log(err.response.data.err);
+      console.log(err.response.data.error);
     }
   }
 }
@@ -34,9 +34,9 @@ export const deleteComment = (commentId: string | number) => (dispatch: Dispatch
       type: NotesTypes.DELETE_COMMENT,
       payload: commentId
     });
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
-      console.log(err.response.data.err);
+      console.log(err.response.data.error);
     }
   }
 }
@@ -46,7 +46,7 @@ export const notesLists = () => (dispatch: Dispatch) => {
     dispatch<NotesActionsTypes>({
       type: NotesTypes.NOTES_LISTS
     })
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       console.log(err.response.data.error);
     }
@@ -59,7 +59,7 @@ export const noteList = (id: string | number) => (dispatch: Dispatch) => {
       type: NotesTypes.NOTE_LIST,
       payload: {id}
     })
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       console.log(err.response.data.error);
     }
@@ -72,7 +72,7 @@ export const noteDelete = (id: string | number) => (dispatch: Dispatch) => {
       type: NotesTypes.NOTE_DELETE,
       payload: id
     })
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       console.log(err.response.data.error);
     }
@@ -85,7 +85,7 @@ export const noteEdit = (id: string | number, notes: object) => (dispatch: Dispa
       type: NotesTypes.NOTE_EDIT,
       payload: {id, notes}
     })
-  } catch (err) {
+  } catch (err:any) {
     if (err.response && err.response.data) {
       console.log(err.response.data.error);
     }
