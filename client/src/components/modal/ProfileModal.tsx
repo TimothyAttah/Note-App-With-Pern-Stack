@@ -42,7 +42,7 @@ export const ProfileModal = () => {
 		// localStorage.clear();
 		// dispatch(logout());
 		// history.push('/user/signin');
-		window.location.reload(false);
+		window.location.reload();
 	};
 
 	return (
