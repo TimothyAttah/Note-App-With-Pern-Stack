@@ -29,30 +29,30 @@ export const Users: UserLists = {
 export const Posts: PostLists = {
 	posts: [
 		{
-			post_id: 1,
+			post_id: 88,
 			desc: 'Love for all, Hatred for none!!!',
 			photo: images.PostOne,
-			date: '8 days ago',
+			date: '5 days ago',
 			userId: 1,
 			likes: [],
-			comment: 3,
+			comment: 35,
 		},
 		{
 			post_id: 2,
 			photo: images.PostTwo,
-			date: '14 mins ago',
+			date: '1 mins ago',
 			userId: 2,
-			likes: 21,
+			likes: 24,
 			comment: 6,
 		},
 		{
 			post_id: 3,
 			desc: 'Whats sup!!! people Welcome to my world!!!',
 			photo: images.PostThree,
-			date: '1 mins ago',
+			date: '16 mins ago',
 			userId: 3,
-			likes: 3,
-			comment: 5,
+			likes: 36,
+			comment: 53,
 		},
 		{
 			post_id: 4,
@@ -60,8 +60,8 @@ export const Posts: PostLists = {
 			photo: images.PostFour,
 			date: '2 hours ago',
 			userId: 4,
-			likes: 8,
-			comment: 7
+			likes: 84,
+			comment: 73
 		},
 	],
 };
