@@ -6,12 +6,8 @@ import styled from 'styled-components';
 import { SideBar } from '../sidebar/SideBar';
 import { user, fullName } from '../NameInitials';
 import { images } from '../images';
-<<<<<<< HEAD
-// import { listPost } from '../../redux/actions/posts';
-=======
 import { myPosts } from '../../redux/actions/posts';
 import { StoreState } from '../../redux/reducers';
->>>>>>> User-Feature
 
 interface ProfileMenuProps {
   children: ReactNode;
@@ -139,13 +135,8 @@ export const ProfileMenu:FC<ProfileMenuProps> = ({children}) => {
 						</h4>
 					</ProfileInfoPrimary>
 				</div>
-<<<<<<< HEAD
-        <ProfileContainer>
-          {children}
-=======
 				<ProfileContainer>
 					{children}
->>>>>>> User-Feature
 				</ProfileContainer>
 			</ProfileRight>
 		</ProfileContainer>

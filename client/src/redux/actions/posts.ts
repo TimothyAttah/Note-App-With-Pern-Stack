@@ -15,7 +15,7 @@ export const createPost = (postData: object) => async (dispatch: Dispatch) => {
       payload: data.post
     })
     toast.success(data.message);
-  } catch (err) {
+  } catch (err: any) {
     if (err.response && err.response.data) {
       toast.error(err.response.data.error)
     }
@@ -29,7 +29,7 @@ export const allPosts = () => async (dispatch: Dispatch) => {
       type: PostTypes.POSTS_LISTS,
       payload: data.posts
     })
-  } catch (err) {
+  } catch (err: any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -45,7 +45,7 @@ export const myPosts = () => async (dispatch: Dispatch) => {
       type: PostTypes.USER_POSTS_LISTS,
       payload: data.posts
     })
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -62,7 +62,7 @@ export const likePost = (_id: string, userId: any) => async (dispatch: Dispatch)
       payload: {_id, data}
     })
     toast.success(data.message);
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -78,7 +78,7 @@ export const postComments = (id: string, text: object) => async (dispatch: Dispa
 			type: PostTypes.POST_COMMENT,
 			payload: data.post
 		});
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -94,7 +94,7 @@ export const allPostComment = (id: any) => async (dispatch: Dispatch) => {
       type: PostTypes.POST_COMMENT_LIST,
       payload: data.post.comments
     })
-  } catch (err) {
+  } catch (err:any) {
       if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -110,7 +110,7 @@ export const deletePost = (postId: string | undefined) => async (dispatch: Dispa
       payload: postId
     })
     toast.success(data.message)
-  } catch (err) {
+  } catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}
@@ -125,7 +125,7 @@ console.log('delete comment actions',data);
 			type: PostTypes.DELETE_COMMENT,
 			payload: data.deletePostComment
 		});
-	} catch (err) {
+	} catch (err:any) {
      if (err.response && err.response.data) {
 				toast.error(err.response.data.error);
 			}

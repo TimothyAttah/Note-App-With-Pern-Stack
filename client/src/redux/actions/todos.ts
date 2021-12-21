@@ -11,7 +11,7 @@ export const listsTodos = () => async (dispatch: Dispatch) => {
 		// console.log(data);
 
 		dispatch<TodosActionTypes>({
-			type: TodosTypes.LISTS_TODOS,
+			type: TodosTypes.TODOS_LISTS,
 			// payload: data.todos,
 		});
 	} catch (err) {
@@ -25,7 +25,7 @@ export const listsTodo = (id: object) => async (dispatch: Dispatch) => {
 		// console.log(data);
 
 		dispatch<TodosActionTypes>({
-			type: TodosTypes.LISTS_TODO,
+			type: TodosTypes.TODO_LIST,
 			// payload: data,
 		});
 	} catch (err) {
@@ -37,12 +37,12 @@ export const createTodos = (task: object) => async (dispatch: Dispatch) => {
 	try {
 		// const { data } = await api.createTodos(task);
 		dispatch<TodosActionTypes>({
-			type: TodosTypes.CREATE_TODOS,
+			type: TodosTypes.TODO_CREATE,
 			payload: task,
 		});
 		// window.location = '/users/todos' as unknown as Location;
 		// toast.success(data.message);
-	} catch (err) {
+	} catch (err:any) {
 		if (err.response && err.response.data) {
 			return toast.error(err.response.data.error);
 		}
@@ -54,11 +54,11 @@ export const deleteTodo = (id: number | string) => async (dispatch: Dispatch) =>
 	try {
 		// const { data } = await api.deleteTodos(id);
 		dispatch<TodosActionTypes>({
-			type: TodosTypes.DELETE_TODOS,
+			type: TodosTypes.TODO_DELETE,
 			payload: id,
 		});
 		// toast.success(data.message);
-	} catch (err) {
+	} catch (err:any) {
 		if (err.response && err.response.data) {
 			return toast.error(err.response.data.error);
 		}
@@ -73,11 +73,11 @@ export const editTodos =
 			// console.log(data);
 
 			dispatch<TodosActionTypes>({
-				type: TodosTypes.EDIT_TODOS,
+				type: TodosTypes.TODO_EDIT,
 				payload: {todo_id, task},
 			});
 			// toast.success(data.message);
-		} catch (err) {
+		} catch (err:any) {
 			if (err.response && err.response.data) {
 				return toast.error(err.response.data.error);
 			}
@@ -87,7 +87,7 @@ export const editTodos =
 
 export const toggleTodos = (todos: ITodos) => (dispatch: Dispatch) => {
 	dispatch<TodosActionTypes>({
-		type: TodosTypes.TOGGLE_TODOS,
+		type: TodosTypes.TODO_TOGGLE,
 		payload: todos,
 	});
 };

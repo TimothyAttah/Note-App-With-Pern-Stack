@@ -13,7 +13,7 @@ export const getUser = (id: string) => async (dispatch: Dispatch) => {
 			type: UserAuthTypes.GET_USER,
 			payload: data,
 		});
-	} catch (err) {
+	} catch (err:any) {
 		if (err.response && err.response.data) {
 			toast.error(err.response.data.error);
 		}
@@ -28,7 +28,7 @@ export const followUser = (id: string, userId:object | string) => async (dispatc
 			type: UserAuthTypes.FOLLOW_USER,
 			payload: userId,
 		});
-	} catch (err) {
+	} catch (err:any) {
 		if (err.response && err.response.data) {
 			toast.error(err.response.data.error);
 		}
@@ -44,7 +44,7 @@ export const unfollowUser = (id: string, userId:object | string) => async (dispa
 			type: UserAuthTypes.UNFOLLOW_USER,
 			payload: userId,
 		});
-	} catch (err) {
+	} catch (err:any) {
 		if (err.response && err.response.data) {
 			toast.error(err.response.data.error);
 		}

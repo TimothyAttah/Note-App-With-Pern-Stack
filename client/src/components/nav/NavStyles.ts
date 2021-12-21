@@ -27,6 +27,7 @@ export const NavCenter = styled.ul`
 			border-bottom: 2px solid white;
 		}
 	}
+	
 	@media (max-width: 650px) {
 		width: 450px;
 		li a {
@@ -36,6 +37,7 @@ export const NavCenter = styled.ul`
 			}
 		}
 	}
+
 	@media (max-width: 540px) {
 		display: none;
 	}
@@ -48,6 +50,7 @@ export const NavRight = styled.div`
 		color: var(--clr-dark);
 		background: var(--clr-light);
 	}
+
 	@media (max-width: 800px) {
 		a > .MuiButton-root .txt {
 			display: none;
@@ -57,6 +60,7 @@ export const NavRight = styled.div`
 			padding: 3px;
 		}
 	}
+
 	@media (max-width: 530px) {
 		a > .MuiButton-root .txt {
 			display: flex;

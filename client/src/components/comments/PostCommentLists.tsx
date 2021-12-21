@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Avatar, Divider } from '@material-ui/core';
 import { Delete, Person, ThumbUp } from '@material-ui/icons';
 import styled from 'styled-components';

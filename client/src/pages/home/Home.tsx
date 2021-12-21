@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { Feed } from "../../components/feed/Feed";
 import { RightBar } from "../../components/rightbar/RightBar";
-import { SideBar } from "../../components/sidebar/SideBar"
+import { SideBar } from "../../components/sidebar/SideBar";
 
 const HomeContainer = styled.div`
   position: relative;
@@ -17,5 +17,5 @@ export const Home = () => {
       <Feed />
       <RightBar />
     </HomeContainer>
-  )
-}
+  );
+};

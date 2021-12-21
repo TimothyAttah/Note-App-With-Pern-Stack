@@ -17,4 +17,3 @@ export const images = {
 	PostSix: `${PF}/photo-1539250596122-869eb6361427.jpeg`,
 	BackgroundPic: `${PF}/background-2.jpeg`,
 };
-

@@ -6,6 +6,18 @@ export interface NotesComments {
 	// createdAt: Date | string;
 }
 
+export interface ITodos {
+		todo_id: string
+			task: string
+			isComplete: boolean
+			date: Date | string
+}
+
+export interface InitialTodos {
+	todos: ITodos[];
+	isLoading?: boolean
+}
+
 export type Comments = {
   comments: NotesComments[]
 }
@@ -30,30 +42,6 @@ export type Notes = {
   notes: NotesList[]
 }
 
-<<<<<<< HEAD
-
-export interface ITodos {
-	todo_id: number | string;
-	task: string;
-	isComplete: boolean;
-	date?: Date | string;
-}
-
-export interface ITodosForm {
-	task: string;
-	isComplete: boolean;
-	date?: Date | string;
-}
-
-export type InitialTodos = {
-	todos: ITodos[];
-	isLoading: boolean;
-};
-
-export type DeleteTodos = (id: number | string) => void;
-export type IsCompleteTodos = (todos: ITodos) => void;
-export type EditTodos = (id: number | string, task: string) => void;
-=======
 export interface UserList {
 	_id: string | number;
 	firstName: string;
@@ -147,4 +135,7 @@ export interface PostCommentsLists {
 export type PostComments = {
 	comments: PostCommentsLists[];
 };
->>>>>>> User-Feature
+
+export type DeleteTodos = {
+	id : any
+}

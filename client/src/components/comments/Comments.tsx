@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
 import { CommentsLists } from './CommentsLists';

@@ -10,9 +10,9 @@ import {
 
 import {
 	ITodos,
-	DeleteTodos,
-	IsCompleteTodos,
-	EditTodos,
+	// DeleteTodos,
+	// IsCompleteTodos,
+	// EditTodos,
 } from '../../redux/InterfaceRedux';
 import history from '../../history';
 import { useEffect } from 'react';
@@ -108,9 +108,9 @@ const TodosItemRight = styled.div`
 
 interface ListsTodosItemProps {
 	todo: ITodos;
-	deleteTodos: DeleteTodos;
-	isComplete: IsCompleteTodos;
-	editTodo: EditTodos;
+	deleteTodos: any;
+	isComplete: any;
+	editTodo: any;
 }
 
 export const TodosItem: FC<ListsTodosItemProps> = ({

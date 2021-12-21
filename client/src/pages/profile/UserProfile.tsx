@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Person } from '@material-ui/icons';
 import { Avatar, Fab, Divider, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
