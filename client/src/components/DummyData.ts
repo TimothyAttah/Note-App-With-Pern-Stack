@@ -45,10 +45,10 @@ export const Posts: PostLists = {
 		{
 			post_id: 2,
 			photo: images.PostTwo,
-			date: '1 mins ago',
+			date: '5 mins ago',
 			userId: 2,
-			likes: 24,
-			comment: 6,
+			likes: 34,
+			comment: 8,
 		},
 		{
 			post_id: 3,
@@ -65,8 +65,8 @@ export const Posts: PostLists = {
 			photo: images.PostFour,
 			date: '2 hours ago',
 			userId: 4,
-			likes: 84,
-			comment: 73
+			likes: 1000,
+			comment: 2
 		},
 	],
 };
