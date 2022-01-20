@@ -60,17 +60,8 @@ export const Posts: PostLists = {
 			comment: 53,
 		},
 		{
-			post_id: 4,
-			desc: 'Happy new year folks!!!',
-			photo: images.PostFour,
-			date: '2 hours ago',
-			userId: 4,
-			likes: 1000,
-			comment: 2
-		},
-		{
 			post_id: 5,
-			desc: 'HAPPY NEW YEAR...',
+			desc: 'HAPPY NEW YEAR... Have a nice day',
 			photo: images.PostFive,
 			date: '1 mins ago',
 			userId: 4,
