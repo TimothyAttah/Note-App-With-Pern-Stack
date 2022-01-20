@@ -60,13 +60,31 @@ export const Posts: PostLists = {
 			comment: 53,
 		},
 		{
+			post_id: 4,
+			desc: 'Whats sup!!! people Welcome to my world!!!',
+			photo: images.PostThree,
+			date: '16 mins ago',
+			userId: 3,
+			likes: 50,
+			comment: 123,
+		},
+		{
 			post_id: 5,
 			desc: 'HAPPY NEW YEAR... Have a nice day',
 			photo: images.PostFive,
-			date: '1 mins ago',
+			date: '1 hour ago',
 			userId: 4,
 			likes: 1000,
 			comment: 210
+		},
+		{
+			post_id: 6,
+			desc: 'HAPPY NEW YEAR... Have a nice day',
+			photo: images.PostSix,
+			date: '1 mins ago',
+			userId: 4,
+			likes: 100,
+			comment: 67
 		},
 	],
 };
