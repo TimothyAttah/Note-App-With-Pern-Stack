@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, Button, Divider, IconButton } from '@material-ui/core';
+import { Avatar, Button, Divider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 // import { format, TDate } from 'timeago.js';
 import moment from "moment";
@@ -30,7 +30,7 @@ export const NotesLists: FC = () => {
   }, [dispatch]);
   const {notes} = useSelector((state: StoreState) => state.notes);
   console.log(notes);
-  
+
   return (
 		<>
 			{notes.length ? (

@@ -11,7 +11,6 @@ import moment from 'moment';
 import {
   NotesContainer,
   NotesLeft,
-  // NotesLeftBottom,
   NotesReadContainer,
 	NotesRight,
 	NotesComment,

@@ -8,6 +8,7 @@ export const NotesContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin: 0 10px;
+
 	@media (max-width: 800px){
 		flex-direction: column;
 	}
@@ -17,37 +18,47 @@ export const NotesLeft = styled.div`
 	max-width: 230px;
 	width: 100%;
 	text-align: center;
+
 	h2 {
 		text-shadow: -3px -3px 3px #fff7, 3px 3px 3px #0003;
 		padding: 5px 0;
 		margin-top: 10px;
 	}
+
 	a .MuiAvatar-root {
 		width: 100px;
 		height: 100px;
 		margin: 0 auto;
+
 		.MuiSvgIcon-root {
 			font-size: 5rem;
 		}
+
 	}
+
 	.MuiButton-root {
 		display: none;
 	}
+
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
+
 	@media (max-width: 800px) {
 		max-width: 180px;
 		margin: 10px auto;
+
 		h2 {
 			font-size: 1.8rem;
 		}
+
 		.MuiButton-root {
 			display: block;
 		margin:  10px auto;
 		}
+		
 	}
 `;
 

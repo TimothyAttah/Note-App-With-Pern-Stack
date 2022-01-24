@@ -9,6 +9,7 @@ export const NoteContainer = styled.div`
 	padding: 10px;
 	border-radius: 20px;
 	background-color: #e5e5e5;
+	
 	@media (min-width: 800px) {
 		max-width: 800px;
 	}
