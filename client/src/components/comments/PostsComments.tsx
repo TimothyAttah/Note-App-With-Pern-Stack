@@ -1,12 +1,10 @@
-import React, { FC, FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FC, FormEvent, useRef, useState } from 'react';
 // import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
-// import { images } from '../Images';
 import { PostList } from '../../redux/InterfaceRedux';
-import { CommentsForm } from '../forms/PostCommentsForm';
 import { PostCommentLists } from './PostCommentLists';
 import { useDispatch } from 'react-redux';
-import { allPostComment, postComments } from '../../redux/actions/posts';
+import { postComments } from '../../redux/actions/posts';
 import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 interface CommentProps {
@@ -14,7 +12,6 @@ interface CommentProps {
 }
 
 const CommentsBox = styled.div`
-	/* border: 2px solid red; */
 	margin-top: 20px;
 	display: flex;
 `;
