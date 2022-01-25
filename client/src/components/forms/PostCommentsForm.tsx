@@ -5,8 +5,7 @@ import { Person } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
 import {  PostList } from '../../redux/InterfaceRedux';
-import { postComments } from '../../redux/actions/posts';
-// import { v4 } from 'uuid';
+
 import { user } from '../NameInitials';
 
 interface CommentsFormProps {
@@ -43,15 +42,15 @@ const Form = styled.form`
 export const CommentsForm: FC<CommentsFormProps> = ({ post, commentsRef }) => {
 	const dispatch = useDispatch<any>();
 	const [text, setText] = useState('');
-	
+
 
 
 	// console.log('this is comments form post list', post);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-	
-		
+
+
 		const fullName = `${user?.firstName} ${user?.lastName}`
 		const pics = `${user?.profilePicture}`
 		const newComment = {
@@ -61,7 +60,7 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post, commentsRef }) => {
 		}
 
     // dispatch(postComments(post?._id,text));
-		
+
     // dispatch(postComments(post?._id, newComment));
 		commentsRef.current.scrollIntoView({ behavior: 'smooth' })
 		setText('');

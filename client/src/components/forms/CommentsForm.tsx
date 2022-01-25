@@ -4,9 +4,9 @@ import { Avatar } from '@material-ui/core';
 import { Person } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
-import { NotesComments, NotesList, PostList } from '../../redux/InterfaceRedux'; 
+import { NotesComments, NotesList, PostList } from '../../redux/InterfaceRedux';
 import { noteComments } from '../../redux/actions/notes';
-import { postComments } from '../../redux/actions/posts';
+// import { postComments } from '../../redux/actions/posts';
 import { v4 } from 'uuid';
 
 interface CommentsFormProps {
@@ -46,7 +46,7 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note, post}) => {
   const [text, setText] = useState('')
 
   console.log('this is comments form post list', post);
-  
+
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,13 +69,13 @@ export const CommentsForm: FC<CommentsFormProps> = ({ note, post}) => {
     // }
 
     console.log(text);
-    
+
     setText('');
   }
   return (
     <div>
       <Form
-          
+
         //   dispatch(noteComments(note._id, (e as any).target[0].value))
         // }}
         onSubmit={handleSubmit}
