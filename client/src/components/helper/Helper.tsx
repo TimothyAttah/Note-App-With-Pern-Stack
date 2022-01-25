@@ -18,15 +18,14 @@ import {
 } from '@material-ui/icons';
 
 interface Menu {
-  name: string;
-  icon: any;
-  path: string
+	name: string;
+	icon: any;
+	path: string;
 }
 
 type NavLists = {
-  nav: Menu[]
-}
-
+	nav: Menu[];
+};
 
 export const navMenu: NavLists = {
 	nav: [
@@ -34,27 +33,27 @@ export const navMenu: NavLists = {
 			name: 'Notes',
 			icon: <Notes />,
 			path: '/users/notes',
-    },
-    {
-      name: 'Todos',
-      icon: <ListAlt />,
-      path: '/users/todos'
-    },
-    {
-      name: 'Budgets',
-      icon: <AttachMoneyOutlined />,
-      path: '/users/budgets'
-    },
-    {
-      name: 'Events',
-      icon: <Event />,
-      path: '/users/events'
-    },
-    {
-      name: 'Settings',
-      icon:<Settings />,
-      path: '/users/settings'
-    },
+		},
+		{
+			name: 'Todos',
+			icon: <ListAlt />,
+			path: '/users/todos',
+		},
+		{
+			name: 'Budgets',
+			icon: <AttachMoneyOutlined />,
+			path: '/users/budgets',
+		},
+		{
+			name: 'Events',
+			icon: <Event />,
+			path: '/users/events',
+		},
+		{
+			name: 'Settings',
+			icon: <Settings />,
+			path: '/users/settings',
+		},
 	],
 };
 
@@ -141,5 +140,5 @@ export const postPopupNav = [
 		icon: <Delete />,
 		url: '/users/posts',
 		path: 'post/delete',
-	}
+	},
 ];

@@ -33,9 +33,11 @@ export const HeaderLeft = styled.div`
 	position: relative;
 	flex: 2;
 	margin-right: 40px;
+
 	a h1 {
 		color: var(--clr-light);
 	}
+
 	@media (max-width: 800px) {
 		display: none;
 	}
@@ -44,14 +46,17 @@ export const HeaderLeft = styled.div`
 export const HeaderLeftPrimary = styled.div`
 	position: relative;
 	display: none;
+
 	a .MuiSvgIcon-root {
 		color: var(--clr-light);
 		font-size: 40px;
 		margin-right: 40px;
 	}
+
 	@media (max-width: 800px) {
 		display: flex;
 	}
+
 	@media (max-width: 375px) {
 		a .MuiSvgIcon-root {
 			margin-right: 10px;
@@ -68,20 +73,25 @@ export const HeaderCenter = styled.div`
 	align-items: center;
 	padding: 0 10px;
 	margin-right: 5px;
+
 	input {
 		width: 100%;
 		border: none;
 		margin-left: 10px;
 		padding: 5px 0;
 	}
+
 	.MuiSvgIcon-root {
 		font-size: 20px;
 	}
+
 	@media (max-width: 375px) {
 		padding: 0 5px;
+
 		input {
 			margin-left: 2px;
 		}
+
 		.MuiSvgIcon-root {
 			font-size: 15px;
 		}
@@ -94,10 +104,12 @@ export const HeaderRight = styled.div`
 	display: flex;
 	color: var(--clr-light);
 	margin-left: 30px;
+
 	@media (max-width: 950px) {
 		flex: 0;
 		margin-left: 5px;
 	}
+
 	@media (max-width: 375px) {
 		margin-left: 0;
 	}
@@ -110,6 +122,7 @@ export const HeaderRightLink = styled.div`
 		font-size: 14px;
 		cursor: pointer;
 	}
+
 	@media (max-width: 950px) {
 		display: none;
 		margin-right: 0px;
@@ -119,6 +132,7 @@ export const HeaderRightLink = styled.div`
 export const HeaderIconsItem = styled.div`
 	position: relative;
 	margin-right: 30px;
+
 	span {
 		width: 15px;
 		height: 15px;
@@ -134,6 +148,7 @@ export const HeaderIconsItem = styled.div`
 		align-items: center;
 		padding: 10px;
 	}
+	
 	@media (max-width: 600px) {
 		margin-right: 10px;
 	}

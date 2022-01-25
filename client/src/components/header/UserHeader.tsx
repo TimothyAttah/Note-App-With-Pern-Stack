@@ -17,23 +17,28 @@ const Header = styled.header`
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+
 	background-color: var(--clr-lightBlue);
 	h1 a {
 		color: var(--clr-light);
 	}
+
 	h2 a {
 		display: none;
 		color: var(--clr-light);
 	}
+
 	@media (max-width: 800px) {
 		h1 a {
 			font-size: 2.5rem;
 		}
 	}
+
 	@media (max-width: 500px) {
 		h1 {
 			display: none;
 		}
+
 		h2 a {
 			display: flex;
 		}
@@ -45,6 +50,7 @@ const HeaderButton = styled.div`
 		color: var(--white);
 		padding: 5px 10px;
 	}
+	
 	@media (max-width: 500px) {
 		button {
 			width: 80px;
