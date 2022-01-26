@@ -18,9 +18,11 @@ const Form = styled.form`
 	display: flex;
 	width: 100%;
 	padding-top: 20px;
+
 	.icon-image {
 		padding: 0px 10px;
 	}
+
 	input {
 		width: 100%;
 		height: 100px;
@@ -29,10 +31,12 @@ const Form = styled.form`
 		border: 1px solid gray;
 		background-color: #fff;
 		font-size: 1.1rem;
+
 		::placeholder {
 			color: grey;
 			font-weight: bold;
 		}
+
 	}
 	button {
 		display: none;
@@ -43,9 +47,6 @@ export const CommentsForm: FC<CommentsFormProps> = ({ post, commentsRef }) => {
 	const dispatch = useDispatch<any>();
 	const [text, setText] = useState('');
 
-
-
-	// console.log('this is comments form post list', post);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
