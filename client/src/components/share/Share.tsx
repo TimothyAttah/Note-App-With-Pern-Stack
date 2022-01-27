@@ -29,7 +29,7 @@ export const Share = () => {
 	const [desc, setDesc] = useState('');
 	const [img] = useState();
 
-	const [file, setFile] = useState('');
+	const [file, setFile] = useState<any>('');
 	const [uploadedFile, setUploadedFile] = useState({});
 
 	const onChange = (e: any) => {

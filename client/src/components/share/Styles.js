@@ -7,11 +7,13 @@ export const ShareContainer = styled.div`
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	padding: 10px;
+
 	@media (max-width: 600px) {
 		width: 95%;
 		margin: 0 auto;
 		/* height: 200px; */
 	}
+
 	@media (max-width: 320px) {
 		height: 180px;
 	}
@@ -29,10 +31,12 @@ export const ShareTop = styled.div`
 		object-fit: cover;
 		margin-right: 10px;
 	}
+
 	input {
 		width: 80%;
 		border: none;
 	}
+
 	.MuiSvgIcon-root {
 		border: 2px solid black;
 		border-radius: 50%;
@@ -51,6 +55,7 @@ export const ShareBottom = styled.form`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
 	@media (max-width: 600px) {
 		width: 100%;
 	}
@@ -58,6 +63,7 @@ export const ShareBottom = styled.form`
 export const ShareOptions = styled.div`
 	display: flex;
 	margin-left: 20px;
+
 	@media (max-width: 400px) {
 		flex-wrap: wrap;
 		align-items: center;
@@ -68,27 +74,33 @@ export const ShareOption = styled.div`
 	align-items: center;
 	margin-right: 15px;
 	cursor: pointer;
+
 	.MuiSvgIcon-root {
 		font-size: 18px;
 		margin-right: 3px;
 	}
+
 	span {
 		font-size: 14px;
 		font-weight: 600;
 	}
+
 	@media (max-width: 600px) {
 		flex-direction: column;
 		flex-wrap: wrap;
 	}
+
 	@media (max-width: 320px) {
 		span {
 			display: none;
 		}
+
 		.MuiSvgIcon-root {
 			font-size: 25px;
 			margin-right: 10px;
 			margin-bottom: 10px;
 		}
+
 	}
 `;
 export const FileLabel = styled.label`
@@ -96,30 +108,37 @@ export const FileLabel = styled.label`
 	align-items: center;
 	margin-right: 15px;
 	cursor: pointer;
+
 	.MuiSvgIcon-root {
 		font-size: 18px;
 		margin-right: 3px;
 	}
+
 	span {
 		font-size: 14px;
 		font-weight: 600;
 	}
+
 	input {
 		display: none;
 	}
+
 	@media (max-width: 600px) {
 		flex-direction: column;
 		flex-wrap: wrap;
 	}
+
 	@media (max-width: 320px) {
 		span {
 			display: none;
 		}
+
 		.MuiSvgIcon-root {
 			font-size: 25px;
 			margin-right: 10px;
 			margin-bottom: 10px;
 		}
+
 	}
 `;
 
@@ -132,6 +151,7 @@ export const ShareButton = styled.div`
 		margin-right: 20px;
 		color: #fff;
 		text-transform: capitalize;
+
 		:hover {
 			background-color: green;
 		}
@@ -141,10 +161,12 @@ export const ShareButton = styled.div`
 export const ShareImgContainer = styled.div`
 	padding: 0 20px 10px 20px;
 	position: relative;
+
 	img {
 		width: 100%;
 		object-fit: cover;
 	}
+	
 	.MuiSvgIcon-root {
 		position: absolute;
 		top: 0;
