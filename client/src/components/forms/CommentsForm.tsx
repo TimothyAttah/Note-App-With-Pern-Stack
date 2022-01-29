@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 import { NotesComments, NotesList, PostList } from '../../redux/InterfaceRedux';
 import { noteComments } from '../../redux/actions/notes';
-// import { postComments } from '../../redux/actions/posts';
 import { v4 } from 'uuid';
 
 interface CommentsFormProps {
@@ -19,9 +18,11 @@ const Form = styled.form`
 	display: flex;
 	width: 100%;
 	padding-top: 40px;
+
 	.icon-image {
 		padding: 0px 10px;
 	}
+
 	input {
 		width: 100%;
 		padding: 10px;
@@ -35,6 +36,7 @@ const Form = styled.form`
       font-weight: bold;
 		}
 	}
+
 	button {
 		display: none;
 	}

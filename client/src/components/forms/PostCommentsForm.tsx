@@ -38,6 +38,7 @@ const Form = styled.form`
 		}
 
 	}
+	
 	button {
 		display: none;
 	}

@@ -10,6 +10,7 @@ const FormContainer = styled.form`
 	label {
 		font-weight: var(--fw-bold);
 	}
+
 	input {
 		display: block;
 		width: 100%;
@@ -20,10 +21,13 @@ const FormContainer = styled.form`
 		border-radius: 5px;
 		font-size: 1rem;
 		background: rgba(196, 196, 196, 0.05);
+
 		::placeholder {
 			color: var(--gray-4);
 		}
+
 	}
+
 	button {
 		width: 100%;
 		padding: 12px;
@@ -31,9 +35,11 @@ const FormContainer = styled.form`
 		background-color: var(--sky-blue);
 		color: var(--clr-light);
 		font-weight: var(--fw-bold);
+
 		:hover {
 			background-color: var(--darker-sky-blue);
 		}
+		
 	}
 `;
 

@@ -21,6 +21,7 @@ const SideBarContainer = styled.div`
 	::-webkit-scrollbar-thumb {
 		background-color: rgb(179, 179, 179);
 	}
+
 	@media (max-width: 800px) {
 		display: none;
 	}
@@ -31,6 +32,7 @@ const SideBarLists = styled.ul`
 		display: flex;
 		align-items: center;
 		margin-bottom: 20px;
+		
 		.MuiSvgIcon-root {
 			margin-right: 15px;
 		}
