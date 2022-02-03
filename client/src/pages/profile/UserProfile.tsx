@@ -15,17 +15,21 @@ const ProfileContainer = styled.div`
   margin-top: 120px;
   display: flex;
 `;
+
 const ProfileRight = styled.div`
   flex: 9;
 `;
+
 const ProfileCover = styled.div`
   height: 410px;
   position: relative;
+
   img {
     width: 100%;
     height: 350px;
     background-size: cover;
   }
+
   .profile__user-img,
   .MuiAvatar-root {
     width: 150px;
@@ -38,6 +42,7 @@ const ProfileCover = styled.div`
     margin: auto;
     top: 250px;
     border: 3px solid #fff;
+
     .MuiSvgIcon-root {
       font-size: 100px;
     }
@@ -59,12 +64,15 @@ const ProfileInfoPrimary = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   padding-top: 10px;
+
   .MuiFab-root {
     margin-right: 10px;
   }
+
   @media (max-width: 600px) {
     width: 90%;
   }
+
   @media (max-width: 320px) {
     font-size: 15px;
   }
@@ -72,14 +80,14 @@ const ProfileInfoPrimary = styled.div`
 
 export const UserProfile: FC = () => {
   const [userProfile, setUserProfile] = useState<any>();
+
   const [showFollow, setShowFollow] = useState(
     user ? !user.following?.includes(userProfile?.user._id) : true,
   );
-  // const [followed, setFollowed] = useState(
-  // 	user.followings?.includes(userProfile?.user._id)
-  // );
+
   const dispatch = useDispatch();
   const { id } = useParams<any>();
+
   useEffect(() => {
     if (id) {
       fetch(`/users/${id}/user`, {
@@ -104,10 +112,6 @@ export const UserProfile: FC = () => {
       dispatch(myPosts());
     }
   }, [dispatch, id]);
-
-  // useEffect(() => {
-  // 	setFollowed();
-  // }, [userProfile?.user._id]);
 
   console.log(user);
 
