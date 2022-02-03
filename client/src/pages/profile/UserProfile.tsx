@@ -6,12 +6,10 @@ import styled from 'styled-components';
 import { SideBar } from '../../components/sidebar/SideBar';
 import { images } from '../../components/images';
 import { myPosts } from '../../redux/actions/posts';
-import { followUser, unfollowUser } from '../../redux/actions/user';
 import { useParams } from 'react-router-dom';
 import { RightBar } from '../../components/rightbar/RightBar';
 import { Feed } from '../../components/feed/Feed';
 import { user } from '../../components/NameInitials';
-import axios from 'axios';
 
 const ProfileContainer = styled.div`
   margin-top: 120px;
@@ -113,24 +111,24 @@ export const UserProfile: FC = () => {
 
   console.log(user);
 
-  const handleClick = async () => {
-    // try {
-    // 	if (followed) {
-    // 		dispatch(unfollowUser(`${userProfile?.user._id}`,  user._id));
-    // 		// await axios.put(`/users/${userProfile?.user._id}/follow`, {
-    // 		// 	userId: user._id
-    // 		// });
-    // 	} else {
-    // 		// await axios.put(`/users/${userProfile?.user._id}/unfollow`, {
-    // 			// 	userId: user._id
-    // 			// });
-    // 		dispatch(followUser(`${userProfile?.user._id}`, user._id));
-    // 	}
-    // } catch (err) {
-    // 	console.log(err);
-    // }
-    // setFollowed(!followed)
-  };
+  // const handleClick = async () => {
+  //   // try {
+  //   // 	if (followed) {
+  //   // 		dispatch(unfollowUser(`${userProfile?.user._id}`,  user._id));
+  //   // 		// await axios.put(`/users/${userProfile?.user._id}/follow`, {
+  //   // 		// 	userId: user._id
+  //   // 		// });
+  //   // 	} else {
+  //   // 		// await axios.put(`/users/${userProfile?.user._id}/unfollow`, {
+  //   // 			// 	userId: user._id
+  //   // 			// });
+  //   // 		dispatch(followUser(`${userProfile?.user._id}`, user._id));
+  //   // 	}
+  //   // } catch (err) {
+  //   // 	console.log(err);
+  //   // }
+  //   // setFollowed(!followed)
+  // };
 
   // console.log('ff', followed);
 
