@@ -23,11 +23,7 @@ export const Users: UserLists = {
       profilePicture: images.ProfileIcon,
       username: 'Carol White',
     },
-    {
-      id: 5,
-      profilePicture: images.JaneDoe,
-      username: 'Pete Sanders',
-    },
+
   ],
 };
 
@@ -50,15 +46,6 @@ export const Posts: PostLists = {
       userId: 3,
       likes: 50,
       comment: 123,
-    },
-    {
-      post_id: 5,
-      desc: 'HAPPY NEW YEAR... Have a nice day',
-      photo: images.PostFive,
-      date: '1 hour ago',
-      userId: 4,
-      likes: 1000,
-      comment: 210,
     },
   ],
 };
