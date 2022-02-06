@@ -69,28 +69,10 @@ const initialState: Notes = {
         {
           _id: v4(),
           comment: `Nice one`,
-          // name: 'Jane Jack',
-          // profilePicture: '',
-          // createdAt: new Date(),
         },
       ],
     },
 
-    {
-      _id: v4(),
-      title: 'Thanking God',
-      content: `components modal ProfileModal js
-               Line 2317 setUser is assigned a value but never used  no-unused-vars`,
-      createdAt: new Date(),
-      name: 'Austin Carter',
-      profilePicture: images.Soka,
-      comments: [
-        {
-          _id: v4(),
-          comment: `Nice one`,
-        },
-      ],
-    },
   ],
 };
 
