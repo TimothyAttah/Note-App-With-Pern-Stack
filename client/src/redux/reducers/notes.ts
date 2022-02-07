@@ -57,14 +57,14 @@ const initialState: Notes = {
       _id: v4(),
       title: 'Job Opportunities',
       content: `components modal ProfileModal js
-               Line 2317 setUser is assigned a value but never used  no-unused-vars`,
+               Line 2317 setUser is assigned a value but never used  no-unused-vars voluptatum earum consequatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid quisquam! Perspiciatis, natus architecto inventore, ducimus voluptate atque dolorum`,
       createdAt: new Date(),
-      name: 'Willow Black',
-      profilePicture: images.Alex,
+      name: 'Matthew Ben',
+      profilePicture: images.Soka,
       comments: [
         {
           _id: v4(),
-          comment: `Nice one`,
+          comment: `Beautiful, Nice one`,
         },
         {
           _id: v4(),
