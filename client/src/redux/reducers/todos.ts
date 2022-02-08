@@ -13,13 +13,13 @@ const initialState: InitialTodos = {
 		},
 		{
 			todo_id: v4(),
-			task: 'Finish homework',
+			task: 'Finish homework on unbird',
 			isComplete: false,
 			date: new Date(),
 		},
 		{
 			todo_id: v4(),
-			task: 'Take out trash',
+			task: 'Take out trashes',
 			isComplete: true,
 			date: new Date(),
 		},
