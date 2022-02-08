@@ -7,7 +7,7 @@ const initialState: InitialTodos = {
 	todos: [
 		{
 			todo_id: v4(),
-			task: 'Buy milk',
+			task: 'Go to church',
 			isComplete: true,
 			date: new Date(),
 		},
@@ -56,7 +56,6 @@ export const todos = (state = initialState, action: TodosActionTypes) => {
 			};
 
 		case TodosTypes.TODO_DELETE:
-			console.log('delete todos is here');
 
 			return {
 				...state,
