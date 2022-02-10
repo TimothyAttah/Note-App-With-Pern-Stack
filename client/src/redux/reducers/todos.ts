@@ -33,7 +33,6 @@ export const todos = (state = initialState, action: TodosActionTypes) => {
 		case TodosTypes.TODO_LIST:
 			return {
 				...state,
-				// todos: action.payload,
 			};
 
 		case TodosTypes.TODO_CREATE:
