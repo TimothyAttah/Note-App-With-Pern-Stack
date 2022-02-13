@@ -8,7 +8,7 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: "Go to church",
-      isComplete: true,
+      isComplete: false,
       date: new Date(),
     },
     {
@@ -20,12 +20,6 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: "Take out trashes",
-      isComplete: true,
-      date: new Date(),
-    },
-    {
-      todo_id: v4(),
-      task: "Take out bin",
       isComplete: false,
       date: new Date(),
     },
