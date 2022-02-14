@@ -32,7 +32,7 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: "Take out trashes",
-      isComplete: false,
+      isComplete: true,
       date: new Date(),
     },
   ],
