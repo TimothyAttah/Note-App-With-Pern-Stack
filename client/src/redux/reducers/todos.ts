@@ -23,6 +23,18 @@ const initialState: InitialTodos = {
       isComplete: false,
       date: new Date(),
     },
+    {
+      todo_id: v4(),
+      task: "Take out trashes",
+      isComplete: false,
+      date: new Date(),
+    },
+    {
+      todo_id: v4(),
+      task: "Take out trashes",
+      isComplete: false,
+      date: new Date(),
+    },
   ],
   isLoading: false,
 };
