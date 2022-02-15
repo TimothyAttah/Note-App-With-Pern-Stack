@@ -25,14 +25,8 @@ const initialState: InitialTodos = {
     },
     {
       todo_id: v4(),
-      task: "Take out trashes",
+      task: "Take out dirty cloth",
       isComplete: false,
-      date: new Date(),
-    },
-    {
-      todo_id: v4(),
-      task: "Take out trashes",
-      isComplete: true,
       date: new Date(),
     },
   ],
