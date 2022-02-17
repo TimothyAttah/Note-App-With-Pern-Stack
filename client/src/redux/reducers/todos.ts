@@ -35,6 +35,12 @@ const initialState: InitialTodos = {
       isComplete: false,
       date: new Date(),
     },
+    {
+      todo_id: v4(),
+      task: "Create an instagram-clone app",
+      isComplete: false,
+      date: new Date(),
+    },
   ],
   isLoading: false,
 };
