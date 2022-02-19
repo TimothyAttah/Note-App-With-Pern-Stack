@@ -1,43 +1,43 @@
-import { TodosTypes } from "../types";
-import { InitialTodos, ITodos } from "../InterfaceRedux";
-import { TodosActionTypes } from "../actionsTypes/todosTypes";
-import { v4 } from "uuid";
+import { TodosTypes } from '../types';
+import { InitialTodos, ITodos } from '../InterfaceRedux';
+import { TodosActionTypes } from '../actionsTypes/todosTypes';
+import { v4 } from 'uuid';
 
 const initialState: InitialTodos = {
   todos: [
     {
       todo_id: v4(),
-      task: "Go to church",
+      task: 'Go to church',
       isComplete: false,
       date: new Date(),
     },
     {
       todo_id: v4(),
-      task: "Finish homework on unbird",
+      task: 'Finish homework on unbird',
       isComplete: false,
       date: new Date(),
     },
     {
       todo_id: v4(),
-      task: "Take out trashes",
+      task: 'Take out trashes',
       isComplete: false,
       date: new Date(),
     },
     {
       todo_id: v4(),
-      task: "Wash dirty cloths",
+      task: 'Wash dirty cloths',
       isComplete: false,
       date: new Date(),
     },
     {
       todo_id: v4(),
-      task: "Create an instagram-clone app",
+      task: 'Create an instagram-clone app',
       isComplete: false,
       date: new Date(),
     },
     {
       todo_id: v4(),
-      task: "Create a todo app",
+      task: 'Create a todo app',
       isComplete: false,
       date: new Date(),
     },
