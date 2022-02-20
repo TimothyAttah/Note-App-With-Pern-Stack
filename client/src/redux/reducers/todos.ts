@@ -20,7 +20,7 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: 'Take out trashes',
-      isComplete: false,
+      isComplete: true,
       date: new Date(),
     },
     {
@@ -38,6 +38,12 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: 'Create a todo app',
+      isComplete: false,
+      date: new Date(),
+    },
+    {
+      todo_id: v4(),
+      task: 'Eat your food',
       isComplete: false,
       date: new Date(),
     },
