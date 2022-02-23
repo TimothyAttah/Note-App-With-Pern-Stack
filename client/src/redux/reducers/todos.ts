@@ -19,12 +19,6 @@ const initialState: InitialTodos = {
     },
     {
       todo_id: v4(),
-      task: 'Wash dirty cloths',
-      isComplete: true,
-      date: new Date(),
-    },
-    {
-      todo_id: v4(),
       task: 'Create an instagram-clone app',
       isComplete: false,
       date: new Date(),
