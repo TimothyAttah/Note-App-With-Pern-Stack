@@ -14,7 +14,7 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: 'Finish homework on unbird',
-      isComplete: false,
+      isComplete: true,
       date: new Date(),
     },
     {
@@ -32,7 +32,7 @@ const initialState: InitialTodos = {
     {
       todo_id: v4(),
       task: 'Eat your food',
-      isComplete: false,
+      isComplete: true,
       date: new Date(),
     },
   ],
