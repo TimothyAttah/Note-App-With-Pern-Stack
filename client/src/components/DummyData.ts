@@ -21,9 +21,8 @@ export const Users: UserLists = {
     {
       id: 4,
       profilePicture: images.ProfileIcon,
-      username: 'Carol White',
+      username: 'Jean Simon',
     },
-
   ],
 };
 
@@ -33,18 +32,18 @@ export const Posts: PostLists = {
       post_id: 88,
       desc: 'Love for all, Hatred for none!!!',
       photo: images.PostOne,
-      date: '5 days ago',
+      date: '10 days ago',
       userId: 1,
       likes: [],
-      comment: 35,
+      comment: 39,
     },
     {
       post_id: 4,
-      desc: 'Whats sup!!! people Welcome to my world!!!',
+      desc: 'Whats sup!!! people Welcome to my page!!!',
       photo: images.PostThree,
-      date: '16 mins ago',
-      userId: 3,
-      likes: 50,
+      date: '1 hour ago',
+      userId: 38,
+      likes: 90,
       comment: 123,
     },
   ],
