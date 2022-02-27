@@ -13,11 +13,16 @@ export const Users: UserLists = {
       profilePicture: images.Mary,
       username: 'Simi Meka',
     },
-    // {
-    //   id: 3,
-    //   profilePicture: images.JaneDoe,
-    //   username: 'Anthony Johnson',
-    // },
+    {
+      id: 3,
+      profilePicture: images.JaneDoe,
+      username: 'Anthony Johnson',
+    },
+    {
+      id: 4,
+      profilePicture: images.JaneDoe,
+      username: 'Anthony Johnson',
+    },
   ],
 };
 
