@@ -20,18 +20,18 @@ export const Users: UserLists = {
     },
     {
       id: 4,
-      profilePicture: images.JaneDoe,
+      profilePicture: images.Naruto,
       username: 'Anthony Johnson',
     },
     {
       id: 5,
-      profilePicture: images.Mary,
-      username: 'Simi Meka',
+      profilePicture: images.Alex,
+      username: 'Sylvester Jon',
     },
     {
       id: 6,
-      profilePicture: images.Mary,
-      username: 'Simon Alice',
+      profilePicture: images.JaneDoe,
+      username: 'Alice Johnson',
     },
   ],
 };
