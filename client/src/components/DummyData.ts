@@ -14,11 +14,6 @@ export const Users: UserLists = {
       username: 'Simi Meka',
     },
     {
-      id: 3,
-      profilePicture: images.JaneDoe,
-      username: 'Anthony Johnson',
-    },
-    {
       id: 4,
       profilePicture: images.Naruto,
       username: 'Anthony Johnson',
