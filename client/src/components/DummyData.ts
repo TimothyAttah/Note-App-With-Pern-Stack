@@ -51,5 +51,23 @@ export const Posts: PostLists = {
       likes: 90,
       comment: 123,
     },
+    {
+      post_id: 47,
+      desc: 'Whats sup!!! people Welcome to my page!!!',
+      photo: images.PostThree,
+      date: '1 hour ago',
+      userId: 38,
+      likes: 99,
+      comment: 23,
+    },
+    {
+      post_id: 7,
+      desc: 'Whats sup!!! people Welcome to my page!!!',
+      photo: images.PostThree,
+      date: '1 hour ago',
+      userId: 38,
+      likes: 9,
+      comment: 103,
+    },
   ],
 };
