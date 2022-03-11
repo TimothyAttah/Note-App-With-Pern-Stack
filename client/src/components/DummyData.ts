@@ -53,12 +53,12 @@ export const Posts: PostLists = {
     },
     {
       post_id: 5,
-      desc: 'Whats sup!!!',
-      photo: images.PostThree,
-      date: '5 hour ago',
+      desc: 'Happy new month people!',
+      photo: images.PostFive,
+      date: '1 mins ago',
       userId: 39,
-      likes: 908,
-      comment: 13,
+      likes: 98,
+      comment: 138,
     },
   ],
 };
