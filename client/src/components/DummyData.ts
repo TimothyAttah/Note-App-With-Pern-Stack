@@ -44,12 +44,12 @@ export const Posts: PostLists = {
     },
     {
       post_id: 4,
-      desc: 'Whats sup!!! people Welcome to my page!!!',
-      photo: images.PostThree,
-      date: '1 hour ago',
-      userId: 38,
-      likes: 90,
-      comment: 123,
+      desc: 'Welcome to my page!!!',
+      photo: images.PostFour,
+      date: '2 hours ago',
+      userId: 388,
+      likes: 900,
+      comment: 12,
     },
     {
       post_id: 5,
