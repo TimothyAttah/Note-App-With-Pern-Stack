@@ -60,5 +60,14 @@ export const Posts: PostLists = {
       likes: 98,
       comment: 138,
     },
+    {
+      post_id: 6,
+      desc: 'Confucius is a great teacher!',
+      photo: images.PostSix,
+      date: '1 mins ago',
+      userId: 39,
+      likes: 98,
+      comment: 138,
+    },
   ],
 };
